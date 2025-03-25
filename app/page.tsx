@@ -1,12 +1,11 @@
-"use client";
+import React from "react";
 
-import React from 'react'
-import { Button } from "@heroui/react";
-
-const page = () => {
+const page = async () => {
   return (
-    <div><Button color='primary'>Test</Button></div>
-  )
-}
+    <div>
 
-export default page
+    </div>
+  );
+};
+
+export default page;

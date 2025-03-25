@@ -2,6 +2,8 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Providers } from "./providers";
 import { poppins } from "@/config/fonts";
+import { Toaster } from "react-hot-toast";
+import Layout from "@/components/user/layout/layout";
 
 export const metadata: Metadata = {
   title: "Filinvest | Official Website ",
@@ -26,7 +28,12 @@ export default function RootLayout({
     <html lang="en">
       <head />
       <body className={`min-h-screen antialiased ${poppins.className}`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Layout>
+            <Toaster position="top-right" />
+            {children}
+          </Layout>
+        </Providers>
       </body>
     </html>
   );
