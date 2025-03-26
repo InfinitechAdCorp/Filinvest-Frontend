@@ -71,7 +71,7 @@ const Footer = () => {
               </p>
               <h5 className="text-xl font-semibold">EDSA Office:</h5>
               <p className="text-sm">
-                Filinvest Building , 79 Edsa, Barangay Highway Hills,
+                Filinvest Building , 79 EDSA, Barangay Highway Hills,
                 Mandaluyong, 1550, Philippines
               </p>
             </div>

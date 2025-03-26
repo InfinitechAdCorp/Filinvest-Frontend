@@ -28,7 +28,16 @@ export type Property = {
 };
 
 export type Testimonial = {
-  id: string,
-  name: string,
-  message: string,
-}
+  id: string;
+  name: string;
+  message: string;
+};
+
+export type Article = {
+  id: string;
+  name: string;
+  type: string;
+  date: string;
+  description: string;
+  image: string;
+};
