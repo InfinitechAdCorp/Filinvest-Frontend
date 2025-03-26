@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, Image } from "@heroui/react";
 import {
   FaFacebookSquare,
@@ -14,11 +15,7 @@ const Footer = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="flex justify-center items-center">
-              <Image
-                src="/images/seal.png"
-                alt="Seal"
-                className="h-52"
-              />
+              <Image src="/images/seal.png" alt="Seal" className="h-52" />
             </div>
             <div>
               <h4 className="text-lg font-bold mb-2">Quick Links</h4>
@@ -72,17 +69,17 @@ const Footer = () => {
                 6th Floor The Beaufort Building, 5th corner 23rd Street,
                 Bonifacio Global City, Taguig, 1632, Metro Manila, Philippines
               </p>
-              <h5 className="text-xl font-semibold">Edsa Office:</h5>
+              <h5 className="text-xl font-semibold">EDSA Office:</h5>
               <p className="text-sm">
-                6th Floor The Beaufort Building, 5th corner 23rd Street,
-                Bonifacio Global City, Taguig, 1632, Metro Manila, Philippines
+                Filinvest Building , 79 Edsa, Barangay Highway Hills,
+                Mandaluyong, 1550, Philippines
               </p>
             </div>
             <div className="flex flex-col gap-4">
               <h5 className="text-xl font-semibold">Alabang Office:</h5>
               <p className="text-sm">
-                6th Floor The Beaufort Building, 5th corner 23rd Street,
-                Bonifacio Global City, Taguig, 1632, Metro Manila, Philippines
+                Vector One Bldg. Northgate Cyberzone, Filinvest City, Alabang,
+                Muntinlupa City, 1781, Philippines
               </p>
             </div>
           </div>

@@ -16,9 +16,9 @@ const Hero = () => {
 
       <div className="flex justify-center items-center ">
         <div className="relative z-10 flex flex-col items-center text-center w-full max-w-7xl space-y-6">
-          <h1 className="text-3xl sm:text-6xl font-bold leading-tight text-white uppercase">
+          <h3 className="text-3xl sm:text-6xl font-bold leading-tight text-white uppercase">
             Find Your Dream Property Today
-          </h1>
+          </h3>
           <p className="text-lg lg:text-xl text-white w-full max-w-4xl">
             Unlock the door to your dream home with the best listings at your
             fingertips. Explore a variety of properties, compare top features,

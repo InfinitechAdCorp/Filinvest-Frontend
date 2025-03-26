@@ -43,7 +43,7 @@ const InquiryForm = ({ properties }: Props) => {
     setIsSubmitting(true);
 
     try {
-      const response = await axios.post(
+      await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/inquiries`,
         values,
         {
@@ -53,10 +53,8 @@ const InquiryForm = ({ properties }: Props) => {
         }
       );
 
-      if ([200, 201].includes(response.status)) {
-        actions.resetForm();
-        toast.success("Inquiry submitted successfully!");
-      }
+      actions.resetForm();
+      toast.success("Inquiry submitted successfully!");
     } catch (error) {
       console.error("Error:", error);
       toast.error("Something went wrong!");
@@ -71,7 +69,7 @@ const InquiryForm = ({ properties }: Props) => {
         <div className="flex flex-col md:flex-row items-start justify-center">
           <div className="w-full text-left max-w-xl">
             <div className="mb-4">
-              <h1 className="text-2xl text-primary">Corporate Headquarters</h1>
+              <h3 className="text-2xl text-primary">Corporate Headquarters</h3>
               <p>
                 Filinvest Building, 79 EDSA, Mandaluyong City, 1550 Philippines,
                 (63 2) 7-918-8188

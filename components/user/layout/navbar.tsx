@@ -146,13 +146,13 @@ const NavBar = () => {
           </NavbarMenuItem>
 
           <NavbarMenuItem className="cursor-pointer border-t-1">
-            <h1 className="text-white font-bold mb-2 mt-2">Our Project</h1>
+            <h3 className="text-white font-bold mb-2 mt-2">Our Project</h3>
           </NavbarMenuItem>
 
           <NavbarMenuItem className="cursor-pointer border-t-1">
-            <h1 className="text-white font-bold mb-2 mt-2">
+            <h3 className="text-white font-bold mb-2 mt-2">
               Forms & Utilities
-            </h1>
+            </h3>
             <Link className="w-full text-white" href="/user/appointment">
               Set Appointment
             </Link>

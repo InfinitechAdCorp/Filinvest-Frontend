@@ -26,3 +26,9 @@ export type Property = {
   images: string;
   amenities: string;
 };
+
+export type Testimonial = {
+  id: string,
+  name: string,
+  message: string,
+}

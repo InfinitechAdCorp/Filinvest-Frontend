@@ -15,7 +15,7 @@ const Hero = ({ image, title, description }: Props) => {
       <div className="absolute inset-0 bg-gradient-to-t from-blue-800 to-transparent"></div>
 
       <div className="relative text-center text-white shadow-black px-5">
-        <h1 className="text-4xl md:text-5xl font-thin">{title}</h1>
+        <h3 className="text-4xl md:text-5xl font-thin">{title}</h3>
         <p className="text-lg md:text-xl mt-2 max-w-2xl">{description}</p>
       </div>
     </div>

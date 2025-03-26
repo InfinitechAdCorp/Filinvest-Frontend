@@ -17,10 +17,7 @@ const ContactUs = async () => {
         },
       }
     );
-
-    if ([200, 201].includes(response.status)) {
-      properties = response.data.records;
-    }
+    properties = response.data.records;
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something went wrong!");
