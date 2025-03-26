@@ -7,8 +7,8 @@ const Others = () => {
   return (
     <div className="border-t-1 text-primary py-2">
       <div className="container mx-auto px-2 lg:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 lg:gap-4">
-          <div className="lg:border-x border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-4">
+          <div className="lg:border border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
             <h1 className="text-2xl text-primary">
               Newsletter <span className="font-bold">Signup</span>
             </h1>
@@ -26,7 +26,7 @@ const Others = () => {
             </div>
           </div>
 
-          <div className="lg:border-x border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
+          <div className="lg:border border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
             <h1 className="text-2xl text-primary">
               <span className="font-bold">Blogs</span>
             </h1>
@@ -41,22 +41,7 @@ const Others = () => {
             </div>
           </div>
 
-          <div className="lg:border-x border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
-            <h1 className="text-2xl text-primary">
-              Buyer's <span className="font-bold"> Guide</span>
-            </h1>
-            <p className="text-sm text-gray-600 mt-2">
-              Let us help you find out what you need to know when investing in
-              property
-            </p>
-            <div className="mt-2 lg:mt-11">
-              <Button className="bg-primary text-white">
-                Access the Guide
-              </Button>
-            </div>
-          </div>
-
-          <div className="lg:border-x border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
+          <div className="lg:border border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
             <h1 className="text-2xl text-primary">
               <span className="font-bold">Careers</span>
             </h1>

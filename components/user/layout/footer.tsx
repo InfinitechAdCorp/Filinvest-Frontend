@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { Link } from "@heroui/react";
+import { Link, Image } from "@heroui/react";
 import {
   FaFacebookSquare,
   FaInstagram,
@@ -18,8 +17,7 @@ const Footer = () => {
               <Image
                 src="/images/seal.png"
                 alt="Seal"
-                width={200}
-                height={200}
+                className="h-52"
               />
             </div>
             <div>

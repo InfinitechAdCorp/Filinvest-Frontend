@@ -10,13 +10,17 @@ import {
   Autocomplete,
   AutocompleteItem,
 } from "@heroui/react";
-import { SubmitInquiry as Values } from "@/types/user";
+import { Property, SubmitInquiry as Values } from "@/types/user";
 import { SubmitInquiry as validationSchema } from "@/schemas/user";
 import { Formik, FormikProps, Form, Field, FieldProps } from "formik";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-const InquiryForm = () => {
+type Props = {
+  properties: Property[];
+};
+
+const InquiryForm = ({ properties }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
@@ -29,7 +33,7 @@ const InquiryForm = () => {
     city: "0",
     country: "Philippines",
     message: "0",
-    property_id: "01jq80spxr9prs1zj0bysh5hzg",
+    property_id: properties[0].id,
   };
 
   const onSubmit = async (
@@ -128,7 +132,12 @@ const InquiryForm = () => {
                           <Field name="gender">
                             {({ field, meta }: FieldProps) => (
                               <div>
-                                <Select {...field} radius="none" label="Gender" defaultSelectedKeys={[field.value]}>
+                                <Select
+                                  {...field}
+                                  radius="none"
+                                  label="Gender"
+                                  defaultSelectedKeys={[field.value]}
+                                >
                                   <SelectItem key="Male">Male</SelectItem>
                                   <SelectItem key="Female">Female</SelectItem>
                                 </Select>
@@ -294,9 +303,11 @@ const InquiryForm = () => {
                                 }}
                                 defaultSelectedKey={field.value}
                               >
-                                <AutocompleteItem key="01jq80spxr9prs1zj0bysh5hzg">
-                                  100 West
-                                </AutocompleteItem>
+                                {properties.map((property) => (
+                                  <AutocompleteItem key={property.id}>
+                                    {property.name}
+                                  </AutocompleteItem>
+                                ))}
                               </Autocomplete>
 
                               {meta.touched && meta.error && (

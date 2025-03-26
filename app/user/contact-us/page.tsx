@@ -2,8 +2,30 @@ import Hero from "@/components/globals/hero";
 import InquiryForm from "@/components/user/contact-us/inquiryForm";
 import Details from "@/components/user/contact-us/details";
 import React from "react";
+import axios from "axios";
+import { Property } from "@/types/user";
+import toast from "react-hot-toast";
 
-const ContactUs = () => {
+const ContactUs = async () => {
+  let properties: Property[] = [];
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/properties`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    if ([200, 201].includes(response.status)) {
+      properties = response.data.records;
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    toast.error("Something went wrong!");
+  }
+
   return (
     <>
       <Hero
@@ -14,7 +36,7 @@ const ContactUs = () => {
 
       <div className="flex justify-center mx-60 my-7">
         <div className="grid lg:grid-cols-2 gap-10">
-          <InquiryForm />
+          <InquiryForm properties={properties} />
           <Details />
         </div>
       </div>

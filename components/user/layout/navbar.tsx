@@ -52,7 +52,7 @@ const NavBar = () => {
 
           <NavbarItem>
             <Button variant="light">
-              <Link href="/about-us" className="text-white">
+              <Link href="/user/about-us" className="text-white">
                 About Us
               </Link>
             </Button>
@@ -67,13 +67,11 @@ const NavBar = () => {
                     <LuChevronDown className="text-white" size={18} />
                   }
                 >
-                  <Link href="/" className="text-white">
-                    Our Project
-                  </Link>
+                  <h3 className="text-white text-medium">Our Project</h3>
                 </Button>
               </DropdownTrigger>
 
-              <DropdownMenu className="w-40 dark:text-white rounded-md">
+              <DropdownMenu className="rounded-sm">
                 <DropdownItem key="Residential">Residential</DropdownItem>
               </DropdownMenu>
             </Dropdown>
@@ -88,9 +86,9 @@ const NavBar = () => {
                     <LuChevronDown className="text-white" size={18} />
                   }
                 >
-                  <Link href="/" className="text-white">
+                  <h3 className="text-white text-medium">
                     Forms and Utiilities
-                  </Link>
+                  </h3>
                 </Button>
               </DropdownTrigger>
 
@@ -98,21 +96,21 @@ const NavBar = () => {
                 <DropdownItem
                   startContent={<LuCalendar />}
                   key="appointment"
-                  onPress={() => router.push("/appointment")}
+                  onPress={() => router.push("/user/appointment")}
                 >
                   Set Appointment
                 </DropdownItem>
                 <DropdownItem
                   startContent={<LuCalculator />}
                   key="loan-calculator"
-                  onPress={() => router.push("/loan-calculator")}
+                  onPress={() => router.push("/user/loan-calculator")}
                 >
                   Loan Calculator
                 </DropdownItem>
                 <DropdownItem
                   startContent={<LuLayoutGrid />}
                   key="room-planner"
-                  onPress={() => router.push("/room-planner")}
+                  onPress={() => router.push("/user/room-planner")}
                 >
                   Room Planner
                 </DropdownItem>
@@ -124,7 +122,7 @@ const NavBar = () => {
         <NavbarContent justify="end">
           <NavbarItem className="hidden lg:flex">
             <Button variant="solid" color="secondary">
-              <Link href={"#"} className="text-white">
+              <Link href="/user/contact-us" className="text-white">
                 Contact Us
               </Link>
             </Button>
@@ -142,7 +140,7 @@ const NavBar = () => {
             <Link className="w-full text-white" href="/">
               Home
             </Link>
-            <Link className="w-full text-white" href="/about-us">
+            <Link className="w-full text-white" href="/user/about-us">
               About Us
             </Link>
           </NavbarMenuItem>
@@ -155,13 +153,13 @@ const NavBar = () => {
             <h1 className="text-white font-bold mb-2 mt-2">
               Forms & Utilities
             </h1>
-            <Link className="w-full text-white" href="/appointment">
+            <Link className="w-full text-white" href="/user/appointment">
               Set Appointment
             </Link>
-            <Link className="w-full text-white" href="/loan-calculator">
+            <Link className="w-full text-white" href="/user/loan-calculator">
               Loan Calculator
             </Link>
-            <Link className="w-full text-white" href="/room-planner">
+            <Link className="w-full text-white" href="/user/room-planner">
               Room Planner
             </Link>
           </NavbarMenuItem>

@@ -9,7 +9,7 @@ interface Props {
 const Hero = ({ image, title, description }: Props) => {
   return (
     <div
-      className="relative w-full h-[200px] lg:h-[200px] flex items-center justify-center bg-cover bg-center dark:bg-white"
+      className="relative w-full h-[12rem] flex items-center justify-center bg-cover bg-center dark:bg-white"
       style={{ backgroundImage: `url(${image})` }}
     >
       <div className="absolute inset-0 bg-gradient-to-t from-blue-800 to-transparent"></div>
