@@ -1,11 +1,14 @@
 import React from "react";
+import Hero from "@/components/user/home/hero";
+import Others from "@/components/user/home/others";
 
-const page = async () => {
+const Home = () => {
   return (
-    <div>
-
-    </div>
+    <>
+      <Hero />
+      <Others />
+    </>
   );
 };
 
-export default page;
+export default Home;
