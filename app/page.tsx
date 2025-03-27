@@ -6,6 +6,7 @@ import axios from "axios";
 import { Article, Testimonial } from "@/types/user";
 import Testimonials from "@/components/user/home/testimonials";
 import News from "@/components/user/home/news";
+import { sortByDate } from "@/utils/formatters";
 
 const Home = async () => {
   let testimonials: Testimonial[] = [];
@@ -19,6 +20,7 @@ const Home = async () => {
       }
     );
     testimonials = response.data.records;
+    testimonials = testimonials.slice(0, 5);
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something went wrong!");
@@ -40,7 +42,9 @@ const Home = async () => {
     toast.error("Something went wrong!");
   }
 
-  const news = articles.filter((article) => article.type == "News");
+  let news = articles.filter((article) => article.type == "News");
+  news = sortByDate(news, "date", "desc");
+  news = news.slice(0, 5);
 
   return (
     <>

@@ -5,3 +5,14 @@ export const formatDate = (date: string) => {
     day: "numeric",
   });
 };
+
+export const sortByDate = (
+  records: any[],
+  key: string,
+  order: "asc" | "desc"
+) => {
+  records = records.sort((a, b) => {
+    return Number(new Date(a[key])) - Number(new Date(b[key]));
+  });
+  return (records = order == "asc" ? records : records.reverse());
+};

@@ -11,10 +11,6 @@ type Props = {
 };
 
 const News = ({ news }: Props) => {
-  news = news.sort((a, b) => {
-    return Number(new Date(a.date)) - Number(new Date(b.date));
-  });
-
   return (
     <div>
       <SectionTitle
