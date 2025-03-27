@@ -4,7 +4,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="dark:bg-white dark:text-gray-900">
+    <div>
       <Hero
         image="/images/banner.jpg"
         title="About-Us"

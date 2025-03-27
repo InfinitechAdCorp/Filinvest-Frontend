@@ -44,6 +44,14 @@ const Footer = () => {
                     Contact Us
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/user/careers"
+                    className="text-primary dark:text-black hover:text-blue-300"
+                  >
+                    Careers
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -80,30 +88,35 @@ const Footer = () => {
             <Link
               href="https://www.facebook.com/filinvest"
               className="text-gray-900  hover:text-primary"
+              target="_blank"
             >
               <FaFacebookSquare size={20} />
             </Link>
             <Link
               href="https://x.com/filinvest"
               className="text-gray-900  hover:text-primary"
+              target="_blank"
             >
               <FaTwitter size={20} />
             </Link>
             <Link
               href="https://www.instagram.com/filinvest/"
               className="text-gray-900  hover:text-primary"
+              target="_blank"
             >
               <FaInstagram size={20} />
             </Link>
             <Link
               href="https://www.linkedin.com/company/filinvest/"
               className="text-gray-900  hover:text-primary"
+              target="_blank"
             >
               <FaLinkedin size={20} />
             </Link>
             <Link
               href="https://www.youtube.com/filinvest"
               className="text-gray-900  hover:text-primary"
+              target="_blank"
             >
               <FaYoutube size={20} />
             </Link>

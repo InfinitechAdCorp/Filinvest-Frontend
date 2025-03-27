@@ -3,8 +3,11 @@
 import { Button, Link } from "@heroui/react";
 import React from "react";
 import SubscriberForm from "./subscriberForm";
+import { useRouter } from "next/navigation";
 
 const Others = () => {
+  const router = useRouter();
+
   return (
     <div className="border-t-1 text-primary py-2">
       <div className="container mx-auto px-2 lg:px-6">
@@ -30,9 +33,13 @@ const Others = () => {
               <span className="font-semibold">stylish, functional home</span>.
             </p>
             <div className="mt-2 lg:mt-6">
-              <Link href="/articles/blogs">
-                <Button className="bg-primary text-white">See More</Button>
-              </Link>
+              <Button
+                type="button"
+                className="bg-primary text-white"
+                onPress={() => router.push("/user/articles/blogs")}
+              >
+                See More
+              </Button>
             </div>
           </div>
 
@@ -45,9 +52,13 @@ const Others = () => {
               team. Work with a dynamic, innovative company!
             </p>
             <div className="mt-2 lg:mt-6">
-              <Link href="/careers">
-                <Button className="bg-primary text-white">Learn More</Button>
-              </Link>
+              <Button
+                type="button"
+                className="bg-primary text-white"
+                onPress={() => router.push("/user/careers")}
+              >
+                Learn More
+              </Button>
             </div>
           </div>
         </div>
