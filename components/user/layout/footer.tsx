@@ -74,27 +74,6 @@ const Footer = () => {
           <div>Copyright &copy; {new Date().getFullYear()} Filinvest </div>
         </div>
 
-        <div className="flex gap-3">
-          <Link
-            href="/terms-of-use"
-            className="text-gray-900  hover:text-primary"
-          >
-            Terms of Use
-          </Link>
-          <Link
-            href="/privacy-policy"
-            className="text-gray-900  hover:text-primary"
-          >
-            Privacy Policy
-          </Link>
-          <Link
-            href="/contact-us"
-            className="text-gray-900  hover:text-primary"
-          >
-            About Us
-          </Link>
-        </div>
-
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <h3 className="font-semibold">Follow Us</h3>
           <div className="flex gap-3">
