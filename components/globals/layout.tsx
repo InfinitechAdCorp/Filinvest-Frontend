@@ -24,9 +24,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <>
           <NavBar />
           {children}
-          <div className="hidden lg:block">
-            <Icons />
-          </div>
+          <Icons />
           <Footer />
         </>
       )}
