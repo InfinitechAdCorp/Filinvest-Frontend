@@ -15,6 +15,7 @@ export type Property = {
   id: string;
   name: string;
   type: string;
+  subtype: string;
   minimum_price: number;
   maximum_price: number;
   location: string;
@@ -22,6 +23,8 @@ export type Property = {
   maximum_area: number;
   status: string;
   description: string;
+  isPublished: number;
+  isFeatured: number;
   logo: string;
   images: string;
   amenities: string;

@@ -23,12 +23,15 @@ const FAQs = ({ faqs }: Props) => {
 
           <div className="w-full md:w-1/2">
             <Card className="p-2 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-              <Accordion className="text-black dark:text-white">
+              <Accordion>
                 {faqs.map((faq) => (
                   <AccordionItem
                     key={faq.id}
                     aria-label={faq.question}
                     title={faq.question}
+                    classNames={{
+                      title: "text-primary",
+                    }}
                   >
                     <p>{faq.answer}</p>
                   </AccordionItem>

@@ -6,6 +6,13 @@ export const formatDate = (date: string) => {
   });
 };
 
+export const formatPeso = (amount: number): string => {
+  return new Intl.NumberFormat("en-PH", {
+    style: "currency",
+    currency: "PHP",
+  }).format(amount);
+};
+
 export const sortByDate = (
   records: any[],
   key: string,

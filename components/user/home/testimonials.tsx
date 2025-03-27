@@ -28,11 +28,6 @@ const Testimonials = ({ testimonials }: Props) => {
 
   return (
     <div className="text-center dark:bg-white">
-      <SectionTitle
-        title="What Our Clients Say"
-        subtitle="Real feedback from our satisfied customers"
-      />
-
       <div className="p-6">
         <Swiper
           modules={[Navigation, Autoplay]}

@@ -3,12 +3,13 @@ import Hero from "@/components/user/home/hero";
 import Others from "@/components/user/home/others";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Article, FAQ, Testimonial } from "@/types/user";
+import { Article, FAQ, Property, Testimonial } from "@/types/user";
 import Testimonials from "@/components/user/home/testimonials";
 import Articles from "@/components/user/home/articles";
 import { sortByDate } from "@/utils/formatters";
 import SectionTitle from "@/components/globals/sectionTitle";
 import FAQs from "@/components/user/home/faqs";
+import FeaturedProperties from "@/components/user/home/featuredProperties";
 
 const Home = async () => {
   let testimonials: Testimonial[] = [];
@@ -69,17 +70,52 @@ const Home = async () => {
     toast.error("Something went wrong!");
   }
 
+  let properties: Property[] = [];
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/properties`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    properties = response.data.records;
+  } catch (error) {
+    console.error("Error:", error);
+    toast.error("Something went wrong!");
+  }
+
+  properties = properties.filter((property) => {
+    return property.isPublished == 1 && property.isFeatured == 1;
+  });
+  properties = properties.slice(0, 7);
+
   return (
     <>
       <Hero />
 
       <div className="my-3 lg:my-10 space-y-3 lg:space-y-10">
-        <Testimonials testimonials={testimonials} />
+        <div>
+          <SectionTitle
+            title="Featured Properties"
+            subtitle="Find your dream home today"
+          />
+          <FeaturedProperties properties={properties} />
+        </div>
+
+        <div>
+          <SectionTitle
+            title="What Our Clients Say"
+            subtitle="Real feedback from our satisfied customers"
+          />
+          <Testimonials testimonials={testimonials} />
+        </div>
 
         <div>
           <SectionTitle
             title="Corporate News"
-            subtitle="Stay Updated with the Latest from Filinvest"
+            subtitle="Stay updated with the latest from Filinvest"
           />
           <Articles articles={news} />
         </div>
@@ -87,7 +123,7 @@ const Home = async () => {
         <div>
           <SectionTitle
             title="Awards"
-            subtitle="Celebrating Excellence and Achievements at Filinvest"
+            subtitle="Celebrating excellence and achievements at Filinvest"
           />
           <Articles articles={awards} />
         </div>
@@ -95,7 +131,7 @@ const Home = async () => {
         <div className="container mx-auto px-4">
           <SectionTitle
             title="Frequently Asked Questions"
-            subtitle="Have a question? We're here to help with all your questions and answers in one place."
+            subtitle="We're here to help with your questions and answers all in one place."
           />
           <FAQs faqs={faqs} />
         </div>
