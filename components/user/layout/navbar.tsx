@@ -59,22 +59,11 @@ const NavBar = () => {
           </NavbarItem>
 
           <NavbarItem>
-            <Dropdown>
-              <DropdownTrigger>
-                <Button
-                  variant="light"
-                  endContent={
-                    <LuChevronDown className="text-white" size={18} />
-                  }
-                >
-                  <h3 className="text-white text-medium">Our Project</h3>
-                </Button>
-              </DropdownTrigger>
-
-              <DropdownMenu className="rounded-sm">
-                <DropdownItem key="Residential">Residential</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
+            <Button variant="light">
+              <Link href="/user/properties" className="text-white">
+                Properties
+              </Link>
+            </Button>
           </NavbarItem>
 
           <NavbarItem>
@@ -143,10 +132,12 @@ const NavBar = () => {
             <Link className="w-full text-white" href="/user/about-us">
               About Us
             </Link>
-          </NavbarMenuItem>
-
-          <NavbarMenuItem className="cursor-pointer border-t-1">
-            <h3 className="text-white font-bold mb-2 mt-2">Our Project</h3>
+            <Link className="w-full text-white" href="/user/contact-us">
+              Contact Us
+            </Link>
+            <Link className="w-full text-white" href="/user/properties">
+              Properties
+            </Link>
           </NavbarMenuItem>
 
           <NavbarMenuItem className="cursor-pointer border-t-1">

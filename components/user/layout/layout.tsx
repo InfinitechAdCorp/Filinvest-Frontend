@@ -5,7 +5,7 @@ import NavBar from "./navbar";
 import Footer from "./footer";
 import Icons from './icons';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const UserLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <NavBar />
@@ -18,4 +18,4 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default Layout;
+export default UserLayout;
