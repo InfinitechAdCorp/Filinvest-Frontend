@@ -5,8 +5,9 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { Article, Testimonial } from "@/types/user";
 import Testimonials from "@/components/user/home/testimonials";
-import News from "@/components/user/home/news";
+import Articles from "@/components/user/home/articles";
 import { sortByDate } from "@/utils/formatters";
+import SectionTitle from "@/components/globals/sectionTitle";
 
 const Home = async () => {
   let testimonials: Testimonial[] = [];
@@ -46,11 +47,34 @@ const Home = async () => {
   news = sortByDate(news, "date", "desc");
   news = news.slice(0, 5);
 
+  let awards = articles.filter((article) => article.type == "Award");
+  awards = sortByDate(awards, "date", "desc");
+  awards = awards.slice(0, 5);
+
   return (
     <>
       <Hero />
-      <Testimonials testimonials={testimonials} />
-      <News news={news} />
+
+      <div className="my-3 lg:my-10 space-y-3 lg:space-y-10">
+        <Testimonials testimonials={testimonials} />
+
+        <div>
+          <SectionTitle
+            title="Corporate News"
+            subtitle="Stay Updated with the Latest from Filinvest"
+          />
+          <Articles articles={news} />
+        </div>
+
+        <div>
+          <SectionTitle
+            title="Awards"
+            subtitle="Celebrating Excellence and Achievements at Filinvest"
+          />
+          <Articles articles={awards} />
+        </div>
+      </div>
+
       <Others />
     </>
   );

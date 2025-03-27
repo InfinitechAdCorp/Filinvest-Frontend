@@ -7,7 +7,7 @@ type Props = {
 
 const SectionTitle = ({ title, subtitle }: Props) => {
   return (
-    <div className="text-center mt-3 lg:mt-10 dark:bg-white">
+    <div className="text-center dark:bg-white">
       <h3 className="text-2xl lg:text-3xl md:text-4xl font-bold text-primary">
         {title}
       </h3>
