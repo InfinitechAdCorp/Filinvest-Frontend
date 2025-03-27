@@ -21,11 +21,8 @@ import {
   LuChevronDown,
   LuLayoutGrid,
 } from "react-icons/lu";
-import { useRouter } from "next/navigation";
 
 const NavBar = () => {
-  const router = useRouter();
-
   return (
     <Navbar
       maxWidth="2xl"
@@ -34,7 +31,7 @@ const NavBar = () => {
       className="bg-primary text-white p-0"
     >
       <>
-        <NavbarBrand>
+        <NavbarBrand as={Link} href="/">
           <Image src="/images/logo.png" alt="Logo" className="w-52" />
         </NavbarBrand>
 
@@ -85,21 +82,24 @@ const NavBar = () => {
                 <DropdownItem
                   startContent={<LuCalendar />}
                   key="appointment"
-                  onPress={() => router.push("/user/appointment")}
+                  as={Link}
+                  href="/user/appointment"
                 >
                   Set Appointment
                 </DropdownItem>
                 <DropdownItem
                   startContent={<LuCalculator />}
                   key="loan-calculator"
-                  onPress={() => router.push("/user/loan-calculator")}
+                  as={Link}
+                  href="/user/loan-calculator"
                 >
                   Loan Calculator
                 </DropdownItem>
                 <DropdownItem
                   startContent={<LuLayoutGrid />}
                   key="room-planner"
-                  onPress={() => router.push("/user/room-planner")}
+                  as={Link}
+                  href="/user/room-planner"
                 >
                   Room Planner
                 </DropdownItem>

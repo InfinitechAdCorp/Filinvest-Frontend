@@ -1,12 +1,10 @@
 "use client";
 
 import React from "react";
-import { Button } from "@heroui/react";
+import { Button, Link } from "@heroui/react";
 import { LuArrowRight, LuPhone } from "react-icons/lu";
-import { useRouter } from "next/navigation";
-const Hero = () => {
-  const router = useRouter();
 
+const Hero = () => {
   return (
     <section
       className="relative w-full h-auto flex flex-col justify-center items-center px-4 py-32"
@@ -40,7 +38,8 @@ const Hero = () => {
               endContent={<LuPhone size={18} />}
               variant="bordered"
               className="text-white"
-              onPress={() => router.push("/user/contact-us")}
+              as={Link}
+              href="/user/contact-us"
             >
               Contact Us
             </Button>

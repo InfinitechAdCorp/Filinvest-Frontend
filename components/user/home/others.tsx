@@ -3,11 +3,8 @@
 import { Button, Link } from "@heroui/react";
 import React from "react";
 import SubscriberForm from "./subscriberForm";
-import { useRouter } from "next/navigation";
 
 const Others = () => {
-  const router = useRouter();
-
   return (
     <div className="border-t-1 text-primary py-2">
       <div className="container mx-auto px-2 lg:px-6">
@@ -36,7 +33,8 @@ const Others = () => {
               <Button
                 type="button"
                 className="bg-primary text-white"
-                onPress={() => router.push("/user/articles/blogs")}
+                as={Link}
+                href="/user/articles/blogs"
               >
                 See More
               </Button>
@@ -55,7 +53,8 @@ const Others = () => {
               <Button
                 type="button"
                 className="bg-primary text-white"
-                onPress={() => router.push("/user/careers")}
+                as={Link}
+                href="/user/careers"
               >
                 Learn More
               </Button>

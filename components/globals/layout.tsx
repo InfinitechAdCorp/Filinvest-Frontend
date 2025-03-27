@@ -5,6 +5,7 @@ import NavBar from "../user/layout/navbar";
 import Icons from "../user/layout/icons";
 import Footer from "../user/layout/footer";
 import { usePathname } from "next/navigation";
+import Sidebar from "../admin/layout/sidebar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
@@ -12,7 +13,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      {role == "User" ? (
+      {role == "Admin" ? (
+        <>
+          <div className="flex gap-3">
+            <Sidebar />
+            {children}
+          </div>
+        </>
+      ) : (
         <>
           <NavBar />
           {children}
@@ -21,8 +29,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </div>
           <Footer />
         </>
-      ) : (
-        <>{children}</>
       )}
     </>
   );
