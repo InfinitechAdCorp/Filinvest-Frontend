@@ -32,7 +32,7 @@ const Testimonials = ({ testimonials }: Props) => {
         <Swiper
           modules={[Navigation, Autoplay]}
           spaceBetween={20}
-          slidesPerView={2}
+          slidesPerView={3}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           loop={true}
           breakpoints={{
@@ -41,7 +41,7 @@ const Testimonials = ({ testimonials }: Props) => {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 2 },
           }}
-          className="lg:w-[900px] mx-auto bg-white"
+          className="lg:w-[1300px] mx-auto bg-white"
         >
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial.id} className="shadow-lg">
