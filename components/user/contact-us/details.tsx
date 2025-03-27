@@ -7,16 +7,17 @@ const Details = () => {
   return (
     <>
       <div>
-        <div className="flex">
           <Image
             src="/images/contact-us.jpg"
             alt="Filinvest Image"
-            className="rounded-lg shadow-xl h-[16rem] w-full"
+            classNames={{
+              wrapper: "flex rounded-lg shadow-xl min-w-full",
+              img: "h-[16rem] w-full"
+            }}
           />
-        </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-start px-2 py-5 space-y-5 md:space-y-0 md:space-x-5">
-          <div className="flex flex-col w-full md:w-1/2">
+        <div className="flex justify-between px-2 py-5 space-y-5 md:space-y-0 gap-5">
+          <div>
             <h3 className="text-2xl font-semibold text-primary mb-3">
               Customer Service
             </h3>
@@ -27,9 +28,7 @@ const Details = () => {
               </p>
               <p>
                 <strong className="text-primary">Outside Metro Manila:</strong>
-                <span className="ml-2">
-                  Domestic Toll Free for PLDT/Smart landline: 1800-10-588-1688
-                </span>
+                <span className="ml-2">1800-10-588-1688</span>
               </p>
               <p>
                 <strong className="text-primary">Email:</strong>
@@ -38,7 +37,7 @@ const Details = () => {
             </div>
           </div>
 
-          <div className="flex flex-col w-full md:w-1/2">
+          <div>
             <h3 className="text-2xl font-semibold text-primary mb-3">
               Sales Hotline
             </h3>

@@ -31,8 +31,8 @@ const ContactUs = async () => {
         description="Get in touch with us for inquiries, partnerships, or assistance. We're here to help!"
       />
 
-      <div className="flex justify-center mx-60 my-7">
-        <div className="grid lg:grid-cols-2 gap-10">
+      <div className="flex justify-center mx-72 my-7">
+        <div className="flex justify-between gap-10">
           <InquiryForm properties={properties} />
           <Details />
         </div>

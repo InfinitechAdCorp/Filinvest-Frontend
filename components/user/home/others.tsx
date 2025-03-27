@@ -34,7 +34,7 @@ const Others = () => {
               Discover expert tips and insights for creating a{" "}
               <span className="font-semibold">stylish, functional home</span>.
             </p>
-            <div className="mt-2 lg:mt-11">
+            <div className="mt-2 lg:mt-6">
               <Link href="/articles/blogs">
                 <Button className="bg-primary text-white">See More</Button>
               </Link>
