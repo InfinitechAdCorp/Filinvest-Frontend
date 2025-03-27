@@ -3,7 +3,7 @@ import { Metadata, Viewport } from "next";
 import { Providers } from "./providers";
 import { poppins } from "@/config/fonts";
 import { Toaster } from "react-hot-toast";
-import UserLayout from "@/components/user/layout/layout";
+import Layout from "@/components/globals/layout";
 
 export const metadata: Metadata = {
   title: "Filinvest | Official Website ",
@@ -24,20 +24,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const role = "User";
-  console.log()
-
   return (
     <html lang="en">
       <head />
       <body className={`min-h-screen antialiased ${poppins.className}`}>
         <Providers>
           <Toaster position="top-right" />
-          {role == "User" ? (
-            <UserLayout>{children}</UserLayout>
-          ) : (
-            <>{children}</>
-          )}
+          <Layout>{children}</Layout>
         </Providers>
       </body>
     </html>
