@@ -60,7 +60,7 @@ const InquiryForm = ({ properties }: Props) => {
   };
 
   return (
-    <div className="flex max-w-lg">
+    <div className="flex max-w-xl">
       <div className="text-left">
         <div className="mb-4">
           <h3 className="text-2xl text-primary">Corporate Headquarters</h3>

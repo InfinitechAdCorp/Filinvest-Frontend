@@ -3,11 +3,12 @@ import Hero from "@/components/user/home/hero";
 import Others from "@/components/user/home/others";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Article, Testimonial } from "@/types/user";
+import { Article, FAQ, Testimonial } from "@/types/user";
 import Testimonials from "@/components/user/home/testimonials";
 import Articles from "@/components/user/home/articles";
 import { sortByDate } from "@/utils/formatters";
 import SectionTitle from "@/components/globals/sectionTitle";
+import FAQs from "@/components/user/home/faqs";
 
 const Home = async () => {
   let testimonials: Testimonial[] = [];
@@ -51,6 +52,23 @@ const Home = async () => {
   awards = sortByDate(awards, "date", "desc");
   awards = awards.slice(0, 5);
 
+  let faqs: FAQ[] = [];
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/faqs`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    faqs = response.data.records;
+    faqs = faqs.slice(0, 7);
+  } catch (error) {
+    console.error("Error:", error);
+    toast.error("Something went wrong!");
+  }
+
   return (
     <>
       <Hero />
@@ -73,8 +91,15 @@ const Home = async () => {
           />
           <Articles articles={awards} />
         </div>
-      </div>
 
+        <div className="container mx-auto px-4">
+          <SectionTitle
+            title="Frequently Asked Questions"
+            subtitle="Have a question? We're here to help with all your questions and answers in one place."
+          />
+          <FAQs faqs={faqs} />
+        </div>
+      </div>
       <Others />
     </>
   );

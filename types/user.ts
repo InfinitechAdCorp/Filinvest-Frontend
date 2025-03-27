@@ -41,3 +41,9 @@ export type Article = {
   description: string;
   image: string;
 };
+
+export type FAQ = {
+  id: string;
+  question: string;
+  answer: string;
+};
