@@ -1,4 +1,4 @@
-export type SubmitInquiry = {
+export type CreateInquiry = {
   first_name: string;
   last_name: string;
   gender: string;

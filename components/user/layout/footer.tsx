@@ -22,39 +22,23 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="/our-projects"
+                    href="/"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
-                    Our Projects
+                    Home
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/for-sellers"
+                    href="/user/about-us"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
-                    For Sellers
+                    About Us
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/contact"
-                    className="text-primary dark:text-black hover:text-blue-300"
-                  >
-                    For Homeowners
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="text-primary dark:text-black hover:text-blue-300"
-                  >
-                    For Stakeholders
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact-us"
+                    href="/user/contact-us"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Contact Us

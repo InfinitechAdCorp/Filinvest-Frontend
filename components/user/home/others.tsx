@@ -1,7 +1,8 @@
 "use client";
 
-import { Button, Input, Link } from "@heroui/react";
+import { Button, Link } from "@heroui/react";
 import React from "react";
+import SubscriberForm from "./subscriberForm";
 
 const Others = () => {
   return (
@@ -16,14 +17,8 @@ const Others = () => {
               Enter your email below to stay updated with Filinvest's new
               developments and offers!
             </p>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-2 lg:mt-11">
-              <Input
-                placeholder="Email Address"
-                type="email"
-                variant="underlined"
-              />
-              <Button className="bg-primary text-white">Subscribe</Button>
-            </div>
+
+            <SubscriberForm />
           </div>
 
           <div className="lg:border border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
