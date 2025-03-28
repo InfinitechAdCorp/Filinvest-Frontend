@@ -15,13 +15,13 @@ export type Property = {
   id: string;
   name: string;
   type: string;
-  subtype: string;
   minimum_price: number;
   maximum_price: number;
   location: string;
   minimum_area: number;
   maximum_area: number;
   status: string;
+  substatus: string;
   description: string;
   isPublished: number;
   isFeatured: number;

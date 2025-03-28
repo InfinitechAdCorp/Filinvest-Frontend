@@ -72,7 +72,7 @@ const FeaturedProperties = ({ properties }: Props) => {
                           startContent={<HiLink className="w-4 h-4" />}
                           className="flex justify-between items-center text-xs px-2 py-1"
                         >
-                          {property.subtype}
+                          {property.substatus}
                         </Chip>
                       </div>
                     </div>

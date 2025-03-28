@@ -12,7 +12,7 @@ import { IoMdPricetags } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { RiLandscapeFill } from "react-icons/ri";
-import { formatPeso } from "@/utils/formatters";
+import { formatNumber, formatPeso } from "@/utils/formatters";
 import { Property } from "@/types/user";
 
 type Props = {
@@ -20,23 +20,10 @@ type Props = {
 };
 
 const Details = ({ property }: Props) => {
-  const units = [
-    {
-      id: "1",
-      type: "1BR",
-    },
-    {
-      id: "2",
-      type: "3BR",
-    },
-    {
-      id: "3",
-      type: "Studio",
-    },
-  ];
+  const offeringTypes = property.offerings.map((offering) => offering.type);
 
   return (
-    <div className="relative flex flex-col items-center justify-center mx-60 my-7 w-[900px]">
+    <div className="relative flex flex-col items-center justify-center mx-60 my-7 max-w-[56.25rem]">
       <div className="relative w-full">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -51,11 +38,11 @@ const Details = ({ property }: Props) => {
           }}
           className="w-full"
         >
-          {["image1", "image2"].map((img: string, index: number) => (
+          {JSON.parse(property.images).map((image: string, index: number) => (
             <SwiperSlide key={index}>
               <div className="relative w-full flex justify-center">
                 <Image
-                  src="https://filinvest-bakit.s3.ap-southeast-1.amazonaws.com/properties/images/01jqd3n6h9vd763e3d2446ftan.jpg"
+                  src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/images/${image}`}
                   alt="Property"
                   width={1200}
                   height={500}
@@ -67,114 +54,104 @@ const Details = ({ property }: Props) => {
         </Swiper>
 
         <div className="absolute top-4 sm:top-8 left-4 sm:left-10 z-10 p-2 rounded-lg">
-          <div className="w-[120px] sm:w-[200px] lg:w-[250px]">
+          <div className="w-[120px] sm:w-[200px] lg:w-[220px]">
             <Image
               alt="Property Logo"
-              className="object-cover w-full h-full"
-              src="https://filinvest-bakit.s3.ap-southeast-1.amazonaws.com/properties/images/01jqd3n6h9vd763e3d2446ftan.jpg"
+              className="object-cover"
+              src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/logos/${property.logo}`}
             />
           </div>
         </div>
       </div>
-      <div className="mt-6 w-full">
-        <div className="flex flex-col sm:justify-between sm:items-center">
-          <div>
-            <h1 className="text-xl sm:text-2xl lg:text-2xl text-primary font-semibold">
-              100 West
-            </h1>
 
-            <p className="text-medium text-justify lg:text-lg italic text-gray-900 mt-2">
-              There’s nothing more valuable than time. Especially when you are
-              losing precious moments that you should have spent with your
-              family. 100 West has been designed with this in mind. Here, you
-              literally don’t have to go far to be where you need to be. All you
-              need to live, work and play are here under one roof. Time can’t be
-              replaced. Stop throwing away hours waiting for an elevator, trying
-              to hail a cab, or sitting in traffic. Start spending more of it
-              where it really matters – at home at 100 West Makati.
-            </p>
+      <div className="w-full flex flex-col sm:justify-between sm:items-center space-y-5">
+        <div className="mt-4 space-y-1">
+          <h3 className="text-xl sm:text-2xl lg:text-2xl text-primary font-semibold">
+            {property.name}
+          </h3>
+
+          <h3 className="text-gray-800 text-lg">{property.location}</h3>
+
+          <div className="flex lg:flex-wrap gap-2">
+            <Chip
+              variant="flat"
+              color="primary"
+              startContent={<HiLink className="w-4 h-4" />}
+              className="flex items-center px-3 py-1"
+            >
+              {property.type}
+            </Chip>
+            <Chip
+              variant="flat"
+              color="primary"
+              startContent={<HiLink className="w-4 h-4" />}
+              className="flex items-center px-3 py-1"
+            >
+              {property.status}
+            </Chip>
+            <Chip
+              variant="flat"
+              color="primary"
+              startContent={<HiLink className="w-4 h-4" />}
+              className="flex items-center px-3 py-1"
+            >
+              {property.substatus}
+            </Chip>
           </div>
 
-          <div className="mt-4 space-y-1">
-            <h3 className="text-gray-800 text-lg">Makati</h3>
-
-            <div className="flex lg:flex-wrap gap-2">
-              <Chip
-                variant="flat"
-                color="primary"
-                startContent={<HiLink className="w-4 h-4" />}
-                className="flex items-center px-3 py-1"
-              >
-                High Rise Condominium
-              </Chip>
-              <Chip
-                variant="flat"
-                color="primary"
-                startContent={<HiLink className="w-4 h-4" />}
-                className="flex items-center px-3 py-1"
-              >
-                For Sale
-              </Chip>
-              <Chip
-                variant="flat"
-                color="primary"
-                startContent={<HiLink className="w-4 h-4" />}
-                className="flex items-center px-3 py-1"
-              >
-                RFO
-              </Chip>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
-              <Card
-                radius="sm"
-                className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
-              >
-                <div className="flex justify-between gap-3 items-center ">
-                  <Chip radius="full" variant="flat" color="primary">
-                    <IoMdPricetags className="w-5 h-5 text-blue-800" />
-                  </Chip>
-                  <h3 className="text-medium text-gray-900">
-                    {formatPeso(5000000)} | {formatPeso(15000000)}
-                  </h3>
-                </div>
-              </Card>
-              <Card
-                radius="sm"
-                className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
-              >
-                <div className="flex justify-between gap-3 items-center ">
-                  <Chip radius="full" color="primary" variant="flat">
-                    <FaBuilding className="w-5 h-5 text-blue-800" />
-                  </Chip>
-                  {units?.length > 0 ? (
-                    units.map((item) => (
-                      <div key={item.id}>
-                        <h3 className="text-medium text-gray-900">
-                          {item.type} |
-                        </h3>
-                      </div>
-                    ))
-                  ) : (
-                    <p>No units available</p>
-                  )}
-                </div>
-              </Card>
-              <Card
-                radius="sm"
-                className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
-              >
-                <div className="flex justify-between gap-3 items-center ">
-                  <Chip color="primary" variant="flat" radius="full">
-                    <RiLandscapeFill className="w-5 h-5 text-blue-800" />
-                  </Chip>
-                  <h3 className="text-medium text-gray-900">
-                    29.3 - 54.01 sqm ±
-                  </h3>
-                </div>
-              </Card>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+            <Card
+              radius="sm"
+              className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
+            >
+              <div className="flex justify-between gap-3 items-center ">
+                <Chip radius="full" variant="flat" color="primary">
+                  <IoMdPricetags className="w-5 h-5 text-blue-800" />
+                </Chip>
+                <h3 className="text-medium text-gray-900">
+                  {formatPeso(property.minimum_price)} -{" "}
+                  {formatPeso(property.maximum_price)}
+                </h3>
+              </div>
+            </Card>
+            <Card
+              radius="sm"
+              className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
+            >
+              <div className="flex justify-between gap-3 items-center ">
+                <Chip radius="full" color="primary" variant="flat">
+                  <FaBuilding className="w-5 h-5 text-blue-800" />
+                </Chip>
+                {offeringTypes.length > 0 ? (
+                  <div>
+                    <h3>{offeringTypes.join(" | ")}</h3>
+                  </div>
+                ) : (
+                  <h3>No units available</h3>
+                )}
+              </div>
+            </Card>
+            <Card
+              radius="sm"
+              className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
+            >
+              <div className="flex justify-between gap-3 items-center ">
+                <Chip color="primary" variant="flat" radius="full">
+                  <RiLandscapeFill className="w-5 h-5 text-blue-800" />
+                </Chip>
+                <h3 className="text-medium text-gray-900">
+                  {formatNumber(property.minimum_area)} -{" "}
+                  {formatNumber(property.maximum_area)} sqm ±
+                </h3>
+              </div>
+            </Card>
           </div>
+        </div>
+
+        <div>
+          <p className="text-medium text-justify lg:text-lg italic text-gray-900">
+            {property.description}
+          </p>
         </div>
       </div>
     </div>

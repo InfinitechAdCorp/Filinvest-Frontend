@@ -13,6 +13,13 @@ export const formatPeso = (amount: number): string => {
   }).format(amount);
 };
 
+export const formatNumber = (number: number) => {
+  return new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(number);
+};
+
 export const sortByDate = (
   records: any[],
   key: string,
