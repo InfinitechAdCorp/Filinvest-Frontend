@@ -23,7 +23,7 @@ const Details = ({ property }: Props) => {
   const offeringTypes = property.offerings.map((offering) => offering.type);
 
   return (
-    <div className="relative flex flex-col items-center justify-center mx-60 my-5 max-w-[56.25rem]">
+    <div className="w-full">
       <div className="relative w-full">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}

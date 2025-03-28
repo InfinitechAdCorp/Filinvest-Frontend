@@ -36,6 +36,7 @@ export type Offering = {
   type: string;
   minimum_area: number;
   maximum_area: number;
+  image: string;
 };
 
 export type Testimonial = {
