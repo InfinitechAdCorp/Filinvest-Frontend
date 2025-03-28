@@ -44,7 +44,7 @@ const Body = ({ properties }: Props) => {
                       {`₱${formatNumberShort(property.minimum_price)} - ₱${formatNumberShort(property.maximum_price)}`}
                     </h3>
 
-                    <div className="mt-3 flex gap-2">
+                    <div className="mt-3 space-y-1">
                       <Chip
                         size="sm"
                         variant="flat"
@@ -52,18 +52,29 @@ const Body = ({ properties }: Props) => {
                         startContent={<HiLink className="w-4 h-4" />}
                         className="flex justify-between items-center text-xs px-2 py-1"
                       >
-                        {property.status}
+                        {property.type}
                       </Chip>
+                      <div className="flex gap-1">
+                        <Chip
+                          size="sm"
+                          variant="flat"
+                          color="primary"
+                          startContent={<HiLink className="w-4 h-4" />}
+                          className="flex justify-between items-center text-xs px-2 py-1"
+                        >
+                          {property.status}
+                        </Chip>
 
-                      <Chip
-                        size="sm"
-                        variant="flat"
-                        color="primary"
-                        startContent={<HiLink className="w-4 h-4" />}
-                        className="flex justify-between items-center text-xs px-2 py-1"
-                      >
-                        {property.substatus}
-                      </Chip>
+                        <Chip
+                          size="sm"
+                          variant="flat"
+                          color="primary"
+                          startContent={<HiLink className="w-4 h-4" />}
+                          className="flex justify-between items-center text-xs px-2 py-1"
+                        >
+                          {property.substatus}
+                        </Chip>
+                      </div>
                     </div>
                   </CardBody>
                 </Card>

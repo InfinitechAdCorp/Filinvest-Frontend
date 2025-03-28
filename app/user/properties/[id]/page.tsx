@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import Details from "@/components/user/properties/details";
 import Amenities from "@/components/user/properties/amenities";
 import Offerings from "@/components/user/properties/offerings";
+import Map from "@/components/user/properties/map";
 
 const PropertyDetails = async ({
   params,
@@ -36,6 +37,7 @@ const PropertyDetails = async ({
           <div className="relative flex flex-col items-start justify-start mx-60 my-5 max-w-[56.25rem] space-y-5">
             <Details property={property} />
             <Amenities property={property} />
+            <Map property={property} />
             <Offerings property={property} />
           </div>
         </div>

@@ -18,6 +18,7 @@ export type Property = {
   minimum_price: number;
   maximum_price: number;
   location: string;
+  map: string;
   minimum_area: number;
   maximum_area: number;
   status: string;

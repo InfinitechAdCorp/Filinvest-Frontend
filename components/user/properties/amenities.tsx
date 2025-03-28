@@ -22,16 +22,24 @@ const Amenities = ({ property }: Props) => {
         </p>
 
         <div className="flex flex-row flex-wrap gap-5 space-y-1 mt-2">
-          {JSON.parse(property.amenities).map(
-            (amenity: string, index: number) => (
-              <div
-                key={index}
-                className="flex gap-1 items-center text-medium lg:text-lg"
-              >
-                <HiCheck className="w-6 h-6 lg:w-7 lg:h-7 text-primary font-semibold" />
-                <p>{amenity}</p>
-              </div>
-            )
+          {property.amenities ? (
+            <>
+              {JSON.parse(property.amenities).map(
+                (amenity: string, index: number) => (
+                  <div
+                    key={index}
+                    className="flex gap-1 items-center text-medium lg:text-lg"
+                  >
+                    <HiCheck className="w-6 h-6 lg:w-7 lg:h-7 text-primary font-semibold" />
+                    <p>{amenity}</p>
+                  </div>
+                )
+              )}
+            </>
+          ) : (
+            <h3 className="text-center text-gray-500 mt-4">
+              No Amenities Found
+            </h3>
           )}
         </div>
       </div>
