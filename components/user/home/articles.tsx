@@ -12,7 +12,7 @@ type Props = {
 const Articles = ({ articles }: Props) => {
   return (
     <div className="flex flex-wrap md:flex-nowrap justify-between items-start gap-8 mt-2">
-      <div className="p-2 flex gap-4 justify-center mx-60 w-full">
+      <div className="p-2 flex flex-wrap gap-4 justify-center mx-60 w-full">
         {articles.length > 0 ? (
           <>
             {articles.map((article) => (

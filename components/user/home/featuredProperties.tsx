@@ -5,6 +5,7 @@ import { Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
 import { HiLink } from "react-icons/hi2";
 import { Property } from "@/types/user";
 import { formatPeso } from "@/utils/formatters";
+import Link from "next/link";
 
 type Props = {
   properties: Property[];
@@ -14,11 +15,17 @@ const FeaturedProperties = ({ properties }: Props) => {
   return (
     <>
       <div className="flex flex-wrap md:flex-nowrap justify-between items-start gap-8 mt-2">
-        <div className="p-2 flex gap-4 justify-center mx-60 w-full">
+        <div className="p-2 flex flex-wrap gap-4 justify-center mx-60 w-full">
           {properties.length > 0 ? (
             <>
               {properties.map((property) => (
-                <Card key={property.id} className="py-2 w-[20rem]">
+                <Card
+                  key={property.id}
+                  className="py-2 w-[20rem]"
+                  isPressable
+                  as={Link}
+                  href={`/user/properties/${property.id}`}
+                >
                   <CardHeader className="pb-0">
                     <Image
                       alt="Property"
@@ -37,7 +44,7 @@ const FeaturedProperties = ({ properties }: Props) => {
                       {`${formatPeso(property.minimum_price)} - ${formatPeso(property.maximum_price)}`}
                     </h3>
 
-                    <div className="mt-3 flex gap-2">
+                    <div className="mt-3 space-y-1">
                       <Chip
                         size="sm"
                         variant="flat"
@@ -45,18 +52,29 @@ const FeaturedProperties = ({ properties }: Props) => {
                         startContent={<HiLink className="w-4 h-4" />}
                         className="flex justify-between items-center text-xs px-2 py-1"
                       >
-                        {property.status}
+                        {property.type}
                       </Chip>
+                      <div className="flex gap-1">
+                        <Chip
+                          size="sm"
+                          variant="flat"
+                          color="primary"
+                          startContent={<HiLink className="w-4 h-4" />}
+                          className="flex justify-between items-center text-xs px-2 py-1"
+                        >
+                          {property.status}
+                        </Chip>
 
-                      <Chip
-                        size="sm"
-                        variant="flat"
-                        color="primary"
-                        startContent={<HiLink className="w-4 h-4" />}
-                        className="flex justify-between items-center text-xs px-2 py-1"
-                      >
-                        {property.subtype}
-                      </Chip>
+                        <Chip
+                          size="sm"
+                          variant="flat"
+                          color="primary"
+                          startContent={<HiLink className="w-4 h-4" />}
+                          className="flex justify-between items-center text-xs px-2 py-1"
+                        >
+                          {property.subtype}
+                        </Chip>
+                      </div>
                     </div>
                   </CardBody>
                 </Card>

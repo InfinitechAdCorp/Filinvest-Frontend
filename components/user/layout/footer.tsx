@@ -19,40 +19,61 @@ const Footer = () => {
             </div>
             <div>
               <h4 className="text-lg font-bold mb-2">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
+              <div className="flex gap-10">
+                <div className="flex flex-col space-y-1">
                   <Link
                     href="/"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Home
                   </Link>
-                </li>
-                <li>
                   <Link
                     href="/user/about-us"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     About Us
                   </Link>
-                </li>
-                <li>
+                  <Link
+                    href="/user/properties"
+                    className="text-primary dark:text-black hover:text-blue-300"
+                  >
+                    Properties
+                  </Link>
                   <Link
                     href="/user/contact-us"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Contact Us
                   </Link>
-                </li>
-                <li>
+                </div>
+
+                <div className="flex flex-col space-y-1">
                   <Link
                     href="/user/careers"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Careers
                   </Link>
-                </li>
-              </ul>
+                  <Link
+                    href="/user/set-appointment"
+                    className="text-primary dark:text-black hover:text-blue-300"
+                  >
+                    Set Appointment
+                  </Link>
+                  <Link
+                    href="/user/loan-calculator"
+                    className="text-primary dark:text-black hover:text-blue-300"
+                  >
+                    Loan Calculator
+                  </Link>
+                  <Link
+                    href="/user/room-planner"
+                    className="text-primary dark:text-black hover:text-blue-300"
+                  >
+                    Room Planner
+                  </Link>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col gap-4">

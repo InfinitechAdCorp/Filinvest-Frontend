@@ -5,7 +5,6 @@ import "swiper/css/navigation";
 
 import React, { useState } from "react";
 import { Card, CardBody } from "@heroui/react";
-import SectionTitle from "@/components/globals/sectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import {

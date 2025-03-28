@@ -28,6 +28,14 @@ export type Property = {
   logo: string;
   images: string;
   amenities: string;
+  offerings: Offering[];
+};
+
+export type Offering = {
+  id: string;
+  type: string;
+  minimum_area: number;
+  maximum_area: number;
 };
 
 export type Testimonial = {

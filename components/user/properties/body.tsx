@@ -5,6 +5,7 @@ import { Property } from "@/types/user";
 import { Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
 import { HiLink } from "react-icons/hi2";
 import { formatPeso } from "@/utils/formatters";
+import Link from "next/link";
 
 type Props = {
   properties: Property[];
@@ -18,7 +19,13 @@ const Body = ({ properties }: Props) => {
           {properties.length > 0 ? (
             <>
               {properties.map((property) => (
-                <Card key={property.id} className="py-2 w-[20rem]">
+                <Card
+                  key={property.id}
+                  className="py-2 w-[20rem]"
+                  isPressable
+                  as={Link}
+                  href={`/user/properties/${property.id}`}
+                >
                   <CardHeader className="pb-0">
                     <Image
                       alt="Property"

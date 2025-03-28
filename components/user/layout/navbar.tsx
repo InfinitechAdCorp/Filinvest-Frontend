@@ -81,15 +81,15 @@ const NavBar = () => {
               <DropdownMenu className="dark:text-white rounded-md text-center">
                 <DropdownItem
                   startContent={<LuCalendar />}
-                  key="appointment"
+                  key="Set Appointment"
                   as={Link}
-                  href="/user/appointment"
+                  href="/user/set-appointment"
                 >
                   Set Appointment
                 </DropdownItem>
                 <DropdownItem
                   startContent={<LuCalculator />}
-                  key="loan-calculator"
+                  key="Loan Calculator"
                   as={Link}
                   href="/user/loan-calculator"
                 >
@@ -97,7 +97,7 @@ const NavBar = () => {
                 </DropdownItem>
                 <DropdownItem
                   startContent={<LuLayoutGrid />}
-                  key="room-planner"
+                  key="Room Planner"
                   as={Link}
                   href="/user/room-planner"
                 >
@@ -144,7 +144,7 @@ const NavBar = () => {
             <h3 className="text-white font-bold mb-2 mt-2">
               Forms & Utilities
             </h3>
-            <Link className="w-full text-white" href="/user/appointment">
+            <Link className="w-full text-white" href="/user/set-appointment">
               Set Appointment
             </Link>
             <Link className="w-full text-white" href="/user/loan-calculator">
