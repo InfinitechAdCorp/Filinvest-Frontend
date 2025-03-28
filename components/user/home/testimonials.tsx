@@ -39,7 +39,7 @@ const Testimonials = ({ testimonials }: Props) => {
             320: { slidesPerView: 1 },
             640: { slidesPerView: 2 },
             768: { slidesPerView: 2 },
-            1024: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
           }}
           className="lg:w-[1300px] mx-auto bg-white"
         >

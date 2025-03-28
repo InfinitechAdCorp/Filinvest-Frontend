@@ -1,0 +1,74 @@
+"use client";
+
+import React from "react";
+import { Property } from "@/types/user";
+import { Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
+import { HiLink } from "react-icons/hi2";
+import { formatPeso } from "@/utils/formatters";
+
+type Props = {
+  properties: Property[];
+};
+
+const Body = ({ properties }: Props) => {
+  return (
+    <>
+      <div className="flex justify-between">
+        <div className="p-2 flex flex-wrap gap-4 justify-center mx-60 my-5">
+          {properties.length > 0 ? (
+            <>
+              {properties.map((property) => (
+                <Card key={property.id} className="py-2 w-[20rem]">
+                  <CardHeader className="pb-0">
+                    <Image
+                      alt="Property"
+                      className="object-cover h-[11rem] w-full rounded-xl transform transition duration-500 ease-in-out hover:scale-110"
+                      src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/images/${JSON.parse(property.images)[0]}`}
+                    />
+                  </CardHeader>
+                  <CardBody className="overflow-visible py-2">
+                    <h3 className="font-bold text-large text-primary">
+                      {property.name}
+                    </h3>
+                    <h3 className="text-sm text-gray-700">
+                      {property.location}
+                    </h3>
+                    <h3 className="text-sm font-bold text-gray-600">
+                      {`${formatPeso(property.minimum_price)} - ${formatPeso(property.maximum_price)}`}
+                    </h3>
+
+                    <div className="mt-3 flex gap-2">
+                      <Chip
+                        size="sm"
+                        variant="flat"
+                        color="primary"
+                        startContent={<HiLink className="w-4 h-4" />}
+                        className="flex justify-between items-center text-xs px-2 py-1"
+                      >
+                        {property.status}
+                      </Chip>
+
+                      <Chip
+                        size="sm"
+                        variant="flat"
+                        color="primary"
+                        startContent={<HiLink className="w-4 h-4" />}
+                        className="flex justify-between items-center text-xs px-2 py-1"
+                      >
+                        {property.subtype}
+                      </Chip>
+                    </div>
+                  </CardBody>
+                </Card>
+              ))}
+            </>
+          ) : (
+            <h3 className="text-xl font-bold">No Properties Found</h3>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Body;
