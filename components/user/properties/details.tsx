@@ -12,7 +12,7 @@ import { IoMdPricetags } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { RiLandscapeFill } from "react-icons/ri";
-import { formatNumber, formatPeso } from "@/utils/formatters";
+import { formatNumber, formatNumberShort } from "@/utils/formatters";
 import { Property } from "@/types/user";
 
 type Props = {
@@ -23,7 +23,7 @@ const Details = ({ property }: Props) => {
   const offeringTypes = property.offerings.map((offering) => offering.type);
 
   return (
-    <div className="relative flex flex-col items-center justify-center mx-60 my-7 max-w-[56.25rem]">
+    <div className="relative flex flex-col items-center justify-center mx-60 my-5 max-w-[56.25rem]">
       <div className="relative w-full">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -64,7 +64,7 @@ const Details = ({ property }: Props) => {
         </div>
       </div>
 
-      <div className="w-full flex flex-col sm:justify-between sm:items-center space-y-5">
+      <div className="w-full flex flex-col sm:justify-between sm:items-start space-y-5">
         <div className="mt-4 space-y-1">
           <h3 className="text-xl sm:text-2xl lg:text-2xl text-primary font-semibold">
             {property.name}
@@ -109,8 +109,7 @@ const Details = ({ property }: Props) => {
                   <IoMdPricetags className="w-5 h-5 text-blue-800" />
                 </Chip>
                 <h3 className="text-medium text-gray-900">
-                  {formatPeso(property.minimum_price)} -{" "}
-                  {formatPeso(property.maximum_price)}
+                  {`₱${formatNumberShort(property.minimum_price)} - ₱${formatNumberShort(property.maximum_price)}`}
                 </h3>
               </div>
             </Card>

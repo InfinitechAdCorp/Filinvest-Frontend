@@ -4,7 +4,7 @@ import React from "react";
 import { Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
 import { HiLink } from "react-icons/hi2";
 import { Property } from "@/types/user";
-import { formatPeso } from "@/utils/formatters";
+import { formatNumberShort } from "@/utils/formatters";
 import Link from "next/link";
 
 type Props = {
@@ -41,7 +41,7 @@ const FeaturedProperties = ({ properties }: Props) => {
                       {property.location}
                     </h3>
                     <h3 className="text-sm font-bold text-gray-600">
-                      {`${formatPeso(property.minimum_price)} - ${formatPeso(property.maximum_price)}`}
+                      {`₱${formatNumberShort(property.minimum_price)} - ₱${formatNumberShort(property.maximum_price)}`}
                     </h3>
 
                     <div className="mt-3 space-y-1">

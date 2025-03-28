@@ -13,6 +13,15 @@ export const formatPeso = (amount: number): string => {
   }).format(amount);
 };
 
+export const formatNumberShort = (number: number) => {
+  const intlFormat = (number: number) => {
+    return new Intl.NumberFormat().format(Math.round(number * 10) / 10);
+  };
+  if (number >= 1000000) return intlFormat(number / 1000000) + "M";
+  else if (number >= 1000) return intlFormat(number / 1000) + "K";
+  else return intlFormat(number);
+};
+
 export const formatNumber = (number: number) => {
   return new Intl.NumberFormat("en-US", {
     minimumFractionDigits: 2,

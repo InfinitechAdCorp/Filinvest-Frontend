@@ -3,6 +3,7 @@ import { Property } from "@/types/user";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Details from "@/components/user/properties/details";
+import Amenities from "@/components/user/properties/amenities";
 
 const PropertyDetails = async ({
   params,
@@ -31,7 +32,10 @@ const PropertyDetails = async ({
     <>
       {property ? (
         <div className="flex justify-center w-full">
+          <div className="flex-col">
             <Details property={property} />
+            <Amenities property={property} />
+          </div>
         </div>
       ) : (
         <h3 className="text-xl font-bold">Property Not Found</h3>
