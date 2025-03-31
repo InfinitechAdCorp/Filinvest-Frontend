@@ -5,9 +5,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import React from "react";
-import { HiLink } from "react-icons/hi2";
+import { HiLink, HiHome } from "react-icons/hi2";
 import { Card, Chip, Image } from "@heroui/react";
-import { FaBuilding } from "react-icons/fa";
 import { IoMdPricetags } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -116,8 +115,9 @@ const Details = ({ property }: Props) => {
             >
               <div className="flex justify-between gap-3 items-center ">
                 <Chip radius="full" color="primary" variant="flat">
-                  <FaBuilding className="w-5 h-5 text-blue-800" />
+                  <HiHome className="w-5 h-5 text-blue-800" />
                 </Chip>
+                
                 {offeringTypes.length > 0 ? (
                   <div>
                     <h3>{offeringTypes.join(" | ")}</h3>

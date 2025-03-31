@@ -3,7 +3,16 @@
 import React from "react";
 import { Card, Divider, Image } from "@heroui/react";
 import { useRouter, usePathname } from "next/navigation";
-import { HiChatBubbleLeftRight, HiChartBar, HiBuildingOffice2, HiTrophy, HiNewspaper, HiBriefcase } from "react-icons/hi2";
+import {
+  HiChatBubbleLeftRight,
+  HiChartBar,
+  HiBuildingOffice2,
+  HiTrophy,
+  HiNewspaper,
+  HiBriefcase,
+  HiCalendarDays,
+  HiQuestionMarkCircle,
+} from "react-icons/hi2";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -58,17 +67,8 @@ const Sidebar = () => {
               )} text-white cursor-pointer`}
               onClick={() => router.push("/admin/appointments")}
             >
-              <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
+              <HiCalendarDays className="h-5 w-5 text-white" />
               <h3>Appointments</h3>
-            </li>
-            <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/applications"
-              )} text-white cursor-pointer`}
-              onClick={() => router.push("/admin/applications")}
-            >
-              <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
-              <h3>Applications</h3>
             </li>
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
@@ -90,6 +90,15 @@ const Sidebar = () => {
             </li>
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
+                "/admin/applications"
+              )} text-white cursor-pointer`}
+              onClick={() => router.push("/admin/applications")}
+            >
+              <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
+              <h3>Applications</h3>
+            </li>
+            <li
+              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/testimonials"
               )} text-white cursor-pointer`}
               onClick={() => router.push("/admin/testimonials")}
@@ -103,7 +112,7 @@ const Sidebar = () => {
               )} text-white cursor-pointer`}
               onClick={() => router.push("/admin/faqs")}
             >
-              <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
+              <HiQuestionMarkCircle className="h-5 w-5 text-white" />
               <h3>FAQs</h3>
             </li>
             <Divider orientation="horizontal" />

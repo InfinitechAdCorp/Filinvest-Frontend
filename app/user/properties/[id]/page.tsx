@@ -34,7 +34,7 @@ const PropertyDetails = async ({
     <>
       {property ? (
         <div className="flex justify-center w-full">
-          <div className="relative flex flex-col items-start justify-start mx-60 my-5 max-w-[56.25rem] space-y-5">
+          <div className="relative flex flex-col items-start justify-start mx-60 my-7 max-w-[57rem] space-y-5">
             <Details property={property} />
             <Amenities property={property} />
             <Map property={property} />
