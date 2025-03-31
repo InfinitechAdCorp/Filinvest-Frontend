@@ -1,10 +1,9 @@
 import Hero from "@/components/globals/hero";
-import InquiryForm from "@/components/user/contact-us/inquiryForm";
-import Details from "@/components/user/contact-us/details";
 import React from "react";
 import axios from "axios";
 import { Property } from "@/types/user";
 import toast from "react-hot-toast";
+import Body from "@/components/user/contact-us/body";
 
 const ContactUs = async () => {
   let properties: Property[] = [];
@@ -32,10 +31,7 @@ const ContactUs = async () => {
       />
 
       <div className="flex justify-center mx-72 my-7">
-        <div className="flex justify-between gap-10">
-          <InquiryForm properties={properties} />
-          <Details />
-        </div>
+        <Body properties={properties} />
       </div>
     </>
   );

@@ -5,6 +5,7 @@ import { Property } from "@/types/user";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Hero from "@/components/globals/hero";
+import Body from "@/components/user/set-appointment/body";
 
 const SetAppointment = async () => {
   let properties: Property[] = [];
@@ -25,18 +26,10 @@ const SetAppointment = async () => {
 
   return (
     <>
-      <Hero
-        image="/images/banner.jpg"
-        title="Set Appointment"
-      />
-      <div className="my-5 space-y-7">
-        <div className="flex justify-center w-full">
-          <div className="flex justify-between gap-7">
-            <Details />
+      <Hero image="/images/banner.jpg" title="Set Appointment" />
 
-            <AppointmentForm properties={properties} />
-          </div>
-        </div>
+      <div className="flex justify-center w-full my-7">
+        <Body properties={properties} />
       </div>
     </>
   );

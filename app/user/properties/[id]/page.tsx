@@ -2,10 +2,10 @@ import React from "react";
 import { Property } from "@/types/user";
 import axios from "axios";
 import toast from "react-hot-toast";
-import Details from "@/components/user/properties/details";
-import Amenities from "@/components/user/properties/amenities";
-import Offerings from "@/components/user/properties/offerings";
-import Map from "@/components/user/properties/map";
+import Details from "@/components/user/property/details";
+import Amenities from "@/components/user/property/amenities";
+import Offerings from "@/components/user/property/offerings";
+import Map from "@/components/user/property/map";
 
 const PropertyDetails = async ({
   params,
@@ -42,7 +42,9 @@ const PropertyDetails = async ({
           </div>
         </div>
       ) : (
-        <h3 className="text-xl font-bold">Property Not Found</h3>
+        <div className="flex justify-center">
+          <h3 className="font-semibold">Property Not Found</h3>
+        </div>
       )}
     </>
   );
