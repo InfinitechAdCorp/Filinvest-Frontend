@@ -15,15 +15,15 @@ const Map = ({ property }: Props) => {
           Map
         </h3>
 
-        <div className="flex justify-center h-[90%]">
-          {property.map ? (
+        {property.map ? (
+          <div className="flex justify-center h-[90%]">
             <iframe className="w-full h-full mt-2" src={property.map}></iframe>
-          ) : (
-            <h3 className="text-center text-gray-500 mt-4">
-              No Map Found
-            </h3>
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="flex justify-center">
+            <h3 className="font-semibold">No Map Found</h3>
+          </div>
+        )}
       </div>
     </>
   );

@@ -81,7 +81,9 @@ const Body = ({ properties }: Props) => {
               ))}
             </>
           ) : (
-            <h3 className="text-xl font-bold">No Properties Found</h3>
+            <div className="flex justify-center">
+              <h3 className="font-semibold">No Properties Found</h3>
+            </div>
           )}
         </div>
       </div>

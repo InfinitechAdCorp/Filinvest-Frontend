@@ -126,7 +126,9 @@ const Details = ({ property }: Props) => {
                     <h3>{offeringTypes.join(" | ")}</h3>
                   </div>
                 ) : (
-                  <h3>No units available</h3>
+                  <div className="flex justify-center">
+                    <h3 className="font-semibold">No Units Available</h3>
+                  </div>
                 )}
               </div>
             </Card>

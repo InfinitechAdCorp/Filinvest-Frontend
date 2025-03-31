@@ -42,8 +42,8 @@ const FAQs = ({ faqs }: Props) => {
         </div>
       ) : (
         <div className="flex justify-center">
-          <h3 className="text-xl font-bold">No FAQs Found</h3>
-        </div>
+        <h3 className="font-semibold">No FAQs Found</h3>
+      </div>
       )}
     </>
   );

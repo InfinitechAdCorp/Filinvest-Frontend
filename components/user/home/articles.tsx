@@ -25,7 +25,9 @@ const Articles = ({ articles }: Props) => {
                   />
                 </CardHeader>
                 <CardBody className="overflow-visible py-2">
-                  <h3 className="font-bold text-large text-primary">{article.name}</h3>
+                  <h3 className="font-bold text-large text-primary">
+                    {article.name}
+                  </h3>
                   <h3 className="text-sm font-semibold text-primary">
                     {formatDate(article.date)}
                   </h3>
@@ -47,7 +49,9 @@ const Articles = ({ articles }: Props) => {
             ))}
           </>
         ) : (
-          <h3 className="text-xl font-bold">No Articles Found</h3>
+          <div className="flex justify-center">
+            <h3 className="font-semibold">No Articles Found</h3>
+          </div>
         )}
       </div>
     </div>

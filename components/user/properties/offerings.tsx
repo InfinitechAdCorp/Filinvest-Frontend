@@ -36,7 +36,9 @@ const Offerings = ({ property }: Props) => {
             ))}
           </div>
         ) : (
-          <h3 className="text-center text-gray-500 mt-4">No Offerings Found</h3>
+          <div className="flex justify-center">
+            <h3 className="font-semibold">No Offerings Found</h3>
+          </div>
         )}
       </div>
     </>

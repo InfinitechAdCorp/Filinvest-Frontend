@@ -37,9 +37,9 @@ const Amenities = ({ property }: Props) => {
               )}
             </>
           ) : (
-            <h3 className="text-center text-gray-500 mt-4">
-              No Amenities Found
-            </h3>
+            <div className="flex justify-center">
+              <h3 className="font-semibold">No Amenities Found</h3>
+            </div>
           )}
         </div>
       </div>
