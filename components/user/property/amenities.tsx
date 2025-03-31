@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Property } from "@/types/user";
-import { HiCheck } from "react-icons/hi2";
+import { HiMiniStar } from "react-icons/hi2";
 
 type Props = {
   property: Property;
@@ -30,8 +30,8 @@ const Amenities = ({ property }: Props) => {
                     key={index}
                     className="flex gap-1 items-center text-medium lg:text-lg"
                   >
-                    <HiCheck className="w-6 h-6 lg:w-7 lg:h-7 text-primary font-semibold" />
-                    <p>{amenity}</p>
+                    <HiMiniStar className="w-6 h-6 text-primary font-semibold" />
+                    <h3>{amenity}</h3>
                   </div>
                 )
               )}

@@ -13,7 +13,7 @@ const Offerings = ({ property }: Props) => {
   return (
     <>
       <div className="w-full">
-        <h3 className="text-xl sm:text-2xl lg:text-2xl text-primary font-semibold">
+        <h3 className="text-xl sm:text-2xl lg:text-2xl text-primary font-semibold mb-3">
           Offerings
         </h3>
 

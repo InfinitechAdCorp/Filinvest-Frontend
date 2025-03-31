@@ -11,12 +11,8 @@ const Map = ({ property }: Props) => {
   return (
     <>
       <div className="w-full h-[30rem]">
-        <h3 className="text-xl sm:text-2xl lg:text-2xl text-primary font-semibold">
-          Map
-        </h3>
-
         {property.map ? (
-          <div className="flex justify-center h-[90%]">
+          <div className="flex justify-center h-[97%]">
             <iframe className="w-full h-full mt-2" src={property.map}></iframe>
           </div>
         ) : (

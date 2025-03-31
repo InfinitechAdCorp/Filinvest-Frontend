@@ -24,19 +24,14 @@ const Details = ({ property }: Props) => {
 
   return (
     <div className="w-full">
-      <div className="relative w-full">
+      <div>
         <Swiper
+          className="rounded-lg"
           modules={[Navigation, Pagination, Autoplay]}
           navigation
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           loop={true}
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            768: { slidesPerView: 1 },
-            1024: { slidesPerView: 1 },
-          }}
-          className="w-full"
         >
           {JSON.parse(property.images).map((image: string, index: number) => (
             <SwiperSlide key={index}>
@@ -46,17 +41,16 @@ const Details = ({ property }: Props) => {
                   alt="Property"
                   width={1200}
                   height={500}
-                  className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover rounded-lg"
                 />
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        <div className="absolute top-4 sm:top-8 left-4 sm:left-10 z-10 p-2 rounded-lg">
-          <div className="w-[120px] sm:w-[200px] lg:w-[220px]">
+        <div className="absolute top-7 left-7 z-3 p-2 rounded-lg">
+          <div className="w-[220px]">
             <Image
-              alt="Property Logo"
+              alt="Logo"
               className="object-cover"
               src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/logos/${property.logo}`}
             />
@@ -81,6 +75,7 @@ const Details = ({ property }: Props) => {
             >
               {property.type}
             </Chip>
+
             <Chip
               variant="flat"
               color="primary"
@@ -89,6 +84,7 @@ const Details = ({ property }: Props) => {
             >
               {property.status}
             </Chip>
+
             <Chip
               variant="flat"
               color="primary"
@@ -104,10 +100,11 @@ const Details = ({ property }: Props) => {
               radius="sm"
               className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
             >
-              <div className="flex justify-between gap-3 items-center ">
+              <div className="flex justify-between gap-3 items-center">
                 <Chip radius="full" variant="flat" color="primary">
                   <IoMdPricetags className="w-5 h-5 text-blue-800" />
                 </Chip>
+
                 <h3 className="text-medium text-gray-900">
                   {`₱${formatNumberShort(property.minimum_price)} - ₱${formatNumberShort(property.maximum_price)}`}
                 </h3>
@@ -150,9 +147,9 @@ const Details = ({ property }: Props) => {
         </div>
 
         <div>
-          <p className="text-medium text-justify lg:text-lg italic text-gray-900">
+          <h3 className="text-medium text-justify lg:text-lg italic text-gray-900">
             {property.description}
-          </p>
+          </h3>
         </div>
       </div>
     </div>
