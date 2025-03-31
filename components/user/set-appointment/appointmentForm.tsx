@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import {
   Button,
   Input,
-  Select,
-  SelectItem,
   Textarea,
   Autocomplete,
   AutocompleteItem,
@@ -17,7 +15,6 @@ import { CreateAppointment as validationSchema } from "@/schemas/user";
 import { Formik, FormikProps, Form, Field, FieldProps } from "formik";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { dateToDateValue, dateValueToDate } from "@/utils/formatters";
 
 type Props = {
   properties: Property[];
@@ -31,38 +28,42 @@ const AppointmentForm = ({ properties }: Props) => {
     last_name: "",
     mobile: "",
     email: "",
-    date: "",
-    time: "",
+    date: null,
+    time: null,
     property_id: "",
     message: "",
   };
 
   const onSubmit = async (
-    values: Values,
+    ufValues: Values,
     actions: { resetForm: () => void }
   ) => {
-    console.log(values);
-    // setIsSubmitting(true);
+    setIsSubmitting(true);
 
-    // try {
-    //   await axios.post(
-    //     `${process.env.NEXT_PUBLIC_API_URL}/appointments`,
-    //     values,
-    //     {
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
+    const values = {
+      ...ufValues,
+      date: ufValues.date!.toString(),
+      time: ufValues.time!.toString(),
+    };
 
-    //   actions.resetForm();
-    //   toast.success("Appointment submitted successfully!");
-    // } catch (error) {
-    //   console.error("Error:", error);
-    //   toast.error("Something went wrong!");
-    // }
+    try {
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/appointments`,
+        values,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      actions.resetForm();
+      toast.success("Appointment submitted successfully!");
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Something went wrong!");
+    }
 
-    // setIsSubmitting(false);
+    setIsSubmitting(false);
   };
 
   return (
@@ -79,7 +80,7 @@ const AppointmentForm = ({ properties }: Props) => {
                 <h3 className="text-xl text-primary">Personal Information</h3>
               </div>
 
-              <div className="flex justify-between gap-2">
+              <div className="flex justify-between gap-3">
                 <div className="flex flex-col w-full">
                   <Field name="first_name">
                     {({ field, meta }: FieldProps) => (
@@ -150,7 +151,7 @@ const AppointmentForm = ({ properties }: Props) => {
                 <h3 className="text-xl text-primary">Appointment Details</h3>
               </div>
 
-              <div className="flex justify-between gap-2">
+              <div className="flex justify-between gap-3">
                 <div className="flex flex-col w-full">
                   <Field name="date">
                     {({ field, meta }: FieldProps) => (
@@ -159,10 +160,9 @@ const AppointmentForm = ({ properties }: Props) => {
                           {...field}
                           radius="none"
                           label="Date"
-                          value={dateToDateValue(field.value)}
+                          value={field.value}
                           onChange={(value) => {
-                            const date = dateValueToDate(value);
-                            props.setFieldValue(field.name, date);
+                            props.setFieldValue(field.name, value);
                           }}
                         />
                         {meta.touched && meta.error && (
@@ -177,9 +177,14 @@ const AppointmentForm = ({ properties }: Props) => {
                   <Field name="time">
                     {({ field, meta }: FieldProps) => (
                       <div>
-                        <TimeInput {...field} radius="none" label="Time" onChange={(value) => {
-                            console.log(value)
-                        }} />
+                        <TimeInput
+                          {...field}
+                          radius="none"
+                          label="Time"
+                          onChange={(value) => {
+                            props.setFieldValue(field.name, value);
+                          }}
+                        />
 
                         {meta.touched && meta.error && (
                           <small className="text-red-500">{meta.error}</small>
@@ -198,9 +203,6 @@ const AppointmentForm = ({ properties }: Props) => {
                         {...field}
                         radius="none"
                         label="Property"
-                        onInputChange={(value: string) => {
-                          props.setFieldValue(field.name, value);
-                        }}
                         onSelectionChange={(key: React.Key | null) => {
                           props.setFieldValue(field.name, key);
                         }}

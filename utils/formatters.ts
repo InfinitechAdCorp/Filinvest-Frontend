@@ -41,25 +41,3 @@ export const sortByDate = (
   });
   return (records = order == "asc" ? records : records.reverse());
 };
-
-export const dateToDateValue = (date: Date) => {
-  let dateValue;
-
-  if (date) {
-    const components = date.toLocaleDateString("en-CA").split("-");
-    components[0] = components[0].padStart(4, "0");
-    dateValue = parseDate(components.join("-"));
-  }
-
-  return dateValue;
-};
-
-export const dateValueToDate = (dateValue: DateValue | null) => {
-  let date;
-
-  if (dateValue) {
-    date = new Date(new Date(dateValue.toString()).setUTCHours(0, 0, 0, 0));
-  }
-
-  return date;
-};

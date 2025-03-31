@@ -1,3 +1,4 @@
+import { DateValue } from "@heroui/react";
 import { Time } from "@internationalized/date";
 
 export type CreateInquiry = {
@@ -18,8 +19,8 @@ export type CreateAppointment = {
   last_name: string;
   mobile: string;
   email: string;
-  date: Date | "";
-  time: Time | "";
+  date: DateValue | null;
+  time: Time | null;
   property_id: string;
   message: string;
 };

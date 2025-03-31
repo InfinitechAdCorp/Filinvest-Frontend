@@ -5,13 +5,13 @@ import { Image } from "@heroui/react";
 
 const Details = () => {
   return (
-    <div>
+    <div className="w-[25.5rem]">
       <div className="rounded-lg">
         <Image
           src="/images/office.jpg"
           alt="Filinvest Image"
           classNames={{
-            wrapper: "flex rounded-lg shadow-xl w-[27rem]",
+            wrapper: "flex rounded-lg shadow-xl",
             img: "h-[13rem]",
           }}
         />

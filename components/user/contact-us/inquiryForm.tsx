@@ -267,9 +267,6 @@ const InquiryForm = ({ properties }: Props) => {
                             {...field}
                             radius="none"
                             label="Property"
-                            onInputChange={(value: string) => {
-                              props.setFieldValue(field.name, value);
-                            }}
                             onSelectionChange={(key: React.Key | null) => {
                               props.setFieldValue(field.name, key);
                             }}

@@ -3,7 +3,7 @@ import React from "react";
 interface Props {
   image: string;
   title: string;
-  description: string;
+  description?: string;
 }
 
 const Hero = ({ image, title, description }: Props) => {
