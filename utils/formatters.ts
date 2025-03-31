@@ -1,5 +1,3 @@
-import { DateValue, parseDate } from "@internationalized/date";
-
 export const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString("default", {
     year: "numeric",
@@ -8,11 +6,11 @@ export const formatDate = (date: string) => {
   });
 };
 
-export const formatPeso = (amount: number): string => {
+export const formatPeso = (number: number): string => {
   return new Intl.NumberFormat("en-PH", {
     style: "currency",
     currency: "PHP",
-  }).format(amount);
+  }).format(number);
 };
 
 export const formatNumberShort = (number: number) => {
