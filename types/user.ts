@@ -1,3 +1,5 @@
+import { Time } from "@internationalized/date";
+
 export type CreateInquiry = {
   first_name: string;
   last_name: string;
@@ -9,6 +11,17 @@ export type CreateInquiry = {
   country: string;
   message: string;
   property_id: string;
+};
+
+export type CreateAppointment = {
+  first_name: string;
+  last_name: string;
+  mobile: string;
+  email: string;
+  date: Date | "";
+  time: Time | "";
+  property_id: string;
+  message: string;
 };
 
 export type Property = {

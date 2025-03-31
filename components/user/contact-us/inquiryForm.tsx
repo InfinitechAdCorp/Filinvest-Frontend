@@ -24,16 +24,16 @@ const InquiryForm = ({ properties }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
-    first_name: "0",
-    last_name: "0",
-    gender: "Male",
-    landline: "0",
-    mobile: "0",
-    email: "0@gmail.com",
-    city: "0",
+    first_name: "",
+    last_name: "",
+    gender: "",
+    landline: "",
+    mobile: "",
+    email: "",
+    city: "",
     country: "Philippines",
-    message: "0",
-    property_id: properties[0].id,
+    message: "",
+    property_id: "",
   };
 
   const onSubmit = async (

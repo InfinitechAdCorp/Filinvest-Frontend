@@ -8,7 +8,7 @@ const Details = () => {
     <>
       <div>
           <Image
-            src="/images/contact-us.jpg"
+            src="/images/office.jpg"
             alt="Filinvest Image"
             classNames={{
               wrapper: "flex rounded-lg shadow-xl min-w-full",

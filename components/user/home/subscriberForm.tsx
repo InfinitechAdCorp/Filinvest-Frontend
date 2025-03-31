@@ -11,7 +11,7 @@ const SubscriberForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
-    email: "1@gmail.com",
+    email: "",
   };
 
   const validationSchema = Yup.object().shape({
