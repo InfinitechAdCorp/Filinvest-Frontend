@@ -14,6 +14,7 @@ import {
   TableHeader,
   TableRow,
 } from "@heroui/react";
+import { formatPeso } from "@/utils/formatters";
 
 const LoanForm = () => {
   const [values, setValues] = useState({
@@ -51,6 +52,7 @@ const LoanForm = () => {
         <CardBody>
           <div className="flex flex-wrap md:flex-nowrap gap-3">
             <Select
+              name="years"
               className="w-full md:max-w-xs"
               label="Select Years"
               size="sm"
@@ -67,29 +69,36 @@ const LoanForm = () => {
             </Select>
 
             <Select
+              name="months"
               className="w-full md:max-w-xs"
               label="Select Months"
-              size={"sm"}
-              onChange={(e) => setSelectedMonths(Number(e.target.value))}
+              size="sm"
+              onChange={onChange}
             >
-              {months.map((month) => (
-                <SelectItem key={month.key}>{month.label}</SelectItem>
+              {Array.from({ length: 26 }).map((_, index) => (
+                <SelectItem
+                  key={index}
+                  textValue={`${index} ${index == 1 ? "Month" : "Months"}`}
+                >
+                  {index} {index == 1 ? "Month" : "Months"}
+                </SelectItem>
               ))}
             </Select>
 
             <Input
+              name="amount"
               label="Enter Loan Amount (00.00)"
               size="sm"
               type="number"
-              value={loanAmount}
-              onChange={(e) => setLoanAmount(e.target.value)}
+              onChange={onChange}
             />
+
             <Input
+              name="rate"
               label="Enter Interest (%)"
               size="sm"
               type="number"
-              value={interestRate}
-              onChange={(e) => setInterestRate(e.target.value)}
+              onChange={onChange}
             />
           </div>
         </CardBody>
@@ -104,65 +113,48 @@ const LoanForm = () => {
           <TableRow>
             <TableCell>Selected Years</TableCell>
             <TableCell>
-              {selectedYears} Year{selectedYears > 1 ? "s" : ""}
+              {values.years} Year{values.years > 1 ? "s" : ""}
             </TableCell>
           </TableRow>
+
           <TableRow>
             <TableCell>Selected Months</TableCell>
             <TableCell>
-              {selectedMonths} Month{selectedMonths > 1 ? "s" : ""}
+              {values.months} Month{values.months > 1 ? "s" : ""}
             </TableCell>
           </TableRow>
+
           <TableRow>
             <TableCell>Loan Amount</TableCell>
-            <TableCell>
-              ₱{" "}
-              {parseFloat(loanAmount || "0").toLocaleString(undefined, {
-                minimumFractionDigits: 2,
-              })}
-            </TableCell>
+            <TableCell>{formatPeso(values.amount)}</TableCell>
           </TableRow>
+
           <TableRow>
             <TableCell>Interest Rate</TableCell>
-            <TableCell>
-              {parseFloat(interestRate || "0").toLocaleString(undefined, {
-                minimumFractionDigits: 2,
-              })}
-              %
-            </TableCell>
+            <TableCell>{values.rate}%</TableCell>
           </TableRow>
-          <TableRow>
-            <TableCell>Total Loan Amount (w/ interest)</TableCell>
-            <TableCell>
-              ₱ {isNaN(Number(results.totalLoan)) ? "0.00" : results.totalLoan}
-            </TableCell>
-          </TableRow>
+
           <TableRow>
             <TableCell>Monthly Payment</TableCell>
             <TableCell>
-              ₱{" "}
-              {isNaN(Number(results.monthlyPayment))
-                ? "0.00"
-                : results.monthlyPayment}
+              {formatPeso(isNaN(values.monthly) ? 0.0 : values.monthly)}
             </TableCell>
           </TableRow>
+
           <TableRow>
-            <TableCell>Total Amount</TableCell>
+            <TableCell>Total Loan Amount</TableCell>
             <TableCell>
-              ₱{" "}
-              {isNaN(Number(results.totalAmount))
-                ? "0.00"
-                : results.totalAmount}
+              {formatPeso(isNaN(values.total) ? 0.0 : values.total)}
             </TableCell>
           </TableRow>
         </TableBody>
       </Table>
 
-      <p className="text-sm text-default-500">
+      <h3 className="text-sm text-default-500">
         * Please note that the results provided by this calculator are estimates
         and may vary. The final loan amount, interest rates, and monthly
         payments will be determined by the bank upon approval.
-      </p>
+      </h3>
     </div>
   );
 };
