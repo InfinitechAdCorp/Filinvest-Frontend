@@ -28,7 +28,7 @@ const SetAppointment = async () => {
     <>
       <Hero image="/images/banner.jpg" title="Set Appointment" />
 
-      <div className="flex justify-center w-full my-7">
+      <div className="flex justify-center my-7">
         <Body properties={properties} />
       </div>
     </>
