@@ -1,7 +1,5 @@
 import React from "react";
-import AppointmentForm from "@/components/user/set-appointment/appointmentForm";
-import Details from "@/components/user/set-appointment/details";
-import { Property } from "@/types/user";
+import { Property } from "@/types/globals";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Hero from "@/components/globals/hero";

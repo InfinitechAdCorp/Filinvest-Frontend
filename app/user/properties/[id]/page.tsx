@@ -1,5 +1,5 @@
 import React from "react";
-import { Property } from "@/types/user";
+import { Property } from "@/types/globals";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Details from "@/components/user/property/details";

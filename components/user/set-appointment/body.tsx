@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Card, CardBody } from "@heroui/react";
-import { Property } from "@/types/user";
+import { Property } from "@/types/globals";
 import Details from "./details";
 import AppointmentForm from "./appointmentForm";
 

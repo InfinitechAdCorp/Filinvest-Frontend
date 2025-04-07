@@ -3,7 +3,7 @@
 import React from "react";
 import { Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
 import { HiLink } from "react-icons/hi2";
-import { Property } from "@/types/user";
+import { Property } from "@/types/globals";
 import { formatNumberShort } from "@/utils/formatters";
 import Link from "next/link";
 

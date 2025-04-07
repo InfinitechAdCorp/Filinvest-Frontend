@@ -3,7 +3,7 @@ import Hero from "@/components/user/home/hero";
 import Others from "@/components/user/home/others";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Article, FAQ, Property, Testimonial } from "@/types/user";
+import { Article, FAQ, Property, Testimonial } from "@/types/globals";
 import Testimonials from "@/components/user/home/testimonials";
 import Articles from "@/components/user/home/articles";
 import { sortByDate } from "@/utils/formatters";

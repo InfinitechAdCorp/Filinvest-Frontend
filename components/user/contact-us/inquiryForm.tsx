@@ -10,7 +10,8 @@ import {
   Autocomplete,
   AutocompleteItem,
 } from "@heroui/react";
-import { Property, CreateInquiry as Values } from "@/types/user";
+import { Property } from "@/types/globals";
+import { CreateInquiry as Values } from "@/types/user";
 import { CreateInquiry as validationSchema } from "@/schemas/user";
 import { Formik, FormikProps, Form, Field, FieldProps } from "formik";
 import toast from "react-hot-toast";

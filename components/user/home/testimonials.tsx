@@ -14,7 +14,7 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@heroui/modal";
-import { Testimonial } from "@/types/user";
+import { Testimonial } from "@/types/globals";
 
 type Props = {
   testimonials: Testimonial[];

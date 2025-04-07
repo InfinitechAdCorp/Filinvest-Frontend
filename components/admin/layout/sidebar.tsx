@@ -12,6 +12,8 @@ import {
   HiBriefcase,
   HiCalendarDays,
   HiQuestionMarkCircle,
+  HiMagnifyingGlass,
+  HiDocument,
 } from "react-icons/hi2";
 
 const Sidebar = () => {
@@ -21,6 +23,7 @@ const Sidebar = () => {
   const isActive = (url: string) => {
     return pathname.startsWith(url) ? "bg-blue-400" : "";
   };
+  
   return (
     <div>
       <Card
@@ -76,7 +79,7 @@ const Sidebar = () => {
               )} text-white cursor-pointer`}
               onClick={() => router.push("/admin/inquiries")}
             >
-              <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
+              <HiMagnifyingGlass className="h-5 w-5 text-white" />
               <h3>Inquiries</h3>
             </li>
             <li
@@ -94,7 +97,7 @@ const Sidebar = () => {
               )} text-white cursor-pointer`}
               onClick={() => router.push("/admin/applications")}
             >
-              <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
+              <HiDocument className="h-5 w-5 text-white" />
               <h3>Applications</h3>
             </li>
             <li

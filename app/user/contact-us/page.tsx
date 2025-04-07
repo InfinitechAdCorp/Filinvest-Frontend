@@ -1,7 +1,7 @@
 import Hero from "@/components/globals/hero";
 import React from "react";
 import axios from "axios";
-import { Property } from "@/types/user";
+import { Property } from "@/types/globals";
 import toast from "react-hot-toast";
 import Body from "@/components/user/contact-us/body";
 

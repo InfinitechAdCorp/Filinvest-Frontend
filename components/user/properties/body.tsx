@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Property } from "@/types/user";
+import { Property } from "@/types/globals";
 import { Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
 import { HiLink } from "react-icons/hi2";
 import { formatNumberShort } from "@/utils/formatters";

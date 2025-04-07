@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Property } from "@/types/user";
+import { Property } from "@/types/globals";
 import { HiMiniStar } from "react-icons/hi2";
 
 type Props = {

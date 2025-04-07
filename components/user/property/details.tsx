@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { RiLandscapeFill } from "react-icons/ri";
 import { formatNumber, formatNumberShort } from "@/utils/formatters";
-import { Property } from "@/types/user";
+import { Property } from "@/types/globals";
 
 type Props = {
   property: Property;
