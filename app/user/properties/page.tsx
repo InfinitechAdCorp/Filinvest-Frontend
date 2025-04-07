@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Body from "@/components/user/properties/body";
 
-const Properties = async () => {
+const Page = async () => {
   let properties: Property[] = [];
   try {
     const response = await axios.get(
@@ -39,4 +39,4 @@ const Properties = async () => {
   );
 };
 
-export default Properties;
+export default Page;

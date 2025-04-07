@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/faqs/renderBody";
 
-const FAQs = async () => {
+const Page = async () => {
   const model = "FAQs";
 
   const columns = [
@@ -45,4 +45,4 @@ const FAQs = async () => {
   );
 };
 
-export default FAQs;
+export default Page;

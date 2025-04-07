@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./loader.module.css";
+import styles from "./loading.module.css";
 
-const Loader = () => {
+const Loading = () => {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className={styles.container}>
@@ -22,4 +22,4 @@ const Loader = () => {
   );
 };
 
-export default Loader;
+export default Loading;

@@ -5,7 +5,7 @@ import { Property } from "@/types/globals";
 import toast from "react-hot-toast";
 import Body from "@/components/user/contact-us/body";
 
-const ContactUs = async () => {
+const Page = async () => {
   let properties: Property[] = [];
   try {
     const response = await axios.get(
@@ -37,4 +37,4 @@ const ContactUs = async () => {
   );
 };
 
-export default ContactUs;
+export default Page;

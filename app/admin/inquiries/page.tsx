@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/inquiries/renderBody";
 
-const Inquiries = async () => {
+const Page = async () => {
   const model = "Inquiries";
 
   const columns = [
@@ -53,4 +53,4 @@ const Inquiries = async () => {
   );
 };
 
-export default Inquiries;
+export default Page;

@@ -7,7 +7,7 @@ import Amenities from "@/components/user/property/amenities";
 import Offerings from "@/components/user/property/offerings";
 import Map from "@/components/user/property/map";
 
-const PropertyDetails = async ({
+const Page = async ({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -50,4 +50,4 @@ const PropertyDetails = async ({
   );
 };
 
-export default PropertyDetails;
+export default Page;

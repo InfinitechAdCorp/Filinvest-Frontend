@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/testimonials/renderBody";
 
-const Testimonials = async () => {
+const Page = async () => {
   const model = "Testimonials";
 
   const columns = [
@@ -45,4 +45,4 @@ const Testimonials = async () => {
   );
 };
 
-export default Testimonials;
+export default Page;

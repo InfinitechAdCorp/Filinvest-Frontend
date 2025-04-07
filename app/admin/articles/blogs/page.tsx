@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/articles/awards/renderBody";
 
-const Blogs = async () => {
+const Page = async () => {
   const model = "Blogs";
 
   const columns = [
@@ -51,4 +51,4 @@ const Blogs = async () => {
   );
 };
 
-export default Blogs;
+export default Page;

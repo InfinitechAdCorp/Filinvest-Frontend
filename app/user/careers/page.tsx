@@ -1,7 +1,7 @@
 import Hero from "@/components/globals/hero";
 import React from "react";
 
-const Email = () => {
+const Page = () => {
   return (
     <>
       <div>
@@ -15,4 +15,4 @@ const Email = () => {
   );
 };
 
-export default Email;
+export default Page;

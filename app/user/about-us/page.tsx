@@ -2,7 +2,7 @@ import Hero from "@/components/globals/hero";
 import Images from "@/components/user/about-us/images";
 import React from "react";
 
-const AboutUs = () => {
+const Page = () => {
   return (
     <div>
       <Hero
@@ -53,4 +53,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Page;

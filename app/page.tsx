@@ -11,7 +11,7 @@ import SectionTitle from "@/components/globals/sectionTitle";
 import FAQs from "@/components/user/home/faqs";
 import FeaturedProperties from "@/components/user/home/featuredProperties";
 
-const Home = async () => {
+const Page = async () => {
   let testimonials: Testimonial[] = [];
   try {
     const response = await axios.get(
@@ -141,4 +141,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default Page;

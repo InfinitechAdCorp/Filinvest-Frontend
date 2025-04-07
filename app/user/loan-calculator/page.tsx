@@ -2,7 +2,7 @@ import Hero from "@/components/globals/hero";
 import LoanForm from "@/components/user/loan-calculator/loanForm";
 import React from "react";
 
-const LoanCalculator = () => {
+const Page = () => {
   return (
     <>
       <Hero image="/images/banner.jpg" title="Loan Calculator" />
@@ -14,4 +14,4 @@ const LoanCalculator = () => {
   );
 };
 
-export default LoanCalculator;
+export default Page;

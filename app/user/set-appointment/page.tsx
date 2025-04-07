@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import Hero from "@/components/globals/hero";
 import Body from "@/components/user/set-appointment/body";
 
-const SetAppointment = async () => {
+const Page = async () => {
   let properties: Property[] = [];
   try {
     const response = await axios.get(
@@ -33,4 +33,4 @@ const SetAppointment = async () => {
   );
 };
 
-export default SetAppointment;
+export default Page;
