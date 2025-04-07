@@ -28,9 +28,7 @@ type Props = {
   columns: Column[];
   initialColumns?: string[];
   records: any[];
-  filterKey?: string;
   RenderBody: (columns: Column[], records: any[], dependencies: any) => any;
-  Buttons?: ReactElement;
   dependencies?: any;
 };
 
@@ -40,7 +38,6 @@ const DataTable = ({
   initialColumns: ufInitialColumns,
   records: ufRecords,
   RenderBody,
-  Buttons,
   dependencies,
 }: Props) => {
   const initialColumns = ufInitialColumns || [];

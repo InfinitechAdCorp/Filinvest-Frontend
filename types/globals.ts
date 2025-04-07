@@ -81,3 +81,34 @@ export type FAQDisplayFormat = {
   question: string;
   answer: string;
 };
+
+export type Inquiry = {
+  id: string;
+  property_id: string;
+  first_name: string;
+  last_name: string;
+  gender: string;
+  landline: string;
+  mobile: string;
+  email: string;
+  city: string;
+  country: string;
+  message: string;
+  created_at: string;
+  updated_at: string;
+  property: Property;
+  display_format: InquiryDisplayFormat;
+};
+
+export type InquiryDisplayFormat = {
+  property: string;
+  first_name: string;
+  last_name: string;
+  gender: string;
+  landline: string;
+  mobile: string;
+  email: string;
+  city: string;
+  country: string;
+  message: string;
+};
