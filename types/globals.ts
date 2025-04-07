@@ -35,12 +35,22 @@ export type Property = {
 
 export type Offering = {
   id: string;
+  property_id: string;
   type: string;
   minimum_area: number;
   maximum_area: number;
   image: string;
   created_at: string;
   updated_at: string;
+  property: Property;
+  display_format?: OfferingDisplayFormat;
+};
+
+export type OfferingDisplayFormat = {
+  property: string;
+  type: string;
+  minimum_area: string;
+  maximum_area: string;
 };
 
 export type Testimonial = {
@@ -61,11 +71,19 @@ export type Article = {
   id: string;
   name: string;
   type: string;
-  date: string;
+  date: Date;
   description: string;
   image: string;
   created_at: string;
   updated_at: string;
+  display_format?: ArticleDisplayFormat;
+};
+
+export type ArticleDisplayFormat = {
+  name: string;
+  date: string;
+  description: string;
+  image: string;
 };
 
 export type FAQ = {

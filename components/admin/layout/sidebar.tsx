@@ -124,7 +124,7 @@ const Sidebar = () => {
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/awards"
               )} text-white cursor-pointer`}
-              onClick={() => router.push("/admin/awards")}
+              onClick={() => router.push("/admin/articles/awards")}
             >
               <HiTrophy className="h-5 w-5 text-white" />
               <h3>Awards</h3>
@@ -133,7 +133,7 @@ const Sidebar = () => {
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/news"
               )} text-white cursor-pointer`}
-              onClick={() => router.push("/admin/news")}
+              onClick={() => router.push("/admin/articles/news")}
             >
               <HiNewspaper className="h-5 w-5 text-white" />
               <h3>News</h3>
@@ -142,7 +142,7 @@ const Sidebar = () => {
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/blogs"
               )} text-white cursor-pointer`}
-              onClick={() => router.push("/admin/blogs")}
+              onClick={() => router.push("/admin/articles/blogs")}
             >
               <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
               <h3>Blogs</h3>

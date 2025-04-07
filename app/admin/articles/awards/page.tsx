@@ -1,24 +1,26 @@
 import React from "react";
-import { displayFormat } from "@/actions/admin/faqs";
-import { FAQ as Record } from "@/types/globals";
+import { displayFormat } from "@/actions/admin/articles";
+import { Article as Record } from "@/types/globals";
 import axios from "axios";
 import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
-import RenderBody from "@/components/admin/faqs/renderBody";
+import RenderBody from "@/components/admin/articles/awards/renderBody";
 
-const FAQs = async () => {
-  const model = "FAQs";
+const Awards = async () => {
+  const model = "Awards";
 
   const columns = [
-    { key: "question", name: "QUESTION", sortable: true },
-    { key: "answer", name: "ANSWER", sortable: true },
+    { key: "name", name: "NAME", sortable: true },
+    { key: "date", name: "DATE", sortable: true },
+    { key: "description", name: "DESCRIPTION", sortable: true },
+    { key: "image", name: "IMAGE", sortable: true },
     { key: "actions", name: "ACTIONS", sortable: true },
   ];
 
   let ufRecords: Record[] = [];
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/faqs`,
+      `${process.env.NEXT_PUBLIC_API_URL}/articles`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +33,11 @@ const FAQs = async () => {
     toast.error("Something went wrong!");
   }
 
-  const records = await displayFormat(columns, ufRecords);
+  const fRecords = ufRecords.filter((ufRecord) => {
+    return ufRecord.type == "Award";
+  });
+
+  const records = await displayFormat(columns, fRecords);
 
   return (
     <div className="w-full flex justify-center">
@@ -45,4 +51,4 @@ const FAQs = async () => {
   );
 };
 
-export default FAQs;
+export default Awards;

@@ -12,6 +12,7 @@ const Testimonials = async () => {
   const columns = [
     { key: "name", name: "NAME", sortable: true },
     { key: "message", name: "MESSAGE", sortable: true },
+    { key: "actions", name: "ACTIONS", sortable: true },
   ];
 
   let ufRecords: Record[] = [];
