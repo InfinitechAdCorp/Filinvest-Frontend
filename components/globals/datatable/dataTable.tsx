@@ -164,42 +164,44 @@ const DataTable = ({
 
   return (
     <>
-      <Card className="m-5 md:my-7 md:mx-32 p-3">
-        <CardBody>
-          <Table
-            aria-label="DataTable"
-            isHeaderSticky
-            bottomContent={
-              <BottomContent
-                total={records.length}
-                page={page}
-                pages={pages}
-                onChange={setPage}
-                onSelectionChange={onRowsPerPageChange}
-              />
-            }
-            bottomContentPlacement="outside"
-            classNames={{
-              wrapper: "max-h-[40rem]",
-            }}
-            topContent={topContent}
-            topContentPlacement="outside"
-            sortDescriptor={sortDescriptor}
-            onSortChange={setSortDescriptor}
-          >
-            <TableHeader columns={columns}>
-              {(column) => (
-                <TableColumn key={column.key} allowsSorting={column.sortable}>
-                  {column.name}
-                </TableColumn>
-              )}
-            </TableHeader>
-            <TableBody emptyContent={`No ${model} Found`}>
-              {RenderBody(columns, sortedRecords, dependencies)}
-            </TableBody>
-          </Table>
-        </CardBody>
-      </Card>
+      <div>
+        <Card className="m-5 md:my-7 md:mx-32 p-3">
+          <CardBody>
+            <Table
+              aria-label="DataTable"
+              isHeaderSticky
+              bottomContent={
+                <BottomContent
+                  total={records.length}
+                  page={page}
+                  pages={pages}
+                  onChange={setPage}
+                  onSelectionChange={onRowsPerPageChange}
+                />
+              }
+              bottomContentPlacement="outside"
+              classNames={{
+                wrapper: "max-h-[40rem]",
+              }}
+              topContent={topContent}
+              topContentPlacement="outside"
+              sortDescriptor={sortDescriptor}
+              onSortChange={setSortDescriptor}
+            >
+              <TableHeader columns={columns}>
+                {(column) => (
+                  <TableColumn key={column.key} allowsSorting={column.sortable}>
+                    {column.name}
+                  </TableColumn>
+                )}
+              </TableHeader>
+              <TableBody emptyContent={`No ${model} Found`}>
+                {RenderBody(columns, sortedRecords, dependencies)}
+              </TableBody>
+            </Table>
+          </CardBody>
+        </Card>
+      </div>
     </>
   );
 };

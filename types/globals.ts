@@ -74,4 +74,10 @@ export type FAQ = {
   answer: string;
   created_at: string;
   updated_at: string;
+  display_format?: FAQDisplayFormat;
+};
+
+export type FAQDisplayFormat = {
+  question: string;
+  answer: string;
 };

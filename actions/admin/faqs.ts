@@ -2,15 +2,15 @@
 
 import {
   Column,
-  Testimonial as Record,
-  TestimonialDisplayFormat as DisplayFormat,
+  FAQ as Record,
+  FAQDisplayFormat as DisplayFormat,
 } from "@/types/globals";
 
 export const displayFormat = async (columns: Column[], records: Record[]) => {
   records.forEach((record) => {
     const display_format = {
-      name: "",
-      message: "",
+      question: "",
+      answer: "",
     };
 
     columns.forEach((column) => {
