@@ -71,7 +71,7 @@ export type Article = {
   id: string;
   name: string;
   type: string;
-  date: Date;
+  date: string;
   description: string;
   image: string;
   created_at: string;
@@ -129,4 +129,33 @@ export type InquiryDisplayFormat = {
   city: string;
   country: string;
   message: string;
+};
+
+export type Appointment = {
+  id: string;
+  property_id: string;
+  first_name: string;
+  last_name: string;
+  mobile: string;
+  email: string;
+  date: string;
+  time: string;
+  message: string;
+  status: string;
+  created_at: string;
+  updated_at: string;
+  property: Property;
+  display_format?: AppointmentDisplayFormat;
+};
+
+export type AppointmentDisplayFormat = {
+  property: string;
+  first_name: string;
+  last_name: string;
+  mobile: string;
+  email: string;
+  date: string;
+  time: string;
+  message: string;
+  status: string;
 };

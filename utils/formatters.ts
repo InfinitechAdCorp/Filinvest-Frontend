@@ -1,8 +1,16 @@
-export const formatDate = (date: Date) => {
+export const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString("default", {
     year: "numeric",
     month: "long",
     day: "numeric",
+  });
+};
+
+export const formatTime = (timestamp: string) => {
+  return new Date(timestamp).toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
   });
 };
 

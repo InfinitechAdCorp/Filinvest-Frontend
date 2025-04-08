@@ -14,7 +14,7 @@ const Page = async () => {
     { key: "date", name: "DATE", sortable: true },
     { key: "description", name: "DESCRIPTION", sortable: true },
     { key: "image", name: "IMAGE", sortable: true },
-    { key: "actions", name: "ACTIONS", sortable: true },
+    { key: "actions", name: "ACTIONS", sortable: false },
   ];
 
   let ufRecords: Record[] = [];

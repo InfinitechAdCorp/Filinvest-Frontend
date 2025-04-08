@@ -12,7 +12,7 @@ const Page = async () => {
   const columns = [
     { key: "question", name: "QUESTION", sortable: true },
     { key: "answer", name: "ANSWER", sortable: true },
-    { key: "actions", name: "ACTIONS", sortable: true },
+    { key: "actions", name: "ACTIONS", sortable: false },
   ];
 
   let ufRecords: Record[] = [];

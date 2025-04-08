@@ -2,18 +2,23 @@
 
 import {
   Column,
-  Article as Record,
-  ArticleDisplayFormat as DisplayFormat,
+  Appointment as Record,
+  AppointmentDisplayFormat as DisplayFormat,
 } from "@/types/globals";
-import { formatDate } from "@/utils/formatters";
+import { formatDate, formatTime } from "@/utils/formatters";
 
 export const displayFormat = async (columns: Column[], records: Record[]) => {
   records.forEach((record) => {
     const display_format = {
-      name: "",
+      property: "",
+      first_name: "",
+      last_name: "",
+      mobile: "",
+      email: "",
       date: "",
-      description: "",
-      image: "",
+      time: "",
+      message: "",
+      status: "",
     };
 
     columns.forEach((column) => {
@@ -21,8 +26,15 @@ export const displayFormat = async (columns: Column[], records: Record[]) => {
       let value;
 
       switch (key) {
+        case "property":
+          value = record.property.name;
+          break;
         case "date":
           value = formatDate(record[key as keyof Record] as string);
+          break;
+        case "time":
+          const timestamp = `${record.date}T${record.time}.000000Z`;
+          value = formatTime(timestamp);
           break;
         default:
           value = record[key as keyof Record];

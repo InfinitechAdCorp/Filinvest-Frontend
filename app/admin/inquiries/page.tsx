@@ -20,7 +20,7 @@ const Page = async () => {
     { key: "city", name: "CITY", sortable: true },
     { key: "country", name: "COUNTRY", sortable: true },
     { key: "message", name: "MESSAGE", sortable: true },
-    { key: "actions", name: "ACTIONS", sortable: true },
+    { key: "actions", name: "ACTIONS", sortable: false },
   ];
 
   let ufRecords: Record[] = [];
