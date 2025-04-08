@@ -38,14 +38,14 @@ export type PropertyDisplayFormat = {
   name: string;
   logo: string;
   type: string;
-  price: string
+  price: string;
   location: string;
   area: string;
   status: string;
   substatus: string;
   description: string;
   amenities: string;
-}
+};
 
 export type Offering = {
   id: string;
