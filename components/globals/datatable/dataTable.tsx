@@ -29,7 +29,12 @@ type Props = {
   columns: Column[];
   initialColumns?: string[];
   records: any[];
-  RenderBody: (columns: Column[], records: any[], dependencies: any) => any;
+  RenderBody: (
+    model: string,
+    columns: Column[],
+    records: any[],
+    dependencies: any
+  ) => any;
   Buttons?: ReactElement;
   dependencies?: any;
 };
@@ -202,7 +207,7 @@ const DataTable = ({
                 )}
               </TableHeader>
               <TableBody emptyContent={`No ${pluralize(model)} Found`}>
-                {RenderBody(columns, sortedRecords, dependencies)}
+                {RenderBody(model, columns, sortedRecords, dependencies)}
               </TableBody>
             </Table>
           </CardBody>

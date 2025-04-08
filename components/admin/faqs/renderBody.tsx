@@ -7,13 +7,14 @@ import {
   FAQ as Record,
   FAQDisplayFormat as DisplayFormat,
 } from "@/types/globals";
+import UpdateForm from "./updateForm";
 
-const RenderCell = (column: string, record: Record) => {
+const RenderCell = (model: string, column: string, record: Record) => {
   switch (column) {
     case "actions":
       return (
         <div className="relative flex justify-start items-center gap-2">
-          Actions
+          <UpdateForm model={model} record={record} />
         </div>
       );
     default:
@@ -21,14 +22,14 @@ const RenderCell = (column: string, record: Record) => {
   }
 };
 
-const RenderBody = (columns: Column[], records: Record[]) => {
+const RenderBody = (model: string, columns: Column[], records: Record[]) => {
   return (
     <>
       {records.map((record) => (
         <TableRow key={record.id}>
           {columns.map((column) => (
             <TableCell key={column.key}>
-              {RenderCell(column.key, record)}
+              {RenderCell(model, column.key, record)}
             </TableCell>
           ))}
         </TableRow>

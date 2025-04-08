@@ -8,3 +8,8 @@ const rules = {
 export const create = Yup.object().shape({
   ...rules,
 });
+
+export const update = Yup.object().shape({
+  ...rules,
+  id: Yup.string().trim().required(),
+});

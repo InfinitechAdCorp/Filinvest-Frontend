@@ -8,7 +8,7 @@ import {
   TestimonialDisplayFormat as DisplayFormat,
 } from "@/types/globals";
 
-const RenderCell = (column: string, record: Record) => {
+const RenderCell = (model: string, column: string, record: Record) => {
   switch (column) {
     case "actions":
       return (
@@ -21,14 +21,14 @@ const RenderCell = (column: string, record: Record) => {
   }
 };
 
-const RenderBody = (columns: Column[], records: Record[]) => {
+const RenderBody = (model: string, columns: Column[], records: Record[]) => {
   return (
     <>
       {records.map((record) => (
         <TableRow key={record.id}>
           {columns.map((column) => (
             <TableCell key={column.key}>
-              {RenderCell(column.key, record)}
+              {RenderCell(model, column.key, record)}
             </TableCell>
           ))}
         </TableRow>

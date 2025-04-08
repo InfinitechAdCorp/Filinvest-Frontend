@@ -13,22 +13,26 @@ import {
   Textarea,
 } from "@heroui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FAQ } from "@/types/globals";
+import { FaPenToSquare } from "react-icons/fa6";
 import { FAQ as Values } from "@/types/admin";
-import { create as validationSchema } from "@/schemas/admin/faqs";
+import { update as validationSchema } from "@/schemas/admin/faqs";
 import { upsert } from "@/utils/actions";
 import toast from "react-hot-toast";
 
 type Props = {
   model: string;
+  record: FAQ;
 };
 
-const CreateForm = ({ model }: Props) => {
+const UpdateForm = ({ model, record }: Props) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
-    question: "",
-    answer: "",
+    id: record.id,
+    question: record.question,
+    answer: record.answer,
   };
 
   const onSubmit = async (
@@ -37,7 +41,7 @@ const CreateForm = ({ model }: Props) => {
   ) => {
     setIsSubmitting(true);
 
-    const { code, message } = await upsert(model, "faqs", "Create", values);
+    const { code, message } = await upsert(model, "faqs", "Update", values);
 
     if (code == 200) {
       actions.resetForm();
@@ -52,8 +56,14 @@ const CreateForm = ({ model }: Props) => {
 
   return (
     <>
-      <Button color="primary" onPress={onOpen}>
-        Add {model}
+      <Button
+        size="sm"
+        color="primary"
+        isIconOnly={true}
+        title="Edit"
+        onPress={onOpen}
+      >
+        <FaPenToSquare size={14} />
       </Button>
 
       <Modal size="sm" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -64,10 +74,11 @@ const CreateForm = ({ model }: Props) => {
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
+                enableReinitialize={true}
               >
                 {() => (
                   <Form>
-                    <ModalHeader>Add {model}</ModalHeader>
+                    <ModalHeader>Edit {model}</ModalHeader>
                     <ModalBody>
                       <div className="flex flex-col space-y-2">
                         <div className="flex flex-col w-full">
@@ -112,7 +123,7 @@ const CreateForm = ({ model }: Props) => {
                         type="submit"
                         isLoading={isSubmitting}
                       >
-                        Save
+                        Update
                       </Button>
                       <Button color="danger" onPress={onClose}>
                         Cancel
@@ -129,4 +140,4 @@ const CreateForm = ({ model }: Props) => {
   );
 };
 
-export default CreateForm;
+export default UpdateForm;
