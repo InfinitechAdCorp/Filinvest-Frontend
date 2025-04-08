@@ -8,7 +8,7 @@ const Others = () => {
   return (
     <div className="border-t-1 text-primary py-2">
       <div className="container mx-auto px-2 lg:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-4 mx-64">
           <div className="lg:border border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
             <h3 className="text-2xl text-primary">
               Newsletter <span className="font-bold">Signup</span>
@@ -37,26 +37,6 @@ const Others = () => {
                 href="/user/articles/blogs"
               >
                 See More
-              </Button>
-            </div>
-          </div>
-
-          <div className="lg:border border-gray-200 px-2 py-5 lg:p-10 flex flex-col h-full">
-            <h3 className="text-2xl text-primary">
-              <span className="font-bold">Careers</span>
-            </h3>
-            <p className="text-sm text-gray-600 mt-2">
-              Build your dream with us! Be a part of a diversified and trusted
-              team. Work with a dynamic, innovative company!
-            </p>
-            <div className="mt-2 lg:mt-6">
-              <Button
-                type="button"
-                className="bg-primary text-white"
-                as={Link}
-                href="/user/careers"
-              >
-                Learn More
               </Button>
             </div>
           </div>

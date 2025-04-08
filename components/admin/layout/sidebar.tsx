@@ -9,11 +9,9 @@ import {
   HiBuildingOffice2,
   HiTrophy,
   HiNewspaper,
-  HiBriefcase,
   HiCalendarDays,
   HiQuestionMarkCircle,
   HiMagnifyingGlass,
-  HiDocument,
 } from "react-icons/hi2";
 
 const Sidebar = () => {
@@ -23,7 +21,7 @@ const Sidebar = () => {
   const isActive = (url: string) => {
     return pathname.startsWith(url) ? "bg-blue-400" : "";
   };
-  
+
   return (
     <div>
       <Card
@@ -81,24 +79,6 @@ const Sidebar = () => {
             >
               <HiMagnifyingGlass className="h-5 w-5 text-white" />
               <h3>Inquiries</h3>
-            </li>
-            <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/careers"
-              )} text-white cursor-pointer`}
-              onClick={() => router.push("/admin/careers")}
-            >
-              <HiBriefcase className="h-5 w-5 text-white" />
-              <h3>Careers</h3>
-            </li>
-            <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/applications"
-              )} text-white cursor-pointer`}
-              onClick={() => router.push("/admin/applications")}
-            >
-              <HiDocument className="h-5 w-5 text-white" />
-              <h3>Applications</h3>
             </li>
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
