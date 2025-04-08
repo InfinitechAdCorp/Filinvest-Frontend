@@ -5,9 +5,11 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/faqs/renderBody";
+import { button, Button } from "@heroui/react";
+import CreateForm from "@/components/admin/faqs/createForm";
 
 const Page = async () => {
-  const model = "FAQs";
+  const model = "FAQ";
 
   const columns = [
     { key: "question", name: "QUESTION", sortable: true },
@@ -33,6 +35,8 @@ const Page = async () => {
 
   const records = await displayFormat(columns, ufRecords);
 
+  const Buttons = <CreateForm model={model} />;
+
   return (
     <div className="w-full flex justify-center">
       <DataTable
@@ -40,6 +44,7 @@ const Page = async () => {
         columns={columns}
         records={records}
         RenderBody={RenderBody}
+        Buttons={Buttons}
       />
     </div>
   );

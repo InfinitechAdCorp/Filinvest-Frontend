@@ -47,3 +47,28 @@ export const sortByDate = (
   });
   return (records = order == "asc" ? records : records.reverse());
 };
+
+export const pluralize = (word: string) => {
+  const vowels = ["a", "e", "i", "o", "u"];
+
+  if (
+    [...vowels, "x", "z", "sh", "ch"].some((char) => {
+      return word.endsWith(char);
+    })
+  ) {
+    return word + "es";
+  }
+
+  if (word.at(-1) == "y") {
+    if (!vowels.includes(word.at(-2)!)) {
+      return word.slice(0, -1) + "ies";
+    }
+  }
+
+  const uncountables = ["news"];
+  if (uncountables.includes(word.toLowerCase())) {
+    return word;
+  }
+
+  return word + "s";
+};

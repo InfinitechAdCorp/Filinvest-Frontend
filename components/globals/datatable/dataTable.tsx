@@ -22,6 +22,7 @@ import {
 import { Column } from "@/types/globals";
 import BottomContent from "@/components/globals/datatable/bottomContent";
 import ColumnsDropdown from "@/components/globals/datatable/columnsDropdown";
+import { pluralize } from "@/utils/formatters";
 
 type Props = {
   model: string;
@@ -29,6 +30,7 @@ type Props = {
   initialColumns?: string[];
   records: any[];
   RenderBody: (columns: Column[], records: any[], dependencies: any) => any;
+  Buttons?: ReactElement;
   dependencies?: any;
 };
 
@@ -38,6 +40,7 @@ const DataTable = ({
   initialColumns: ufInitialColumns,
   records: ufRecords,
   RenderBody,
+  Buttons,
   dependencies,
 }: Props) => {
   const initialColumns = ufInitialColumns || [];
@@ -133,6 +136,8 @@ const DataTable = ({
 
     return (
       <>
+        <h3 className="text-2xl font-semibold">{pluralize(model)}</h3>
+
         <div className="flex flex-col gap-4">
           <div className="flex justify-between gap-3 items-end">
             <div className="w-full sm:max-w-[50%]">
@@ -147,11 +152,15 @@ const DataTable = ({
             </div>
 
             <div className="flex justify-end">
-              <ColumnsDropdown
-                columns={ufColumns}
-                visibleColumns={visibleColumns}
-                onSelectionChange={setVisibleColumns}
-              />
+              <div className="flex justify-between gap-2">
+                {Buttons}
+
+                <ColumnsDropdown
+                  columns={ufColumns}
+                  visibleColumns={visibleColumns}
+                  onSelectionChange={setVisibleColumns}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -192,7 +201,7 @@ const DataTable = ({
                   </TableColumn>
                 )}
               </TableHeader>
-              <TableBody emptyContent={`No ${model} Found`}>
+              <TableBody emptyContent={`No ${pluralize(model)} Found`}>
                 {RenderBody(columns, sortedRecords, dependencies)}
               </TableBody>
             </Table>
