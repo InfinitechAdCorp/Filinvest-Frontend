@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import * as Yup from "yup";
 import {
   Modal,
   ModalContent,
@@ -14,9 +15,9 @@ import {
 } from "@heroui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FAQ as Values } from "@/types/admin";
-import { create as validationSchema } from "@/schemas/admin/faqs";
+import { faq as rules } from "@/schemas/admin";
 import { upsert } from "@/utils/actions";
-import toast from "react-hot-toast";
+import { onPostSubmit } from "@/utils/events";
 
 type Props = {
   model: string;
@@ -31,21 +32,18 @@ const CreateForm = ({ model }: Props) => {
     answer: "",
   };
 
+  const validationSchema = Yup.object().shape({
+    ...rules,
+  });
+
   const onSubmit = async (
     values: Values,
-    actions: { resetForm: () => void }
+    { resetForm }: { resetForm: () => void }
   ) => {
     setIsSubmitting(true);
 
     const { code, message } = await upsert(model, "faqs", "Create", values);
-
-    if (code == 200) {
-      actions.resetForm();
-      onClose();
-      toast.success(message);
-    } else {
-      toast.error(message);
-    }
+    onPostSubmit(code, message, resetForm, onClose);
 
     setIsSubmitting(false);
   };
