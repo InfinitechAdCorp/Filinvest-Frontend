@@ -25,11 +25,13 @@ import ColumnsDropdown from "@/components/globals/datatable/columnsDropdown";
 import { pluralize } from "@/utils/formatters";
 
 type Props = {
+  url: string;
   model: string;
   columns: Column[];
   initialColumns?: string[];
   records: any[];
   RenderBody: (
+    url: string,
     model: string,
     columns: Column[],
     records: any[],
@@ -40,6 +42,7 @@ type Props = {
 };
 
 const DataTable = ({
+  url,
   model,
   columns: ufColumns,
   initialColumns: ufInitialColumns,
@@ -207,7 +210,7 @@ const DataTable = ({
                 )}
               </TableHeader>
               <TableBody emptyContent={`No ${pluralize(model)} Found`}>
-                {RenderBody(model, columns, sortedRecords, dependencies)}
+                {RenderBody(url, model, columns, sortedRecords, dependencies)}
               </TableBody>
             </Table>
           </CardBody>

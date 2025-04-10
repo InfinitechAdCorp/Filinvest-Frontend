@@ -4,8 +4,8 @@ import axios from "axios";
 import { revalidatePath } from "next/cache";
 
 export const upsert = async (
-  model: string,
   url: string,
+  model: string,
   action: "Create" | "Update",
   values: any
 ) => {

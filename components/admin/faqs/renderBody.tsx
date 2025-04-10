@@ -9,12 +9,17 @@ import {
 } from "@/types/globals";
 import UpdateForm from "./updateForm";
 
-const RenderCell = (model: string, column: string, record: Record) => {
+const RenderCell = (
+  url: string,
+  model: string,
+  column: string,
+  record: Record
+) => {
   switch (column) {
     case "actions":
       return (
         <div className="relative flex justify-start items-center gap-2">
-          <UpdateForm model={model} record={record} />
+          <UpdateForm url={url} model={model} record={record} />
         </div>
       );
     default:
@@ -22,14 +27,19 @@ const RenderCell = (model: string, column: string, record: Record) => {
   }
 };
 
-const RenderBody = (model: string, columns: Column[], records: Record[]) => {
+const RenderBody = (
+  url: string,
+  model: string,
+  columns: Column[],
+  records: Record[]
+) => {
   return (
     <>
       {records.map((record) => (
         <TableRow key={record.id}>
           {columns.map((column) => (
             <TableCell key={column.key}>
-              {RenderCell(model, column.key, record)}
+              {RenderCell(url, model, column.key, record)}
             </TableCell>
           ))}
         </TableRow>

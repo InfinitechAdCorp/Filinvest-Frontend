@@ -5,10 +5,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/faqs/renderBody";
-import { button, Button } from "@heroui/react";
 import CreateForm from "@/components/admin/faqs/createForm";
 
 const Page = async () => {
+  const url = "faqs";
   const model = "FAQ";
 
   const columns = [
@@ -20,7 +20,7 @@ const Page = async () => {
   let ufRecords: Record[] = [];
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/faqs`,
+      `${process.env.NEXT_PUBLIC_API_URL}/${url}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -40,6 +40,7 @@ const Page = async () => {
   return (
     <div className="w-full flex justify-center">
       <DataTable
+        url={url}
         model={model}
         columns={columns}
         records={records}

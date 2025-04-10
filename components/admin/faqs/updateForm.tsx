@@ -22,11 +22,12 @@ import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
 
 type Props = {
+  url: string;
   model: string;
   record: FAQ;
 };
 
-const UpdateForm = ({ model, record }: Props) => {
+const UpdateForm = ({ url, model, record }: Props) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -47,7 +48,7 @@ const UpdateForm = ({ model, record }: Props) => {
   ) => {
     setIsSubmitting(true);
 
-    const { code, message } = await upsert(model, "faqs", "Update", values);
+    const { code, message } = await upsert(url, model, "Update", values);
     onPostSubmit(code, message, resetForm, onClose);
 
     setIsSubmitting(false);
