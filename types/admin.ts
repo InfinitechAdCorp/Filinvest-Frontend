@@ -7,6 +7,12 @@ export type FAQ = {
   answer: string;
 };
 
+export type Testimonial = {
+  id?: string;
+  name: string;
+  message: string;
+};
+
 export type Inquiry = {
   id?: string;
   first_name: string;

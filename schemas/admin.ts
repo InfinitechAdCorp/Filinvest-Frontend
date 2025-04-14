@@ -9,6 +9,11 @@ export const faq = {
   answer: Yup.string().trim().required(),
 };
 
+export const testimonial = {
+  name: Yup.string().trim().required(),
+  message: Yup.string().trim().required(),
+};
+
 export const inquiry = {
   first_name: Yup.string().required(),
   last_name: Yup.string().required(),

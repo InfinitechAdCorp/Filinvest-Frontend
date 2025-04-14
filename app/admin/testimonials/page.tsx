@@ -5,9 +5,11 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/testimonials/renderBody";
+import CreateForm from "@/components/admin/testimonials/createForm";
 
 const Page = async () => {
-  const model = "Testimonials";
+  const url = "testimonials";
+  const model = "Testimonial";
 
   const columns = [
     { key: "name", name: "NAME", sortable: true },
@@ -18,7 +20,7 @@ const Page = async () => {
   let ufRecords: Record[] = [];
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/testimonials`,
+      `${process.env.NEXT_PUBLIC_API_URL}/${url}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -33,13 +35,17 @@ const Page = async () => {
 
   const records = await displayFormat(columns, ufRecords);
 
+  const Buttons = <CreateForm url={url} model={model} />;
+
   return (
     <div className="w-full flex justify-center">
       <DataTable
+        url={url}
         model={model}
         columns={columns}
         records={records}
         RenderBody={RenderBody}
+        Buttons={Buttons}
       />
     </div>
   );
