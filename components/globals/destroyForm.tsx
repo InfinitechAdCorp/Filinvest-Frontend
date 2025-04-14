@@ -25,7 +25,7 @@ type Props = {
 };
 
 const DestroyForm = ({ url, model, id }: Props) => {
-  const { isOpen, onOpenChange, onClose } = useDisclosure();
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
@@ -46,7 +46,13 @@ const DestroyForm = ({ url, model, id }: Props) => {
 
   return (
     <>
-      <Button size="sm" color="danger" isIconOnly={true} title="Delete">
+      <Button
+        size="sm"
+        color="danger"
+        isIconOnly={true}
+        title="Delete"
+        onPress={onOpen}
+      >
         <FaTrash />
       </Button>
 

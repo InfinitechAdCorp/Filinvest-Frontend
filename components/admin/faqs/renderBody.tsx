@@ -8,6 +8,7 @@ import {
   FAQDisplayFormat as DisplayFormat,
 } from "@/types/globals";
 import UpdateForm from "./updateForm";
+import DestroyForm from "@/components/globals/destroyForm";
 
 const RenderCell = (
   url: string,
@@ -20,6 +21,8 @@ const RenderCell = (
       return (
         <div className="relative flex justify-start items-center gap-2">
           <UpdateForm url={url} model={model} record={record} />
+
+          <DestroyForm url={url} model={model} id={record.id} />
         </div>
       );
     default:
