@@ -43,7 +43,7 @@ const Page = async () => {
   let ufRecords: Record[] = [];
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/appointments`,
+      `${process.env.NEXT_PUBLIC_API_URL}/${url}`,
       {
         headers: {
           "Content-Type": "application/json",
