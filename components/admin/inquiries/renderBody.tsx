@@ -8,7 +8,12 @@ import {
   InquiryDisplayFormat as DisplayFormat,
 } from "@/types/globals";
 
-const RenderCell = (model: string, column: string, record: Record) => {
+const RenderCell = (
+  url: string,
+  model: string,
+  column: string,
+  record: Record
+) => {
   switch (column) {
     case "actions":
       return (
@@ -21,14 +26,19 @@ const RenderCell = (model: string, column: string, record: Record) => {
   }
 };
 
-const RenderBody = (model: string, columns: Column[], records: Record[]) => {
+const RenderBody = (
+  url: string,
+  model: string,
+  columns: Column[],
+  records: Record[]
+) => {
   return (
     <>
       {records.map((record) => (
         <TableRow key={record.id}>
           {columns.map((column) => (
             <TableCell key={column.key}>
-              {RenderCell(model, column.key, record)}
+              {RenderCell(url, model, column.key, record)}
             </TableCell>
           ))}
         </TableRow>

@@ -4,6 +4,16 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
+export type Response = {
+  code: number;
+  message: string;
+  [key: string]: any;
+};
+
+export type Destroy = {
+  id: string;
+};
+
 export type Column = {
   key: string;
   name: string;
