@@ -36,4 +36,4 @@ export type Appointment = {
 export type Subscriber = {
   id?: string;
   email: string;
-}
+};

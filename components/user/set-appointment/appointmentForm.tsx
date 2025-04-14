@@ -15,13 +15,7 @@ import {
 import { Property } from "@/types/globals";
 import { Appointment as Values } from "@/types/admin";
 import { appointment as rules } from "@/schemas/admin";
-import {
-  Formik,
-  FormikProps,
-  Form,
-  Field,
-  ErrorMessage,
-} from "formik";
+import { Formik, FormikProps, Form, Field, ErrorMessage } from "formik";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Time } from "@internationalized/date";
@@ -160,8 +154,8 @@ const AppointmentForm = ({ properties }: Props) => {
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <div className="mb-3">
+              <div className="flex flex-col gap-3">
+                <div>
                   <h3 className="text-xl text-primary">Appointment Details</h3>
                 </div>
 
@@ -195,7 +189,7 @@ const AppointmentForm = ({ properties }: Props) => {
                       }}
                     />
                     <ErrorMessage
-                      name="email"
+                      name="time"
                       component="div"
                       className="text-red-500 text-sm"
                     />

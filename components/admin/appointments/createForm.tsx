@@ -12,47 +12,43 @@ import {
   useDisclosure,
   Input,
   Textarea,
-  Select,
-  SelectItem,
   Autocomplete,
   AutocompleteItem,
+  CalendarDate,
+  DatePicker,
+  TimeInput,
 } from "@heroui/react";
 import { Formik, Form, Field, ErrorMessage, FormikProps } from "formik";
 import { Property } from "@/types/globals";
-import { Inquiry as Record } from "@/types/globals";
-import { Inquiry as Values } from "@/types/admin";
-import { inquiry as rules } from "@/schemas/admin";
+import { Appointment as Values } from "@/types/admin";
+import { appointment as rules } from "@/schemas/admin";
 import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
-import { FaPenToSquare } from "react-icons/fa6";
+import { Time } from "@internationalized/date";
 
 type Props = {
   url: string;
   model: string;
-  record: Record;
   properties: Property[];
 };
 
-const UpdateForm = ({ url, model, record, properties }: Props) => {
+const CreateForm = ({ url, model, properties }: Props) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
-    first_name: record.first_name,
-    last_name: record.last_name,
-    gender: record.gender,
-    landline: record.landline,
-    mobile: record.mobile,
-    email: record.email,
-    city: record.city,
-    country: record.country,
-    message: record.message,
-    property_id: record.property_id,
+    first_name: "",
+    last_name: "",
+    mobile: "",
+    email: "",
+    date: null,
+    time: null,
+    property_id: "",
+    message: "",
   };
 
   const validationSchema = Yup.object().shape({
     ...rules,
-    id: Yup.string().trim().required(),
   });
 
   const onSubmit = async (
@@ -61,7 +57,7 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
   ) => {
     setIsSubmitting(true);
 
-    const { code, message } = await upsert(url, model, "Update", values);
+    const { code, message } = await upsert(url, model, "Create", values);
     onPostSubmit(code, message, resetForm, onClose);
 
     setIsSubmitting(false);
@@ -69,14 +65,8 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
 
   return (
     <>
-      <Button
-        size="sm"
-        color="primary"
-        isIconOnly={true}
-        title="Edit"
-        onPress={onOpen}
-      >
-        <FaPenToSquare size={14} />
+      <Button color="primary" onPress={onOpen}>
+        Add {model}
       </Button>
 
       <Modal size="xl" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -90,10 +80,10 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
               >
                 {(props: FormikProps<any>) => (
                   <Form>
-                    <ModalHeader>Edit {model}</ModalHeader>
+                    <ModalHeader>Add {model}</ModalHeader>
                     <ModalBody>
                       <div className="flex flex-col gap-3">
-                        <div className="flex justify-between gap-2">
+                        <div className="flex justify-between gap-3">
                           <div className="flex flex-col w-full">
                             <Field
                               name="first_name"
@@ -129,48 +119,9 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
                               className="text-red-500 text-sm"
                             />
                           </div>
-
-                          <div className="flex flex-col w-full">
-                            <Field
-                              name="gender"
-                              as={Select}
-                              size="md"
-                              variant="bordered"
-                              label="Gender"
-                              labelPlacement="outside"
-                              placeholder="Select Gender"
-                              defaultSelectedKey={props.values.gender}
-                            >
-                              <SelectItem key="Male">Male</SelectItem>
-                              <SelectItem key="Female">Female</SelectItem>
-                            </Field>
-                            <ErrorMessage
-                              name="gender"
-                              component="div"
-                              className="text-red-500 text-sm"
-                            />
-                          </div>
                         </div>
 
                         <div className="flex justify-between gap-2">
-                          <div className="flex flex-col w-full">
-                            <Field
-                              name="landline"
-                              as={Input}
-                              type="text"
-                              size="md"
-                              variant="bordered"
-                              label="Landline"
-                              labelPlacement="outside"
-                              placeholder="Enter Landline"
-                            />
-                            <ErrorMessage
-                              name="landline"
-                              component="div"
-                              className="text-red-500 text-sm"
-                            />
-                          </div>
-
                           <div className="flex flex-col w-full">
                             <Field
                               name="mobile"
@@ -208,66 +159,45 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
                           </div>
                         </div>
 
-                        <div className="flex justify-between gap-2">
+                        <div className="flex justify-between gap-3">
                           <div className="flex flex-col w-full">
                             <Field
-                              name="city"
-                              as={Input}
-                              type="text"
+                              name="date"
+                              as={DatePicker}
                               size="md"
                               variant="bordered"
-                              label="City"
+                              label="Date"
                               labelPlacement="outside"
-                              placeholder="Enter City"
-                            />
-                            <ErrorMessage
-                              name="city"
-                              component="div"
-                              className="text-red-500 text-sm"
-                            />
-                          </div>
-
-                          <div className="flex flex-col w-full">
-                            <Field
-                              name="country"
-                              as={Autocomplete}
-                              size="md"
-                              variant="bordered"
-                              label="Country"
-                              labelPlacement="outside"
-                              placeholder="Select Country"
-                              defaultSelectedKey={props.values.country}
-                              onSelectionChange={(key: React.Key | null) => {
-                                props.setFieldValue("country", key);
+                              value={props.values.date}
+                              onChange={(value: CalendarDate | null) => {
+                                props.setFieldValue("date", value);
                               }}
-                            >
-                              <AutocompleteItem key="Philippines">
-                                Philippines
-                              </AutocompleteItem>
-                            </Field>
+                            />
                             <ErrorMessage
-                              name="country"
+                              name="date"
                               component="div"
                               className="text-red-500 text-sm"
                             />
                           </div>
-                        </div>
 
-                        <div className="flex flex-col w-full">
-                          <Field
-                            name="message"
-                            as={Textarea}
-                            size="md"
-                            variant="bordered"
-                            label="Message"
-                            labelPlacement="outside"
-                            placeholder="Enter Message"
-                          />
-                          <ErrorMessage
-                            name="message"
-                            component="div"
-                            className="text-red-500 text-sm"
-                          />
+                          <div className="flex flex-col w-full">
+                            <Field
+                              name="time"
+                              as={TimeInput}
+                              size="md"
+                              variant="bordered"
+                              label="Time"
+                              labelPlacement="outside"
+                              onChange={(value: Time | null) => {
+                                props.setFieldValue("time", value);
+                              }}
+                            />
+                            <ErrorMessage
+                              name="time"
+                              component="div"
+                              className="text-red-500 text-sm"
+                            />
+                          </div>
                         </div>
 
                         <div className="flex flex-col w-full">
@@ -296,6 +226,23 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
                             className="text-red-500 text-sm"
                           />
                         </div>
+
+                        <div className="flex flex-col w-full">
+                          <Field
+                            name="message"
+                            as={Textarea}
+                            size="md"
+                            variant="bordered"
+                            label="Message"
+                            labelPlacement="outside"
+                            placeholder="Enter Message"
+                          />
+                          <ErrorMessage
+                            name="message"
+                            component="div"
+                            className="text-red-500 text-sm"
+                          />
+                        </div>
                       </div>
                     </ModalBody>
                     <ModalFooter>
@@ -304,7 +251,7 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
                         type="submit"
                         isLoading={isSubmitting}
                       >
-                        Update
+                        Save
                       </Button>
                       <Button color="danger" onPress={onClose}>
                         Cancel
@@ -321,4 +268,4 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
   );
 };
 
-export default UpdateForm;
+export default CreateForm;

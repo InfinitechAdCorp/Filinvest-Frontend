@@ -61,7 +61,7 @@ const SubscriberForm = () => {
                 <Field
                   name="email"
                   as={Input}
-                  type="email"
+                  type="text"
                   variant="underlined"
                   placeholder="Email Address"
                 />

@@ -22,7 +22,7 @@ export const upsert = async (
     return { code: 200, message: `${action}d ${model}` };
   } catch (error) {
     console.error("Error:", error);
-    return { code: 500, message: "Something went wrong!" };
+    return { code: 500, message: "Something went wrong!", error: error };
   }
 };
 
@@ -41,6 +41,6 @@ export const destroy = async (url: string, model: string, values: Destroy) => {
     return { code: 200, message: `Deleted ${model}` };
   } catch (error) {
     console.error("Error:", error);
-    return { code: 500, message: "Something went wrong!" };
+    return { code: 500, message: "Something went wrong!", error: error };
   }
 };

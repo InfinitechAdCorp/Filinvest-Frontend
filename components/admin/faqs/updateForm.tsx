@@ -15,7 +15,7 @@ import {
 } from "@heroui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FaPenToSquare } from "react-icons/fa6";
-import { FAQ } from "@/types/globals";
+import { FAQ as Record } from "@/types/globals";
 import { FAQ as Values } from "@/types/admin";
 import { faq as rules } from "@/schemas/admin";
 import { upsert } from "@/utils/actions";
@@ -24,7 +24,7 @@ import { onPostSubmit } from "@/utils/events";
 type Props = {
   url: string;
   model: string;
-  record: FAQ;
+  record: Record;
 };
 
 const UpdateForm = ({ url, model, record }: Props) => {
