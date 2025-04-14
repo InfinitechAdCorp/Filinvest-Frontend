@@ -20,10 +20,11 @@ import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
 
 type Props = {
+  url: string;
   model: string;
 };
 
-const CreateForm = ({ model }: Props) => {
+const CreateForm = ({ url, model }: Props) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -42,7 +43,7 @@ const CreateForm = ({ model }: Props) => {
   ) => {
     setIsSubmitting(true);
 
-    const { code, message } = await upsert("faqs", model, "Create", values);
+    const { code, message } = await upsert(url, model, "Create", values);
     onPostSubmit(code, message, resetForm, onClose);
 
     setIsSubmitting(false);

@@ -23,6 +23,7 @@ import { Column } from "@/types/globals";
 import BottomContent from "@/components/globals/datatable/bottomContent";
 import ColumnsDropdown from "@/components/globals/datatable/columnsDropdown";
 import { pluralize } from "@/utils/formatters";
+import { Key } from "@react-types/shared";
 
 type Props = {
   url: string;
@@ -71,7 +72,10 @@ const DataTable = ({
   const [page, setPage] = useState(1);
 
   const [filterValue, setFilterValue] = useState("");
-  const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
+  const [sortDescriptor, setSortDescriptor] = useState<{
+    column: string | number;
+    direction: "ascending" | "descending";
+  }>({
     column: "",
     direction: "ascending",
   });

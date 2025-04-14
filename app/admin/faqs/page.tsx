@@ -35,7 +35,7 @@ const Page = async () => {
 
   const records = await displayFormat(columns, ufRecords);
 
-  const Buttons = <CreateForm model={model} />;
+  const Buttons = <CreateForm url={url} model={model} />;
 
   return (
     <div className="w-full flex justify-center">
