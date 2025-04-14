@@ -34,3 +34,7 @@ export const appointment = {
   property_id: Yup.string().required("Property is required"),
   message: Yup.string().required("Message is required"),
 };
+
+export const subscriber = {
+  email: Yup.string().email("Invalid email").required("Email is required"),
+};

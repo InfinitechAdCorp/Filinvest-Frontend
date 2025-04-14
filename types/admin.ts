@@ -32,3 +32,8 @@ export type Appointment = {
   property_id: string;
   message: string;
 };
+
+export type Subscriber = {
+  id?: string;
+  email: string;
+}

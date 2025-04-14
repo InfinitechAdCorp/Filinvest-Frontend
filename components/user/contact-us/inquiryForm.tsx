@@ -11,10 +11,10 @@ import {
   Autocomplete,
   AutocompleteItem,
 } from "@heroui/react";
+import { Formik, FormikProps, Form, Field, ErrorMessage } from "formik";
 import { Property } from "@/types/globals";
 import { Inquiry as Values } from "@/types/admin";
 import { inquiry as rules } from "@/schemas/admin";
-import { Formik, FormikProps, Form, Field, FieldProps } from "formik";
 import toast from "react-hot-toast";
 import axios from "axios";
 
@@ -83,214 +83,186 @@ const InquiryForm = ({ properties }: Props) => {
             onSubmit={onSubmit}
           >
             {(props: FormikProps<any>) => (
-              <Form className="space-y-4">
-                <div className="space-y-4">
+              <Form>
+                <div className="flex flex-col gap-3">
                   <div className="flex justify-between gap-2">
                     <div className="flex flex-col w-full">
-                      <Field name="first_name">
-                        {({ field, meta }: FieldProps) => (
-                          <div>
-                            <Input
-                              {...field}
-                              radius="none"
-                              label="First Name"
-                            />
-
-                            {meta.touched && meta.error && (
-                              <small className="text-red-500">
-                                {meta.error}
-                              </small>
-                            )}
-                          </div>
-                        )}
-                      </Field>
+                      <Field
+                        name="first_name"
+                        as={Input}
+                        type="text"
+                        radius="none"
+                        label="First Name"
+                      />
+                      <ErrorMessage
+                        name="first_name"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
 
                     <div className="flex flex-col w-full">
-                      <Field name="last_name">
-                        {({ field, meta }: FieldProps) => (
-                          <div>
-                            <Input {...field} radius="none" label="Last Name" />
-
-                            {meta.touched && meta.error && (
-                              <small className="text-red-500">
-                                {meta.error}
-                              </small>
-                            )}
-                          </div>
-                        )}
-                      </Field>
+                      <Field
+                        name="last_name"
+                        as={Input}
+                        type="text"
+                        radius="none"
+                        label="Last Name"
+                      />
+                      <ErrorMessage
+                        name="last_name"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
 
                     <div className="flex flex-col w-full">
-                      <Field name="gender">
-                        {({ field, meta }: FieldProps) => (
-                          <div>
-                            <Select
-                              {...field}
-                              radius="none"
-                              label="Gender"
-                              defaultSelectedKeys={[field.value]}
-                            >
-                              <SelectItem key="Male">Male</SelectItem>
-                              <SelectItem key="Female">Female</SelectItem>
-                            </Select>
-
-                            {meta.touched && meta.error && (
-                              <small className="text-red-500">
-                                {meta.error}
-                              </small>
-                            )}
-                          </div>
-                        )}
+                      <Field
+                        name="gender"
+                        as={Select}
+                        radius="none"
+                        label="Gender"
+                        defaultSelectedKeys={[props.values.gender]}
+                      >
+                        <SelectItem key="Male">Male</SelectItem>
+                        <SelectItem key="Female">Female</SelectItem>
                       </Field>
+                      <ErrorMessage
+                        name="gender"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
                   </div>
 
                   <div className="flex justify-between gap-2">
                     <div className="flex flex-col w-full">
-                      <Field name="landline">
-                        {({ field, meta }: FieldProps) => (
-                          <div>
-                            <Input {...field} radius="none" label="Landline" />
-
-                            {meta.touched && meta.error && (
-                              <small className="text-red-500">
-                                {meta.error}
-                              </small>
-                            )}
-                          </div>
-                        )}
-                      </Field>
+                      <Field
+                        name="landline"
+                        as={Input}
+                        type="text"
+                        radius="none"
+                        label="Landline"
+                      />
+                      <ErrorMessage
+                        name="landline"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
 
                     <div className="flex flex-col w-full">
-                      <Field name="mobile">
-                        {({ field, meta }: FieldProps) => (
-                          <div>
-                            <Input {...field} radius="none" label="Mobile" />
-
-                            {meta.touched && meta.error && (
-                              <small className="text-red-500">
-                                {meta.error}
-                              </small>
-                            )}
-                          </div>
-                        )}
-                      </Field>
+                      <Field
+                        name="mobile"
+                        as={Input}
+                        type="text"
+                        radius="none"
+                        label="Mobile"
+                      />
+                      <ErrorMessage
+                        name="mobile"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
 
                     <div className="flex flex-col w-full">
-                      <Field name="email">
-                        {({ field, meta }: FieldProps) => (
-                          <div>
-                            <Input
-                              {...field}
-                              type="email"
-                              radius="none"
-                              label="Email"
-                            />
-
-                            {meta.touched && meta.error && (
-                              <small className="text-red-500">
-                                {meta.error}
-                              </small>
-                            )}
-                          </div>
-                        )}
-                      </Field>
+                      <Field
+                        name="email"
+                        as={Input}
+                        type="text"
+                        radius="none"
+                        label="Email"
+                      />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
                   </div>
 
                   <div className="flex justify-between gap-2">
                     <div className="flex flex-col w-full">
-                      <Field name="city">
-                        {({ field, meta }: FieldProps) => (
-                          <div>
-                            <Input {...field} radius="none" label="City" />
-
-                            {meta.touched && meta.error && (
-                              <small className="text-red-500">
-                                {meta.error}
-                              </small>
-                            )}
-                          </div>
-                        )}
-                      </Field>
+                      <Field
+                        name="city"
+                        as={Input}
+                        type="text"
+                        radius="none"
+                        label="City"
+                      />
+                      <ErrorMessage
+                        name="city"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
 
                     <div className="flex flex-col w-full">
-                      <Field name="country">
-                        {({ field, meta }: FieldProps) => (
-                          <div>
-                            <Autocomplete
-                              {...field}
-                              radius="none"
-                              label="Country"
-                              onInputChange={(value: string) => {
-                                props.setFieldValue(field.name, value);
-                              }}
-                              onSelectionChange={(key: React.Key | null) => {
-                                props.setFieldValue(field.name, key);
-                              }}
-                              defaultSelectedKey={field.value}
-                            >
-                              <AutocompleteItem key="Philippines">
-                                Philippines
-                              </AutocompleteItem>
-                            </Autocomplete>
-
-                            {meta.touched && meta.error && (
-                              <small className="text-red-500">
-                                {meta.error}
-                              </small>
-                            )}
-                          </div>
-                        )}
+                      <Field
+                        name="country"
+                        as={Autocomplete}
+                        radius="none"
+                        label="Country"
+                        defaultSelectedKeys={[props.values.country]}
+                        onInputChange={(value: string) => {
+                          props.setFieldValue("country", value);
+                        }}
+                        onSelectionChange={(key: React.Key | null) => {
+                          props.setFieldValue("country", key);
+                        }}
+                      >
+                        <AutocompleteItem key="Philippines">
+                          Philippines
+                        </AutocompleteItem>
                       </Field>
+                      <ErrorMessage
+                        name="country"
+                        component="div"
+                        className="text-red-500 text-sm"
+                      />
                     </div>
                   </div>
 
                   <div className="flex flex-col w-full">
-                    <Field name="message">
-                      {({ field, meta }: FieldProps) => (
-                        <div>
-                          <Textarea {...field} radius="none" label="Message" />
-
-                          {meta.touched && meta.error && (
-                            <small className="text-red-500">{meta.error}</small>
-                          )}
-                        </div>
-                      )}
-                    </Field>
+                    <Field
+                      name="message"
+                      as={Textarea}
+                      radius="none"
+                      label="Message"
+                    />
+                    <ErrorMessage
+                      name="message"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
                   </div>
 
-                  <div className="flex flex-col">
-                    <Field name="property_id">
-                      {({ field, meta }: FieldProps) => (
-                        <div>
-                          <Autocomplete
-                            {...field}
-                            radius="none"
-                            label="Property"
-                            onSelectionChange={(key: React.Key | null) => {
-                              props.setFieldValue(field.name, key);
-                            }}
-                            defaultSelectedKey={field.value}
-                          >
-                            {properties.map((property) => (
-                              <AutocompleteItem key={property.id}>
-                                {property.name}
-                              </AutocompleteItem>
-                            ))}
-                          </Autocomplete>
-
-                          {meta.touched && meta.error && (
-                            <small className="text-red-500">{meta.error}</small>
-                          )}
-                        </div>
-                      )}
+                  <div className="flex flex-col w-full">
+                    <Field
+                      name="property_id"
+                      as={Autocomplete}
+                      radius="none"
+                      label="Property"
+                      defaultSelectedKeys={[props.values.property_id]}
+                      onInputChange={(value: string) => {
+                        props.setFieldValue("property_id", value);
+                      }}
+                      onSelectionChange={(key: React.Key | null) => {
+                        props.setFieldValue("property_id", key);
+                      }}
+                    >
+                      {properties.map((property: Property) => (
+                        <AutocompleteItem key={property.id}>
+                          {property.name}
+                        </AutocompleteItem>
+                      ))}
                     </Field>
+                    <ErrorMessage
+                      name="property_id"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
                   </div>
 
                   <Button

@@ -10,13 +10,21 @@ import {
   AutocompleteItem,
   DatePicker,
   TimeInput,
+  CalendarDate,
 } from "@heroui/react";
 import { Property } from "@/types/globals";
 import { Appointment as Values } from "@/types/admin";
 import { appointment as rules } from "@/schemas/admin";
-import { Formik, FormikProps, Form, Field, FieldProps } from "formik";
+import {
+  Formik,
+  FormikProps,
+  Form,
+  Field,
+  ErrorMessage,
+} from "formik";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { Time } from "@internationalized/date";
 
 type Props = {
   properties: Property[];
@@ -80,179 +88,172 @@ const AppointmentForm = ({ properties }: Props) => {
         onSubmit={onSubmit}
       >
         {(props: FormikProps<any>) => (
-          <Form className="space-y-3">
-            <div className="space-y-3">
-              <div className="mb-3">
-                <h3 className="text-xl text-primary">Personal Information</h3>
-              </div>
-
-              <div className="flex justify-between gap-3">
-                <div className="flex flex-col w-full">
-                  <Field name="first_name">
-                    {({ field, meta }: FieldProps) => (
-                      <div>
-                        <Input {...field} radius="none" label="First Name" />
-
-                        {meta.touched && meta.error && (
-                          <small className="text-red-500">{meta.error}</small>
-                        )}
-                      </div>
-                    )}
-                  </Field>
+          <Form>
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3">
+                <div>
+                  <h3 className="text-xl text-primary">Personal Information</h3>
                 </div>
 
-                <div className="flex flex-col w-full">
-                  <Field name="last_name">
-                    {({ field, meta }: FieldProps) => (
-                      <div>
-                        <Input {...field} radius="none" label="Last Name" />
+                <div className="flex justify-between gap-3">
+                  <div className="flex flex-col w-full">
+                    <Field
+                      name="first_name"
+                      as={Input}
+                      type="text"
+                      radius="none"
+                      label="First Name"
+                    />
+                    <ErrorMessage
+                      name="first_name"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
+                  </div>
 
-                        {meta.touched && meta.error && (
-                          <small className="text-red-500">{meta.error}</small>
-                        )}
-                      </div>
-                    )}
-                  </Field>
-                </div>
-              </div>
-
-              <div className="flex justify-between gap-2">
-                <div className="flex flex-col w-full">
-                  <Field name="mobile">
-                    {({ field, meta }: FieldProps) => (
-                      <div>
-                        <Input {...field} radius="none" label="Mobile" />
-
-                        {meta.touched && meta.error && (
-                          <small className="text-red-500">{meta.error}</small>
-                        )}
-                      </div>
-                    )}
-                  </Field>
-                </div>
-
-                <div className="flex flex-col w-full">
-                  <Field name="email">
-                    {({ field, meta }: FieldProps) => (
-                      <div>
-                        <Input
-                          {...field}
-                          type="email"
-                          radius="none"
-                          label="Email"
-                        />
-
-                        {meta.touched && meta.error && (
-                          <small className="text-red-500">{meta.error}</small>
-                        )}
-                      </div>
-                    )}
-                  </Field>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <div className="mb-3">
-                <h3 className="text-xl text-primary">Appointment Details</h3>
-              </div>
-
-              <div className="flex justify-between gap-3">
-                <div className="flex flex-col w-full">
-                  <Field name="date">
-                    {({ field, meta }: FieldProps) => (
-                      <div>
-                        <DatePicker
-                          {...field}
-                          radius="none"
-                          label="Date"
-                          value={field.value}
-                          onChange={(value) => {
-                            props.setFieldValue(field.name, value);
-                          }}
-                        />
-                        {meta.touched && meta.error && (
-                          <small className="text-red-500">{meta.error}</small>
-                        )}
-                      </div>
-                    )}
-                  </Field>
+                  <div className="flex flex-col w-full">
+                    <Field
+                      name="last_name"
+                      as={Input}
+                      type="text"
+                      radius="none"
+                      label="Last Name"
+                    />
+                    <ErrorMessage
+                      name="last_name"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
+                  </div>
                 </div>
 
-                <div className="flex flex-col w-full">
-                  <Field name="time">
-                    {({ field, meta }: FieldProps) => (
-                      <div>
-                        <TimeInput
-                          {...field}
-                          radius="none"
-                          label="Time"
-                          onChange={(value) => {
-                            props.setFieldValue(field.name, value);
-                          }}
-                        />
+                <div className="flex justify-between gap-2">
+                  <div className="flex flex-col w-full">
+                    <Field
+                      name="mobile"
+                      as={Input}
+                      type="text"
+                      radius="none"
+                      label="Mobile"
+                    />
+                    <ErrorMessage
+                      name="mobile"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
+                  </div>
 
-                        {meta.touched && meta.error && (
-                          <small className="text-red-500">{meta.error}</small>
-                        )}
-                      </div>
-                    )}
-                  </Field>
+                  <div className="flex flex-col w-full">
+                    <Field
+                      name="email"
+                      as={Input}
+                      type="text"
+                      radius="none"
+                      label="Email"
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-col">
-                <Field name="property_id">
-                  {({ field, meta }: FieldProps) => (
-                    <div>
-                      <Autocomplete
-                        {...field}
-                        radius="none"
-                        label="Property"
-                        onSelectionChange={(key: React.Key | null) => {
-                          props.setFieldValue(field.name, key);
-                        }}
-                        defaultSelectedKey={field.value}
-                      >
-                        {properties.map((property) => (
-                          <AutocompleteItem key={property.id}>
-                            {property.name}
-                          </AutocompleteItem>
-                        ))}
-                      </Autocomplete>
+              <div className="space-y-3">
+                <div className="mb-3">
+                  <h3 className="text-xl text-primary">Appointment Details</h3>
+                </div>
 
-                      {meta.touched && meta.error && (
-                        <small className="text-red-500">{meta.error}</small>
-                      )}
-                    </div>
-                  )}
-                </Field>
+                <div className="flex justify-between gap-3">
+                  <div className="flex flex-col w-full">
+                    <Field
+                      name="date"
+                      as={DatePicker}
+                      radius="none"
+                      label="Date"
+                      value={props.values.date}
+                      onChange={(value: CalendarDate | null) => {
+                        props.setFieldValue("date", value);
+                      }}
+                    />
+                    <ErrorMessage
+                      name="date"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
+                  </div>
+
+                  <div className="flex flex-col w-full">
+                    <Field
+                      name="time"
+                      as={TimeInput}
+                      radius="none"
+                      label="Time"
+                      onChange={(value: Time | null) => {
+                        props.setFieldValue("time", value);
+                      }}
+                    />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col w-full">
+                  <Field
+                    name="property_id"
+                    as={Autocomplete}
+                    radius="none"
+                    label="Property"
+                    defaultSelectedKeys={[props.values.property_id]}
+                    onInputChange={(value: string) => {
+                      props.setFieldValue("property_id", value);
+                    }}
+                    onSelectionChange={(key: React.Key | null) => {
+                      props.setFieldValue("property_id", key);
+                    }}
+                  >
+                    {properties.map((property: Property) => (
+                      <AutocompleteItem key={property.id}>
+                        {property.name}
+                      </AutocompleteItem>
+                    ))}
+                  </Field>
+                  <ErrorMessage
+                    name="property_id"
+                    component="div"
+                    className="text-red-500 text-sm"
+                  />
+                </div>
+
+                <div className="flex flex-col w-full">
+                  <Field
+                    name="message"
+                    as={Textarea}
+                    radius="none"
+                    label="Message"
+                  />
+                  <ErrorMessage
+                    name="message"
+                    component="div"
+                    className="text-red-500 text-sm"
+                  />
+                </div>
               </div>
 
-              <div className="flex flex-col w-full">
-                <Field name="message">
-                  {({ field, meta }: FieldProps) => (
-                    <div>
-                      <Textarea {...field} radius="none" label="Message" />
-
-                      {meta.touched && meta.error && (
-                        <small className="text-red-500">{meta.error}</small>
-                      )}
-                    </div>
-                  )}
-                </Field>
+              <div>
+                <Button
+                  className="w-full"
+                  color="primary"
+                  type="submit"
+                  isLoading={isSubmitting}
+                >
+                  Submit
+                </Button>
               </div>
-            </div>
-
-            <div>
-              <Button
-                className="w-full"
-                color="primary"
-                type="submit"
-                isLoading={isSubmitting}
-              >
-                Submit
-              </Button>
             </div>
           </Form>
         )}

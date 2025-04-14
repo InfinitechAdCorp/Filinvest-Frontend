@@ -14,8 +14,11 @@ import {
   Textarea,
   Select,
   SelectItem,
+  Autocomplete,
+  AutocompleteItem,
 } from "@heroui/react";
 import { Formik, Form, Field, ErrorMessage, FormikProps } from "formik";
+import { Property } from "@/types/globals";
 import { Inquiry as Values } from "@/types/admin";
 import { inquiry as rules } from "@/schemas/admin";
 import { upsert } from "@/utils/actions";
@@ -131,28 +134,129 @@ const CreateForm = ({ url, model }: Props) => {
                               <SelectItem key="Female">Female</SelectItem>
                             </Field>
                             <ErrorMessage
-                              name="last_name"
+                              name="gender"
                               component="div"
                               className="text-red-500 text-sm"
                             />
                           </div>
                         </div>
-                      </div>
 
-                      <div className="flex flex-col space-y-2">
+                        <div className="flex justify-between gap-2">
+                          <div className="flex flex-col w-full">
+                            <Field
+                              name="landline"
+                              as={Input}
+                              type="text"
+                              size="md"
+                              variant="bordered"
+                              label="Landline"
+                              labelPlacement="outside"
+                              placeholder="Enter Landline"
+                            />
+                            <ErrorMessage
+                              name="landline"
+                              component="div"
+                              className="text-red-500 text-sm"
+                            />
+                          </div>
+
+                          <div className="flex flex-col w-full">
+                            <Field
+                              name="mobile"
+                              as={Input}
+                              type="text"
+                              size="md"
+                              variant="bordered"
+                              label="Mobile"
+                              labelPlacement="outside"
+                              placeholder="Enter Mobile"
+                            />
+                            <ErrorMessage
+                              name="mobile"
+                              component="div"
+                              className="text-red-500 text-sm"
+                            />
+                          </div>
+
+                          <div className="flex flex-col w-full">
+                            <Field
+                              name="email"
+                              as={Input}
+                              type="text"
+                              size="md"
+                              variant="bordered"
+                              label="Email"
+                              labelPlacement="outside"
+                              placeholder="Enter Email"
+                            />
+                            <ErrorMessage
+                              name="email"
+                              component="div"
+                              className="text-red-500 text-sm"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="flex justify-between gap-2">
+                          <div className="flex flex-col w-full">
+                            <Field
+                              name="city"
+                              as={Input}
+                              type="text"
+                              size="md"
+                              variant="bordered"
+                              label="City"
+                              labelPlacement="outside"
+                              placeholder="Enter City"
+                            />
+                            <ErrorMessage
+                              name="city"
+                              component="div"
+                              className="text-red-500 text-sm"
+                            />
+                          </div>
+
+                          <div className="flex flex-col w-full">
+                            <Field
+                              name="country"
+                              as={Autocomplete}
+                              size="md"
+                              variant="bordered"
+                              label="Country"
+                              labelPlacement="outside"
+                              placeholder="Select Country"
+                              defaultSelectedKeys={[props.values.country]}
+                              onInputChange={(value: string) => {
+                                props.setFieldValue("country", value);
+                              }}
+                              onSelectionChange={(key: React.Key | null) => {
+                                props.setFieldValue("country", key);
+                              }}
+                            >
+                              <AutocompleteItem key="Philippines">
+                                Philippines
+                              </AutocompleteItem>
+                            </Field>
+                            <ErrorMessage
+                              name="country"
+                              component="div"
+                              className="text-red-500 text-sm"
+                            />
+                          </div>
+                        </div>
+
                         <div className="flex flex-col w-full">
                           <Field
-                            name="question"
-                            as={Input}
-                            type="text"
+                            name="message"
+                            as={Textarea}
                             size="md"
                             variant="bordered"
-                            label="Question"
+                            label="Message"
                             labelPlacement="outside"
-                            placeholder="Enter Question"
+                            placeholder="Enter Message"
                           />
                           <ErrorMessage
-                            name="question"
+                            name="message"
                             component="div"
                             className="text-red-500 text-sm"
                           />
@@ -160,16 +264,29 @@ const CreateForm = ({ url, model }: Props) => {
 
                         <div className="flex flex-col w-full">
                           <Field
-                            name="answer"
-                            as={Textarea}
+                            name="property_id"
+                            as={Autocomplete}
                             size="md"
                             variant="bordered"
-                            label="Answer"
+                            label="Property"
                             labelPlacement="outside"
-                            placeholder="Enter Answer"
-                          />
+                            placeholder="Select Property"
+                            defaultSelectedKeys={[props.values.property_id]}
+                            onInputChange={(value: string) => {
+                              props.setFieldValue("property_id", value);
+                            }}
+                            onSelectionChange={(key: React.Key | null) => {
+                              props.setFieldValue("property_id", key);
+                            }}
+                          >
+                            {[].map((property: Property) => (
+                              <AutocompleteItem key={property.id}>
+                                {property.name}
+                              </AutocompleteItem>
+                            ))}
+                          </Field>
                           <ErrorMessage
-                            name="answer"
+                            name="property_id"
                             component="div"
                             className="text-red-500 text-sm"
                           />
