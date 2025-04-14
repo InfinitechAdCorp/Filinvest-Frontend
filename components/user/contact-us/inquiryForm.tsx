@@ -122,7 +122,7 @@ const InquiryForm = ({ properties }: Props) => {
                         as={Select}
                         radius="none"
                         label="Gender"
-                        defaultSelectedKeys={[props.values.gender]}
+                        defaultSelectedKey={props.values.gender}
                       >
                         <SelectItem key="Male">Male</SelectItem>
                         <SelectItem key="Female">Female</SelectItem>
@@ -204,10 +204,7 @@ const InquiryForm = ({ properties }: Props) => {
                         as={Autocomplete}
                         radius="none"
                         label="Country"
-                        defaultSelectedKeys={[props.values.country]}
-                        onInputChange={(value: string) => {
-                          props.setFieldValue("country", value);
-                        }}
+                        defaultSelectedKey={props.values.country}
                         onSelectionChange={(key: React.Key | null) => {
                           props.setFieldValue("country", key);
                         }}
@@ -244,10 +241,7 @@ const InquiryForm = ({ properties }: Props) => {
                       as={Autocomplete}
                       radius="none"
                       label="Property"
-                      defaultSelectedKeys={[props.values.property_id]}
-                      onInputChange={(value: string) => {
-                        props.setFieldValue("property_id", value);
-                      }}
+                      defaultSelectedKey={props.values.property_id}
                       onSelectionChange={(key: React.Key | null) => {
                         props.setFieldValue("property_id", key);
                       }}

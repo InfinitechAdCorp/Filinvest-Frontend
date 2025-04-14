@@ -2,23 +2,35 @@
 
 import React from "react";
 import { TableRow, TableCell } from "@heroui/react";
-import { Column } from "@/types/globals";
+import { Column, Property } from "@/types/globals";
 import {
   Inquiry as Record,
   InquiryDisplayFormat as DisplayFormat,
 } from "@/types/globals";
+import UpdateForm from "./updateForm";
+import DestroyForm from "@/components/globals/destroyForm";
 
 const RenderCell = (
   url: string,
   model: string,
   column: string,
-  record: Record
+  record: Record,
+  dependencies: {
+    properties: Property[];
+  }
 ) => {
   switch (column) {
     case "actions":
       return (
         <div className="relative flex justify-start items-center gap-2">
-          Actions
+          <UpdateForm
+            url={url}
+            model={model}
+            record={record}
+            properties={dependencies.properties}
+          />
+
+          <DestroyForm url={url} model={model} id={record.id} />
         </div>
       );
     default:
@@ -30,7 +42,10 @@ const RenderBody = (
   url: string,
   model: string,
   columns: Column[],
-  records: Record[]
+  records: Record[],
+  dependencies: {
+    properties: Property[];
+  }
 ) => {
   return (
     <>
@@ -38,7 +53,7 @@ const RenderBody = (
         <TableRow key={record.id}>
           {columns.map((column) => (
             <TableCell key={column.key}>
-              {RenderCell(url, model, column.key, record)}
+              {RenderCell(url, model, column.key, record, dependencies)}
             </TableCell>
           ))}
         </TableRow>

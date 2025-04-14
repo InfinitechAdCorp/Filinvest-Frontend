@@ -27,9 +27,10 @@ import { onPostSubmit } from "@/utils/events";
 type Props = {
   url: string;
   model: string;
+  properties: Property[];
 };
 
-const CreateForm = ({ url, model }: Props) => {
+const CreateForm = ({ url, model, properties }: Props) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -128,7 +129,7 @@ const CreateForm = ({ url, model }: Props) => {
                               label="Gender"
                               labelPlacement="outside"
                               placeholder="Select Gender"
-                              defaultSelectedKeys={[props.values.gender]}
+                              defaultSelectedKey={props.values.gender}
                             >
                               <SelectItem key="Male">Male</SelectItem>
                               <SelectItem key="Female">Female</SelectItem>
@@ -225,10 +226,7 @@ const CreateForm = ({ url, model }: Props) => {
                               label="Country"
                               labelPlacement="outside"
                               placeholder="Select Country"
-                              defaultSelectedKeys={[props.values.country]}
-                              onInputChange={(value: string) => {
-                                props.setFieldValue("country", value);
-                              }}
+                              defaultSelectedKey={props.values.country}
                               onSelectionChange={(key: React.Key | null) => {
                                 props.setFieldValue("country", key);
                               }}
@@ -271,15 +269,12 @@ const CreateForm = ({ url, model }: Props) => {
                             label="Property"
                             labelPlacement="outside"
                             placeholder="Select Property"
-                            defaultSelectedKeys={[props.values.property_id]}
-                            onInputChange={(value: string) => {
-                              props.setFieldValue("property_id", value);
-                            }}
+                            defaultSelectedKey={props.values.property_id}
                             onSelectionChange={(key: React.Key | null) => {
                               props.setFieldValue("property_id", key);
                             }}
                           >
-                            {[].map((property: Property) => (
+                            {properties.map((property: Property) => (
                               <AutocompleteItem key={property.id}>
                                 {property.name}
                               </AutocompleteItem>

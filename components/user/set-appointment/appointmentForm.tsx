@@ -208,10 +208,7 @@ const AppointmentForm = ({ properties }: Props) => {
                     as={Autocomplete}
                     radius="none"
                     label="Property"
-                    defaultSelectedKeys={[props.values.property_id]}
-                    onInputChange={(value: string) => {
-                      props.setFieldValue("property_id", value);
-                    }}
+                    defaultSelectedKey={props.values.property_id}
                     onSelectionChange={(key: React.Key | null) => {
                       props.setFieldValue("property_id", key);
                     }}
