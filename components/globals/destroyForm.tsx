@@ -10,10 +10,9 @@ import {
   Button,
   useDisclosure,
 } from "@heroui/react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form } from "formik";
 import { destroy as validationSchema } from "@/schemas/admin";
 import { Destroy as Values } from "@/types/globals";
-import { Response } from "@/types/globals";
 import { FaTrash } from "react-icons/fa6";
 import { onPostSubmit } from "@/utils/events";
 import { destroy } from "@/utils/actions";
@@ -69,7 +68,6 @@ const DestroyForm = ({ url, model, id }: Props) => {
                   <Form>
                     <ModalHeader>Delete {model}</ModalHeader>
                     <ModalBody>
-                      <Field type="hidden" name="id" />
                       <h6>
                         Are you sure that you want to delete this {model}?
                       </h6>

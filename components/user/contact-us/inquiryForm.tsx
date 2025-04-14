@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import * as Yup from "yup";
 import {
   Button,
   Input,
@@ -11,8 +12,8 @@ import {
   AutocompleteItem,
 } from "@heroui/react";
 import { Property } from "@/types/globals";
-import { CreateInquiry as Values } from "@/types/user";
-import { CreateInquiry as validationSchema } from "@/schemas/user";
+import { Inquiry as Values } from "@/types/admin";
+import { inquiry as rules } from "@/schemas/admin";
 import { Formik, FormikProps, Form, Field, FieldProps } from "formik";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -36,6 +37,10 @@ const InquiryForm = ({ properties }: Props) => {
     message: "",
     property_id: "",
   };
+
+  const validationSchema = Yup.object().shape({
+    ...rules,
+  });
 
   const onSubmit = async (
     values: Values,

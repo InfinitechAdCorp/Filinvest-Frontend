@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import * as Yup from "yup";
 import {
   Button,
   Input,
@@ -11,8 +12,8 @@ import {
   TimeInput,
 } from "@heroui/react";
 import { Property } from "@/types/globals";
-import { CreateAppointment as Values } from "@/types/user";
-import { CreateAppointment as validationSchema } from "@/schemas/user";
+import { Appointment as Values } from "@/types/admin";
+import { appointment as rules } from "@/schemas/admin";
 import { Formik, FormikProps, Form, Field, FieldProps } from "formik";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -34,6 +35,10 @@ const AppointmentForm = ({ properties }: Props) => {
     property_id: "",
     message: "",
   };
+
+  const validationSchema = Yup.object().shape({
+    ...rules,
+  });
 
   const onSubmit = async (
     ufValues: Values,

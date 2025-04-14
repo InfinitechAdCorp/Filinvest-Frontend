@@ -15,9 +15,9 @@ import {
   Select,
   SelectItem,
 } from "@heroui/react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FAQ as Values } from "@/types/admin";
-import { faq as rules } from "@/schemas/admin";
+import { Formik, Form, Field, ErrorMessage, FormikProps } from "formik";
+import { Inquiry as Values } from "@/types/admin";
+import { inquiry as rules } from "@/schemas/admin";
 import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
 
@@ -33,7 +33,7 @@ const CreateForm = ({ url, model }: Props) => {
   const initialValues = {
     first_name: "",
     last_name: "",
-    gender: "Male",
+    gender: "",
     landline: "",
     mobile: "",
     email: "",
@@ -74,7 +74,7 @@ const CreateForm = ({ url, model }: Props) => {
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
               >
-                {() => (
+                {(props: FormikProps<any>) => (
                   <Form>
                     <ModalHeader>Add {model}</ModalHeader>
                     <ModalBody>
@@ -125,7 +125,7 @@ const CreateForm = ({ url, model }: Props) => {
                               label="Gender"
                               labelPlacement="outside"
                               placeholder="Select Gender"
-                              defaultSelectedKeys={[]}
+                              defaultSelectedKeys={[props.values.gender]}
                             >
                               <SelectItem key="Male">Male</SelectItem>
                               <SelectItem key="Female">Female</SelectItem>
