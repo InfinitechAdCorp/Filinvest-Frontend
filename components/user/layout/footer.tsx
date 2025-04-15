@@ -121,14 +121,14 @@ const Footer = () => {
               <FaTwitter size={20} />
             </Link>
             <Link
-              href="https://www.instagram.com/filinvest/"
+              href="https://www.instagram.com/filinvest"
               className="text-gray-900  hover:text-primary"
               target="_blank"
             >
               <FaInstagram size={20} />
             </Link>
             <Link
-              href="https://www.linkedin.com/company/filinvest/"
+              href="https://www.linkedin.com/company/filinvest"
               className="text-gray-900  hover:text-primary"
               target="_blank"
             >

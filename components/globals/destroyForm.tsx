@@ -55,7 +55,7 @@ const DestroyForm = ({ url, model, id }: Props) => {
         <FaTrash />
       </Button>
 
-      <Modal size="sm" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>

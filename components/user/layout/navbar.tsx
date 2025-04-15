@@ -40,26 +40,20 @@ const NavBar = () => {
           justify="center"
         >
           <NavbarItem>
-            <Button variant="light">
-              <Link href="/" className="text-white">
-                Home
-              </Link>
+            <Button variant="light" as={Link} href="/">
+              <h3 className="text-white text-[1rem]">Home</h3>
             </Button>
           </NavbarItem>
 
           <NavbarItem>
-            <Button variant="light">
-              <Link href="/user/about-us" className="text-white">
-                About Us
-              </Link>
+            <Button variant="light" as={Link} href="/user/about-us">
+              <h3 className="text-white text-[1rem]">About Us</h3>
             </Button>
           </NavbarItem>
 
           <NavbarItem>
-            <Button variant="light">
-              <Link href="/user/properties" className="text-white">
-                Properties
-              </Link>
+            <Button variant="light" as={Link} href="/user/properties">
+              <h3 className="text-white text-[1rem]">Properties</h3>
             </Button>
           </NavbarItem>
 
