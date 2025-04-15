@@ -52,3 +52,19 @@ export type Subscriber = {
   id?: string;
   email: string;
 };
+
+export type Property = {
+  id?: string;
+  name: string;
+  type: string;
+  minimum_price: number | string;
+  maximum_price: number | string;
+  location: string;
+  map: string;
+  minimum_area: number | string;
+  maximum_area: number | string;
+  status: string;
+  description: string;
+  logo: File | string;
+  amenities: string[];
+};

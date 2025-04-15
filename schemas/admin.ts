@@ -48,3 +48,17 @@ export const appointment = {
 export const subscriber = {
   email: Yup.string().trim().email().required(),
 };
+
+export const property = {
+  name: Yup.string().trim().required(),
+  type: Yup.string().trim().required(),
+  minimum_price: Yup.number().min(1).required(),
+  maximum_price: Yup.number().min(1).required(),
+  location: Yup.string().trim().required(),
+  map: Yup.string().trim().required(),
+  minimum_area: Yup.number().min(1).required(),
+  maximum_area: Yup.number().min(1).required(),
+  status: Yup.string().trim().required(),
+  description: Yup.string().trim().required(),
+  amenties: Yup.array().min(1).required(),
+};

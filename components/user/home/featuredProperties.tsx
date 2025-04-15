@@ -62,7 +62,7 @@ const FeaturedProperties = ({ properties }: Props) => {
                           startContent={<HiLink className="w-4 h-4" />}
                           className="flex justify-between items-center text-xs px-2 py-1"
                         >
-                          {property.status}
+                          For Sale
                         </Chip>
 
                         <Chip
@@ -72,7 +72,7 @@ const FeaturedProperties = ({ properties }: Props) => {
                           startContent={<HiLink className="w-4 h-4" />}
                           className="flex justify-between items-center text-xs px-2 py-1"
                         >
-                          {property.substatus}
+                          {property.status}
                         </Chip>
                       </div>
                     </div>

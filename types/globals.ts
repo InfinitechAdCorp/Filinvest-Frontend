@@ -30,7 +30,6 @@ export type Property = {
   minimum_area: number;
   maximum_area: number;
   status: string;
-  substatus: string;
   description: string;
   isPublished: number;
   isFeatured: number;
@@ -51,7 +50,6 @@ export type PropertyDisplayFormat = {
   location: string;
   area: string;
   status: string;
-  substatus: string;
   description: string;
 };
 

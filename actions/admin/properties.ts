@@ -17,7 +17,6 @@ export const displayFormat = async (columns: Column[], records: Record[]) => {
       location: "",
       area: "",
       status: "",
-      substatus: "",
       description: "",
     };
 

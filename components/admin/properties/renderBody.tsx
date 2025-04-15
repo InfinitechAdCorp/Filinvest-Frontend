@@ -7,6 +7,7 @@ import {
   Property as Record,
   PropertyDisplayFormat as DisplayFormat,
 } from "@/types/globals";
+import DestroyForm from "@/components/globals/destroyForm";
 
 const RenderCell = (
   url: string,
@@ -18,7 +19,7 @@ const RenderCell = (
     case "actions":
       return (
         <div className="relative flex justify-start items-center gap-2">
-          Actions
+          <DestroyForm url={url} model={model} id={record.id} />
         </div>
       );
     case "logo":

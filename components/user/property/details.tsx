@@ -81,7 +81,7 @@ const Details = ({ property }: Props) => {
               startContent={<HiLink className="w-4 h-4" />}
               className="flex items-center px-3 py-1"
             >
-              {property.status}
+              For Sale
             </Chip>
 
             <Chip
@@ -90,7 +90,7 @@ const Details = ({ property }: Props) => {
               startContent={<HiLink className="w-4 h-4" />}
               className="flex items-center px-3 py-1"
             >
-              {property.substatus}
+              {property.status}
             </Chip>
           </div>
 
@@ -117,7 +117,7 @@ const Details = ({ property }: Props) => {
                 <Chip radius="full" color="primary" variant="flat">
                   <HiHome className="w-5 h-5 text-blue-800" />
                 </Chip>
-                
+
                 {offeringTypes.length > 0 ? (
                   <div>
                     <h3>{offeringTypes.join(" | ")}</h3>
