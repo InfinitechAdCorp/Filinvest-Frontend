@@ -21,7 +21,7 @@ const Amenities = ({ property }: Props) => {
           healthy leisure amenities.
         </p>
 
-        <div className="flex flex-row flex-wrap gap-5 space-y-1 mt-2">
+        <div className="flex flex-row flex-wrap gap-5 mt-2">
           {property.amenities ? (
             <>
               {JSON.parse(property.amenities).map(

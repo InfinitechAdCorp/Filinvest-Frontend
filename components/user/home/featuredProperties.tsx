@@ -45,16 +45,17 @@ const FeaturedProperties = ({ properties }: Props) => {
                     </h3>
 
                     <div className="mt-3 space-y-1">
-                      <Chip
-                        size="sm"
-                        variant="flat"
-                        color="primary"
-                        startContent={<HiLink className="w-4 h-4" />}
-                        className="flex justify-between items-center text-xs px-2 py-1"
-                      >
-                        {property.type}
-                      </Chip>
                       <div className="flex gap-1">
+                        <Chip
+                          size="sm"
+                          variant="flat"
+                          color="primary"
+                          startContent={<HiLink className="w-4 h-4" />}
+                          className="flex justify-between items-center text-xs px-2 py-1"
+                        >
+                          {property.type}
+                        </Chip>
+
                         <Chip
                           size="sm"
                           variant="flat"

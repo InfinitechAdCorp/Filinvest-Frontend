@@ -5,60 +5,88 @@ export const destroy = Yup.object().shape({
 });
 
 export const faq = {
-  question: Yup.string().trim().required(),
-  answer: Yup.string().trim().required(),
+  question: Yup.string().trim().required("Question is a required field"),
+  answer: Yup.string().trim().required("Answer is a required field"),
 };
 
 export const testimonial = {
-  name: Yup.string().trim().required(),
-  message: Yup.string().trim().required(),
+  name: Yup.string().trim().required("Name is a required field"),
+  message: Yup.string().trim().required("Message is a required field"),
 };
 
 export const article = {
-  name: Yup.string().trim().required(),
-  type: Yup.string().trim().required(),
-  date: Yup.date().required(),
-  description: Yup.string().trim().required(),
+  name: Yup.string().trim().required("Name is a required field"),
+  type: Yup.string().trim().required("Type is a required field"),
+  date: Yup.date()
+    .typeError("Date must be a valid date")
+    .required("Date is a required field"),
+  description: Yup.string().trim().required("Description is a required field"),
 };
 
 export const inquiry = {
-  first_name: Yup.string().trim().required(),
-  last_name: Yup.string().trim().required(),
-  gender: Yup.string().trim().required(),
-  landline: Yup.string().trim().required(),
-  mobile: Yup.string().trim().required(),
-  email: Yup.string().trim().email().required(),
-  city: Yup.string().trim().required(),
-  country: Yup.string().trim().required(),
-  message: Yup.string().trim().required(),
-  property_id: Yup.string().trim().required(),
+  first_name: Yup.string().trim().required("First Name is a required field"),
+  last_name: Yup.string().trim().required("Last Name is a required field"),
+  gender: Yup.string().trim().required("Gender is a required field"),
+  landline: Yup.string().trim().required("Landline is a required field"),
+  mobile: Yup.string().trim().required("Mobile is a required field"),
+  email: Yup.string()
+    .trim()
+    .email("Email must be a valid email")
+    .required("Email is a required field"),
+  city: Yup.string().trim().required("City is a required field"),
+  country: Yup.string().trim().required("Country is a required field"),
+  message: Yup.string().trim().required("Message is a required field"),
+  property_id: Yup.string().trim().required("Property is a required field"),
 };
 
 export const appointment = {
-  first_name: Yup.string().trim().required(),
-  last_name: Yup.string().trim().required(),
-  mobile: Yup.string().trim().required(),
-  email: Yup.string().trim().email().required(),
-  date: Yup.date().required(),
-  time: Yup.string().trim().required(),
-  property_id: Yup.string().trim().required(),
-  message: Yup.string().trim().required(),
+  first_name: Yup.string().trim().required("First Name is a required field"),
+  last_name: Yup.string().trim().required("Last Name is a required field"),
+  mobile: Yup.string().trim().required("Mobile is a required field"),
+  email: Yup.string()
+    .trim()
+    .email("Email must be a valid email")
+    .required("Email is a required field"),
+  date: Yup.date()
+    .typeError("Date must be a valid date")
+    .required("Date is a required field"),
+  time: Yup.string().trim().required("Time is a required field"),
+  property_id: Yup.string().trim().required("Property is a required field"),
+  message: Yup.string().trim().required("Message is a required field"),
 };
 
 export const subscriber = {
-  email: Yup.string().trim().email().required(),
+  email: Yup.string()
+    .trim()
+    .email("Email must be a valid email")
+    .required("Email is a required field"),
 };
 
 export const property = {
-  name: Yup.string().trim().required(),
-  type: Yup.string().trim().required(),
-  minimum_price: Yup.number().min(1).required(),
-  maximum_price: Yup.number().min(1).required(),
-  location: Yup.string().trim().required(),
-  map: Yup.string().trim().required(),
-  minimum_area: Yup.number().min(1).required(),
-  maximum_area: Yup.number().min(1).required(),
-  status: Yup.string().trim().required(),
-  description: Yup.string().trim().required(),
-  amenties: Yup.array().min(1).required(),
+  name: Yup.string().trim().required("Name is a required field"),
+  type: Yup.string().trim().required("Type is a required field"),
+  minimum_price: Yup.number()
+    .typeError("Minimum Price must be a number")
+    .min(1, "Minimum Price must be greater than 0")
+    .required("Minimum Price is a required field"),
+  maximum_price: Yup.number()
+    .typeError("Maximum Price must be a number")
+    .min(1, "Maximum Price must be greater than 0")
+    .required("Maximum Price is a required field"),
+  location: Yup.string().trim().required("Location is a required field"),
+  map: Yup.string().trim().required("Map is a required field"),
+  minimum_area: Yup.number()
+    .typeError("Minimum Area must be a number")
+    .min(1, "Minimum Area must be greater than 0")
+    .required("Minimum Area is a required field"),
+  maximum_area: Yup.number()
+    .typeError("Maximum Area must be a number")
+    .min(1, "Maximum Area must be greater than 0")
+    .required("Maximum Area is a required field"),
+  status: Yup.string().trim().required("Status is a required field"),
+  description: Yup.string().trim().required("Description is a required field"),
+  amenties: Yup.array()
+    .typeError("Amenities must be an array")
+    .min(1, "Amenities cannot be empty")
+    .required("Amenities is a required field"),
 };
