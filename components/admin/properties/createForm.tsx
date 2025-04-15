@@ -112,11 +112,11 @@ const CreateForm = ({ url, model }: Props) => {
                               defaultSelectedKey={props.values.type}
                             >
                               <SelectItem key="Homes">Homes</SelectItem>
-                              <SelectItem key="Mid-Rise Condominiums">
-                                Mid-Rise Condominiums
+                              <SelectItem key="Mid-Rise Condo">
+                                Mid-Rise Condo
                               </SelectItem>
-                              <SelectItem key="High-Rise Condominiums">
-                                High-Rise Condominiums
+                              <SelectItem key="High-Rise Condo">
+                                High-Rise Condo
                               </SelectItem>
                             </Field>
                             <ErrorMessage
@@ -236,6 +236,46 @@ const CreateForm = ({ url, model }: Props) => {
                               className="text-red-500 text-sm"
                             />
                           </div>
+                        </div>
+
+                        <div className="flex flex-col w-full">
+                          <Field
+                            name="status"
+                            as={Select}
+                            size="md"
+                            variant="bordered"
+                            label="Status"
+                            labelPlacement="outside"
+                            placeholder="Select Status"
+                            defaultSelectedKey={props.values.status}
+                          >
+                            <SelectItem key="RFO">RFO</SelectItem>
+                            <SelectItem key="Pre-Selling">
+                              Pre-Selling
+                            </SelectItem>
+                          </Field>
+                          <ErrorMessage
+                            name="status"
+                            component="div"
+                            className="text-red-500 text-sm"
+                          />
+                        </div>
+
+                        <div className="flex flex-col w-full">
+                          <Field
+                            name="description"
+                            as={Textarea}
+                            size="md"
+                            variant="bordered"
+                            label="Description"
+                            labelPlacement="outside"
+                            placeholder="Enter Description"
+                          />
+                          <ErrorMessage
+                            name="description"
+                            component="div"
+                            className="text-red-500 text-sm"
+                          />
                         </div>
                       </div>
                     </ModalBody>
