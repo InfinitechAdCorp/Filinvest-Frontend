@@ -68,7 +68,7 @@ const CreateForm = ({ url, model }: Props) => {
                   <Form>
                     <ModalHeader>Add {model}</ModalHeader>
                     <ModalBody>
-                      <div className="flex flex-col space-y-2">
+                      <div className="flex flex-col gap-3">
                         <div className="flex flex-col w-full">
                           <Field
                             name="name"

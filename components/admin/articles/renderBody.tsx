@@ -8,6 +8,7 @@ import {
   ArticleDisplayFormat as DisplayFormat,
 } from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
+import UpdateForm from "./updateForm";
 
 const RenderCell = (
   url: string,
@@ -19,6 +20,8 @@ const RenderCell = (
     case "actions":
       return (
         <div className="relative flex justify-start items-center gap-2">
+          <UpdateForm url={url} model={model} record={record} />
+
           <DestroyForm url={url} model={model} id={record.id} />
         </div>
       );
@@ -48,7 +51,7 @@ const RenderBody = (
       {records.map((record) => (
         <TableRow key={record.id}>
           {columns.map((column) => (
-            <TableCell key={column.name}>
+            <TableCell key={column.name} className="max-w-[30rem]">
               {RenderCell(url, model, column.name, record)}
             </TableCell>
           ))}

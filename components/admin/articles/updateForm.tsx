@@ -28,28 +28,36 @@ import { Article as Values } from "@/types/admin";
 import { article as rules } from "@/schemas/admin";
 import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
+import { Article } from "@/types/globals";
+import { parseDate } from "@internationalized/date";
+import { FaPenToSquare } from "react-icons/fa6";
 
 type Props = {
   url: string;
   model: string;
+  record: Article;
 };
 
-const CreateForm = ({ url, model }: Props) => {
+const UpdateForm = ({ url, model, record }: Props) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [preview, setPreview] = useState("");
+  const [preview, setPreview] = useState(
+    `${process.env.NEXT_PUBLIC_S3_URL}/articles/${record.image}`
+  );
 
   const initialValues = {
-    name: "",
+    id: record.id,
+    name: record.name,
     type: model,
-    date: null,
-    description: "",
+    date: parseDate(record.date),
+    description: record.description,
     image: "",
   };
 
   const validationSchema = Yup.object().shape({
     ...rules,
-    image: Yup.mixed().required(),
+    id: Yup.string().trim().required(),
+    image: Yup.mixed().nullable(),
   });
 
   const onSubmit = async (
@@ -62,7 +70,7 @@ const CreateForm = ({ url, model }: Props) => {
       ...ufValues,
       date: ufValues.date!.toString(),
     };
-    const { code, message } = await upsert(url, model, "Create", values);
+    const { code, message } = await upsert(url, model, "Update", values);
     await onPostSubmit(url, code, message, resetForm, onClose);
 
     setIsSubmitting(false);
@@ -84,8 +92,14 @@ const CreateForm = ({ url, model }: Props) => {
 
   return (
     <>
-      <Button color="primary" onPress={onOpen}>
-        Add {model}
+      <Button
+        size="sm"
+        color="primary"
+        isIconOnly={true}
+        title="Edit"
+        onPress={onOpen}
+      >
+        <FaPenToSquare size={14} />
       </Button>
 
       <Modal size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -99,7 +113,7 @@ const CreateForm = ({ url, model }: Props) => {
               >
                 {(props: FormikProps<any>) => (
                   <Form>
-                    <ModalHeader>Add {model}</ModalHeader>
+                    <ModalHeader>Edit {model}</ModalHeader>
                     <ModalBody>
                       <div className="flex flex-col gap-3">
                         <div className="flex justify-between gap-2">
@@ -201,7 +215,7 @@ const CreateForm = ({ url, model }: Props) => {
                         type="submit"
                         isLoading={isSubmitting}
                       >
-                        Save
+                        Update
                       </Button>
                       <Button color="danger" onPress={onClose}>
                         Cancel
@@ -218,4 +232,4 @@ const CreateForm = ({ url, model }: Props) => {
   );
 };
 
-export default CreateForm;
+export default UpdateForm;
