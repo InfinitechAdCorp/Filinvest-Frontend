@@ -53,7 +53,6 @@ export type PropertyDisplayFormat = {
   status: string;
   substatus: string;
   description: string;
-  amenities: string;
 };
 
 export type Offering = {

@@ -8,7 +8,12 @@ import {
   PropertyDisplayFormat as DisplayFormat,
 } from "@/types/globals";
 
-const RenderCell = (model: string, column: string, record: Record) => {
+const RenderCell = (
+  url: string,
+  model: string,
+  column: string,
+  record: Record
+) => {
   switch (column) {
     case "actions":
       return (
@@ -31,14 +36,19 @@ const RenderCell = (model: string, column: string, record: Record) => {
   }
 };
 
-const RenderBody = (model: string, columns: Column[], records: Record[]) => {
+const RenderBody = (
+  url: string,
+  model: string,
+  columns: Column[],
+  records: Record[]
+) => {
   return (
     <>
       {records.map((record) => (
         <TableRow key={record.id}>
           {columns.map((column) => (
             <TableCell key={column.name}>
-              {RenderCell(model, column.name, record)}
+              {RenderCell(url, model, column.name, record)}
             </TableCell>
           ))}
         </TableRow>

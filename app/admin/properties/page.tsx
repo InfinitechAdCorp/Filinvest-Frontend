@@ -7,7 +7,8 @@ import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/properties/renderBody";
 
 const Page = async () => {
-  const model = "FAQs";
+  const url = "properties";
+  const model = "Property";
 
   const columns = [
     { name: "name", sortable: true },
@@ -19,7 +20,6 @@ const Page = async () => {
     { name: "status", sortable: true },
     { name: "substatus", sortable: true },
     { name: "description", sortable: true },
-    { name: "amenities", sortable: true },
     { name: "actions", sortable: false },
   ];
 
@@ -44,6 +44,7 @@ const Page = async () => {
   return (
     <div className="w-full flex justify-center">
       <DataTable
+        url={url}
         model={model}
         columns={columns}
         records={records}

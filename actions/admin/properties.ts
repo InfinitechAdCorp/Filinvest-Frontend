@@ -19,7 +19,6 @@ export const displayFormat = async (columns: Column[], records: Record[]) => {
       status: "",
       substatus: "",
       description: "",
-      amenities: "",
     };
 
     columns.forEach((column) => {
@@ -32,9 +31,6 @@ export const displayFormat = async (columns: Column[], records: Record[]) => {
           break;
         case "area":
           value = `${formatNumber(record.minimum_area)} - ${formatNumber(record.maximum_area)} sqm`;
-          break;
-        case "amenities":
-          value = JSON.parse(record[name as keyof Record] as string).length;
           break;
         default:
           value = record[name as keyof Record];
