@@ -28,16 +28,16 @@ const Page = async () => {
   const model = "Appointment";
 
   const columns = [
-    { key: "property", name: "PROPERTY", sortable: true },
-    { key: "first_name", name: "FIRST NAME", sortable: true },
-    { key: "last_name", name: "LAST NAME", sortable: true },
-    { key: "mobile", name: "MOBILE", sortable: true },
-    { key: "email", name: "EMAIL", sortable: true },
-    { key: "date", name: "DATE", sortable: true },
-    { key: "time", name: "TIME", sortable: true },
-    { key: "message", name: "MESSAGE", sortable: true },
-    { key: "status", name: "STATUS", sortable: true },
-    { key: "actions", name: "ACTIONS", sortable: false },
+    { name: "property", sortable: true },
+    { name: "first_name", sortable: true },
+    { name: "last_name", sortable: true },
+    { name: "mobile", sortable: true },
+    { name: "email", sortable: true },
+    { name: "date", sortable: true },
+    { name: "time", sortable: true },
+    { name: "message", sortable: true },
+    { name: "status", sortable: true },
+    { name: "actions", sortable: false },
   ];
 
   let ufRecords: Record[] = [];

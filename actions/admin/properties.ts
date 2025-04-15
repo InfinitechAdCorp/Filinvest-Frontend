@@ -23,10 +23,10 @@ export const displayFormat = async (columns: Column[], records: Record[]) => {
     };
 
     columns.forEach((column) => {
-      const key = column.key;
+      const name = column.name;
       let value;
 
-      switch (key) {
+      switch (name) {
         case "price":
           value = `${formatNumberShort(record.minimum_price)} - ${formatNumberShort(record.maximum_price)}`;
           break;
@@ -34,15 +34,15 @@ export const displayFormat = async (columns: Column[], records: Record[]) => {
           value = `${formatNumber(record.minimum_area)} - ${formatNumber(record.maximum_area)} sqm`;
           break;
         case "amenities":
-          value = JSON.parse(record[key as keyof Record] as string).length;
+          value = JSON.parse(record[name as keyof Record] as string).length;
           break;
         default:
-          value = record[key as keyof Record];
+          value = record[name as keyof Record];
           break;
       }
 
       if (value) {
-        display_format[key as keyof DisplayFormat] = `${value}`;
+        display_format[name as keyof DisplayFormat] = `${value}`;
       }
     });
 

@@ -10,17 +10,17 @@ const Page = async () => {
   const model = "FAQs";
 
   const columns = [
-    { key: "name", name: "NAME", sortable: true },
-    { key: "logo", name: "LOGO", sortable: true },
-    { key: "type", name: "TYPE", sortable: true },
-    { key: "price", name: "PRICE", sortable: true },
-    { key: "location", name: "LOCATION", sortable: true },
-    { key: "area", name: "AREA", sortable: true },
-    { key: "status", name: "STATUS", sortable: true },
-    { key: "substatus", name: "SUBSTATUS", sortable: true },
-    { key: "description", name: "DESCRIPTION", sortable: true },
-    { key: "amenities", name: "AMENITIES", sortable: true },
-    { key: "actions", name: "ACTIONS", sortable: false },
+    { name: "name", sortable: true },
+    { name: "logo", sortable: true },
+    { name: "type", sortable: true },
+    { name: "price", sortable: true },
+    { name: "location", sortable: true },
+    { name: "area", sortable: true },
+    { name: "status", sortable: true },
+    { name: "substatus", sortable: true },
+    { name: "description", sortable: true },
+    { name: "amenities", sortable: true },
+    { name: "actions", sortable: false },
   ];
 
   let ufRecords: Record[] = [];

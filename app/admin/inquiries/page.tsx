@@ -28,17 +28,17 @@ const Page = async () => {
   const model = "Inquiry";
 
   const columns = [
-    { key: "property", name: "PROPERTY", sortable: true },
-    { key: "first_name", name: "FIRST NAME", sortable: true },
-    { key: "last_name", name: "LAST NAME", sortable: true },
-    { key: "gender", name: "GENDER", sortable: true },
-    { key: "landline", name: "LANDLINE", sortable: true },
-    { key: "mobile", name: "MOBILE", sortable: true },
-    { key: "email", name: "EMAIL", sortable: true },
-    { key: "city", name: "CITY", sortable: true },
-    { key: "country", name: "COUNTRY", sortable: true },
-    { key: "message", name: "MESSAGE", sortable: true },
-    { key: "actions", name: "ACTIONS", sortable: false },
+    { name: "property", sortable: true },
+    { name: "first_name", sortable: true },
+    { name: "last_name", sortable: true },
+    { name: "gender", sortable: true },
+    { name: "landline", sortable: true },
+    { name: "mobile", sortable: true },
+    { name: "email", sortable: true },
+    { name: "city", sortable: true },
+    { name: "country", sortable: true },
+    { name: "message", sortable: true },
+    { name: "actions", sortable: false },
   ];
 
   let ufRecords: Record[] = [];

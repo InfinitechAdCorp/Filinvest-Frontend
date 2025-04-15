@@ -15,7 +15,6 @@ export type Destroy = {
 };
 
 export type Column = {
-  key: string;
   name: string;
   sortable: boolean;
 };

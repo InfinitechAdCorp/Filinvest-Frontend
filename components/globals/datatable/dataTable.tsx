@@ -14,7 +14,6 @@ import {
   TableColumn,
   TableBody,
   Input,
-  SortDescriptor,
   Card,
   CardBody,
   Selection,
@@ -54,7 +53,7 @@ const DataTable = ({
   const initialColumns = ufInitialColumns || [];
   if (initialColumns.length == 0) {
     ufColumns.forEach((ufColumn) => {
-      initialColumns.push(ufColumn.key);
+      initialColumns.push(ufColumn.name);
     });
   }
 
@@ -63,7 +62,7 @@ const DataTable = ({
   );
   const columns = useMemo(() => {
     return ufColumns.filter((ufColumn) =>
-      Array.from(visibleColumns).includes(ufColumn.key)
+      Array.from(visibleColumns).includes(ufColumn.name)
     );
   }, [visibleColumns]);
 
@@ -84,7 +83,7 @@ const DataTable = ({
 
     const filtered = unfiltered.filter((record) => {
       const isValid = columns.some((column) => {
-        const value = record.display_format[column.key];
+        const value = record.display_format[column.name];
         if (value) {
           return value.toLowerCase().includes(filterValue.toLowerCase());
         }
@@ -207,8 +206,11 @@ const DataTable = ({
             >
               <TableHeader columns={columns}>
                 {(column) => (
-                  <TableColumn key={column.key} allowsSorting={column.sortable}>
-                    {column.name}
+                  <TableColumn
+                    key={column.name}
+                    allowsSorting={column.sortable}
+                  >
+                    {column.name.toUpperCase().replace("_", " ")}
                   </TableColumn>
                 )}
               </TableHeader>

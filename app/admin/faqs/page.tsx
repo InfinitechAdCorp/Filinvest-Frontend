@@ -12,9 +12,9 @@ const Page = async () => {
   const model = "FAQ";
 
   const columns = [
-    { key: "question", name: "QUESTION", sortable: true },
-    { key: "answer", name: "ANSWER", sortable: true },
-    { key: "actions", name: "ACTIONS", sortable: false },
+    { name: "question", sortable: true },
+    { name: "answer", sortable: true },
+    { name: "actions", sortable: false },
   ];
 
   let ufRecords: Record[] = [];

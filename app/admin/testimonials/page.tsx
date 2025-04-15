@@ -12,9 +12,9 @@ const Page = async () => {
   const model = "Testimonial";
 
   const columns = [
-    { key: "name", name: "NAME", sortable: true },
-    { key: "message", name: "MESSAGE", sortable: true },
-    { key: "actions", name: "ACTIONS", sortable: false },
+    { name: "name", sortable: true },
+    { name: "message", sortable: true },
+    { name: "actions", sortable: false },
   ];
 
   let ufRecords: Record[] = [];

@@ -22,20 +22,20 @@ export const displayFormat = async (columns: Column[], records: Record[]) => {
     };
 
     columns.forEach((column) => {
-      const key = column.key;
+      const name = column.name;
       let value;
 
-      switch (key) {
+      switch (name) {
         case "property":
           value = record.property.name;
           break;
         default:
-          value = record[key as keyof Record];
+          value = record[name as keyof Record];
           break;
       }
 
       if (value) {
-        display_format[key as keyof DisplayFormat] = `${value}`;
+        display_format[name as keyof DisplayFormat] = `${value}`;
       }
     });
 
