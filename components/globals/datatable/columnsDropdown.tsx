@@ -10,6 +10,7 @@ import {
   DropdownItem,
   Selection,
 } from "@heroui/react";
+import { formatReadable } from "@/utils/formatters";
 
 type Props = {
   columns: Column[];
@@ -36,7 +37,9 @@ const ColumnsDropdown = ({
         onSelectionChange={onSelectionChange}
       >
         {columns.map((column) => (
-          <DropdownItem key={column.key}>{column.name}</DropdownItem>
+          <DropdownItem key={column.name}>
+            {formatReadable(column.name)}
+          </DropdownItem>
         ))}
       </DropdownMenu>
     </Dropdown>

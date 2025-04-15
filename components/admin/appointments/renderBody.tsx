@@ -50,8 +50,8 @@ const RenderBody = (
       {records.map((record) => (
         <TableRow key={record.id}>
           {columns.map((column) => (
-            <TableCell key={column.key}>
-              {RenderCell(url, model, column.key, record, dependencies)}
+            <TableCell key={column.name}>
+              {RenderCell(url, model, column.name, record, dependencies)}
             </TableCell>
           ))}
         </TableRow>

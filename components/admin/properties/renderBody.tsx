@@ -37,8 +37,8 @@ const RenderBody = (model: string, columns: Column[], records: Record[]) => {
       {records.map((record) => (
         <TableRow key={record.id}>
           {columns.map((column) => (
-            <TableCell key={column.key}>
-              {RenderCell(model, column.key, record)}
+            <TableCell key={column.name}>
+              {RenderCell(model, column.name, record)}
             </TableCell>
           ))}
         </TableRow>

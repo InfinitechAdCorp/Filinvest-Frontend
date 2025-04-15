@@ -21,7 +21,7 @@ import {
 import { Column } from "@/types/globals";
 import BottomContent from "@/components/globals/datatable/bottomContent";
 import ColumnsDropdown from "@/components/globals/datatable/columnsDropdown";
-import { pluralize } from "@/utils/formatters";
+import { formatReadable, pluralize } from "@/utils/formatters";
 
 type Props = {
   url: string;
@@ -210,7 +210,7 @@ const DataTable = ({
                     key={column.name}
                     allowsSorting={column.sortable}
                   >
-                    {column.name.toUpperCase().replace("_", " ")}
+                    {formatReadable(column.name)}
                   </TableColumn>
                 )}
               </TableHeader>

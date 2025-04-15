@@ -1,3 +1,7 @@
+export const formatReadable = (string: string) => {
+  return string.toUpperCase().replace("_", " ");
+};
+
 export const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString("default", {
     year: "numeric",
