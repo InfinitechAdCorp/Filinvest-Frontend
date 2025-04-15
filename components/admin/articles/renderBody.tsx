@@ -7,13 +7,19 @@ import {
   Article as Record,
   ArticleDisplayFormat as DisplayFormat,
 } from "@/types/globals";
+import DestroyForm from "@/components/globals/destroyForm";
 
-const RenderCell = (url: string, model: string, column: string, record: Record) => {
+const RenderCell = (
+  url: string,
+  model: string,
+  column: string,
+  record: Record
+) => {
   switch (column) {
     case "actions":
       return (
         <div className="relative flex justify-start items-center gap-2">
-          Actions
+          <DestroyForm url={url} model={model} id={record.id} />
         </div>
       );
     case "image":
@@ -31,7 +37,12 @@ const RenderCell = (url: string, model: string, column: string, record: Record) 
   }
 };
 
-const RenderBody = (url: string, model: string, columns: Column[], records: Record[]) => {
+const RenderBody = (
+  url: string,
+  model: string,
+  columns: Column[],
+  records: Record[]
+) => {
   return (
     <>
       {records.map((record) => (

@@ -13,6 +13,15 @@ export type Testimonial = {
   message: string;
 };
 
+export type Article = {
+  id?: string;
+  name: string;
+  type: string;
+  date: DateValue | null;
+  description: string;
+  image: File | string;
+};
+
 export type Inquiry = {
   id?: string;
   first_name: string;

@@ -52,11 +52,16 @@ const CreateForm = ({ url, model, properties }: Props) => {
   });
 
   const onSubmit = async (
-    values: Values,
+    ufValues: Values,
     { resetForm }: { resetForm: () => void }
   ) => {
     setIsSubmitting(true);
 
+    const values = {
+      ...ufValues,
+      date: ufValues.date!.toString(),
+      time: ufValues.time!.toString(),
+    };
     const { code, message } = await upsert(url, model, "Create", values);
     onPostSubmit(code, message, resetForm, onClose);
 

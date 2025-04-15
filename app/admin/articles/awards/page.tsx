@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/articles/renderBody";
+import CreateForm from "@/components/admin/articles/createForm";
 
 const Page = async () => {
   const url = "articles";
@@ -40,6 +41,10 @@ const Page = async () => {
 
   const records = await displayFormat(columns, fRecords);
 
+  const Buttons = (
+    <CreateForm url={url} model={model} />
+  );
+
   return (
     <div className="w-full flex justify-center">
       <DataTable
@@ -48,6 +53,7 @@ const Page = async () => {
         columns={columns}
         records={records}
         RenderBody={RenderBody}
+        Buttons={Buttons}
       />
     </div>
   );

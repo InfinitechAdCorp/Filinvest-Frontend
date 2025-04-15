@@ -10,18 +10,20 @@ export const upsert = async (
   action: "Create" | "Update",
   values: any
 ) => {
-  const body = action == "Create" ? values : { ...values, _method: "PUT" };
+  values = action == "Create" ? values : { ...values, _method: "PUT" };
+  console.log(values)
   try {
-    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, body, {
+    await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, values, {
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
+        Accept: "application/json",
       },
     });
 
     revalidatePath(`/admin/${url}`);
     return { code: 200, message: `${action}d ${model}` };
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     return { code: 500, message: "Something went wrong!", error: error };
   }
 };
@@ -33,6 +35,7 @@ export const destroy = async (url: string, model: string, values: Destroy) => {
       {
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
       }
     );
@@ -40,7 +43,7 @@ export const destroy = async (url: string, model: string, values: Destroy) => {
     revalidatePath(`/admin/${url}`);
     return { code: 200, message: `Deleted ${model}` };
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     return { code: 500, message: "Something went wrong!", error: error };
   }
 };
