@@ -43,6 +43,8 @@ const LoanForm = () => {
       ((1 + monthlyRate) ** totalMonths - 1);
     const totalPayment = monthlyPayment * totalMonths;
 
+    console.log(monthlyPayment);
+
     setValues({ ...values, monthly: monthlyPayment, total: totalPayment });
   }, [values.amount, values.years, values.months, values.rate]);
 
@@ -75,7 +77,7 @@ const LoanForm = () => {
               size="sm"
               onChange={onChange}
             >
-              {Array.from({ length: 26 }).map((_, index) => (
+              {Array.from({ length: 12 }).map((_, index) => (
                 <SelectItem
                   key={index}
                   textValue={`${index} ${index == 1 ? "Month" : "Months"}`}
@@ -137,7 +139,11 @@ const LoanForm = () => {
           <TableRow>
             <TableCell>Monthly Payment</TableCell>
             <TableCell>
-              {formatPeso(isNaN(values.monthly) ? 0.0 : values.monthly)}
+              {formatPeso(
+                isNaN(values.monthly) || !isFinite(values.monthly)
+                  ? 0.0
+                  : values.monthly
+              )}
             </TableCell>
           </TableRow>
 
