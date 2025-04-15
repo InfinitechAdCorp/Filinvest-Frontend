@@ -1,8 +1,5 @@
-"use server";
-
 import { Destroy } from "@/types/globals";
 import axios from "axios";
-import { revalidatePath } from "next/cache";
 
 export const upsert = async (
   url: string,
@@ -11,7 +8,7 @@ export const upsert = async (
   values: any
 ) => {
   values = action == "Create" ? values : { ...values, _method: "PUT" };
-  console.log(values)
+  console.log(values);
   try {
     await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, values, {
       headers: {
@@ -19,8 +16,6 @@ export const upsert = async (
         Accept: "application/json",
       },
     });
-
-    revalidatePath(`/admin/${url}`);
     return { code: 200, message: `${action}d ${model}` };
   } catch (error) {
     console.error(error);
@@ -39,8 +34,6 @@ export const destroy = async (url: string, model: string, values: Destroy) => {
         },
       }
     );
-
-    revalidatePath(`/admin/${url}`);
     return { code: 200, message: `Deleted ${model}` };
   } catch (error) {
     console.error(error);

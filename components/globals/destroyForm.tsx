@@ -38,7 +38,7 @@ const DestroyForm = ({ url, model, id }: Props) => {
     setIsSubmitting(true);
 
     const { code, message } = await destroy(url, model, values);
-    onPostSubmit(code, message, resetForm, onClose);
+    await onPostSubmit(url, code, message, resetForm, onClose);
 
     setIsSubmitting(false);
   };

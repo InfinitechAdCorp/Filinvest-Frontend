@@ -49,7 +49,7 @@ const UpdateForm = ({ url, model, record }: Props) => {
     setIsSubmitting(true);
 
     const { code, message } = await upsert(url, model, "Update", values);
-    onPostSubmit(code, message, resetForm, onClose);
+    await onPostSubmit(url, code, message, resetForm, onClose);
 
     setIsSubmitting(false);
   };

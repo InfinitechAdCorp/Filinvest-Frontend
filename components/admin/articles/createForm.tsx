@@ -29,7 +29,6 @@ import { article as rules } from "@/schemas/admin";
 import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
 import axios from "axios";
-import { readFileSync } from "fs";
 
 type Props = {
   url: string;
@@ -63,41 +62,12 @@ const CreateForm = ({ url, model }: Props) => {
     const values = {
       ...ufValues,
       date: ufValues.date!.toString(),
-      image: readFileSync(ufValues.image),
     };
     const { code, message } = await upsert(url, model, "Create", values);
-    onPostSubmit(code, message, resetForm, onClose);
+    await onPostSubmit(url, code, message, resetForm, onClose);
 
     setIsSubmitting(false);
   };
-
-// const upsert = async (
-//     url: string,
-//     model: string,
-//     action: "Create" | "Update",
-//     values: any
-//   ) => {
-//     values = action == "Create" ? values : { ...values, _method: "PUT" };
-//     await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, values, {
-//         headers: {
-//           "Content-Type": "multipart/form-data",
-//           Accept: "application/json",
-//         },
-//       });
-//       return { code: 200, message: `${action}d ${model}` };
-//     // try {
-//     //   await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, values, {
-//     //     headers: {
-//     //       "Content-Type": "multipart/form-data",
-//     //       Accept: "application/json",
-//     //     },
-//     //   });
-//     //   return { code: 200, message: `${action}d ${model}` };
-//     // } catch (error) {
-//     //   console.error(error);
-//     //   return { code: 500, message: "Something went wrong!", error: error };
-//     // }
-//   };
 
   const onFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>,

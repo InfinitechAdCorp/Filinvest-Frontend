@@ -58,7 +58,7 @@ const CreateForm = ({ url, model, properties }: Props) => {
     setIsSubmitting(true);
 
     const { code, message } = await upsert(url, model, "Create", values);
-    onPostSubmit(code, message, resetForm, onClose);
+    await onPostSubmit(url, code, message, resetForm, onClose);
 
     setIsSubmitting(false);
   };
