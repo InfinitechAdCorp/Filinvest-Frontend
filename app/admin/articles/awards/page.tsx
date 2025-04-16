@@ -8,6 +8,12 @@ import RenderBody from "@/components/admin/articles/renderBody";
 import CreateForm from "@/components/admin/articles/createForm";
 
 const Page = async () => {
+  await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(5);
+    }, 500000);
+  });
+
   const url = "articles";
   const model = "Award";
 
@@ -41,9 +47,7 @@ const Page = async () => {
 
   const records = await displayFormat(columns, fRecords);
 
-  const Buttons = (
-    <CreateForm url={url} model={model} />
-  );
+  const Buttons = <CreateForm url={url} model={model} />;
 
   return (
     <div className="w-full flex justify-center">

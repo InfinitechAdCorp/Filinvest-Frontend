@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./loading.module.css";
 
-const Loading = () => {
+const Page = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex justify-center items-center min-h-screen w-full">
       <div className={styles.container}>
         <div className={styles.text}>
           <span>F</span>
@@ -22,4 +22,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default Page;
