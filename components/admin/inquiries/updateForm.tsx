@@ -72,12 +72,11 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
       <Button
         size="sm"
         color="primary"
-        isIconOnly={true}
+        isIconOnly
         title="Edit"
         onPress={onOpen}
-      >
-        <FaPenToSquare size={14} />
-      </Button>
+        startContent={<FaPenToSquare size={14} color="white" />}
+      ></Button>
 
       <Modal size="xl" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>

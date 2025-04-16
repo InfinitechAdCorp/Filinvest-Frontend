@@ -48,12 +48,11 @@ const DestroyForm = ({ url, model, id }: Props) => {
       <Button
         size="sm"
         color="danger"
-        isIconOnly={true}
+        isIconOnly
         title="Delete"
         onPress={onOpen}
-      >
-        <FaTrash />
-      </Button>
+        startContent={<FaTrash size={14} color="white" />}
+      ></Button>
 
       <Modal size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>

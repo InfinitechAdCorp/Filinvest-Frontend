@@ -77,6 +77,7 @@ export type Testimonial = {
   id: string;
   name: string;
   message: string;
+  isPublished: number;
   created_at: string;
   updated_at: string;
   display_format?: TestimonialDisplayFormat;

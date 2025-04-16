@@ -1,0 +1,81 @@
+"use client";
+
+import React, { useState } from "react";
+import { Testimonial as Record } from "@/types/globals";
+import { Button, Spinner } from "@heroui/react";
+import { FaStar, FaRegStar } from "react-icons/fa6";
+import axios from "axios";
+import { onPostSubmit } from "@/utils/events";
+
+type Props = {
+  url: string;
+  model: string;
+  record: Record;
+};
+
+const SetIsPublishedForm = ({ url, model, record }: Props) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const setIsPublished = async (
+    url: string,
+    model: string,
+    values: { id: string; isPublished: number }
+  ) => {
+    try {
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/${url}/set-is-published`,
+        values,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      return { code: 200, message: `Updated Published Status of ${model}` };
+    } catch (error) {
+      console.error(error);
+      return { code: 500, message: "Something went wrong!", error: error };
+    }
+  };
+
+  const onPress = async (record: Record) => {
+    setIsSubmitting(true);
+
+    const values = {
+      id: record.id,
+      isPublished: record.isPublished == 0 ? 1 : 0,
+    };
+    const { code, message } = await setIsPublished(url, model, values);
+    await onPostSubmit(url, code, message);
+
+    setIsSubmitting(false);
+  };
+
+  const getStartContent = (isPublished: number) => {
+    let content;
+    if (isSubmitting) {
+      content = <Spinner size="sm" color="white" />;
+    } else {
+      if (isPublished == 0) {
+        content = <FaRegStar size={14} color="white" />;
+      } else {
+        content = <FaStar size={14} color="white" />;
+      }
+    }
+    return content;
+  };
+
+  return (
+    <Button
+      size="sm"
+      color="warning"
+      isIconOnly
+      title={`${record.isPublished == 0 ? "Publish" : "Unpublish"}`}
+      onPress={() => onPress(record)}
+      startContent={getStartContent(record.isPublished)}
+    />
+  );
+};
+
+export default SetIsPublishedForm;
