@@ -47,7 +47,7 @@ const Details = ({ property }: Props) => {
         </Swiper>
 
         <div className="absolute top-7 left-7 z-3 p-2 rounded-lg">
-          <div className="w-[220px]">
+          <div className="w-[13.75rem]">
             <Image
               alt="Logo"
               className="object-cover"
