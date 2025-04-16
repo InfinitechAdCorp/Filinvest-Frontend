@@ -23,6 +23,9 @@ const Page = async () => {
       }
     );
     testimonials = response.data.records;
+    testimonials = testimonials.filter(
+      (testimonial) => testimonial.isPublished == 1
+    );
     testimonials = testimonials.slice(0, 5);
   } catch (error) {
     console.error("Error:", error);
