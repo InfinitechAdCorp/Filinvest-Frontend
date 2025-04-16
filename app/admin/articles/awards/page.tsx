@@ -8,12 +8,6 @@ import RenderBody from "@/components/admin/articles/renderBody";
 import CreateForm from "@/components/admin/articles/createForm";
 
 const Page = async () => {
-  await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(5);
-    }, 500000);
-  });
-
   const url = "articles";
   const model = "Award";
 

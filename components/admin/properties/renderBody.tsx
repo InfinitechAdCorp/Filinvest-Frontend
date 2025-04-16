@@ -9,40 +9,40 @@ import {
 } from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
 
-const RenderCell = (
-  url: string,
-  model: string,
-  column: string,
-  record: Record
-) => {
-  switch (column) {
-    case "actions":
-      return (
-        <div className="relative flex justify-start items-center gap-2">
-          <DestroyForm url={url} model={model} id={record.id} />
-        </div>
-      );
-    case "logo":
-      return (
-        <div>
-          <Image
-            src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/logos/${record.display_format![column as keyof DisplayFormat]}`}
-            alt="Logo"
-            className="w-full"
-          />
-        </div>
-      );
-    default:
-      return record.display_format![column as keyof DisplayFormat];
-  }
-};
-
 const RenderBody = (
   url: string,
   model: string,
   columns: Column[],
   records: Record[]
 ) => {
+  const RenderCell = (
+    url: string,
+    model: string,
+    column: string,
+    record: Record
+  ) => {
+    switch (column) {
+      case "actions":
+        return (
+          <div className="relative flex justify-start items-center gap-2">
+            <DestroyForm url={url} model={model} id={record.id} />
+          </div>
+        );
+      case "logo":
+        return (
+          <div>
+            <Image
+              src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/logos/${record.display_format![column as keyof DisplayFormat]}`}
+              alt="Logo"
+              className="w-full"
+            />
+          </div>
+        );
+      default:
+        return record.display_format![column as keyof DisplayFormat];
+    }
+  };
+
   return (
     <>
       {records.map((record) => (

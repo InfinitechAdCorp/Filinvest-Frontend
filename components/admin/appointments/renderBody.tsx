@@ -10,34 +10,6 @@ import {
 import UpdateForm from "./updateForm";
 import DestroyForm from "@/components/globals/destroyForm";
 
-const RenderCell = (
-  url: string,
-  model: string,
-  column: string,
-  record: Record,
-  dependencies: {
-    properties: Property[];
-  }
-) => {
-  switch (column) {
-    case "actions":
-      return (
-        <div className="relative flex justify-start items-center gap-2">
-          <UpdateForm
-            url={url}
-            model={model}
-            record={record}
-            properties={dependencies.properties}
-          />
-
-          <DestroyForm url={url} model={model} id={record.id} />
-        </div>
-      );
-    default:
-      return record.display_format![column as keyof DisplayFormat];
-  }
-};
-
 const RenderBody = (
   url: string,
   model: string,
@@ -45,6 +17,34 @@ const RenderBody = (
   records: Record[],
   dependencies: { properties: Property[] }
 ) => {
+  const RenderCell = (
+    url: string,
+    model: string,
+    column: string,
+    record: Record,
+    dependencies: {
+      properties: Property[];
+    }
+  ) => {
+    switch (column) {
+      case "actions":
+        return (
+          <div className="relative flex justify-start items-center gap-2">
+            <UpdateForm
+              url={url}
+              model={model}
+              record={record}
+              properties={dependencies.properties}
+            />
+
+            <DestroyForm url={url} model={model} id={record.id} />
+          </div>
+        );
+      default:
+        return record.display_format![column as keyof DisplayFormat];
+    }
+  };
+
   return (
     <>
       {records.map((record) => (
