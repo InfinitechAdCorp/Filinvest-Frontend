@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { TableRow, TableCell, Image } from "@heroui/react";
 import { Column } from "@/types/globals";
 import {
