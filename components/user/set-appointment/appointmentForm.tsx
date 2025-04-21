@@ -86,10 +86,6 @@ const AppointmentForm = ({ properties }: Props) => {
           <Form>
             <div className="flex flex-col gap-3">
               <div className="flex flex-col gap-3">
-                <div>
-                  <h3 className="text-xl text-primary">Personal Information</h3>
-                </div>
-
                 <div className="flex justify-between gap-3">
                   <div className="flex flex-col w-full">
                     <Field
@@ -152,12 +148,6 @@ const AppointmentForm = ({ properties }: Props) => {
                       className="text-red-500 text-sm"
                     />
                   </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <div>
-                  <h3 className="text-xl text-primary">Appointment Details</h3>
                 </div>
 
                 <div className="flex justify-between gap-3">

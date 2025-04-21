@@ -18,14 +18,14 @@ const Details = () => {
       </div>
 
       <div className="flex flex-col justify-center p-5">
-        <div>
+        <div className="mb-2">
           <h2 className="text-start text-primary text-xl font-semibold">
             Contact Us
           </h2>
         </div>
 
         <div className="flex justify-between">
-          <div className="mt-2">
+          <div>
             <ul className="text-sm list-disc pl-5 space-y-4">
               <li>
                 <strong>Filinvest Alabang, Inc.</strong>
