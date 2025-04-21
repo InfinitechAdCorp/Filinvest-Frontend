@@ -24,7 +24,7 @@ const FeaturedProperties = ({ properties }: Props) => {
                   className="py-2 w-[20rem]"
                   isPressable
                   as={Link}
-                  href={`/user/properties/${property.id}`}
+                  href={`/properties/${property.id}`}
                 >
                   <CardHeader className="pb-0">
                     <Image

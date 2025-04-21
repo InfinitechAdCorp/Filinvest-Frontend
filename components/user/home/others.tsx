@@ -34,7 +34,7 @@ const Others = () => {
                 type="button"
                 className="bg-primary text-white"
                 as={Link}
-                href="/user/articles/blogs"
+                href="/articles/blogs"
               >
                 See More
               </Button>

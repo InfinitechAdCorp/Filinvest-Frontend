@@ -38,7 +38,7 @@ const Articles = ({ articles }: Props) => {
 
                   <div className="text-center">
                     <Link
-                      href={`/user/news/${article.id}`}
+                      href={`/news/${article.id}`}
                       className="text-primary text-xs sm:text-sm md:text-base font-semibold"
                     >
                       Read More

@@ -57,8 +57,9 @@ const CreateForm = ({ url, model }: Props) => {
   ) => {
     setIsSubmitting(true);
 
-    const { code, message } = await upsert(url, model, "Create", values);
-    await onPostSubmit(url, code, message, resetForm, onClose);
+    console.log(values)
+    // const { code, message } = await upsert(url, model, "Create", values);
+    // await onPostSubmit(url, code, message, resetForm, onClose);
 
     setIsSubmitting(false);
   };
@@ -69,13 +70,17 @@ const CreateForm = ({ url, model }: Props) => {
         Add {model}
       </Button>
 
-      <Modal size="xl" isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal
+        size={step == 2 ? "4xl" : "lg"}
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+      >
         <ModalContent>
           {() => (
             <>
               <Formik
                 initialValues={initialValues}
-                validationSchema={validationSchema}
+                // validationSchema={validationSchema}
                 onSubmit={onSubmit}
               >
                 {(props: FormikProps<any>) => (

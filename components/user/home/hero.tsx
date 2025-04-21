@@ -39,7 +39,7 @@ const Hero = () => {
               variant="bordered"
               className="text-white"
               as={Link}
-              href="/user/contact-us"
+              href="/contact-us"
             >
               Contact Us
             </Button>
