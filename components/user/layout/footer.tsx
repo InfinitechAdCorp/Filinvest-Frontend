@@ -28,19 +28,19 @@ const Footer = () => {
                     Home
                   </Link>
                   <Link
-                    href="/user/about-us"
+                    href="/about-us"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     About Us
                   </Link>
                   <Link
-                    href="/user/properties"
+                    href="/properties"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Properties
                   </Link>
                   <Link
-                    href="/user/contact-us"
+                    href="/contact-us"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Contact Us
@@ -49,25 +49,25 @@ const Footer = () => {
 
                 <div className="flex flex-col space-y-1">
                   <Link
-                    href="/user/careers"
+                    href="/careers"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Careers
                   </Link>
                   <Link
-                    href="/user/set-appointment"
+                    href="/set-appointment"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Set Appointment
                   </Link>
                   <Link
-                    href="/user/loan-calculator"
+                    href="/loan-calculator"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Loan Calculator
                   </Link>
                   <Link
-                    href="/user/room-planner"
+                    href="/room-planner"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
                     Room Planner
