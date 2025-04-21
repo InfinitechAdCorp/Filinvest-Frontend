@@ -1,3 +1,5 @@
+import { Time } from "@internationalized/date";
+
 export const formatReadable = (string: string) => {
   return string.toUpperCase().replace("_", " ");
 };
@@ -16,6 +18,10 @@ export const formatTime = (timestamp: string) => {
     minute: "2-digit",
     hour12: true,
   });
+};
+
+export const formatUTC = (time: Time) => {
+  return time.subtract({ hours: 8 });
 };
 
 export const formatPeso = (number: number): string => {

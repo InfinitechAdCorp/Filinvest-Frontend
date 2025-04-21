@@ -19,6 +19,7 @@ import { Formik, FormikProps, Form, Field, ErrorMessage } from "formik";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Time } from "@internationalized/date";
+import { formatUTC } from "@/utils/formatters";
 
 type Props = {
   properties: Property[];
@@ -51,7 +52,7 @@ const AppointmentForm = ({ properties }: Props) => {
     const values = {
       ...ufValues,
       date: ufValues.date!.toString(),
-      time: ufValues.time!.subtract({ hours: 8 }).toString(),
+      time: formatUTC(ufValues.time!).toString(),
     };
 
     try {

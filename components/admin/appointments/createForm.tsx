@@ -25,6 +25,7 @@ import { appointment as rules } from "@/schemas/admin";
 import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
 import { Time } from "@internationalized/date";
+import { formatUTC } from "@/utils/formatters";
 
 type Props = {
   url: string;
@@ -60,7 +61,7 @@ const CreateForm = ({ url, model, properties }: Props) => {
     const values = {
       ...ufValues,
       date: ufValues.date!.toString(),
-      time: ufValues.time!.subtract({ hours: 8 }).toString(),
+      time: formatUTC(ufValues.time!).toString(),
     };
     const { code, message } = await upsert(url, model, "Create", values);
     await onPostSubmit(url, code, message, resetForm, onClose);

@@ -27,6 +27,7 @@ import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
 import { parseDate, parseTime, Time } from "@internationalized/date";
 import { FaPenToSquare } from "react-icons/fa6";
+import { formatUTC } from "@/utils/formatters";
 
 type Props = {
   url: string;
@@ -46,7 +47,7 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
     mobile: record.mobile,
     email: record.email,
     date: parseDate(record.date),
-    time: parseTime(record.time),
+    time: parseTime(record.time).add({ hours: 8 }),
     property_id: record.property_id,
     message: record.message,
   };
@@ -65,7 +66,7 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
     const values = {
       ...ufValues,
       date: ufValues.date!.toString(),
-      time: ufValues.time!.subtract({ hours: 8 }).toString(),
+      time: formatUTC(ufValues.time!).toString(),
     };
     const { code, message } = await upsert(url, model, "Update", values);
     await onPostSubmit(url, code, message, resetForm, onClose);
