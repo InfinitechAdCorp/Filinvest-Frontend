@@ -49,12 +49,6 @@ const Footer = () => {
 
                 <div className="flex flex-col space-y-1">
                   <Link
-                    href="/careers"
-                    className="text-primary dark:text-black hover:text-blue-300"
-                  >
-                    Careers
-                  </Link>
-                  <Link
                     href="/set-appointment"
                     className="text-primary dark:text-black hover:text-blue-300"
                   >
