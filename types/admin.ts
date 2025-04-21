@@ -63,4 +63,5 @@ export type Property = {
   description: string;
   logo: File | string;
   amenities: string[];
+  images: File[] | string;
 };
