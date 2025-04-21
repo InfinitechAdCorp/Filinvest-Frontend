@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/appointments/renderBody";
 import CreateForm from "@/components/admin/appointments/createForm";
+import { sortRecords } from "@/utils/formatters";
 
 const Page = async () => {
   let properties: Property[] = [];
@@ -19,6 +20,7 @@ const Page = async () => {
       }
     );
     properties = response.data.records;
+    properties = sortRecords(properties, "name");
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something went wrong!");

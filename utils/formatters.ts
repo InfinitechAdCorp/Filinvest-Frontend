@@ -41,17 +41,6 @@ export const formatNumber = (number: number) => {
   }).format(number);
 };
 
-export const sortByDate = (
-  records: any[],
-  key: string,
-  order: "asc" | "desc"
-) => {
-  records = records.sort((a, b) => {
-    return Number(new Date(a[key])) - Number(new Date(b[key]));
-  });
-  return (records = order == "asc" ? records : records.reverse());
-};
-
 export const pluralize = (word: string) => {
   const vowels = ["a", "e", "i", "o", "u"];
 
@@ -75,4 +64,23 @@ export const pluralize = (word: string) => {
   }
 
   return word + "s";
+};
+
+export const sortByDate = (
+  records: any[],
+  key: string,
+  order: "asc" | "desc"
+) => {
+  records = records.sort((a, b) => {
+    return Number(new Date(a[key])) - Number(new Date(b[key]));
+  });
+  return (records = order == "asc" ? records : records.reverse());
+};
+
+export const sortRecords = (records: any[], key: string) => {
+  return records.sort((a, b) => a[key].localeCompare(b[key]));
+};
+
+export const filterRecords = (records: any[], key: string, value: string) => {
+  return records.filter((record) => record[key] == value);
 };

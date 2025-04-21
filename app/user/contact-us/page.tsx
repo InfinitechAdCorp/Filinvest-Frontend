@@ -4,6 +4,7 @@ import axios from "axios";
 import { Property } from "@/types/globals";
 import toast from "react-hot-toast";
 import Body from "@/components/user/contact-us/body";
+import { sortRecords } from "@/utils/formatters";
 
 const Page = async () => {
   let properties: Property[] = [];
@@ -17,6 +18,7 @@ const Page = async () => {
       }
     );
     properties = response.data.records;
+    properties = sortRecords(properties, "name");
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something went wrong!");

@@ -6,7 +6,7 @@ import axios from "axios";
 import { Article, FAQ, Property, Testimonial } from "@/types/globals";
 import Testimonials from "@/components/user/home/testimonials";
 import Articles from "@/components/user/home/articles";
-import { sortByDate } from "@/utils/formatters";
+import { sortByDate, sortRecords } from "@/utils/formatters";
 import SectionTitle from "@/components/globals/sectionTitle";
 import FAQs from "@/components/user/home/faqs";
 import FeaturedProperties from "@/components/user/home/featuredProperties";
@@ -84,6 +84,7 @@ const Page = async () => {
       }
     );
     properties = response.data.records;
+    properties = sortRecords(properties, "name");
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something went wrong!");
