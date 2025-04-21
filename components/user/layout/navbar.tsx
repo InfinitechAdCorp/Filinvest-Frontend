@@ -46,13 +46,13 @@ const NavBar = () => {
           </NavbarItem>
 
           <NavbarItem>
-            <Button variant="light" as={Link} href="/user/about-us">
+            <Button variant="light" as={Link} href="/about-us">
               <h3 className="text-white text-[1rem]">About Us</h3>
             </Button>
           </NavbarItem>
 
           <NavbarItem>
-            <Button variant="light" as={Link} href="/user/properties">
+            <Button variant="light" as={Link} href="/properties">
               <h3 className="text-white text-[1rem]">Properties</h3>
             </Button>
           </NavbarItem>
@@ -77,7 +77,7 @@ const NavBar = () => {
                   startContent={<LuCalendar />}
                   key="Set Appointment"
                   as={Link}
-                  href="/user/set-appointment"
+                  href="/set-appointment"
                 >
                   Set Appointment
                 </DropdownItem>
@@ -85,7 +85,7 @@ const NavBar = () => {
                   startContent={<LuCalculator />}
                   key="Loan Calculator"
                   as={Link}
-                  href="/user/loan-calculator"
+                  href="/loan-calculator"
                 >
                   Loan Calculator
                 </DropdownItem>
@@ -93,7 +93,7 @@ const NavBar = () => {
                   startContent={<LuLayoutGrid />}
                   key="Room Planner"
                   as={Link}
-                  href="/user/room-planner"
+                  href="/room-planner"
                 >
                   Room Planner
                 </DropdownItem>
@@ -105,7 +105,7 @@ const NavBar = () => {
         <NavbarContent justify="end">
           <NavbarItem className="hidden lg:flex">
             <Button variant="solid" color="secondary">
-              <Link href="/user/contact-us" className="text-white">
+              <Link href="/contact-us" className="text-white">
                 Contact Us
               </Link>
             </Button>
@@ -123,13 +123,13 @@ const NavBar = () => {
             <Link className="w-full text-white" href="/">
               Home
             </Link>
-            <Link className="w-full text-white" href="/user/about-us">
+            <Link className="w-full text-white" href="/about-us">
               About Us
             </Link>
-            <Link className="w-full text-white" href="/user/contact-us">
+            <Link className="w-full text-white" href="/contact-us">
               Contact Us
             </Link>
-            <Link className="w-full text-white" href="/user/properties">
+            <Link className="w-full text-white" href="/properties">
               Properties
             </Link>
           </NavbarMenuItem>
@@ -138,13 +138,13 @@ const NavBar = () => {
             <h3 className="text-white font-bold mb-2 mt-2">
               Forms & Utilities
             </h3>
-            <Link className="w-full text-white" href="/user/set-appointment">
+            <Link className="w-full text-white" href="/set-appointment">
               Set Appointment
             </Link>
-            <Link className="w-full text-white" href="/user/loan-calculator">
+            <Link className="w-full text-white" href="/loan-calculator">
               Loan Calculator
             </Link>
-            <Link className="w-full text-white" href="/user/room-planner">
+            <Link className="w-full text-white" href="/room-planner">
               Room Planner
             </Link>
           </NavbarMenuItem>
