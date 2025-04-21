@@ -15,40 +15,6 @@ const RenderBody = (
   columns: Column[],
   records: Record[]
 ) => {
-  const [recordVisibility, setRecordVisibility] = useState(
-    records.map((record) => {
-      return { id: record.id, isShown: false };
-    })
-  );
-
-  const getClassName = (id: string) => {
-    const record = recordVisibility.find((record) => record.id == id);
-    const className = record!.isShown
-      ? ""
-      : "overflow-hidden whitespace-nowrap text-ellipsis";
-    return className;
-  };
-
-  const toggleVisibility = (id: string) => {
-    const updatedRecordVisibility = recordVisibility.map((record) => {
-      if (record.id == id) {
-        return {
-          ...record,
-          isShown: !record.isShown,
-        };
-      } else {
-        return record;
-      }
-    });
-    setRecordVisibility(updatedRecordVisibility);
-  };
-
-  const getActionText = (id: string) => {
-    const record = recordVisibility.find((record) => record.id == id);
-    const actionText = record!.isShown ? "Show Less" : "Show More";
-    return actionText;
-  };
-
   const RenderCell = (
     url: string,
     model: string,
@@ -74,14 +40,10 @@ const RenderBody = (
         );
       case "description":
         return (
-          <div className={`max-w-[30rem] ${getClassName(record.id)}`}>
+          <div
+            className={`max-w-[30rem] overflow-hidden whitespace-nowrap text-ellipsis`}
+          >
             <span>{record.display_format![column as keyof DisplayFormat]}</span>
-            <h3
-              className="text-primary font-semibold cursor-pointer"
-              onClick={() => toggleVisibility(record.id)}
-            >
-              {getActionText(record.id)}
-            </h3>
           </div>
         );
       default:

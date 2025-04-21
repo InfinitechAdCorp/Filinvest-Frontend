@@ -12,8 +12,8 @@ const Page = async () => {
   const model = "Property";
 
   const columns = [
-    { name: "name", sortable: true },
     { name: "logo", sortable: true },
+    { name: "name", sortable: true },
     { name: "type", sortable: true },
     { name: "price", sortable: true },
     { name: "location", sortable: true },

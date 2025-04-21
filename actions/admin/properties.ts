@@ -10,8 +10,8 @@ import { formatNumber, formatNumberShort } from "@/utils/formatters";
 export const displayFormat = async (columns: Column[], records: Record[]) => {
   records.forEach((record) => {
     const display_format = {
-      name: "",
       logo: "",
+      name: "",
       type: "",
       price: "",
       location: "",

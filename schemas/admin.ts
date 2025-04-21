@@ -70,7 +70,7 @@ export const property = {
     .min(1, "Maximum Price must be greater than 0")
     .required("Maximum Price is a required field"),
   location: Yup.string().trim().required("Location is a required field"),
-  map: Yup.string().trim().required("Map is a required field"),
+  map: Yup.string().trim().nullable(),
   minimum_area: Yup.number()
     .typeError("Minimum Area must be a number")
     .min(1, "Minimum Area must be greater than 0")
