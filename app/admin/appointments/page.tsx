@@ -30,13 +30,13 @@ const Page = async () => {
   const model = "Appointment";
 
   const columns = [
-    { name: "property", sortable: true },
     { name: "first_name", sortable: true },
     { name: "last_name", sortable: true },
     { name: "mobile", sortable: true },
     { name: "email", sortable: true },
     { name: "date", sortable: true },
     { name: "time", sortable: true },
+    { name: "property", sortable: true },
     { name: "message", sortable: true },
     { name: "status", sortable: true },
     { name: "actions", sortable: false },

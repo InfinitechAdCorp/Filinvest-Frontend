@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { TableRow, TableCell } from "@heroui/react";
+import { TableRow, TableCell, Chip, ChipProps } from "@heroui/react";
 import { Column, Property } from "@/types/globals";
 import {
   Appointment as Record,
@@ -39,6 +39,26 @@ const RenderBody = (
 
             <DestroyForm url={url} model={model} id={record.id} />
           </div>
+        );
+      case "status":
+        type Status = "Accepted" | "Declined" | "Pending";
+
+        const colors = {
+          Accepted: "success",
+          Declined: "danger",
+          Pending: "warning",
+        };
+
+        const value = record.display_format![column as keyof DisplayFormat];
+
+        return (
+          <Chip
+            color={colors[value as Status] as ChipProps["color"]}
+            size="sm"
+            variant="flat"
+          >
+            {value}
+          </Chip>
         );
       default:
         return record.display_format![column as keyof DisplayFormat];

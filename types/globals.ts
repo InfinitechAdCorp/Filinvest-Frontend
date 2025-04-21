@@ -162,13 +162,13 @@ export type Appointment = {
 };
 
 export type AppointmentDisplayFormat = {
-  property: string;
   first_name: string;
   last_name: string;
   mobile: string;
   email: string;
   date: string;
   time: string;
+  property: string;
   message: string;
   status: string;
 };
