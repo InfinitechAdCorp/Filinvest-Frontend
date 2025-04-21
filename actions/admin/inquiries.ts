@@ -9,15 +9,11 @@ import {
 export const displayFormat = async (columns: Column[], records: Record[]) => {
   records.forEach((record) => {
     const display_format = {
-      property: "",
       first_name: "",
       last_name: "",
-      gender: "",
-      landline: "",
       mobile: "",
       email: "",
-      city: "",
-      country: "",
+      property: "",
       message: "",
     };
 

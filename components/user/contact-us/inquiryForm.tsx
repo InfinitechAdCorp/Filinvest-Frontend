@@ -5,8 +5,6 @@ import * as Yup from "yup";
 import {
   Button,
   Input,
-  Select,
-  SelectItem,
   Textarea,
   Autocomplete,
   AutocompleteItem,
@@ -28,14 +26,10 @@ const InquiryForm = ({ properties }: Props) => {
   const initialValues = {
     first_name: "",
     last_name: "",
-    gender: "",
-    landline: "",
     mobile: "",
     email: "",
-    city: "",
-    country: "Philippines",
-    message: "",
     property_id: "",
+    message: "",
   };
 
   const validationSchema = Yup.object().shape({
@@ -115,42 +109,9 @@ const InquiryForm = ({ properties }: Props) => {
                         className="text-red-500 text-sm"
                       />
                     </div>
-
-                    <div className="flex flex-col w-full">
-                      <Field
-                        name="gender"
-                        as={Select}
-                        radius="none"
-                        label="Gender"
-                        defaultSelectedKey={props.values.gender}
-                      >
-                        <SelectItem key="Male">Male</SelectItem>
-                        <SelectItem key="Female">Female</SelectItem>
-                      </Field>
-                      <ErrorMessage
-                        name="gender"
-                        component="div"
-                        className="text-red-500 text-sm"
-                      />
-                    </div>
                   </div>
 
                   <div className="flex justify-between gap-2">
-                    <div className="flex flex-col w-full">
-                      <Field
-                        name="landline"
-                        as={Input}
-                        type="text"
-                        radius="none"
-                        label="Landline"
-                      />
-                      <ErrorMessage
-                        name="landline"
-                        component="div"
-                        className="text-red-500 text-sm"
-                      />
-                    </div>
-
                     <div className="flex flex-col w-full">
                       <Field
                         name="mobile"
@@ -182,59 +143,6 @@ const InquiryForm = ({ properties }: Props) => {
                     </div>
                   </div>
 
-                  <div className="flex justify-between gap-2">
-                    <div className="flex flex-col w-full">
-                      <Field
-                        name="city"
-                        as={Input}
-                        type="text"
-                        radius="none"
-                        label="City"
-                      />
-                      <ErrorMessage
-                        name="city"
-                        component="div"
-                        className="text-red-500 text-sm"
-                      />
-                    </div>
-
-                    <div className="flex flex-col w-full">
-                      <Field
-                        name="country"
-                        as={Autocomplete}
-                        radius="none"
-                        label="Country"
-                        defaultSelectedKey={props.values.country}
-                        onSelectionChange={(key: React.Key | null) => {
-                          props.setFieldValue("country", key);
-                        }}
-                      >
-                        <AutocompleteItem key="Philippines">
-                          Philippines
-                        </AutocompleteItem>
-                      </Field>
-                      <ErrorMessage
-                        name="country"
-                        component="div"
-                        className="text-red-500 text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col w-full">
-                    <Field
-                      name="message"
-                      as={Textarea}
-                      radius="none"
-                      label="Message"
-                    />
-                    <ErrorMessage
-                      name="message"
-                      component="div"
-                      className="text-red-500 text-sm"
-                    />
-                  </div>
-
                   <div className="flex flex-col w-full">
                     <Field
                       name="property_id"
@@ -254,6 +162,20 @@ const InquiryForm = ({ properties }: Props) => {
                     </Field>
                     <ErrorMessage
                       name="property_id"
+                      component="div"
+                      className="text-red-500 text-sm"
+                    />
+                  </div>
+
+                  <div className="flex flex-col w-full">
+                    <Field
+                      name="message"
+                      as={Textarea}
+                      radius="none"
+                      label="Message"
+                    />
+                    <ErrorMessage
+                      name="message"
                       component="div"
                       className="text-red-500 text-sm"
                     />

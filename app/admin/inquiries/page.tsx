@@ -28,15 +28,11 @@ const Page = async () => {
   const model = "Inquiry";
 
   const columns = [
-    { name: "property", sortable: true },
     { name: "first_name", sortable: true },
     { name: "last_name", sortable: true },
-    { name: "gender", sortable: true },
-    { name: "landline", sortable: true },
     { name: "mobile", sortable: true },
     { name: "email", sortable: true },
-    { name: "city", sortable: true },
-    { name: "country", sortable: true },
+    { name: "property", sortable: true },
     { name: "message", sortable: true },
     { name: "actions", sortable: false },
   ];

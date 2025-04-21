@@ -26,17 +26,13 @@ export const article = {
 export const inquiry = {
   first_name: Yup.string().trim().required("First Name is a required field"),
   last_name: Yup.string().trim().required("Last Name is a required field"),
-  gender: Yup.string().trim().required("Gender is a required field"),
-  landline: Yup.string().trim().required("Landline is a required field"),
   mobile: Yup.string().trim().required("Mobile is a required field"),
   email: Yup.string()
     .trim()
     .email("Email must be a valid email")
     .required("Email is a required field"),
-  city: Yup.string().trim().required("City is a required field"),
-  country: Yup.string().trim().required("Country is a required field"),
-  message: Yup.string().trim().required("Message is a required field"),
   property_id: Yup.string().trim().required("Property is a required field"),
+  message: Yup.string().trim().required("Message is a required field"),
 };
 
 export const appointment = {

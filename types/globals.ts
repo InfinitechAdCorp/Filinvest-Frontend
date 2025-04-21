@@ -126,12 +126,8 @@ export type Inquiry = {
   property_id: string;
   first_name: string;
   last_name: string;
-  gender: string;
-  landline: string;
   mobile: string;
   email: string;
-  city: string;
-  country: string;
   message: string;
   created_at: string;
   updated_at: string;
@@ -140,15 +136,11 @@ export type Inquiry = {
 };
 
 export type InquiryDisplayFormat = {
-  property: string;
   first_name: string;
   last_name: string;
-  gender: string;
-  landline: string;
   mobile: string;
   email: string;
-  city: string;
-  country: string;
+  property: string;
   message: string;
 };
 
