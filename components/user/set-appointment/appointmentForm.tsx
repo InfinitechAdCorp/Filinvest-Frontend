@@ -51,7 +51,7 @@ const AppointmentForm = ({ properties }: Props) => {
     const values = {
       ...ufValues,
       date: ufValues.date!.toString(),
-      time: ufValues.time!.toString(),
+      time: ufValues.time!.subtract({ hours: 8 }).toString(),
     };
 
     try {

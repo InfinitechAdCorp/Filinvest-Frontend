@@ -65,7 +65,7 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
     const values = {
       ...ufValues,
       date: ufValues.date!.toString(),
-      time: ufValues.time!.toString(),
+      time: ufValues.time!.subtract({ hours: 8 }).toString(),
     };
     const { code, message } = await upsert(url, model, "Update", values);
     await onPostSubmit(url, code, message, resetForm, onClose);
