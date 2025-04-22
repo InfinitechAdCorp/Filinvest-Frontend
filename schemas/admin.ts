@@ -81,7 +81,7 @@ export const property = {
     .required("Maximum Area is a required field"),
   status: Yup.string().trim().required("Status is a required field"),
   description: Yup.string().trim().required("Description is a required field"),
-  amenties: Yup.array()
+  amenities: Yup.array()
     .typeError("Amenities must be an array")
     .min(1, "Amenities cannot be empty")
     .required("Amenities is a required field"),

@@ -9,6 +9,13 @@ type Props = {
 };
 
 const Images = ({ props }: Props) => {
+  // const initialLogoPreview = props.values.logo
+  //   ? URL.createObjectURL(props.values.logo)
+  //   : "";
+  // const initialImagesPreview = Array.from(props.values.images).map((file) =>
+  //   URL.createObjectURL(file as File)
+  // );
+
   const [logoPreview, setLogoPreview] = useState("");
   const [imagesPreview, setImagesPreview] = useState<string[]>([]);
 
@@ -35,9 +42,7 @@ const Images = ({ props }: Props) => {
   ) => {
     const files = event.target.files;
     if (files) {
-      const urls = Array.from(files).map((file: File) =>
-        file ? URL.createObjectURL(file) : ""
-      );
+      const urls = Array.from(files).map((file) => URL.createObjectURL(file));
       setImagesPreview(urls);
       await setFieldValue("images", files);
     }
@@ -95,7 +100,7 @@ const Images = ({ props }: Props) => {
           }}
         >
           <ErrorMessage
-            name="logo"
+            name="images"
             component="div"
             className="text-red-500 text-sm"
           />
@@ -103,9 +108,10 @@ const Images = ({ props }: Props) => {
       </div>
 
       {imagesPreview && (
-        <div className="flex justify-center gap-3">
-          {imagesPreview.map((image) => (
+        <div className="flex flex-wrap justify-center gap-3">
+          {imagesPreview.map((image, index) => (
             <Image
+              key={index}
               src={image}
               alt="Preview"
               className="max-w-[8rem] h-32 object-cover rounded-md"

@@ -42,8 +42,8 @@ const CreateForm = ({ url, model }: Props) => {
     status: "",
     description: "",
     logo: "",
-    amenities: [],
     images: "",
+    amenities: [],
   };
 
   const validationSchema = Yup.object().shape({
@@ -58,10 +58,8 @@ const CreateForm = ({ url, model }: Props) => {
   ) => {
     setIsSubmitting(true);
 
-    console.log(values);
-
-    // const { code, message } = await upsert(url, model, "Create", values);
-    // await onPostSubmit(url, code, message, resetForm, onClose);
+    const { code, message } = await upsert(url, model, "Create", values);
+    await onPostSubmit(url, code, message, resetForm, onClose);
 
     setIsSubmitting(false);
   };
@@ -83,7 +81,7 @@ const CreateForm = ({ url, model }: Props) => {
               <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
-                // onSubmit={onSubmit}
+                onSubmit={onSubmit}
               >
                 {(props: FormikProps<any>) => (
                   <Form>

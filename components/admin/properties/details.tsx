@@ -47,7 +47,7 @@ const Details = ({ props }: Props) => {
             placeholder="Select Type"
             defaultSelectedKeys={[props.values.type]}
           >
-            <SelectItem key="Homes">Homes</SelectItem>
+            <SelectItem key="Home">Home</SelectItem>
             <SelectItem key="Mid-Rise Condo">Mid-Rise Condo</SelectItem>
             <SelectItem key="High-Rise Condo">High-Rise Condo</SelectItem>
           </Field>
