@@ -65,3 +65,10 @@ export type Property = {
   amenities: string[];
   images: FileList | string;
 };
+
+export type Counts = {
+  properties: number;
+  appointments: number;
+  inquiries: number;
+  subscribers: number;
+};

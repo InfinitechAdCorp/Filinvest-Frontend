@@ -13,6 +13,7 @@ const Page = async () => {
       `${process.env.NEXT_PUBLIC_API_URL}/properties`,
       {
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json",
         },
       }

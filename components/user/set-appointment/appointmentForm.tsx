@@ -61,6 +61,7 @@ const AppointmentForm = ({ properties }: Props) => {
         values,
         {
           headers: {
+            Accept: "application/json",
             "Content-Type": "application/json",
           },
         }

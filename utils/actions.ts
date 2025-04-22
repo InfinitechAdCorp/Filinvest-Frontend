@@ -11,8 +11,8 @@ export const upsert = async (
   try {
     await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, values, {
       headers: {
-        "Content-Type": "multipart/form-data",
         Accept: "application/json",
+        "Content-Type": "multipart/form-data",
       },
     });
     return { code: 200, message: `${action}d ${model}` };
@@ -28,8 +28,8 @@ export const destroy = async (url: string, model: string, values: Destroy) => {
       `${process.env.NEXT_PUBLIC_API_URL}/${url}/${values.id}`,
       {
         headers: {
-          "Content-Type": "application/json",
           Accept: "application/json",
+          "Content-Type": "application/json",
         },
       }
     );

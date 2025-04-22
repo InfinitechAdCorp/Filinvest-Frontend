@@ -32,6 +32,7 @@ const SubscriberForm = () => {
         values,
         {
           headers: {
+            Accept: "application/json",
             "Content-Type": "application/json",
           },
         }

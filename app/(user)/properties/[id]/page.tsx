@@ -16,6 +16,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
       `${process.env.NEXT_PUBLIC_API_URL}/properties/${id}`,
       {
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json",
         },
       }
