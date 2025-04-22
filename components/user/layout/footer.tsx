@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Image } from "@heroui/react";
+import { Link } from "@heroui/react";
 import {
   FaFacebookSquare,
   FaInstagram,
@@ -7,6 +7,7 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
+import SubscriberForm from "../home/subscriberForm";
 
 const Footer = () => {
   return (
@@ -14,12 +15,9 @@ const Footer = () => {
       <footer className="border-t-1 text-primary dark:bg-white dark:text-black py-6">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="flex justify-center items-center">
-              <Image src="/images/seal.png" alt="Seal" className="h-52" />
-            </div>
             <div>
               <h4 className="text-lg font-bold mb-2">Quick Links</h4>
-              <div className="flex gap-10">
+              <div className="flex gap-8">
                 <div className="flex flex-col space-y-1">
                   <Link
                     href="/"
@@ -88,6 +86,18 @@ const Footer = () => {
                 Vector One Bldg. Northgate Cyberzone, Filinvest City, Alabang,
                 Muntinlupa City, 1781, Philippines
               </p>
+            </div>
+
+            <div className="flex flex-col h-full">
+              <h3 className="text-2xl text-primary">
+                Newsletter <span className="font-bold">Signup</span>
+              </h3>
+              <p className="text-sm text-gray-600 mt-2">
+                Enter your email below to stay updated with Filinvest's new
+                developments and offers!
+              </p>
+
+              <SubscriberForm />
             </div>
           </div>
         </div>

@@ -1,12 +1,11 @@
 import React from "react";
-import Hero from "@/components/user/home/hero";
-import Others from "@/components/user/home/others";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Article, FAQ, Property, Testimonial } from "@/types/globals";
+import { sortByDate, sortRecords } from "@/utils/formatters";
+import Hero from "@/components/user/home/hero";
 import Testimonials from "@/components/user/home/testimonials";
 import Articles from "@/components/user/home/articles";
-import { sortByDate, sortRecords } from "@/utils/formatters";
 import SectionTitle from "@/components/globals/sectionTitle";
 import FAQs from "@/components/user/home/faqs";
 import FeaturedProperties from "@/components/user/home/featuredProperties";
@@ -146,7 +145,6 @@ const Page = async () => {
           <FAQs faqs={faqs} />
         </div>
       </div>
-      <Others />
     </>
   );
 };
