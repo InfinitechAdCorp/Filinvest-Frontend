@@ -9,15 +9,15 @@ type Props = {
 };
 
 const Images = ({ props }: Props) => {
-  // const initialLogoPreview = props.values.logo
-  //   ? URL.createObjectURL(props.values.logo)
-  //   : "";
-  // const initialImagesPreview = Array.from(props.values.images).map((file) =>
-  //   URL.createObjectURL(file as File)
-  // );
+  const initialLogoPreview = props.values.logo
+    ? URL.createObjectURL(props.values.logo)
+    : "";
+  const initialImagesPreview = Array.from(props.values.images).map((file) =>
+    URL.createObjectURL(file as File)
+  );
 
-  const [logoPreview, setLogoPreview] = useState("");
-  const [imagesPreview, setImagesPreview] = useState<string[]>([]);
+  const [logoPreview, setLogoPreview] = useState(initialLogoPreview);
+  const [imagesPreview, setImagesPreview] = useState<string[]>(initialImagesPreview);
 
   const onLogoChange = async (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -27,10 +27,8 @@ const Images = ({ props }: Props) => {
     ) => Promise<void | FormikErrors<any>>
   ) => {
     const files = event.target.files;
-    if (files) {
-      setLogoPreview(files[0] ? URL.createObjectURL(files[0]) : "");
-      await setFieldValue("logo", files[0]);
-    }
+    setLogoPreview(files && files[0] ? URL.createObjectURL(files[0]) : "");
+    await setFieldValue("logo", files ? files[0] : null);
   };
 
   const onImagesChange = async (

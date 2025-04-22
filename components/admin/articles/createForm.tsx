@@ -77,14 +77,13 @@ const CreateForm = ({ url, model }: Props) => {
     event: React.ChangeEvent<HTMLInputElement>,
     setFieldValue: (
       field: string,
-      value: File | null
-    ) => Promise<void | FormikErrors<any>>
+      value: File | string
+    ) => Promise<void | FormikErrors<any>>,
   ) => {
     const files = event.target.files;
-    if (files) {
-      setPreview(files[0] ? URL.createObjectURL(files[0]) : "");
-      await setFieldValue("image", files[0]);
-    }
+    const isValid = files && files[0];
+    setPreview(isValid ? URL.createObjectURL(files[0]) : "");
+    await setFieldValue("image", isValid ? files[0] : "");
   };
 
   return (
