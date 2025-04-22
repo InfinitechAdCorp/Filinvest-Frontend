@@ -12,6 +12,7 @@ import {
   useDisclosure,
 } from "@heroui/react";
 import { Formik, Form, FormikProps } from "formik";
+import { Property as Record } from "@/types/globals";
 import { Property as Values } from "@/types/admin";
 import { property as rules } from "@/schemas/admin";
 import { upsert } from "@/utils/actions";
@@ -19,37 +20,41 @@ import { onPostSubmit } from "@/utils/events";
 import Details from "./details";
 import Amenities from "./amenities";
 import Images from "./images";
+import { FaPenToSquare } from "react-icons/fa6";
 
 type Props = {
   url: string;
   model: string;
+  record: Record;
 };
 
-const CreateForm = ({ url, model }: Props) => {
+const UpdateForm = ({ url, model, record }: Props) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
 
   const initialValues = {
-    name: "",
-    type: "",
-    location: "",
-    map: "",
-    minimum_price: "",
-    maximum_price: "",
-    minimum_area: "",
-    maximum_area: "",
-    status: "",
-    description: "",
+    id: record.id,
+    name: record.name,
+    type: record.type,
+    location: record.location,
+    map: record.map,
+    minimum_price: record.minimum_price,
+    maximum_price: record.maximum_price,
+    minimum_area: record.minimum_area,
+    maximum_area: record.maximum_area,
+    status: record.status,
+    description: record.description,
     logo: "",
     images: "",
-    amenities: [],
+    amenities: JSON.parse(record.amenities),
   };
 
   const validationSchema = Yup.object().shape({
     ...rules,
-    logo: Yup.mixed().required("Logo is a required field"),
-    images: Yup.mixed().required("Images is a required field"),
+    id: Yup.string().trim().required("ID is required"),
+    logo: Yup.mixed().nullable(),
+    images: Yup.mixed().nullable(),
   });
 
   const onSubmit = async (
@@ -58,7 +63,7 @@ const CreateForm = ({ url, model }: Props) => {
   ) => {
     setIsSubmitting(true);
 
-    const { code, message } = await upsert(url, model, "Create", values);
+    const { code, message } = await upsert(url, model, "Update", values);
     await onPostSubmit(url, code, message, resetForm, onClose);
 
     setIsSubmitting(false);
@@ -66,9 +71,14 @@ const CreateForm = ({ url, model }: Props) => {
 
   return (
     <>
-      <Button color="primary" onPress={onOpen}>
-        Add {model}
-      </Button>
+      <Button
+        size="sm"
+        color="primary"
+        isIconOnly
+        title="Edit"
+        onPress={onOpen}
+        startContent={<FaPenToSquare size={14} color="white" />}
+      ></Button>
 
       <Modal
         size={step == 2 ? "4xl" : "lg"}
@@ -85,11 +95,11 @@ const CreateForm = ({ url, model }: Props) => {
               >
                 {(props: FormikProps<any>) => (
                   <Form>
-                    <ModalHeader>Add {model}</ModalHeader>
+                    <ModalHeader>Edit {model}</ModalHeader>
                     <ModalBody>
                       {step == 1 && <Details props={props} />}
                       {step == 2 && <Amenities props={props} />}
-                      {step == 3 && <Images props={props} />}
+                      {step == 3 && <Images props={props} record={record} />}
                     </ModalBody>
                     <ModalFooter>
                       {step != 1 && (
@@ -118,7 +128,7 @@ const CreateForm = ({ url, model }: Props) => {
                           type="submit"
                           isLoading={isSubmitting}
                         >
-                          Save
+                          Update
                         </Button>
                       )}
                     </ModalFooter>
@@ -133,4 +143,4 @@ const CreateForm = ({ url, model }: Props) => {
   );
 };
 
-export default CreateForm;
+export default UpdateForm;

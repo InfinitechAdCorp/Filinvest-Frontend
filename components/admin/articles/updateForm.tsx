@@ -56,7 +56,7 @@ const UpdateForm = ({ url, model, record }: Props) => {
 
   const validationSchema = Yup.object().shape({
     ...rules,
-    id: Yup.string().trim().required("ID is a required field"),
+    id: Yup.string().trim().required("ID is required"),
     image: Yup.mixed().nullable(),
   });
 

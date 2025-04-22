@@ -48,8 +48,8 @@ const CreateForm = ({ url, model }: Props) => {
 
   const validationSchema = Yup.object().shape({
     ...rules,
-    logo: Yup.mixed().required("Logo is a required field"),
-    images: Yup.mixed().required("Images is a required field"),
+    logo: Yup.mixed().required("Logo is required"),
+    images: Yup.mixed().required("Images is required"),
   });
 
   const onSubmit = async (

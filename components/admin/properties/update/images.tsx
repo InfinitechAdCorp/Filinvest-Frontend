@@ -3,21 +3,24 @@
 import React, { ChangeEvent, useState } from "react";
 import { ErrorMessage, Field, FormikErrors, FormikProps } from "formik";
 import { Image, Input } from "@heroui/react";
+import { Property as Record } from "@/types/globals";
 
 type Props = {
   props: FormikProps<any>;
+  record: Record;
 };
 
-const Images = ({ props }: Props) => {
-  // const initialLogoPreview = props.values.logo
-  //   ? URL.createObjectURL(props.values.logo)
-  //   : "";
-  // const initialImagesPreview = Array.from(props.values.images).map((file) =>
-  //   URL.createObjectURL(file as File)
-  // );
+const Images = ({ props, record }: Props) => {
+  const initialLogoPreview = `${process.env.NEXT_PUBLIC_S3_URL}/properties/logos/${record.logo}`;
+  const initialImagesPreview = JSON.parse(record.images).map(
+    (image: string) => {
+      return `${process.env.NEXT_PUBLIC_S3_URL}/properties/images/${image}`;
+    }
+  );
 
-  const [logoPreview, setLogoPreview] = useState("");
-  const [imagesPreview, setImagesPreview] = useState<string[]>([]);
+  const [logoPreview, setLogoPreview] = useState(initialLogoPreview);
+  const [imagesPreview, setImagesPreview] =
+    useState<string[]>(initialImagesPreview);
 
   const onLogoChange = async (
     event: React.ChangeEvent<HTMLInputElement>,

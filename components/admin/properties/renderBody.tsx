@@ -8,6 +8,7 @@ import {
   PropertyDisplayFormat as DisplayFormat,
 } from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
+import UpdateForm from "./update/updateForm";
 
 const RenderBody = (
   url: string,
@@ -25,6 +26,8 @@ const RenderBody = (
       case "actions":
         return (
           <div className="relative flex justify-start items-center gap-2">
+            <UpdateForm url={url} model={model} record={record} />
+
             <DestroyForm url={url} model={model} id={record.id} />
           </div>
         );
