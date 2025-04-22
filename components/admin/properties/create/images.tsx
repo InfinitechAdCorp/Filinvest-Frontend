@@ -65,13 +65,12 @@ const Images = ({ props }: Props) => {
           onChange={async (e: ChangeEvent<HTMLInputElement>) => {
             await onLogoChange(e, props.setFieldValue);
           }}
-        >
-          <ErrorMessage
-            name="logo"
-            component="div"
-            className="text-red-500 text-sm"
-          />
-        </Field>
+        ></Field>
+        <ErrorMessage
+          name="logo"
+          component="div"
+          className="text-red-500 text-sm"
+        />
       </div>
 
       {logoPreview && (
@@ -99,13 +98,12 @@ const Images = ({ props }: Props) => {
           onChange={async (e: ChangeEvent<HTMLInputElement>) => {
             await onImagesChange(e, props.setFieldValue);
           }}
-        >
-          <ErrorMessage
-            name="images"
-            component="div"
-            className="text-red-500 text-sm"
-          />
-        </Field>
+        ></Field>
+        <ErrorMessage
+          name="images"
+          component="div"
+          className="text-red-500 text-sm"
+        />
       </div>
 
       {Array.isArray(imagesPreview) && (

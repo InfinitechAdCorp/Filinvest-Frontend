@@ -68,12 +68,12 @@ const Images = ({ props, record }: Props) => {
             await onLogoChange(e, props.setFieldValue);
           }}
         >
-          <ErrorMessage
+        </Field>
+        <ErrorMessage
             name="logo"
             component="div"
             className="text-red-500 text-sm"
           />
-        </Field>
       </div>
 
       {logoPreview && (
@@ -102,12 +102,12 @@ const Images = ({ props, record }: Props) => {
             await onImagesChange(e, props.setFieldValue);
           }}
         >
-          <ErrorMessage
+        </Field>
+        <ErrorMessage
             name="images"
             component="div"
             className="text-red-500 text-sm"
           />
-        </Field>
       </div>
 
       {Array.isArray(imagesPreview) && (

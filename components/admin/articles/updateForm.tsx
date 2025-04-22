@@ -189,13 +189,12 @@ const UpdateForm = ({ url, model, record }: Props) => {
                             ) => {
                               await onFileChange(e, props.setFieldValue);
                             }}
-                          >
-                            <ErrorMessage
-                              name="image"
-                              component="div"
-                              className="text-red-500 text-sm"
-                            />
-                          </Field>
+                          />
+                          <ErrorMessage
+                            name="image"
+                            component="div"
+                            className="text-red-500 text-sm"
+                          />
                         </div>
 
                         {preview && (

@@ -65,24 +65,24 @@ export const property = {
   map: Yup.string().trim().nullable(),
   minimum_price: Yup.number()
     .typeError("Minimum Price must be a number")
-    .min(1, "Minimum Price must be greater than 0")
-    .required("Minimum Price is required"),
+    .required("Minimum Price is required")
+    .min(1, "Minimum Price must be greater than 0"),
   maximum_price: Yup.number()
     .typeError("Maximum Price must be a number")
-    .min(1, "Maximum Price must be greater than 0")
-    .required("Maximum Price is required"),
+    .required("Maximum Price is required")
+    .min(1, "Maximum Price must be greater than 0"),
   minimum_area: Yup.number()
     .typeError("Minimum Area must be a number")
-    .min(1, "Minimum Area must be greater than 0")
-    .required("Minimum Area is required"),
+    .required("Minimum Area is required")
+    .min(1, "Minimum Area must be greater than 0"),
   maximum_area: Yup.number()
     .typeError("Maximum Area must be a number")
-    .min(1, "Maximum Area must be greater than 0")
-    .required("Maximum Area is required"),
+    .required("Maximum Area is required")
+    .min(1, "Maximum Area must be greater than 0"),
   status: Yup.string().trim().required("Status is required"),
   description: Yup.string().trim().required("Description is required"),
   amenities: Yup.array()
     .typeError("Amenities must be an array")
-    .min(1, "Amenities cannot be empty")
-    .required("Amenities is required"),
+    .required("Amenities is required")
+    .min(1, "Amenities is required")
 };

@@ -78,7 +78,7 @@ const CreateForm = ({ url, model }: Props) => {
     setFieldValue: (
       field: string,
       value: File | string
-    ) => Promise<void | FormikErrors<any>>,
+    ) => Promise<void | FormikErrors<any>>
   ) => {
     const files = event.target.files;
     const isValid = files && files[0];
@@ -179,13 +179,12 @@ const CreateForm = ({ url, model }: Props) => {
                             ) => {
                               await onFileChange(e, props.setFieldValue);
                             }}
-                          >
-                            <ErrorMessage
-                              name="image"
-                              component="div"
-                              className="text-red-500 text-sm"
-                            />
-                          </Field>
+                          />
+                          <ErrorMessage
+                            name="image"
+                            component="div"
+                            className="text-red-500 text-sm"
+                          />
                         </div>
 
                         {preview && (
