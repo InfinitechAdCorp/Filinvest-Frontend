@@ -45,7 +45,8 @@ export const appointment = {
     .required("Email is required"),
   date: Yup.date()
     .typeError("Date must be a valid date")
-    .required("Date is required"),
+    .required("Date is required")
+    .min(new Date(), "Date must not be a past date"),
   time: Yup.string().trim().required("Time is required"),
   property_id: Yup.string().trim().required("Property is required"),
   message: Yup.string().trim().required("Message is required"),
@@ -70,7 +71,10 @@ export const property = {
   maximum_price: Yup.number()
     .typeError("Maximum Price must be a number")
     .required("Maximum Price is required")
-    .min(1, "Maximum Price must be greater than 0"),
+    .min(
+      Yup.ref("minimum_price"),
+      "Maximum Price must be greater than Minimum Price"
+    ),
   minimum_area: Yup.number()
     .typeError("Minimum Area must be a number")
     .required("Minimum Area is required")
@@ -78,11 +82,14 @@ export const property = {
   maximum_area: Yup.number()
     .typeError("Maximum Area must be a number")
     .required("Maximum Area is required")
-    .min(1, "Maximum Area must be greater than 0"),
+    .min(
+      Yup.ref("minimum_area"),
+      "Maximum Area must be greater than Minimum Area"
+    ),
   status: Yup.string().trim().required("Status is required"),
   description: Yup.string().trim().required("Description is required"),
   amenities: Yup.array()
     .typeError("Amenities must be an array")
     .required("Amenities is required")
-    .min(1, "Amenities is required")
+    .min(1, "Amenities is required"),
 };
