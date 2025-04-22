@@ -39,7 +39,7 @@ const Page = async () => {
   const fRecords = ufRecords.filter((ufRecord) => {
     return ufRecord.type == "Award";
   });
-
+  
   const records = await displayFormat(columns, fRecords);
 
   const Buttons = <CreateForm url={url} model={model} />;

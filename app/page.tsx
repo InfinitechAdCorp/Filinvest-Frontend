@@ -24,14 +24,15 @@ const Page = async () => {
       }
     );
     testimonials = response.data.records;
-    testimonials = testimonials.filter(
-      (testimonial) => testimonial.isPublished == 1
-    );
-    testimonials = testimonials.slice(0, 5);
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something Went Wrong");
   }
+
+  testimonials = testimonials.filter(
+    (testimonial) => testimonial.isPublished == 1
+  );
+  testimonials = testimonials.slice(0, 5);
 
   let articles: Article[] = [];
   try {
@@ -70,11 +71,12 @@ const Page = async () => {
       }
     );
     faqs = response.data.records;
-    faqs = faqs.slice(0, 7);
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something Went Wrong");
   }
+
+  faqs = faqs.slice(0, 7);
 
   let properties: Property[] = [];
   try {
@@ -88,12 +90,12 @@ const Page = async () => {
       }
     );
     properties = response.data.records;
-    properties = sortRecords(properties, "name");
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something Went Wrong");
   }
 
+  properties = sortRecords(properties, "name");
   properties = properties.filter((property) => {
     return property.isPublished == 1 && property.isFeatured == 1;
   });

@@ -19,11 +19,12 @@ const Page = async () => {
       }
     );
     properties = response.data.records;
-    properties = sortRecords(properties, "name");
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something Went Wrong");
   }
+
+  properties = sortRecords(properties, "name");
 
   return (
     <>
