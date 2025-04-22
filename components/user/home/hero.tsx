@@ -29,6 +29,8 @@ const Hero = () => {
               size="lg"
               variant="solid"
               color="secondary"
+              as={Link}
+              href="/properties"
             >
               Explore More
             </Button>
