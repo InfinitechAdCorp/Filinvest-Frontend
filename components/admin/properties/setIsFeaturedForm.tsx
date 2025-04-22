@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Testimonial as Record } from "@/types/globals";
+import { Property as Record } from "@/types/globals";
 import { Button, Spinner } from "@heroui/react";
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import axios from "axios";
@@ -13,17 +13,17 @@ type Props = {
   record: Record;
 };
 
-const SetIsPublishedForm = ({ url, model, record }: Props) => {
+const SetIsFeaturedForm = ({ url, model, record }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const setIsPublished = async (
+  const setIsFeatured = async (
     url: string,
     model: string,
-    values: { id: string; isPublished: number }
+    values: { id: string; isFeatured: number }
   ) => {
     try {
       await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/${url}/set-is-published`,
+        `${process.env.NEXT_PUBLIC_API_URL}/${url}/set-is-featured`,
         values,
         {
           headers: {
@@ -32,7 +32,7 @@ const SetIsPublishedForm = ({ url, model, record }: Props) => {
           },
         }
       );
-      return { code: 200, message: `Updated Published Status of ${model}` };
+      return { code: 200, message: `Updated Featured Status of ${model}` };
     } catch (error) {
       console.error(error);
       return { code: 500, message: "Something Went Wrong", error: error };
@@ -44,21 +44,21 @@ const SetIsPublishedForm = ({ url, model, record }: Props) => {
 
     const values = {
       id: record.id,
-      isPublished: record.isPublished == 0 ? 1 : 0,
+      isFeatured: record.isFeatured == 0 ? 1 : 0,
     };
-    
-    const { code, message } = await setIsPublished(url, model, values);
+
+    const { code, message } = await setIsFeatured(url, model, values);
     await onPostSubmit(url, code, message);
 
     setIsSubmitting(false);
   };
 
-  const getStartContent = (isPublished: number) => {
+  const getStartContent = (isFeatured: number) => {
     let content;
     if (isSubmitting) {
       content = <Spinner size="sm" color="white" />;
     } else {
-      if (isPublished == 0) {
+      if (isFeatured == 0) {
         content = <FaRegStar size={14} color="white" />;
       } else {
         content = <FaStar size={14} color="white" />;
@@ -72,11 +72,11 @@ const SetIsPublishedForm = ({ url, model, record }: Props) => {
       size="sm"
       color="warning"
       isIconOnly
-      title={`${record.isPublished == 0 ? "Publish" : "Unpublish"}`}
+      title={`${record.isFeatured == 0 ? "Feature" : "Unfeature"}`}
       onPress={() => onPress(record)}
-      startContent={getStartContent(record.isPublished)}
+      startContent={getStartContent(record.isFeatured)}
     />
   );
 };
 
-export default SetIsPublishedForm;
+export default SetIsFeaturedForm;

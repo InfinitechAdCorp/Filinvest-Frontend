@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Testimonial as Record } from "@/types/globals";
+import { Property as Record } from "@/types/globals";
 import { Button, Spinner } from "@heroui/react";
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import axios from "axios";
@@ -46,7 +46,7 @@ const SetIsPublishedForm = ({ url, model, record }: Props) => {
       id: record.id,
       isPublished: record.isPublished == 0 ? 1 : 0,
     };
-    
+
     const { code, message } = await setIsPublished(url, model, values);
     await onPostSubmit(url, code, message);
 

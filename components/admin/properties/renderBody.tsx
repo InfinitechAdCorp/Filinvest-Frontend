@@ -9,6 +9,8 @@ import {
 } from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
 import UpdateForm from "./update/updateForm";
+import SetIsPublishedForm from "./setIsPublishedForm";
+import SetIsFeaturedForm from "./setIsFeaturedForm";
 
 const RenderBody = (
   url: string,
@@ -26,6 +28,10 @@ const RenderBody = (
       case "actions":
         return (
           <div className="relative flex justify-start items-center gap-2">
+            <SetIsFeaturedForm url={url} model={model} record={record} />
+
+            <SetIsPublishedForm url={url} model={model} record={record} />
+
             <UpdateForm url={url} model={model} record={record} />
 
             <DestroyForm url={url} model={model} id={record.id} />
