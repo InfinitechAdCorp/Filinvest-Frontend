@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/properties/renderBody";
-import CreateForm from "@/components/admin/properties/createForm";
+import CreateForm from "@/components/admin/properties/create/createForm";
 
 const Page = async () => {
   const url = "properties";

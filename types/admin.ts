@@ -55,10 +55,10 @@ export type Property = {
   type: string;
   location: string;
   map: string;
-  minimum_price: number | null;
-  maximum_price: number | null;
-  minimum_area: number | null;
-  maximum_area: number | null;
+  minimum_price: number | string;
+  maximum_price: number | string;
+  minimum_area: number | string;
+  maximum_area: number | string;
   status: string;
   description: string;
   logo: File | string;
