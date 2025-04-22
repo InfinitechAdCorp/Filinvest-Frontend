@@ -68,6 +68,7 @@ const UpdateForm = ({ url, model, record, properties }: Props) => {
       date: ufValues.date!.toString(),
       time: formatUTC(ufValues.time!).toString(),
     };
+    
     const { code, message } = await upsert(url, model, "Update", values);
     await onPostSubmit(url, code, message, resetForm, onClose);
 

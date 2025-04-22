@@ -46,6 +46,7 @@ const SetIsPublishedForm = ({ url, model, record }: Props) => {
       id: record.id,
       isPublished: record.isPublished == 0 ? 1 : 0,
     };
+    
     const { code, message } = await setIsPublished(url, model, values);
     await onPostSubmit(url, code, message);
 

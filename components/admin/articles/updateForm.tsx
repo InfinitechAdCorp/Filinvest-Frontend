@@ -69,7 +69,9 @@ const UpdateForm = ({ url, model, record }: Props) => {
     const values = {
       ...ufValues,
       date: ufValues.date!.toString(),
+      image: ufValues.image ? ufValues.image : null,
     };
+
     const { code, message } = await upsert(url, model, "Update", values);
     await onPostSubmit(url, code, message, resetForm, onClose);
 

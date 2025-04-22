@@ -58,10 +58,16 @@ const UpdateForm = ({ url, model, record }: Props) => {
   });
 
   const onSubmit = async (
-    values: Values,
+    ufValues: Values,
     { resetForm }: { resetForm: () => void }
   ) => {
     setIsSubmitting(true);
+
+    const values = {
+      ...ufValues,
+      logo: ufValues.logo ? ufValues.logo : null,
+      images: ufValues.images ? ufValues.images : null,
+    };
 
     const { code, message } = await upsert(url, model, "Update", values);
     await onPostSubmit(url, code, message, resetForm, onClose);

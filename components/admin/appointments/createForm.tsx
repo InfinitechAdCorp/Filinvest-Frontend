@@ -63,6 +63,7 @@ const CreateForm = ({ url, model, properties }: Props) => {
       date: ufValues.date!.toString(),
       time: formatUTC(ufValues.time!).toString(),
     };
+    
     const { code, message } = await upsert(url, model, "Create", values);
     await onPostSubmit(url, code, message, resetForm, onClose);
 
