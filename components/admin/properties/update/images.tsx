@@ -19,8 +19,9 @@ const Images = ({ props, record }: Props) => {
   );
 
   const [logoPreview, setLogoPreview] = useState(initialLogoPreview);
-  const [imagesPreview, setImagesPreview] =
-    useState<string[]>(initialImagesPreview);
+  const [imagesPreview, setImagesPreview] = useState<string[] | string>(
+    initialImagesPreview
+  );
 
   const onLogoChange = async (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -30,25 +31,24 @@ const Images = ({ props, record }: Props) => {
     ) => Promise<void | FormikErrors<any>>
   ) => {
     const files = event.target.files;
-    if (files) {
-      setLogoPreview(files[0] ? URL.createObjectURL(files[0]) : "");
-      await setFieldValue("logo", files[0]);
-    }
+    const isValid = files && files[0];
+    setLogoPreview(isValid ? URL.createObjectURL(files[0]) : "");
+    await setFieldValue("logo", isValid ? files[0] : null);
   };
 
   const onImagesChange = async (
     event: React.ChangeEvent<HTMLInputElement>,
     setFieldValue: (
       field: string,
-      value: FileList | null
+      value: FileList | ""
     ) => Promise<void | FormikErrors<any>>
   ) => {
     const files = event.target.files;
-    if (files) {
-      const urls = Array.from(files).map((file) => URL.createObjectURL(file));
-      setImagesPreview(urls);
-      await setFieldValue("images", files);
-    }
+    const isValid = files && Array.from(files).every((file) => file);
+    setImagesPreview(
+      isValid ? Array.from(files).map((file) => URL.createObjectURL(file)) : ""
+    );
+    await setFieldValue("images", isValid ? files : "");
   };
 
   return (
@@ -110,7 +110,7 @@ const Images = ({ props, record }: Props) => {
         </Field>
       </div>
 
-      {imagesPreview && (
+      {Array.isArray(imagesPreview) && (
         <div className="flex flex-wrap justify-center gap-3">
           {imagesPreview.map((image, index) => (
             <Image
