@@ -4,6 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Hero from "@/components/globals/hero";
 import Body from "@/components/user/set-appointment/body";
+import { sortRecords } from "@/utils/formatters";
 
 const Page = async () => {
   let properties: Property[] = [];
@@ -22,6 +23,11 @@ const Page = async () => {
     console.error("Error:", error);
     toast.error("Something Went Wrong");
   }
+
+  properties = properties.filter((property) => {
+    return property.isPublished == 1;
+  });
+  properties = sortRecords(properties, "name");
 
   return (
     <>

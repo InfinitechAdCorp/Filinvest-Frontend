@@ -26,6 +26,9 @@ const Page = async () => {
     toast.error("Something Went Wrong");
   }
 
+  properties = properties.filter((property) => {
+    return property.isPublished == 1;
+  });
   properties = sortRecords(properties, "name");
 
   const url = "inquiries";

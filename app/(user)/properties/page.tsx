@@ -24,10 +24,10 @@ const Page = async () => {
     toast.error("Something Went Wrong");
   }
 
-  properties = sortRecords(properties, "name");
   properties = properties.filter((property) => {
     return property.isPublished == 1;
   });
+  properties = sortRecords(properties, "name");
 
   return (
     <>

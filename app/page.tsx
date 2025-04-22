@@ -95,11 +95,11 @@ const Page = async () => {
     toast.error("Something Went Wrong");
   }
 
-  properties = sortRecords(properties, "name");
   properties = properties.filter((property) => {
     return property.isPublished == 1 && property.isFeatured == 1;
   });
   properties = properties.slice(0, 7);
+  properties = sortRecords(properties, "name");
 
   return (
     <>
