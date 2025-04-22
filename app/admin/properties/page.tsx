@@ -36,7 +36,7 @@ const Page = async () => {
     ufRecords = response.data.records;
   } catch (error) {
     console.error("Error:", error);
-    toast.error("Something went wrong!");
+    toast.error("Something Went Wrong");
   }
 
   const records = await displayFormat(columns, ufRecords);

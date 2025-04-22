@@ -29,7 +29,7 @@ const Page = async () => {
     testimonials = testimonials.slice(0, 5);
   } catch (error) {
     console.error("Error:", error);
-    toast.error("Something went wrong!");
+    toast.error("Something Went Wrong");
   }
 
   let articles: Article[] = [];
@@ -45,7 +45,7 @@ const Page = async () => {
     articles = response.data.records;
   } catch (error) {
     console.error("Error:", error);
-    toast.error("Something went wrong!");
+    toast.error("Something Went Wrong");
   }
 
   let news = articles.filter((article) => article.type == "News");
@@ -70,7 +70,7 @@ const Page = async () => {
     faqs = faqs.slice(0, 7);
   } catch (error) {
     console.error("Error:", error);
-    toast.error("Something went wrong!");
+    toast.error("Something Went Wrong");
   }
 
   let properties: Property[] = [];
@@ -87,7 +87,7 @@ const Page = async () => {
     properties = sortRecords(properties, "name");
   } catch (error) {
     console.error("Error:", error);
-    toast.error("Something went wrong!");
+    toast.error("Something Went Wrong");
   }
 
   properties = properties.filter((property) => {

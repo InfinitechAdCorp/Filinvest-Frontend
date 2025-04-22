@@ -61,6 +61,8 @@ export const subscriber = {
 export const property = {
   name: Yup.string().trim().required("Name is a required field"),
   type: Yup.string().trim().required("Type is a required field"),
+  location: Yup.string().trim().required("Location is a required field"),
+  map: Yup.string().trim().nullable(),
   minimum_price: Yup.number()
     .typeError("Minimum Price must be a number")
     .min(1, "Minimum Price must be greater than 0")
@@ -69,8 +71,6 @@ export const property = {
     .typeError("Maximum Price must be a number")
     .min(1, "Maximum Price must be greater than 0")
     .required("Maximum Price is a required field"),
-  location: Yup.string().trim().required("Location is a required field"),
-  map: Yup.string().trim().nullable(),
   minimum_area: Yup.number()
     .typeError("Minimum Area must be a number")
     .min(1, "Minimum Area must be greater than 0")

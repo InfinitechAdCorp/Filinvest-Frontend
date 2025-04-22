@@ -50,10 +50,10 @@ const InquiryForm = ({ properties }: Props) => {
       });
 
       actions.resetForm();
-      toast.success("Inquiry submitted successfully!");
+      toast.success("Inquiry Submitted Successfully");
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Something went wrong!");
+      toast.error("Something Went Wrong");
     }
 
     setIsSubmitting(false);

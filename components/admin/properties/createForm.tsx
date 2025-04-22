@@ -33,10 +33,10 @@ const CreateForm = ({ url, model }: Props) => {
   const initialValues = {
     name: "",
     type: "",
-    minimum_price: "",
-    maximum_price: "",
     location: "",
     map: "",
+    minimum_price: "",
+    maximum_price: "",
     minimum_area: "",
     maximum_area: "",
     status: "",
@@ -48,6 +48,7 @@ const CreateForm = ({ url, model }: Props) => {
 
   const validationSchema = Yup.object().shape({
     ...rules,
+    logo: Yup.mixed().required("Logo is a required field"),
     images: Yup.mixed().required("Images is a required field"),
   });
 
@@ -57,7 +58,8 @@ const CreateForm = ({ url, model }: Props) => {
   ) => {
     setIsSubmitting(true);
 
-    console.log(values)
+    console.log(values);
+
     // const { code, message } = await upsert(url, model, "Create", values);
     // await onPostSubmit(url, code, message, resetForm, onClose);
 
@@ -80,8 +82,8 @@ const CreateForm = ({ url, model }: Props) => {
             <>
               <Formik
                 initialValues={initialValues}
-                // validationSchema={validationSchema}
-                onSubmit={onSubmit}
+                validationSchema={validationSchema}
+                // onSubmit={onSubmit}
               >
                 {(props: FormikProps<any>) => (
                   <Form>

@@ -1,7 +1,13 @@
 "use client";
 
 import React from "react";
-import { Input, Textarea, Select, SelectItem } from "@heroui/react";
+import {
+  Input,
+  Textarea,
+  Select,
+  SelectItem,
+  NumberInput,
+} from "@heroui/react";
 import { Field, ErrorMessage, FormikProps } from "formik";
 
 type Props = {
@@ -39,7 +45,7 @@ const Details = ({ props }: Props) => {
             label="Type"
             labelPlacement="outside"
             placeholder="Select Type"
-            defaultSelectedKey={props.values.type}
+            defaultSelectedKeys={[props.values.type]}
           >
             <SelectItem key="Homes">Homes</SelectItem>
             <SelectItem key="Mid-Rise Condo">Mid-Rise Condo</SelectItem>
@@ -52,45 +58,6 @@ const Details = ({ props }: Props) => {
           />
         </div>
       </div>
-
-      <div className="flex justify-between gap-2">
-        <div className="flex flex-col w-full">
-          <Field
-            name="minimum_price"
-            as={Input}
-            type="text"
-            size="md"
-            variant="bordered"
-            label="Minimum Price"
-            labelPlacement="outside"
-            placeholder="Enter Minimum Price"
-          />
-          <ErrorMessage
-            name="minimum_price"
-            component="div"
-            className="text-red-500 text-sm"
-          />
-        </div>
-
-        <div className="flex flex-col w-full">
-          <Field
-            name="maximum_price"
-            as={Input}
-            type="text"
-            size="md"
-            variant="bordered"
-            label="Maximum Price"
-            labelPlacement="outside"
-            placeholder="Enter Maximum Price"
-          />
-          <ErrorMessage
-            name="maximum_price"
-            component="div"
-            className="text-red-500 text-sm"
-          />
-        </div>
-      </div>
-
       <div className="flex flex-col w-full">
         <Field
           name="location"
@@ -108,7 +75,6 @@ const Details = ({ props }: Props) => {
           className="text-red-500 text-sm"
         />
       </div>
-
       <div className="flex flex-col w-full">
         <Field
           name="map"
@@ -129,9 +95,43 @@ const Details = ({ props }: Props) => {
       <div className="flex justify-between gap-2">
         <div className="flex flex-col w-full">
           <Field
+            name="minimum_price"
+            as={Input}
+            size="md"
+            variant="bordered"
+            label="Minimum Price"
+            labelPlacement="outside"
+            placeholder="Enter Minimum Price"
+          />
+          <ErrorMessage
+            name="minimum_price"
+            component="div"
+            className="text-red-500 text-sm"
+          />
+        </div>
+
+        <div className="flex flex-col w-full">
+          <Field
+            name="maximum_price"
+            as={Input}
+            size="md"
+            variant="bordered"
+            label="Maximum Price"
+            labelPlacement="outside"
+            placeholder="Enter Maximum Price"
+          />
+          <ErrorMessage
+            name="maximum_price"
+            component="div"
+            className="text-red-500 text-sm"
+          />
+        </div>
+      </div>
+      <div className="flex justify-between gap-2">
+        <div className="flex flex-col w-full">
+          <Field
             name="minimum_area"
             as={Input}
-            type="text"
             size="md"
             variant="bordered"
             label="Minimum Area"
@@ -149,7 +149,6 @@ const Details = ({ props }: Props) => {
           <Field
             name="maximum_area"
             as={Input}
-            type="text"
             size="md"
             variant="bordered"
             label="Maximum Area"
@@ -163,7 +162,6 @@ const Details = ({ props }: Props) => {
           />
         </div>
       </div>
-
       <div className="flex flex-col w-full">
         <Field
           name="status"
@@ -173,7 +171,7 @@ const Details = ({ props }: Props) => {
           label="Status"
           labelPlacement="outside"
           placeholder="Select Status"
-          defaultSelectedKey={props.values.status}
+          defaultSelectedKeys={[props.values.status]}
         >
           <SelectItem key="RFO">RFO</SelectItem>
           <SelectItem key="Pre-Selling">Pre-Selling</SelectItem>
@@ -184,7 +182,6 @@ const Details = ({ props }: Props) => {
           className="text-red-500 text-sm"
         />
       </div>
-
       <div className="flex flex-col w-full">
         <Field
           name="description"

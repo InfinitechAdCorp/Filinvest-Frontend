@@ -19,7 +19,7 @@ const Page = async () => {
     properties = response.data.records;
   } catch (error) {
     console.error("Error:", error);
-    toast.error("Something went wrong!");
+    toast.error("Something Went Wrong");
   }
 
   return (

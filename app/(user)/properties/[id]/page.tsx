@@ -7,11 +7,7 @@ import Amenities from "@/components/user/property/amenities";
 import Offerings from "@/components/user/property/offerings";
 import Map from "@/components/user/property/map";
 
-const Page = async ({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) => {
+const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
 
   let property: Property | null = null;
@@ -27,7 +23,7 @@ const Page = async ({
     property = response.data.record;
   } catch (error) {
     console.error("Error:", error);
-    toast.error("Something went wrong!");
+    toast.error("Something Went Wrong");
   }
 
   return (

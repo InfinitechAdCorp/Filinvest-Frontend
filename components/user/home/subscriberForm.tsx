@@ -38,10 +38,10 @@ const SubscriberForm = () => {
       );
 
       actions.resetForm();
-      toast.success("Subscribed successfully!");
+      toast.success("Subscribed Successfully");
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Something went wrong!");
+      toast.error("Something Went Wrong");
     }
 
     setIsSubmitting(false);

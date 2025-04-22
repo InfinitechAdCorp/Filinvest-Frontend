@@ -21,7 +21,7 @@ const Page = async () => {
     properties = sortRecords(properties, "name");
   } catch (error) {
     console.error("Error:", error);
-    toast.error("Something went wrong!");
+    toast.error("Something Went Wrong");
   }
 
   properties = properties.filter((property) => {

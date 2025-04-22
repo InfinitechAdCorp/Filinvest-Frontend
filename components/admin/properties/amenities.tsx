@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Field, FormikProps } from "formik";
+import { ErrorMessage, Field, FormikProps } from "formik";
 import { Checkbox } from "@heroui/react";
 
 type Props = {
@@ -10,8 +10,8 @@ type Props = {
 
 const Amenities = ({ props }: Props) => {
   const options = [
-    "24-hour Security",
-    "Gazebo/Cabana",
+    "24-Hour Security",
+    "Gazebo / Cabana",
     "Landscaped Gardens",
     "Pool Deck",
     "Pool Shower",
@@ -33,14 +33,28 @@ const Amenities = ({ props }: Props) => {
   ].sort();
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2">
       <h3>Amenities</h3>
 
       <div className="grid grid-cols-4 gap-3">
         {options.map((option) => (
-          <Field name="amenities" as={Checkbox} key={option} value={option}>{option}</Field>
+          <Field
+            key={option}
+            name="amenities"
+            as={Checkbox}
+            value={option}
+            isSelected={props.values.amenities.includes(option)}
+          >
+            {option}
+          </Field>
         ))}
       </div>
+
+      <ErrorMessage
+        name="amenities"
+        component="div"
+        className="text-red-500 text-sm"
+      />
     </div>
   );
 };

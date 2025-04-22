@@ -8,7 +8,6 @@ export const upsert = async (
   values: any
 ) => {
   values = action == "Create" ? values : { ...values, _method: "PUT" };
-  console.log(values);
   try {
     await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, values, {
       headers: {
@@ -19,7 +18,7 @@ export const upsert = async (
     return { code: 200, message: `${action}d ${model}` };
   } catch (error) {
     console.error(error);
-    return { code: 500, message: "Something went wrong!", error: error };
+    return { code: 500, message: "Something Went Wrong", error: error };
   }
 };
 
@@ -37,6 +36,6 @@ export const destroy = async (url: string, model: string, values: Destroy) => {
     return { code: 200, message: `Deleted ${model}` };
   } catch (error) {
     console.error(error);
-    return { code: 500, message: "Something went wrong!", error: error };
+    return { code: 500, message: "Something Went Wrong", error: error };
   }
 };
