@@ -25,23 +25,23 @@ const Hero = () => {
 
           <div className="mt-6 flex justify-between sm:flex-row gap-4 w-full sm:w-auto">
             <Button
-              endContent={<LuArrowRight size={18} />}
+              as={Link}
               size="lg"
               variant="solid"
               color="secondary"
-              as={Link}
               href="/properties"
+              endContent={<LuArrowRight size={18} />}
             >
               Explore More
             </Button>
 
             <Button
+              as={Link}
               size="lg"
-              endContent={<LuPhone size={18} />}
               variant="bordered"
               className="text-white"
-              as={Link}
               href="/contact-us"
+              endContent={<LuPhone size={18} />}
             >
               Contact Us
             </Button>

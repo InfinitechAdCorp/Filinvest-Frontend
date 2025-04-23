@@ -40,19 +40,19 @@ const NavBar = () => {
           justify="center"
         >
           <NavbarItem>
-            <Button variant="light" as={Link} href="/">
+            <Button as={Link} variant="light" href="/">
               <h3 className="text-white text-[1rem]">Home</h3>
             </Button>
           </NavbarItem>
 
           <NavbarItem>
-            <Button variant="light" as={Link} href="/about-us">
+            <Button as={Link} variant="light" href="/about-us">
               <h3 className="text-white text-[1rem]">About Us</h3>
             </Button>
           </NavbarItem>
 
           <NavbarItem>
-            <Button variant="light" as={Link} href="/properties">
+            <Button as={Link} variant="light" href="/properties">
               <h3 className="text-white text-[1rem]">Properties</h3>
             </Button>
           </NavbarItem>
@@ -74,26 +74,26 @@ const NavBar = () => {
 
               <DropdownMenu className="dark:text-white rounded-md text-center">
                 <DropdownItem
-                  startContent={<LuCalendar />}
                   key="Set Appointment"
                   as={Link}
                   href="/set-appointment"
+                  startContent={<LuCalendar />}
                 >
                   Set Appointment
                 </DropdownItem>
                 <DropdownItem
-                  startContent={<LuCalculator />}
                   key="Loan Calculator"
                   as={Link}
                   href="/loan-calculator"
+                  startContent={<LuCalculator />}
                 >
                   Loan Calculator
                 </DropdownItem>
                 <DropdownItem
-                  startContent={<LuLayoutGrid />}
                   key="Room Planner"
                   as={Link}
                   href="/room-planner"
+                  startContent={<LuLayoutGrid />}
                 >
                   Room Planner
                 </DropdownItem>

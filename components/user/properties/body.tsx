@@ -21,9 +21,9 @@ const Body = ({ properties }: Props) => {
               {properties.map((property) => (
                 <Card
                   key={property.id}
+                  as={Link}
                   className="py-2 w-[20rem]"
                   isPressable
-                  as={Link}
                   href={`/properties/${property.id}`}
                 >
                   <CardHeader className="pb-0">
