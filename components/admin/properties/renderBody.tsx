@@ -11,6 +11,7 @@ import DestroyForm from "@/components/globals/destroyForm";
 import UpdateForm from "./update/updateForm";
 import SetIsPublishedForm from "./setIsPublishedForm";
 import SetIsFeaturedForm from "./setIsFeaturedForm";
+import ViewButton from "@/components/globals/viewButton";
 
 const RenderBody = (
   url: string,
@@ -31,6 +32,11 @@ const RenderBody = (
             <SetIsFeaturedForm url={url} model={model} record={record} />
 
             <SetIsPublishedForm url={url} model={model} record={record} />
+
+            <ViewButton
+              title="View Offerings"
+              url={`/admin/properties/${record.id}`}
+            />
 
             <UpdateForm url={url} model={model} record={record} />
 

@@ -69,8 +69,8 @@ export type Offering = {
 export type OfferingDisplayFormat = {
   property: string;
   type: string;
-  minimum_area: string;
-  maximum_area: string;
+  area: string;
+  image: string;
 };
 
 export type Testimonial = {

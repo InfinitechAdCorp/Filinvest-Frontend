@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Button, Link } from "@heroui/react";
 import { FaEye } from "react-icons/fa";
 
@@ -9,16 +9,14 @@ type Props = {
   url: string;
 };
 
-const ViewBtn = ({ title, url }: Props) => {
-  const [isLoading, setIsLoading] = useState(false);
-
+const ViewButton = ({ title, url }: Props) => {
   return (
     <>
       <Button
         as={Link}
         size="sm"
         color="primary"
-        isIconOnly={true}
+        isIconOnly
         title={title}
         href={url}
       >
@@ -28,4 +26,4 @@ const ViewBtn = ({ title, url }: Props) => {
   );
 };
 
-export default ViewBtn;
+export default ViewButton;

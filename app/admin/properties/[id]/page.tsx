@@ -1,28 +1,29 @@
 import React from "react";
-import { displayFormat } from "@/actions/admin/articles";
-import { Article as Record } from "@/types/globals";
+import { Property } from "@/types/globals";
 import axios from "axios";
 import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
-import RenderBody from "@/components/admin/articles/renderBody";
-import CreateForm from "@/components/admin/articles/createForm";
+import { displayFormat } from "@/actions/admin/offerings";
+import RenderBody from "@/components/admin/offerings/renderBody";
 
-const Page = async () => {
-  const url = "articles";
-  const model = "Award";
+const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const url = "offerings";
+  const model = "Offering";
 
   const columns = [
-    { name: "name", sortable: true },
-    { name: "date", sortable: true },
-    { name: "description", sortable: true },
+    { name: "property", sortable: true },
+    { name: "type", sortable: true },
+    { name: "area", sortable: true },
     { name: "image", sortable: false },
     { name: "actions", sortable: false },
   ];
 
-  let ufRecords: Record[] = [];
+  const id = (await params).id;
+
+  let property: Property | null = null;
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/${url}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/properties/${id}`,
       {
         headers: {
           Accept: "application/json",
@@ -30,19 +31,13 @@ const Page = async () => {
         },
       }
     );
-    ufRecords = response.data.records;
+    property = response.data.record;
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something Went Wrong");
   }
 
-  const fRecords = ufRecords.filter((ufRecord) => {
-    return ufRecord.type == "Award";
-  });
-  
-  const records = await displayFormat(columns, fRecords);
-
-  const Buttons = <CreateForm url={url} model={model} />;
+  const records = await displayFormat(columns, property?.offerings || []);
 
   return (
     <div className="w-full flex justify-center">
@@ -52,7 +47,6 @@ const Page = async () => {
         columns={columns}
         records={records}
         RenderBody={RenderBody}
-        Buttons={Buttons}
       />
     </div>
   );

@@ -181,7 +181,7 @@ const DataTable = ({
   return (
     <>
       <div>
-        <Card className="m-5 md:my-7 md:mx-32 p-3">
+        <Card className="m-5 md:my-12 md:mx-28 p-3">
           <CardBody>
             <Table
               aria-label="DataTable"

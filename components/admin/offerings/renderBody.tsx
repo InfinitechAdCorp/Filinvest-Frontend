@@ -4,11 +4,11 @@ import React from "react";
 import { TableRow, TableCell, Image } from "@heroui/react";
 import { Column } from "@/types/globals";
 import {
-  Article as Record,
-  ArticleDisplayFormat as DisplayFormat,
+  Offering as Record,
+  OfferingDisplayFormat as DisplayFormat,
 } from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
-import UpdateForm from "./updateForm";
+// import UpdateForm from "./updateForm";
 
 const RenderBody = (
   url: string,
@@ -26,26 +26,18 @@ const RenderBody = (
       case "actions":
         return (
           <div className="relative flex justify-start items-center gap-2">
-            <UpdateForm url={url} model={model} record={record} />
+            {/* <UpdateForm url={url} model={model} record={record} /> */}
 
             <DestroyForm url={url} model={model} id={record.id} />
-          </div>
-        );
-      case "description":
-        return (
-          <div
-            className={`max-w-[30rem] overflow-hidden whitespace-nowrap text-ellipsis`}
-          >
-            <span>{record.display_format![column as keyof DisplayFormat]}</span>
           </div>
         );
       case "image":
         return (
           <div>
             <Image
-              src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${record.display_format![column as keyof DisplayFormat]}`}
+              src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/offerings/${record.display_format![column as keyof DisplayFormat]}`}
               alt="Article"
-              className="w-80"
+              className="w-28"
             />
           </div>
         );

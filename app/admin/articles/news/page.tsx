@@ -15,7 +15,7 @@ const Page = async () => {
     { name: "name", sortable: true },
     { name: "date", sortable: true },
     { name: "description", sortable: true },
-    { name: "image", sortable: true },
+    { name: "image", sortable: false },
     { name: "actions", sortable: false },
   ];
 
