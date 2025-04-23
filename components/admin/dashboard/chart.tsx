@@ -65,7 +65,7 @@ const Chart = ({ title, data: ufData }: Props) => {
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="month" />
-            <YAxis />
+            <YAxis allowDecimals={false} />
             <Tooltip />
             <Legend />
             <Bar dataKey="Count" fill="#003583" activeBar={<Rectangle />} />
