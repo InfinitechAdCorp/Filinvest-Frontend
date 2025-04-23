@@ -11,8 +11,9 @@ type Props = {
 };
 
 const CountCard = ({ model, count, color, Icon }: Props) => {
-  const textClass = `text-${color}-700 text-4xl font-semibold`;
   return (
+    // bg-green-200 bg-yellow-200 bg-blue-200 bg-pink-200
+    // text-green-200 text-yellow-200 text-blue-200 text-pink-200
     <div>
       <Card
         key={model}
@@ -21,10 +22,10 @@ const CountCard = ({ model, count, color, Icon }: Props) => {
         <CardBody>
           <div className="flex justify-between items-center gap-4">
             <div>
-              <h1 className={textClass}>{count}</h1>
-              <h1 className={textClass}>{model}</h1>
+              <h1 className={`text-3xl font-semibold text-${color}-700`}>{count}</h1>
+              <h1 className={`text-3xl font-semibold text-${color}-700`}>{model}</h1>
             </div>
-            <div className={textClass}>{Icon}</div>
+            <div className={`text-3xl font-semibold text-${color}-700`}>{Icon}</div>
           </div>
         </CardBody>
       </Card>

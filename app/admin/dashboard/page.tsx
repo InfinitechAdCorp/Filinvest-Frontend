@@ -8,7 +8,7 @@ import {
 import { Counts } from "@/types/admin";
 import axios from "axios";
 import toast from "react-hot-toast";
-import CountCard from "@/components/admin/dashboard/countCard";
+import Body from "@/components/admin/dashboard/body";
 
 const Page = async () => {
   let records: Counts = {
@@ -62,18 +62,8 @@ const Page = async () => {
   ];
 
   return (
-    <div className="w-full flex justify-center space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
-        {cards.map((card) => (
-          <CountCard
-            key={card.model}
-            model={card.model}
-            count={card.count}
-            color={card.color}
-            Icon={card.Icon}
-          />
-        ))}
-      </div>
+    <div className="w-full flex justify-center">
+      <Body cards={cards} />
     </div>
   );
 };
