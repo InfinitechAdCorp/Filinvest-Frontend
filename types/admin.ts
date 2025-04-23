@@ -8,6 +8,11 @@ export type Counts = {
   subscribers: number;
 };
 
+export type ChartDatum = {
+  month: string;
+  Count: number;
+};
+
 export type FAQ = {
   id?: string;
   question: string;
@@ -80,4 +85,4 @@ export type Offering = {
   minimum_area: number | string;
   maximum_area: number | string;
   image: File | string;
-}
+};

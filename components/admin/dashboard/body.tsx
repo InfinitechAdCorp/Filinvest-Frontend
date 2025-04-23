@@ -2,17 +2,21 @@
 
 import React from "react";
 import CountCard from "@/components/admin/dashboard/countCard";
-import { Card, CardBody, CardHeader } from "@heroui/react";
+import { Card, CardBody } from "@heroui/react";
 import Chart from "./chart";
+import { ChartDatum } from "@/types/admin";
 
-type Card = {
-  model: string;
-  count: number;
-  color: string;
-  Icon: React.JSX.Element;
+type Props = {
+  cards: {
+    model: string;
+    count: number;
+    color: string;
+    Icon: React.JSX.Element;
+  }[];
+  charts: { appointments: ChartDatum[]; inquiries: ChartDatum[] };
 };
 
-const Body = ({ cards }: { cards: Card[] }) => {
+const Body = ({ cards, charts }: Props) => {
   return (
     <div>
       <Card className="my-12 p-3">
@@ -31,27 +35,9 @@ const Body = ({ cards }: { cards: Card[] }) => {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <Card className="pr-4 py-4">
-                <CardHeader className="flex justify-center">
-                  <h3 className="text-3xl font-semibold">
-                    Monthly Appointments
-                  </h3>
-                </CardHeader>
-                <CardBody className="h-[20rem]">
-                  <Chart />
-                </CardBody>
-              </Card>
+              <Chart title="Monthly Appointments" data={charts.appointments} />
 
-              <Card className="pr-4 py-4">
-                <CardHeader className="flex justify-center">
-                  <h3 className="text-3xl font-semibold">
-                    Monthly Appointments
-                  </h3>
-                </CardHeader>
-                <CardBody className="h-[20rem]">
-                  <Chart />
-                </CardBody>
-              </Card>
+              <Chart title="Monthly Inquiries" data={charts.inquiries} />
             </div>
           </div>
         </CardBody>

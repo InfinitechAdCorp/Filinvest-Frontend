@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 import Body from "@/components/admin/dashboard/body";
 
 const Page = async () => {
-  let records: Counts = {
+  let counts: Counts = {
     properties: 0,
     appointments: 0,
     inquiries: 0,
@@ -28,7 +28,28 @@ const Page = async () => {
         },
       }
     );
-    records = response.data.records;
+    counts = response.data.records;
+  } catch (error) {
+    console.error("Error:", error);
+    toast.error("Something Went Wrong");
+  }
+
+  let charts = {
+    appointments: [],
+    inquiries: [],
+  };
+
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/dashboard/get-charts`,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    charts = response.data.records;
   } catch (error) {
     console.error("Error:", error);
     toast.error("Something Went Wrong");
@@ -37,25 +58,25 @@ const Page = async () => {
   const cards = [
     {
       model: "Properties",
-      count: records.properties,
+      count: counts.properties,
       color: "green",
       Icon: <LuBuilding2 size={56} />,
     },
     {
       model: "Appointments",
-      count: records.appointments,
+      count: counts.appointments,
       color: "yellow",
       Icon: <LuCalendarRange size={56} />,
     },
     {
       model: "Inquiries",
-      count: records.inquiries,
+      count: counts.inquiries,
       color: "blue",
       Icon: <LuMailQuestion size={56} />,
     },
     {
       model: "Subscribers",
-      count: records.subscribers,
+      count: counts.subscribers,
       color: "pink",
       Icon: <LuUsers size={56} />,
     },
@@ -63,7 +84,7 @@ const Page = async () => {
 
   return (
     <div className="w-full flex justify-center">
-      <Body cards={cards} />
+      <Body cards={cards} charts={charts} />
     </div>
   );
 };
