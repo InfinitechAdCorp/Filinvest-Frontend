@@ -37,21 +37,17 @@ const Chart = ({ title, data: ufData }: Props) => {
       "Dec",
     ];
 
-    if (new Date().getMonth() > 5) {
-      months = months.slice(6, 12);
-    } else {
-      months = months.slice(0, 6);
-    }
+    months =
+      new Date().getMonth() > 5 ? months.slice(6, 12) : months.slice(0, 6);
 
-    const data: ChartDatum[] = [];
-    months.forEach((month) => {
+    const data = months.map((month) => {
       const datum = { month: month, Count: 0 };
       ufData.forEach((ufData) => {
         if (ufData.month?.startsWith(month)) {
           datum.Count = ufData.Count;
         }
       });
-      data.push(datum);
+      return datum;
     });
 
     return data;
