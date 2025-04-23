@@ -93,3 +93,19 @@ export const property = {
     .required("Amenities is required")
     .min(1, "Amenities is required"),
 };
+
+export const offering = {
+  property_id: Yup.string().trim().required("Property is required"),
+  type: Yup.string().trim().required("Type is required"),
+  minimum_area: Yup.number()
+    .typeError("Minimum Area must be a number")
+    .required("Minimum Area is required")
+    .min(1, "Minimum Area must be greater than 0"),
+  maximum_area: Yup.number()
+    .typeError("Maximum Area must be a number")
+    .required("Maximum Area is required")
+    .min(
+      Yup.ref("minimum_area"),
+      "Maximum Area must be greater than Minimum Area"
+    ),
+};

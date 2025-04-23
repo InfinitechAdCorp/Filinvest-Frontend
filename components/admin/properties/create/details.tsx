@@ -58,6 +58,7 @@ const Details = ({ props }: Props) => {
           />
         </div>
       </div>
+
       <div className="flex flex-col w-full">
         <Field
           name="location"
@@ -75,6 +76,7 @@ const Details = ({ props }: Props) => {
           className="text-red-500 text-sm"
         />
       </div>
+      
       <div className="flex flex-col w-full">
         <Field
           name="map"
@@ -127,6 +129,7 @@ const Details = ({ props }: Props) => {
           />
         </div>
       </div>
+
       <div className="flex justify-between gap-2">
         <div className="flex flex-col w-full">
           <Field
@@ -162,6 +165,7 @@ const Details = ({ props }: Props) => {
           />
         </div>
       </div>
+
       <div className="flex flex-col w-full">
         <Field
           name="status"
@@ -182,6 +186,7 @@ const Details = ({ props }: Props) => {
           className="text-red-500 text-sm"
         />
       </div>
+
       <div className="flex flex-col w-full">
         <Field
           name="description"

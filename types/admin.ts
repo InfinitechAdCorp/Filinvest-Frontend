@@ -1,6 +1,13 @@
 import { DateValue } from "@heroui/react";
 import { Time } from "@internationalized/date";
 
+export type Counts = {
+  properties: number;
+  appointments: number;
+  inquiries: number;
+  subscribers: number;
+};
+
 export type FAQ = {
   id?: string;
   question: string;
@@ -66,9 +73,11 @@ export type Property = {
   images: FileList | string;
 };
 
-export type Counts = {
-  properties: number;
-  appointments: number;
-  inquiries: number;
-  subscribers: number;
-};
+export type Offering = {
+  id?: string;
+  property_id: string;
+  type: string;
+  minimum_area: number | string;
+  maximum_area: number | string;
+  image: File | string;
+}

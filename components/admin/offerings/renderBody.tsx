@@ -8,6 +8,7 @@ import {
   OfferingDisplayFormat as DisplayFormat,
 } from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
+import UpdateForm from "./updateForm";
 // import UpdateForm from "./updateForm";
 
 const RenderBody = (
@@ -26,7 +27,7 @@ const RenderBody = (
       case "actions":
         return (
           <div className="relative flex justify-start items-center gap-2">
-            {/* <UpdateForm url={url} model={model} record={record} /> */}
+            <UpdateForm url={url} model={model} record={record} />
 
             <DestroyForm url={url} model={model} id={record.id} />
           </div>
@@ -37,7 +38,7 @@ const RenderBody = (
             <Image
               src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/offerings/${record.display_format![column as keyof DisplayFormat]}`}
               alt="Article"
-              className="w-28"
+              className="w-32"
             />
           </div>
         );
