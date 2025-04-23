@@ -9,7 +9,6 @@ import {
 } from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
 import UpdateForm from "./updateForm";
-// import UpdateForm from "./updateForm";
 
 const RenderBody = (
   url: string,

@@ -39,14 +39,17 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   }
 
   const records = await displayFormat(columns, property?.offerings || []);
-
-  const Buttons = <CreateForm url={url} model={model} property={property as Property} />;
-
+  const Buttons = (
+    <>
+      <CreateForm url={url} model={model} property={property as Property} />
+    </>
+  );
   return (
     <div className="w-full flex justify-center">
       <DataTable
         url={url}
         model={model}
+        prefix={`${property!.name}`}
         columns={columns}
         records={records}
         RenderBody={RenderBody}

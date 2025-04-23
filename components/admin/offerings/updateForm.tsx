@@ -45,7 +45,7 @@ const UpdateForm = ({ url, model, record }: Props) => {
 
   const initialValues = {
     id: record.id,
-    property_id: record.property.id!,
+    property_id: record.property.id,
     type: record.type,
     minimum_area: record.minimum_area,
     maximum_area: record.maximum_area,

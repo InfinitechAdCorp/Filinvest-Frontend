@@ -26,6 +26,7 @@ import { formatReadable, pluralize } from "@/utils/formatters";
 type Props = {
   url: string;
   model: string;
+  prefix?: string;
   columns: Column[];
   initialColumns?: string[];
   records: any[];
@@ -43,6 +44,7 @@ type Props = {
 const DataTable = ({
   url,
   model,
+  prefix,
   columns: ufColumns,
   initialColumns: ufInitialColumns,
   records: ufRecords,
@@ -146,7 +148,7 @@ const DataTable = ({
 
     return (
       <>
-        <h3 className="text-2xl font-semibold">{pluralize(model)}</h3>
+        <h3 className="text-2xl font-semibold">{`${prefix ? prefix : ""} ${pluralize(model)}`}</h3>
 
         <div className="flex flex-col gap-4">
           <div className="flex justify-between gap-3 items-end">
@@ -196,9 +198,7 @@ const DataTable = ({
                 />
               }
               bottomContentPlacement="outside"
-              classNames={{
-                wrapper: "max-h-[40rem]",
-              }}
+              classNames={{ wrapper: "max-h-[40rem]" }}
               topContent={topContent}
               topContentPlacement="outside"
               sortDescriptor={sortDescriptor}
