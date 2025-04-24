@@ -53,7 +53,7 @@ const InquiryForm = ({ properties }: Props) => {
       actions.resetForm();
       toast.success("Inquiry Submitted Successfully");
     } catch (error) {
-      console.error("Error:", error);
+      console.error(error);
       toast.error("Something Went Wrong");
     }
 

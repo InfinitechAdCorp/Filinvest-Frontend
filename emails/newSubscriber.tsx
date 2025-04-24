@@ -14,21 +14,23 @@ import {
 } from "@react-email/components";
 
 type Props = {
+  baseURL: string;
+  s3URL: string;
   email: string;
 };
 
-export const NewSubscriber = ({ email }: Props) => (
+export const NewSubscriber = ({
+  baseURL = "http://localhost:3000",
+  s3URL = "https://filinvest-bakit.s3-ap-southeast-1.amazonaws.com",
+  email,
+}: Props) => (
   <Html>
     <Head />
     <Preview>Thank You for Subscribing</Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logo}>
-          <Img
-            alt="Logo"
-            height="80"
-            src={`${process.env.NEXT_PUBLIC_S3_URL}/assets/logo.png`}
-          />
+          <Img alt="Logo" height="80" src={`${s3URL}/assets/logo.png`} />
         </Section>
 
         <Hr style={divider} />
@@ -43,16 +45,13 @@ export const NewSubscriber = ({ email }: Props) => (
           Stay tuned for our upcoming announcements, and feel free to reach out
           if you have any questions or specific property preferences.
         </Text>
-        <Button href={process.env.NEXT_PUBLIC_BASE_URL} style={button}>
+        <Button href={baseURL} style={button}>
           Visit Our Website
         </Button>
         <Hr style={divider} />
         <Text style={paragraphs}>
           If you ever wish to unsubscribe, you can do so by clicking{" "}
-          <Link
-            href={`${process.env.NEXT_PUBLIC_BASE_URL}/unsubscribe/${email}`}
-            style={anchor}
-          >
+          <Link href={`${baseURL}/unsubscribe/${email}`} style={anchor}>
             here
           </Link>
         </Text>
@@ -60,10 +59,10 @@ export const NewSubscriber = ({ email }: Props) => (
         <Text style={footer}>
           Metro Manila, Philippines
           <br />
-          LandLine: 02-8646-6136 | Mobile: (+63) 917 548 09994
+          LandLine: 02-8646-6136 | Mobile: (+63) 917 5481 097
           <br />
           Email: filinvest@gmail.com | Website:{" "}
-          <Link href={process.env.NEXT_PUBLIC_BASE_URL} style={anchor}>
+          <Link href={baseURL} style={anchor}>
             filinvest.vercel.app
           </Link>
           <br />
@@ -90,7 +89,7 @@ const container = {
 const logo = {
   display: "flex",
   width: "100%",
-  justifyContent: "center",
+  justifyContent: "center" as const,
 };
 
 const button = {

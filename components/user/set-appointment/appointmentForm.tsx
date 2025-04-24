@@ -69,7 +69,7 @@ const AppointmentForm = ({ properties }: Props) => {
       actions.resetForm();
       toast.success("Appointment Submitted Successfully");
     } catch (error) {
-      console.error("Error:", error);
+      console.error(error);
       toast.error("Something Went Wrong");
     }
 

@@ -30,7 +30,7 @@ const Page = async () => {
     );
     counts = response.data.records;
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     toast.error("Something Went Wrong");
   }
 
@@ -51,7 +51,7 @@ const Page = async () => {
     );
     charts = response.data.records;
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     toast.error("Something Went Wrong");
   }
 

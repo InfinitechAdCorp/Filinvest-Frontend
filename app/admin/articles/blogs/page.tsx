@@ -32,14 +32,14 @@ const Page = async () => {
     );
     ufRecords = response.data.records;
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     toast.error("Something Went Wrong");
   }
 
   const fRecords = ufRecords.filter((ufRecord) => {
     return ufRecord.type == "Award";
   });
-  
+
   const records = await displayFormat(columns, fRecords);
 
   const Buttons = <CreateForm url={url} model={model} />;

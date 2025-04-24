@@ -24,7 +24,7 @@ const Page = async () => {
     );
     testimonials = response.data.records;
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     toast.error("Something Went Wrong");
   }
 
@@ -46,7 +46,7 @@ const Page = async () => {
     );
     articles = response.data.records;
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     toast.error("Something Went Wrong");
   }
 
@@ -71,7 +71,7 @@ const Page = async () => {
     );
     faqs = response.data.records;
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     toast.error("Something Went Wrong");
   }
 
@@ -90,7 +90,7 @@ const Page = async () => {
     );
     properties = response.data.records;
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     toast.error("Something Went Wrong");
   }
 

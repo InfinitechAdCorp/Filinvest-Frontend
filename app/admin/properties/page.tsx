@@ -36,7 +36,7 @@ const Page = async () => {
     );
     ufRecords = response.data.records;
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     toast.error("Something Went Wrong");
   }
 
