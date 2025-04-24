@@ -50,8 +50,7 @@ export const appointment = {
     .required("Email is required"),
   date: Yup.date()
     .typeError("Date must be a valid date")
-    .required("Date is required")
-    .min(new Date(), "Date must not be a past date"),
+    .required("Date is required"),
   time: Yup.string().trim().required("Time is required"),
   property_id: Yup.string().trim().required("Property is required"),
   message: Yup.string().trim().required("Message is required"),

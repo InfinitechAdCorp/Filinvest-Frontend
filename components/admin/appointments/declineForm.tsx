@@ -41,6 +41,7 @@ const DeclineForm = ({ url, model, record }: Props) => {
 
     const { code, message } = await setStatus(url, model, values);
     await onPostSubmit(url, code, message, resetForm, onClose);
+    sendEmail(record);
 
     setIsSubmitting(false);
   };
@@ -57,10 +58,30 @@ const DeclineForm = ({ url, model, record }: Props) => {
           },
         }
       );
-      return { code: 200, message: `Updated Status of ${model}` };
+      return { code: 200, message: `Declined ${model}` };
     } catch (error) {
       console.error(error);
       return { code: 500, message: "Something Went Wrong", error: error };
+    }
+  };
+
+  const sendEmail = async (record: Record) => {
+    const values = {
+      email: record.email,
+      property: record.property.name,
+      date: record.display_format!.date,
+      time: record.display_format!.time,
+    };
+
+    try {
+      await axios.post("/api/appointments/decline", values, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -71,7 +92,7 @@ const DeclineForm = ({ url, model, record }: Props) => {
         isIconOnly
         color="danger"
         title="Decline"
-        isDisabled={record.status == "Accepted"}
+        isDisabled={record.status != "Pending"}
         onPress={onOpen}
         startContent={<FaXmark size={14} color="white" />}
       ></Button>

@@ -51,7 +51,7 @@ export const NewSubscriber = ({
         <Hr style={divider} />
         <Text style={paragraphs}>
           If you ever wish to unsubscribe, you can do so by clicking{" "}
-          <Link href={`${baseURL}/unsubscribe/${email}`} style={anchor}>
+          <Link href={`${baseURL}/subscribers/unsubscribe/${email}`} style={anchor}>
             here
           </Link>
         </Text>

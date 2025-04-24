@@ -53,7 +53,7 @@ const SubscriberForm = () => {
   const sendEmail = async (email: string) => {
     try {
       await axios.post(
-        "/api/subscribe",
+        "/api/subscribers/subscribe",
         { email: email },
         {
           headers: {
