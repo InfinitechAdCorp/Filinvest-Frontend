@@ -9,6 +9,8 @@ import {
 } from "@/types/globals";
 import UpdateForm from "./updateForm";
 import DestroyForm from "@/components/globals/destroyForm";
+import AcceptForm from "./acceptForm";
+import DeclineForm from "./declineForm";
 
 const RenderBody = (
   url: string,
@@ -31,6 +33,8 @@ const RenderBody = (
         return (
           <div className="relative flex justify-start items-center gap-2">
             <AcceptForm url={url} model={model} record={record} />
+
+            <DeclineForm url={url} model={model} record={record} />
 
             <UpdateForm
               url={url}

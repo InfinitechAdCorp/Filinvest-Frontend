@@ -14,7 +14,7 @@ import { Formik, Form } from "formik";
 import { Appointment as Record } from "@/types/globals";
 import { setStatus as validationSchema } from "@/schemas/admin";
 import { SetStatus as Values } from "@/types/globals";
-import { FaCheck } from "react-icons/fa6";
+import { FaXmark } from "react-icons/fa6";
 import { onPostSubmit } from "@/utils/events";
 import axios from "axios";
 
@@ -24,13 +24,13 @@ type Props = {
   record: Record;
 };
 
-const AcceptForm = ({ url, model, record }: Props) => {
+const DeclineForm = ({ url, model, record }: Props) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
     id: record.id,
-    status: "Accepted",
+    status: "Declined",
   };
 
   const onSubmit = async (
@@ -69,11 +69,11 @@ const AcceptForm = ({ url, model, record }: Props) => {
       <Button
         size="sm"
         isIconOnly
-        color="success"
-        title="Accept"
-        isDisabled={record.status == "Declined"}
+        color="danger"
+        title="Decline"
+        isDisabled={record.status == "Accepted"}
         onPress={onOpen}
-        startContent={<FaCheck size={14} color="white" />}
+        startContent={<FaXmark size={14} color="white" />}
       ></Button>
 
       <Modal size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -87,10 +87,10 @@ const AcceptForm = ({ url, model, record }: Props) => {
               >
                 {() => (
                   <Form>
-                    <ModalHeader>Accept {model}</ModalHeader>
+                    <ModalHeader>Decline {model}</ModalHeader>
                     <ModalBody>
                       <h6>
-                        Are you sure that you want to accept this {model}?
+                        Are you sure that you want to decline this {model}?
                       </h6>
                     </ModalBody>
                     <ModalFooter>
@@ -116,4 +116,4 @@ const AcceptForm = ({ url, model, record }: Props) => {
   );
 };
 
-export default AcceptForm;
+export default DeclineForm;
