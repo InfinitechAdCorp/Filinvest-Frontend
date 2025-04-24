@@ -4,6 +4,7 @@ import React from "react";
 import { Card, CardBody, CardHeader, Image, Link } from "@heroui/react";
 import { Article } from "@/types/globals";
 import { formatDate } from "@/utils/formatters";
+import ArticleModal from "./articleModal";
 
 type Props = {
   articles: Article[];
@@ -36,14 +37,7 @@ const Articles = ({ articles }: Props) => {
                     {article.description}
                   </p>
 
-                  <div className="text-center">
-                    <Link
-                      href={`/news/${article.id}`}
-                      className="text-primary text-xs sm:text-sm md:text-base font-semibold"
-                    >
-                      Read More
-                    </Link>
-                  </div>
+                  <ArticleModal article={article} />
                 </CardBody>
               </Card>
             ))}
