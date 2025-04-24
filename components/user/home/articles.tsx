@@ -14,7 +14,6 @@ import {
 } from "@heroui/react";
 import { Article } from "@/types/globals";
 import { formatDate } from "@/utils/formatters";
-import ArticleModal from "./articleModal";
 
 type Props = {
   articles: Article[];

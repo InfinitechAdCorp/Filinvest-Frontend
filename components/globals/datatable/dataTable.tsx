@@ -188,6 +188,9 @@ const DataTable = ({
             <Table
               aria-label="DataTable"
               isHeaderSticky
+              classNames={{ wrapper: "max-h-[40rem]" }}
+              topContent={topContent}
+              topContentPlacement="outside"
               bottomContent={
                 <BottomContent
                   total={records.length}
@@ -198,9 +201,6 @@ const DataTable = ({
                 />
               }
               bottomContentPlacement="outside"
-              classNames={{ wrapper: "max-h-[40rem]" }}
-              topContent={topContent}
-              topContentPlacement="outside"
               sortDescriptor={sortDescriptor}
               onSortChange={setSortDescriptor}
             >
