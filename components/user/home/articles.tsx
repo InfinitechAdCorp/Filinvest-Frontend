@@ -34,7 +34,7 @@ const Articles = ({ articles }: Props) => {
                   <CardHeader className="pb-0">
                     <Image
                       alt="News"
-                      className="object-cover h-[11rem] w-full rounded-xl transform transition duration-500 ease-in-out hover:scale-110"
+                      className="object-cover h-[11rem] w-full rounded-xl"
                       src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${article.image}`}
                     />
                   </CardHeader>

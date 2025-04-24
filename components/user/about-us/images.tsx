@@ -12,7 +12,7 @@ const Images = () => {
             <Image
               src="/images/about-us-1.png"
               alt="Image"
-              className="rounded-lg shadow-lg object-cover w-[34rem] h-[15rem] transform transition duration-500 ease-in-out hover:scale-110"
+              className="rounded-lg shadow-lg object-cover w-[34rem] h-[15rem]"
             />
           </div>
 
@@ -20,7 +20,7 @@ const Images = () => {
             <Image
               src="/images/about-us-2.jpg"
               alt="Image"
-              className="rounded-lg shadow-lg object-cover w-[34rem] h-[15rem] transform transition duration-500 ease-in-out hover:scale-110"
+              className="rounded-lg shadow-lg object-cover w-[34rem] h-[15rem]"
             />
           </div>
         </div>

@@ -29,7 +29,7 @@ const Body = ({ properties }: Props) => {
                   <CardHeader className="pb-0">
                     <Image
                       alt="Property"
-                      className="object-cover h-[11rem] w-full rounded-xl transform transition duration-500 ease-in-out hover:scale-110"
+                      className="object-cover h-[11rem] w-full rounded-xl"
                       src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/images/${JSON.parse(property.images)[0]}`}
                     />
                   </CardHeader>
