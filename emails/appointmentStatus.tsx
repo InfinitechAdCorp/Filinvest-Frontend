@@ -19,19 +19,23 @@ type Props = {
   property: string;
   date: string;
   time: string;
+  status: string;
 };
 
-export const AppointmentAccepted = ({
+export const AppointmentStatus = ({
   baseURL = "http://localhost:3000",
   s3URL = "https://filinvest-bakit.s3-ap-southeast-1.amazonaws.com",
   email,
   property,
   date,
   time,
+  status,
 }: Props) => (
   <Html>
     <Head />
-    <Preview>Your appointment for {property} has been accepted.</Preview>
+    <Preview>
+      Your appointment for {property} has been {status.toLowerCase()}.
+    </Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logo}>
@@ -39,10 +43,13 @@ export const AppointmentAccepted = ({
         </Section>
 
         <Hr style={divider} />
-        <Text style={paragraph}>Appointment Accepted for {property}</Text>
         <Text style={paragraph}>
-          We are excited to inform you that your appointment to view the
-          property <b>{property}</b> has been accepted.
+          Appointment {status} for {property}
+        </Text>
+        <Text style={paragraph}>
+          We {status == "Accepted" ? "are excited" : "regret"} to inform you
+          that your appointment to view the property <b>{property}</b> has been{" "}
+          {status.toLowerCase()}.
         </Text>
         <Hr style={divider} />
         <Text style={paragraph}>
@@ -92,7 +99,7 @@ export const AppointmentAccepted = ({
   </Html>
 );
 
-export default AppointmentAccepted;
+export default AppointmentStatus;
 
 const main = {
   fontFamily:

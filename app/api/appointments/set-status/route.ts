@@ -1,9 +1,9 @@
 import nodemailer from "nodemailer";
 import { render } from "@react-email/render";
-import AppointmentDeclined from "@/emails/appointmentDeclined";
+import AppointmentStatus from "@/emails/appointmentStatus";
 
 export async function POST(req: Request) {
-  const { email, property, date, time } = await req.json();
+  const { email, property, date, time, status } = await req.json();
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -14,20 +14,21 @@ export async function POST(req: Request) {
   });
 
   const html = await render(
-    AppointmentDeclined({
+    AppointmentStatus({
       baseURL: process.env.NEXT_PUBLIC_BASE_URL!,
       s3URL: process.env.NEXT_PUBLIC_S3_URL!,
       email: email,
       property: property,
       date: date,
       time: time,
+      status: status,
     })
   );
 
   const mailOptions = {
     from: process.env.GMAIL_USER,
     to: email,
-    subject: "Filinvest: Appointment Accepted!",
+    subject: `Filinvest: Appointment ${status}!`,
     html: html,
   };
 

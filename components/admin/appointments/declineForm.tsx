@@ -74,7 +74,7 @@ const DeclineForm = ({ url, model, record }: Props) => {
     };
 
     try {
-      await axios.post("/api/appointments/decline", values, {
+      await axios.post("/api/appointments/set-status", values, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
