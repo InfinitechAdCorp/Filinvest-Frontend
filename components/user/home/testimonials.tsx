@@ -7,14 +7,9 @@ import React, { useState } from "react";
 import { Card, CardBody } from "@heroui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalHeader,
-  useDisclosure,
-} from "@heroui/modal";
+import { useDisclosure } from "@heroui/modal";
 import { Testimonial } from "@/types/globals";
+import TestimonialModal from "./testimonialModal";
 
 type Props = {
   testimonials: Testimonial[];
@@ -66,35 +61,14 @@ const Testimonials = ({ testimonials }: Props) => {
               ))}
             </Swiper>
           </div>
-
-          <Modal
-            isOpen={isOpen}
-            onClose={() => {
-              setSelected(null);
-              onClose();
-            }}
-          >
-            <ModalContent>
-              {() => (
-                <>
-                  <ModalHeader className="flex flex-col gap-1">
-                    {selected?.name}
-                  </ModalHeader>
-                  <ModalBody>
-                    <div className="max-h-[15rem] overflow-y-scroll">
-                      <p className="text-gray-600">{selected?.message}</p>
-                    </div>
-                  </ModalBody>
-                </>
-              )}
-            </ModalContent>
-          </Modal>
         </div>
       ) : (
         <div className="flex justify-center">
           <h3 className="font-semibold">No Testimonials Found</h3>
         </div>
       )}
+
+      <TestimonialModal selected={selected} isOpen={isOpen} onClose={onClose} />
     </>
   );
 };
