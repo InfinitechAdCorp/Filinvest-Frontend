@@ -31,7 +31,7 @@ export const DeclineAppointment = ({
 }: Props) => (
   <Html>
     <Head />
-    <Preview>Your viewing request for {property} has been declined.</Preview>
+    <Preview>Your appointment for {property} has been declined.</Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logo}>
@@ -39,9 +39,9 @@ export const DeclineAppointment = ({
         </Section>
 
         <Hr style={divider} />
-        <Text style={paragraph}>Viewing Request Declined for {property}</Text>
+        <Text style={paragraph}>Appointment Declined for {property}</Text>
         <Text style={paragraph}>
-          We regret to inform you that your request to view the property{" "}
+          We regret to inform you that your appointment to view the property{" "}
           <b>{property}</b> has been declined.
         </Text>
         <Hr style={divider} />
@@ -57,8 +57,8 @@ export const DeclineAppointment = ({
         </Text>
         <Hr style={divider} />
         <Text style={paragraph}>
-          If you would like to request another viewing or need more information,
-          please feel free to contact us or log in to your account.
+          If you would like to request another appointment or need more
+          information, please feel free to contact us or log in to your account.
         </Text>
         <Text style={paragraph}>
           If you have any questions or need assistance, our support team is here

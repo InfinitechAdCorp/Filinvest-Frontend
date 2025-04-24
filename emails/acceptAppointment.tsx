@@ -31,7 +31,7 @@ export const AcceptAppointment = ({
 }: Props) => (
   <Html>
     <Head />
-    <Preview>Your viewing request for {property} has been accepted.</Preview>
+    <Preview>Your appointment for {property} has been accepted.</Preview>
     <Body style={main}>
       <Container style={container}>
         <Section style={logo}>
@@ -39,10 +39,10 @@ export const AcceptAppointment = ({
         </Section>
 
         <Hr style={divider} />
-        <Text style={paragraph}>Viewing Request Accepted for {property}</Text>
+        <Text style={paragraph}>Appointment Accepted for {property}</Text>
         <Text style={paragraph}>
-          We are excited to inform you that your request to view the property{" "}
-          <b>{property}</b> has been accepted.
+          We are excited to inform you that your appointment to view the
+          property <b>{property}</b> has been accepted.
         </Text>
         <Hr style={divider} />
         <Text style={paragraph}>
@@ -57,8 +57,8 @@ export const AcceptAppointment = ({
         </Text>
         <Hr style={divider} />
         <Text style={paragraph}>
-          If you would like to request another viewing or need more information,
-          please feel free to contact us or log in to your account.
+          If you would like to request another appointment or need more
+          information, please feel free to contact us or log in to your account.
         </Text>
         <Text style={paragraph}>
           If you have any questions or need assistance, our support team is here
