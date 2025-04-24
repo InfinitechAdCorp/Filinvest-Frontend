@@ -87,9 +87,7 @@ const container = {
 };
 
 const logo = {
-  display: "flex",
-  width: "100%",
-  justifyContent: "center" as const,
+  width: "50%",
 };
 
 const button = {

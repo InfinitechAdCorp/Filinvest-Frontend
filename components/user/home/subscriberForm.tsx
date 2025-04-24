@@ -40,12 +40,31 @@ const SubscriberForm = () => {
 
       actions.resetForm();
       toast.success("Subscribed Successfully");
+
+      sendEmail(values.email);
     } catch (error) {
       console.error(error);
       toast.error("Something Went Wrong");
     }
 
     setIsSubmitting(false);
+  };
+
+  const sendEmail = async (email: string) => {
+    try {
+      await axios.post(
+        "/api/subscribe",
+        { email: email },
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -57,7 +76,7 @@ const SubscriberForm = () => {
       >
         {() => (
           <Form className="space-y-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-2 lg:mt-11">
+            <div className="mt-4 flex flex-col gap-3">
               <div className="flex flex-col w-full">
                 <Field
                   name="email"
@@ -75,7 +94,7 @@ const SubscriberForm = () => {
 
               <Button
                 type="submit"
-                className="bg-primary text-white"
+                className="bg-primary text-white w-[45%]"
                 isLoading={isSubmitting}
               >
                 Subscribe
