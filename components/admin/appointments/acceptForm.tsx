@@ -14,7 +14,7 @@ import { Formik, Form } from "formik";
 import { Appointment as Record } from "@/types/globals";
 import { setStatus as validationSchema } from "@/schemas/admin";
 import { SetStatus as Values } from "@/types/globals";
-import { FaXmark, FaCheck } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa6";
 import { onPostSubmit } from "@/utils/events";
 import axios from "axios";
 
@@ -24,13 +24,13 @@ type Props = {
   record: Record;
 };
 
-const SetStatusForm = ({ url, model, record }: Props) => {
+const AcceptForm = ({ url, model, record }: Props) => {
   const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
     id: record.id,
-    status: record.status == "Accepted" ? "Declined" : "Accepted",
+    status: "Accepted",
   };
 
   const onSubmit = async (
@@ -69,16 +69,10 @@ const SetStatusForm = ({ url, model, record }: Props) => {
       <Button
         size="sm"
         isIconOnly
-        color={record.status == "Accepted" ? "danger" : "success"}
-        title={record.status == "Accepted" ? "Decline" : "Accept"}
+        color="success"
+        title="Accept"
         onPress={onOpen}
-        startContent={
-          record.status == "Accepted" ? (
-            <FaXmark size={14} />
-          ) : (
-            <FaCheck size={14} />
-          )
-        }
+        startContent={<FaCheck size={14} />}
       ></Button>
 
       <Modal size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -92,16 +86,10 @@ const SetStatusForm = ({ url, model, record }: Props) => {
               >
                 {() => (
                   <Form>
-                    <ModalHeader>
-                      {record.status == "Accepted" ? "Decline" : "Accept"}{" "}
-                      {model}
-                    </ModalHeader>
+                    <ModalHeader>Accept {model}</ModalHeader>
                     <ModalBody>
                       <h6>
-                        Are you sure that you want to{" "}
-                        {record.status == "Accepted" ? "decline" : "accept"}{" "}
-                        this
-                        {model}?
+                        Are you sure that you want to accept this {model}?
                       </h6>
                     </ModalBody>
                     <ModalFooter>
@@ -127,4 +115,4 @@ const SetStatusForm = ({ url, model, record }: Props) => {
   );
 };
 
-export default SetStatusForm;
+export default AcceptForm;

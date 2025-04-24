@@ -30,6 +30,8 @@ const RenderBody = (
       case "actions":
         return (
           <div className="relative flex justify-start items-center gap-2">
+            <AcceptForm url={url} model={model} record={record} />
+
             <UpdateForm
               url={url}
               model={model}
