@@ -27,7 +27,7 @@ export const NewSubscriber = ({ email }: Props) => (
           <Img
             alt="Logo"
             height="80"
-            src="https://filinvest-bakit.s3.ap-southeast-1.amazonaws.com/assets/logo.png"
+            src={`${process.env.NEXT_PUBLIC_S3_URL}/assets/logo.png`}
           />
         </Section>
 
@@ -43,14 +43,14 @@ export const NewSubscriber = ({ email }: Props) => (
           Stay tuned for our upcoming announcements, and feel free to reach out
           if you have any questions or specific property preferences.
         </Text>
-        <Button href="https://filinvest.vercel.app/" style={button}>
+        <Button href={process.env.NEXT_PUBLIC_BASE_URL} style={button}>
           Visit Our Website
         </Button>
         <Hr style={divider} />
         <Text style={paragraphs}>
           If you ever wish to unsubscribe, you can do so by clicking{" "}
           <Link
-            href={`https://filinvest.vercel.app/unsubscribe/${email}`}
+            href={`${process.env.NEXT_PUBLIC_BASE_URL}/unsubscribe/${email}`}
             style={anchor}
           >
             here
@@ -63,7 +63,7 @@ export const NewSubscriber = ({ email }: Props) => (
           LandLine: 02-8646-6136 | Mobile: (+63) 917 548 09994
           <br />
           Email: filinvest@gmail.com | Website:{" "}
-          <Link href="https://filinvest.vercel.app/" style={anchor}>
+          <Link href={process.env.NEXT_PUBLIC_BASE_URL} style={anchor}>
             filinvest.vercel.app
           </Link>
           <br />
