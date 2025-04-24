@@ -4,6 +4,11 @@ export const destroy = Yup.object().shape({
   id: Yup.string().trim().required("ID is required"),
 });
 
+export const setStatus = Yup.object().shape({
+  id: Yup.string().trim().required("ID is required"),
+  status: Yup.string().trim().required("Status is required")
+})
+
 export const faq = {
   question: Yup.string().trim().required("Question is required"),
   answer: Yup.string().trim().required("Answer is required"),

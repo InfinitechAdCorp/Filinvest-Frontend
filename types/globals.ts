@@ -14,6 +14,11 @@ export type Destroy = {
   id: string;
 };
 
+export type SetStatus = {
+  id: string;
+  status: string;
+};
+
 export type Column = {
   name: string;
   sortable: boolean;

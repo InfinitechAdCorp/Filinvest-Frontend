@@ -21,7 +21,7 @@ type Props = {
   time: string;
 };
 
-export const DeclineAppointment = ({
+export const DeclinedAppointment = ({
   baseURL = "http://localhost:3000",
   s3URL = "https://filinvest-bakit.s3-ap-southeast-1.amazonaws.com",
   email,
@@ -92,7 +92,7 @@ export const DeclineAppointment = ({
   </Html>
 );
 
-export default DeclineAppointment;
+export default DeclinedAppointment;
 
 const main = {
   fontFamily:
