@@ -71,6 +71,7 @@ const DeclineForm = ({ url, model, record }: Props) => {
       property: record.property.name,
       date: record.display_format!.date,
       time: record.display_format!.time,
+      status: "Declined",
     };
 
     try {
