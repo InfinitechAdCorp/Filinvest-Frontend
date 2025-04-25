@@ -22,7 +22,7 @@ const Body = ({ properties }: Props) => {
                 <Card
                   key={property.id}
                   as={Link}
-                  className="py-2 w-[20rem]"
+                  className="p-1 w-[20rem]"
                   isPressable
                   href={`/properties/${property.id}`}
                 >

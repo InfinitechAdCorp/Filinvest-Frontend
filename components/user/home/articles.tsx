@@ -32,7 +32,7 @@ const Articles = ({ articles }: Props) => {
               {articles.map((article) => (
                 <Card
                   key={article.id}
-                  className="py-2 w-[20rem]"
+                  className="p-1 w-[20rem]"
                   isPressable
                   onPress={() => {
                     setSelected(article);

@@ -72,7 +72,7 @@ const NavBar = () => {
                 </Button>
               </DropdownTrigger>
 
-              <DropdownMenu className="dark:text-white rounded-md text-center">
+              <DropdownMenu className="dark:text-white rounded-md">
                 <DropdownItem
                   key="Set Appointment"
                   as={Link}
