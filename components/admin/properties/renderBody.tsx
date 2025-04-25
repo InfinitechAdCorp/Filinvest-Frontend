@@ -12,6 +12,7 @@ import UpdateForm from "./update/updateForm";
 import SetIsPublishedForm from "./setIsPublishedForm";
 import SetIsFeaturedForm from "./setIsFeaturedForm";
 import ViewButton from "@/components/globals/viewButton";
+import Gallery from "@/components/globals/gallery";
 
 const RenderBody = (
   url: string,
@@ -46,10 +47,13 @@ const RenderBody = (
       case "logo":
         return (
           <div>
-            <Image
-              src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/logos/${record.display_format![column as keyof DisplayFormat]}`}
-              alt="Logo"
-              className="w-full"
+            <Gallery
+              images={[
+                {
+                  url: `${process.env.NEXT_PUBLIC_S3_URL}/properties/logos/${record.display_format![column as keyof DisplayFormat]}`,
+                  name: `${record.name} Logo`,
+                },
+              ]}
             />
           </div>
         );

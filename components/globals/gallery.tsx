@@ -29,8 +29,8 @@ const Gallery = ({ images }: Props) => {
       speed={500}
       plugins={[Thumnail, Zoom, Autoplay, Video, Share, Rotate]}
     >
-      {images.map((image) => (
-        <a href={image.url}>
+      {images.map((image, index) => (
+        <a key={index} href={image.url}>
           <img src={image.url} alt={image.name} />
         </a>
       ))}
