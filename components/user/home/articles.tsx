@@ -30,7 +30,15 @@ const Articles = ({ articles }: Props) => {
           {articles.length > 0 ? (
             <>
               {articles.map((article) => (
-                <Card key={article.id} className="py-2 w-[20rem]">
+                <Card
+                  key={article.id}
+                  className="py-2 w-[20rem]"
+                  isPressable
+                  onPress={() => {
+                    setSelected(article);
+                    onOpen();
+                  }}
+                >
                   <CardHeader className="pb-0">
                     <Image
                       alt="News"
@@ -49,18 +57,6 @@ const Articles = ({ articles }: Props) => {
                     <p className="text-default-500 line-clamp-3 my-3">
                       {article.description}
                     </p>
-
-                    <div className="text-center">
-                      <h3
-                        className="text-primary font-semibold cursor-pointer"
-                        onClick={() => {
-                          setSelected(article);
-                          onOpen();
-                        }}
-                      >
-                        Read More
-                      </h3>
-                    </div>
                   </CardBody>
                 </Card>
               ))}
