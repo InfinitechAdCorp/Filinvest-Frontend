@@ -73,6 +73,7 @@ const SetIsFeaturedForm = ({ url, model, record }: Props) => {
       color="warning"
       isIconOnly
       title={`${record.isFeatured == 0 ? "Feature" : "Unfeature"}`}
+      isDisabled={record.isPublished == 0}
       onPress={() => onPress(record)}
       startContent={getStartContent(record.isFeatured)}
     />
