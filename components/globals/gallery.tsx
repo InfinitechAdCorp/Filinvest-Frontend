@@ -21,9 +21,10 @@ type Props = {
     url: string;
     name: string;
   }[];
+  className?: string;
 };
 
-const Gallery = ({ images }: Props) => {
+const Gallery = ({ images, className }: Props) => {
   return (
     <LightGallery
       speed={500}
@@ -31,7 +32,7 @@ const Gallery = ({ images }: Props) => {
     >
       {images.map((image, index) => (
         <a key={index} href={image.url}>
-          <img src={image.url} alt={image.name} />
+          <img src={image.url} alt={image.name} className={className} />
         </a>
       ))}
     </LightGallery>

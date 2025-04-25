@@ -9,6 +9,7 @@ import {
 } from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
 import UpdateForm from "./updateForm";
+import Gallery from "@/components/globals/gallery";
 
 const RenderBody = (
   url: string,
@@ -42,10 +43,14 @@ const RenderBody = (
       case "image":
         return (
           <div>
-            <Image
-              src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${record.display_format![column as keyof DisplayFormat]}`}
-              alt="Article"
-              className="w-80"
+            <Gallery
+              className="w-80 rounded-xl"
+              images={[
+                {
+                  url: `${process.env.NEXT_PUBLIC_S3_URL}/articles/${record.display_format![column as keyof DisplayFormat]}`,
+                  name: record.name,
+                },
+              ]}
             />
           </div>
         );
