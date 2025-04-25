@@ -73,7 +73,7 @@ const Sidebar = () => {
             </li>
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/inquiry"
+                "/admin/inquiries"
               )} text-white cursor-pointer`}
               onClick={() => router.push("/admin/inquiries")}
             >
