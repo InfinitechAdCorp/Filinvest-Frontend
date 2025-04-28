@@ -35,7 +35,7 @@ type Props = {
     model: string,
     columns: Column[],
     records: any[],
-    dependencies: any
+    dependencies: any,
   ) => any;
   Buttons?: ReactElement;
   dependencies?: any;
@@ -60,11 +60,11 @@ const DataTable = ({
   }
 
   const [visibleColumns, setVisibleColumns] = useState<Selection>(
-    new Set(initialColumns)
+    new Set(initialColumns),
   );
   const columns = useMemo(() => {
     return ufColumns.filter((ufColumn) =>
-      Array.from(visibleColumns).includes(ufColumn.name)
+      Array.from(visibleColumns).includes(ufColumn.name),
     );
   }, [visibleColumns]);
 
@@ -128,7 +128,7 @@ const DataTable = ({
       setRowsPerPage(Number(e.target.value));
       setPage(1);
     },
-    []
+    [],
   );
 
   const topContent = useMemo(() => {
@@ -151,7 +151,7 @@ const DataTable = ({
         <h3 className="text-2xl font-semibold">{`${prefix ? prefix : ""} ${pluralize(model)}`}</h3>
 
         <div className="flex flex-col gap-4">
-          <div className="flex justify-between gap-3 items-end">
+          <div className="flex items-end justify-between gap-3">
             <div className="w-full sm:max-w-[50%]">
               <Input
                 isClearable
@@ -183,7 +183,7 @@ const DataTable = ({
   return (
     <>
       <div>
-        <Card className="m-5 md:my-12 md:mx-28 p-3">
+        <Card className="m-5 p-3 md:mx-28 md:my-12">
           <CardBody>
             <Table
               aria-label="DataTable"

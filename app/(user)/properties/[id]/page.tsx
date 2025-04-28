@@ -19,7 +19,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     property = response.data.record;
   } catch (error) {
@@ -30,8 +30,8 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <>
       {property ? (
-        <div className="flex justify-center w-full">
-          <div className="relative flex flex-col items-start justify-start mx-60 my-7 max-w-[57rem] space-y-5">
+        <div className="flex w-full justify-center">
+          <div className="relative mx-60 my-7 flex max-w-[57rem] flex-col items-start justify-start space-y-5">
             <Details property={property} />
             <Amenities property={property} />
             <Map property={property} />

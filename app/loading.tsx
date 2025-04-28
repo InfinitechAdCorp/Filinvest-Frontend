@@ -3,7 +3,7 @@ import styles from "./loading.module.css";
 
 const Page = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen w-full">
+    <div className="flex min-h-screen w-full items-center justify-center">
       <div className={styles.container}>
         <div className={styles.text}>
           <span>F</span>

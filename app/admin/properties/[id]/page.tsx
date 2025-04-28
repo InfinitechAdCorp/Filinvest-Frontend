@@ -31,7 +31,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     property = response.data.record;
   } catch (error) {
@@ -46,7 +46,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
     </>
   );
   return (
-    <div className="w-full flex justify-center">
+    <div className="flex w-full justify-center">
       <DataTable
         url={url}
         model={model}

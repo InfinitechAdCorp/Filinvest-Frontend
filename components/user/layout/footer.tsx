@@ -12,34 +12,34 @@ import SubscriberForm from "../home/subscriberForm";
 const Footer = () => {
   return (
     <>
-      <footer className="border-t-1 text-primary dark:bg-white dark:text-black py-6">
+      <footer className="border-t-1 py-6 text-primary dark:bg-white dark:text-black">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             <div>
-              <h4 className="text-lg font-bold mb-2">Quick Links</h4>
+              <h4 className="mb-2 text-lg font-bold">Quick Links</h4>
               <div className="flex gap-8">
                 <div className="flex flex-col space-y-1">
                   <Link
                     href="/"
-                    className="text-primary dark:text-black hover:text-blue-300"
+                    className="text-primary hover:text-blue-300 dark:text-black"
                   >
                     Home
                   </Link>
                   <Link
                     href="/about-us"
-                    className="text-primary dark:text-black hover:text-blue-300"
+                    className="text-primary hover:text-blue-300 dark:text-black"
                   >
                     About Us
                   </Link>
                   <Link
                     href="/properties"
-                    className="text-primary dark:text-black hover:text-blue-300"
+                    className="text-primary hover:text-blue-300 dark:text-black"
                   >
                     Properties
                   </Link>
                   <Link
                     href="/contact-us"
-                    className="text-primary dark:text-black hover:text-blue-300"
+                    className="text-primary hover:text-blue-300 dark:text-black"
                   >
                     Contact Us
                   </Link>
@@ -48,19 +48,19 @@ const Footer = () => {
                 <div className="flex flex-col space-y-1">
                   <Link
                     href="/set-appointment"
-                    className="text-primary dark:text-black hover:text-blue-300"
+                    className="text-primary hover:text-blue-300 dark:text-black"
                   >
                     Set Appointment
                   </Link>
                   <Link
                     href="/loan-calculator"
-                    className="text-primary dark:text-black hover:text-blue-300"
+                    className="text-primary hover:text-blue-300 dark:text-black"
                   >
                     Loan Calculator
                   </Link>
                   <Link
                     href="/room-planner"
-                    className="text-primary dark:text-black hover:text-blue-300"
+                    className="text-primary hover:text-blue-300 dark:text-black"
                   >
                     Room Planner
                   </Link>
@@ -88,11 +88,11 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex flex-col h-full">
+            <div className="flex h-full flex-col">
               <h3 className="text-2xl text-primary">
                 Newsletter <span className="font-bold">Signup</span>
               </h3>
-              <p className="text-sm text-gray-600 mt-2">
+              <p className="mt-2 text-sm text-gray-600">
                 Enter your email below to stay updated with Filinvest's new
                 developments and offers!
               </p>
@@ -102,45 +102,45 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div className="flex flex-col lg:flex-row justify-center gap-1 lg:gap-10 items-center border-t-1 text-gray-900 dark:bg-white dark:text-black w-full p-4 space-y-0">
-        <div className="flex flex-col sm:flex-row items-center flex-wrap text-center sm:text-left gap-2 sm:gap-4">
+      <div className="flex w-full flex-col items-center justify-center gap-1 space-y-0 border-t-1 p-4 text-gray-900 dark:bg-white dark:text-black lg:flex-row lg:gap-10">
+        <div className="flex flex-col flex-wrap items-center gap-2 text-center sm:flex-row sm:gap-4 sm:text-left">
           <div>Copyright &copy; {new Date().getFullYear()} Filinvest </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4">
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
           <h3 className="font-semibold">Follow Us</h3>
           <div className="flex gap-3">
             <Link
               href="https://www.facebook.com/filinvest"
-              className="text-gray-900  hover:text-primary"
+              className="text-gray-900 hover:text-primary"
               target="_blank"
             >
               <FaFacebookSquare size={20} />
             </Link>
             <Link
               href="https://x.com/filinvest"
-              className="text-gray-900  hover:text-primary"
+              className="text-gray-900 hover:text-primary"
               target="_blank"
             >
               <FaTwitter size={20} />
             </Link>
             <Link
               href="https://www.instagram.com/filinvest"
-              className="text-gray-900  hover:text-primary"
+              className="text-gray-900 hover:text-primary"
               target="_blank"
             >
               <FaInstagram size={20} />
             </Link>
             <Link
               href="https://www.linkedin.com/company/filinvest"
-              className="text-gray-900  hover:text-primary"
+              className="text-gray-900 hover:text-primary"
               target="_blank"
             >
               <FaLinkedin size={20} />
             </Link>
             <Link
               href="https://www.youtube.com/filinvest"
-              className="text-gray-900  hover:text-primary"
+              className="text-gray-900 hover:text-primary"
               target="_blank"
             >
               <FaYoutube size={20} />

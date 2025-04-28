@@ -16,7 +16,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     properties = response.data.records;
   } catch (error) {
@@ -37,7 +37,7 @@ const Page = async () => {
         description="Get in touch with us for inquiries, partnerships, or assistance. We're here to help!"
       />
 
-      <div className="flex justify-center mx-72 my-7">
+      <div className="mx-72 my-7 flex justify-center">
         <Body properties={properties} />
       </div>
     </>

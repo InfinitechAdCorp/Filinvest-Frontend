@@ -56,7 +56,7 @@ const Chart = ({ title, data: ufData }: Props) => {
   const data = formatMonthlyData(ufData);
 
   return (
-    <Card className="pr-4 py-4">
+    <Card className="py-4 pr-4">
       <CardHeader className="flex justify-center">
         <h3 className="text-3xl font-semibold">{title}</h3>
       </CardHeader>

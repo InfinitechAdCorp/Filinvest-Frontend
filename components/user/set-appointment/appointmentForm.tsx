@@ -45,7 +45,7 @@ const AppointmentForm = ({ properties }: Props) => {
 
   const onSubmit = async (
     ufValues: Values,
-    actions: { resetForm: () => void }
+    actions: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 
@@ -65,7 +65,7 @@ const AppointmentForm = ({ properties }: Props) => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-        }
+        },
       );
       actions.resetForm();
       toast.success("Appointment Submitted Successfully");
@@ -89,7 +89,7 @@ const AppointmentForm = ({ properties }: Props) => {
             <div className="flex flex-col gap-3">
               <div className="flex flex-col gap-3">
                 <div className="flex justify-between gap-3">
-                  <div className="flex flex-col w-full">
+                  <div className="flex w-full flex-col">
                     <Field
                       name="first_name"
                       as={Input}
@@ -100,11 +100,11 @@ const AppointmentForm = ({ properties }: Props) => {
                     <ErrorMessage
                       name="first_name"
                       component="div"
-                      className="text-red-500 text-sm"
+                      className="text-sm text-red-500"
                     />
                   </div>
 
-                  <div className="flex flex-col w-full">
+                  <div className="flex w-full flex-col">
                     <Field
                       name="last_name"
                       as={Input}
@@ -115,13 +115,13 @@ const AppointmentForm = ({ properties }: Props) => {
                     <ErrorMessage
                       name="last_name"
                       component="div"
-                      className="text-red-500 text-sm"
+                      className="text-sm text-red-500"
                     />
                   </div>
                 </div>
 
                 <div className="flex justify-between gap-2">
-                  <div className="flex flex-col w-full">
+                  <div className="flex w-full flex-col">
                     <Field
                       name="mobile"
                       as={Input}
@@ -132,11 +132,11 @@ const AppointmentForm = ({ properties }: Props) => {
                     <ErrorMessage
                       name="mobile"
                       component="div"
-                      className="text-red-500 text-sm"
+                      className="text-sm text-red-500"
                     />
                   </div>
 
-                  <div className="flex flex-col w-full">
+                  <div className="flex w-full flex-col">
                     <Field
                       name="email"
                       as={Input}
@@ -147,13 +147,13 @@ const AppointmentForm = ({ properties }: Props) => {
                     <ErrorMessage
                       name="email"
                       component="div"
-                      className="text-red-500 text-sm"
+                      className="text-sm text-red-500"
                     />
                   </div>
                 </div>
 
                 <div className="flex justify-between gap-3">
-                  <div className="flex flex-col w-full">
+                  <div className="flex w-full flex-col">
                     <Field
                       name="date"
                       as={DatePicker}
@@ -167,11 +167,11 @@ const AppointmentForm = ({ properties }: Props) => {
                     <ErrorMessage
                       name="date"
                       component="div"
-                      className="text-red-500 text-sm"
+                      className="text-sm text-red-500"
                     />
                   </div>
 
-                  <div className="flex flex-col w-full">
+                  <div className="flex w-full flex-col">
                     <Field
                       name="time"
                       as={TimeInput}
@@ -184,12 +184,12 @@ const AppointmentForm = ({ properties }: Props) => {
                     <ErrorMessage
                       name="time"
                       component="div"
-                      className="text-red-500 text-sm"
+                      className="text-sm text-red-500"
                     />
                   </div>
                 </div>
 
-                <div className="flex flex-col w-full">
+                <div className="flex w-full flex-col">
                   <Field
                     name="property_id"
                     as={Autocomplete}
@@ -209,11 +209,11 @@ const AppointmentForm = ({ properties }: Props) => {
                   <ErrorMessage
                     name="property_id"
                     component="div"
-                    className="text-red-500 text-sm"
+                    className="text-sm text-red-500"
                   />
                 </div>
 
-                <div className="flex flex-col w-full">
+                <div className="flex w-full flex-col">
                   <Field
                     name="message"
                     as={Textarea}
@@ -223,7 +223,7 @@ const AppointmentForm = ({ properties }: Props) => {
                   <ErrorMessage
                     name="message"
                     component="div"
-                    className="text-red-500 text-sm"
+                    className="text-sm text-red-500"
                   />
                 </div>
               </div>

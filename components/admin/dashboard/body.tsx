@@ -23,7 +23,7 @@ const Body = ({ cards, charts }: Props) => {
       <Card className="my-12 p-3">
         <CardBody>
           <div className="flex flex-col gap-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4">
               {cards.map((card) => (
                 <CountCard
                   key={card.model}

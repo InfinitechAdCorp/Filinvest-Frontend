@@ -35,7 +35,7 @@ const DeclineForm = ({ url, model, record }: Props) => {
 
   const onSubmit = async (
     values: Values,
-    { resetForm }: { resetForm: () => void }
+    { resetForm }: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 
@@ -57,7 +57,7 @@ const DeclineForm = ({ url, model, record }: Props) => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-        }
+        },
       );
       return { code: 200, message: `Declined ${model}` };
     } catch (error) {

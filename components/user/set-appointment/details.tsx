@@ -19,14 +19,14 @@ const Details = () => {
 
       <div className="flex flex-col justify-center p-5">
         <div className="mb-2">
-          <h2 className="text-start text-primary text-xl font-semibold">
+          <h2 className="text-start text-xl font-semibold text-primary">
             Contact Us
           </h2>
         </div>
 
         <div className="flex justify-between">
           <div>
-            <ul className="text-sm list-disc pl-5 space-y-4">
+            <ul className="list-disc space-y-4 pl-5 text-sm">
               <li>
                 <strong>Filinvest Alabang, Inc.</strong>
                 <br />
@@ -46,7 +46,7 @@ const Details = () => {
           </div>
 
           <div>
-            <ul className="text-sm list-disc pl-5 space-y-4">
+            <ul className="list-disc space-y-4 pl-5 text-sm">
               <li>
                 <strong>Festival Mall Office</strong>
                 <br />

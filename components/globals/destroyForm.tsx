@@ -33,7 +33,7 @@ const DestroyForm = ({ url, model, id }: Props) => {
 
   const onSubmit = async (
     values: Values,
-    { resetForm }: { resetForm: () => void }
+    { resetForm }: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 

@@ -19,7 +19,7 @@ const SetIsPublishedForm = ({ url, model, record }: Props) => {
   const setIsPublished = async (
     url: string,
     model: string,
-    values: { id: string; isPublished: number }
+    values: { id: string; isPublished: number },
   ) => {
     try {
       await axios.post(
@@ -31,7 +31,7 @@ const SetIsPublishedForm = ({ url, model, record }: Props) => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-        }
+        },
       );
       return { code: 200, message: `Updated Published Status of ${model}` };
     } catch (error) {

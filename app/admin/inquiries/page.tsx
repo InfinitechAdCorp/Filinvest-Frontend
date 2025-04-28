@@ -19,7 +19,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     properties = response.data.records;
   } catch (error) {
@@ -55,7 +55,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     ufRecords = response.data.records;
   } catch (error) {
@@ -70,7 +70,7 @@ const Page = async () => {
   );
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="flex w-full justify-center">
       <DataTable
         url={url}
         model={model}

@@ -39,7 +39,7 @@ const CreateForm = ({ url, model }: Props) => {
 
   const onSubmit = async (
     values: Values,
-    { resetForm }: { resetForm: () => void }
+    { resetForm }: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 
@@ -69,7 +69,7 @@ const CreateForm = ({ url, model }: Props) => {
                     <ModalHeader>Add {model}</ModalHeader>
                     <ModalBody>
                       <div className="flex flex-col gap-3">
-                        <div className="flex flex-col w-full">
+                        <div className="flex w-full flex-col">
                           <Field
                             name="name"
                             as={Input}
@@ -83,11 +83,11 @@ const CreateForm = ({ url, model }: Props) => {
                           <ErrorMessage
                             name="name"
                             component="div"
-                            className="text-red-500 text-sm"
+                            className="text-sm text-red-500"
                           />
                         </div>
 
-                        <div className="flex flex-col w-full">
+                        <div className="flex w-full flex-col">
                           <Field
                             name="message"
                             as={Textarea}
@@ -100,7 +100,7 @@ const CreateForm = ({ url, model }: Props) => {
                           <ErrorMessage
                             name="message"
                             component="div"
-                            className="text-red-500 text-sm"
+                            className="text-sm text-red-500"
                           />
                         </div>
                       </div>

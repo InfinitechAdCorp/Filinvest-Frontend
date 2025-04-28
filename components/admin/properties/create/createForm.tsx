@@ -54,7 +54,7 @@ const CreateForm = ({ url, model }: Props) => {
 
   const onSubmit = async (
     values: Values,
-    { resetForm }: { resetForm: () => void }
+    { resetForm }: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 

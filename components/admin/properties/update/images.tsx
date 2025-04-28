@@ -15,20 +15,20 @@ const Images = ({ props, record }: Props) => {
   const initialImagesPreview = JSON.parse(record.images).map(
     (image: string) => {
       return `${process.env.NEXT_PUBLIC_S3_URL}/properties/images/${image}`;
-    }
+    },
   );
 
   const [logoPreview, setLogoPreview] = useState(initialLogoPreview);
   const [imagesPreview, setImagesPreview] = useState<string[] | string>(
-    initialImagesPreview
+    initialImagesPreview,
   );
 
   const onLogoChange = async (
     event: React.ChangeEvent<HTMLInputElement>,
     setFieldValue: (
       field: string,
-      value: File | null
-    ) => Promise<void | FormikErrors<any>>
+      value: File | null,
+    ) => Promise<void | FormikErrors<any>>,
   ) => {
     const files = event.target.files;
     const isValid = files && files[0];
@@ -40,20 +40,20 @@ const Images = ({ props, record }: Props) => {
     event: React.ChangeEvent<HTMLInputElement>,
     setFieldValue: (
       field: string,
-      value: FileList | ""
-    ) => Promise<void | FormikErrors<any>>
+      value: FileList | "",
+    ) => Promise<void | FormikErrors<any>>,
   ) => {
     const files = event.target.files;
     const isValid = files && Array.from(files).every((file) => file);
     setImagesPreview(
-      isValid ? Array.from(files).map((file) => URL.createObjectURL(file)) : ""
+      isValid ? Array.from(files).map((file) => URL.createObjectURL(file)) : "",
     );
     await setFieldValue("images", isValid ? files : "");
   };
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <Field
           name="logo"
           as={Input}
@@ -67,13 +67,12 @@ const Images = ({ props, record }: Props) => {
           onChange={async (e: ChangeEvent<HTMLInputElement>) => {
             await onLogoChange(e, props.setFieldValue);
           }}
-        >
-        </Field>
+        ></Field>
         <ErrorMessage
-            name="logo"
-            component="div"
-            className="text-red-500 text-sm"
-          />
+          name="logo"
+          component="div"
+          className="text-sm text-red-500"
+        />
       </div>
 
       {logoPreview && (
@@ -81,12 +80,12 @@ const Images = ({ props, record }: Props) => {
           <Image
             src={logoPreview}
             alt="Preview"
-            className="max-w-[8rem] h-32 object-cover rounded-md"
+            className="h-32 max-w-[8rem] rounded-md object-cover"
           />
         </div>
       )}
 
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <Field
           name="images"
           as={Input}
@@ -101,13 +100,12 @@ const Images = ({ props, record }: Props) => {
           onChange={async (e: ChangeEvent<HTMLInputElement>) => {
             await onImagesChange(e, props.setFieldValue);
           }}
-        >
-        </Field>
+        ></Field>
         <ErrorMessage
-            name="images"
-            component="div"
-            className="text-red-500 text-sm"
-          />
+          name="images"
+          component="div"
+          className="text-sm text-red-500"
+        />
       </div>
 
       {Array.isArray(imagesPreview) && (
@@ -117,7 +115,7 @@ const Images = ({ props, record }: Props) => {
               key={index}
               src={image}
               alt="Preview"
-              className="max-w-[8rem] h-32 object-cover rounded-md"
+              className="h-32 max-w-[8rem] rounded-md object-cover"
             />
           ))}
         </div>

@@ -15,26 +15,26 @@ const Body = ({ properties }: Props) => {
   return (
     <>
       <div className="flex justify-between">
-        <div className="p-2 flex flex-wrap gap-4 justify-center mx-60 my-5">
+        <div className="mx-60 my-5 flex flex-wrap justify-center gap-4 p-2">
           {properties.length > 0 ? (
             <>
               {properties.map((property) => (
                 <Card
                   key={property.id}
                   as={Link}
-                  className="p-1 w-[20rem]"
+                  className="w-[20rem] p-1"
                   isPressable
                   href={`/properties/${property.id}`}
                 >
                   <CardHeader className="pb-0">
                     <Image
                       alt="Property"
-                      className="object-cover h-[11rem] w-full rounded-xl"
+                      className="h-[11rem] w-full rounded-xl object-cover"
                       src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/images/${JSON.parse(property.images)[0]}`}
                     />
                   </CardHeader>
                   <CardBody className="overflow-visible py-2">
-                    <h3 className="font-bold text-large text-primary">
+                    <h3 className="text-large font-bold text-primary">
                       {property.name}
                     </h3>
                     <h3 className="text-sm text-gray-700">
@@ -50,8 +50,8 @@ const Body = ({ properties }: Props) => {
                           size="sm"
                           variant="flat"
                           color="primary"
-                          startContent={<HiLink className="w-4 h-4" />}
-                          className="flex justify-between items-center text-xs px-2 py-1"
+                          startContent={<HiLink className="h-4 w-4" />}
+                          className="flex items-center justify-between px-2 py-1 text-xs"
                         >
                           {property.type}
                         </Chip>
@@ -60,8 +60,8 @@ const Body = ({ properties }: Props) => {
                           size="sm"
                           variant="flat"
                           color="primary"
-                          startContent={<HiLink className="w-4 h-4" />}
-                          className="flex justify-between items-center text-xs px-2 py-1"
+                          startContent={<HiLink className="h-4 w-4" />}
+                          className="flex items-center justify-between px-2 py-1 text-xs"
                         >
                           For Sale
                         </Chip>
@@ -70,8 +70,8 @@ const Body = ({ properties }: Props) => {
                           size="sm"
                           variant="flat"
                           color="primary"
-                          startContent={<HiLink className="w-4 h-4" />}
-                          className="flex justify-between items-center text-xs px-2 py-1"
+                          startContent={<HiLink className="h-4 w-4" />}
+                          className="flex items-center justify-between px-2 py-1 text-xs"
                         >
                           {property.status}
                         </Chip>

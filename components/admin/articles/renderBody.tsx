@@ -15,18 +15,18 @@ const RenderBody = (
   url: string,
   model: string,
   columns: Column[],
-  records: Record[]
+  records: Record[],
 ) => {
   const RenderCell = (
     url: string,
     model: string,
     column: string,
-    record: Record
+    record: Record,
   ) => {
     switch (column) {
       case "actions":
         return (
-          <div className="relative flex justify-start items-center gap-2">
+          <div className="relative flex items-center justify-start gap-2">
             <UpdateForm url={url} model={model} record={record} />
 
             <DestroyForm url={url} model={model} id={record.id} />
@@ -35,7 +35,7 @@ const RenderBody = (
       case "description":
         return (
           <div
-            className={`max-w-[30rem] overflow-hidden whitespace-nowrap text-ellipsis`}
+            className={`max-w-[30rem] overflow-hidden text-ellipsis whitespace-nowrap`}
           >
             <span>{record.display_format![column as keyof DisplayFormat]}</span>
           </div>

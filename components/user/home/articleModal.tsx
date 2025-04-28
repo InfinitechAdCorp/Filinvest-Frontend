@@ -39,7 +39,7 @@ const ArticleModal = ({ selected, isOpen, onClose }: Props) => {
                   <Image
                     isBlurred
                     alt="Article"
-                    className="w-full h-[25rem] object-cover rounded-xl"
+                    className="h-[25rem] w-full rounded-xl object-cover"
                     src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${selected?.image}`}
                   />
                 ) : (
@@ -54,7 +54,7 @@ const ArticleModal = ({ selected, isOpen, onClose }: Props) => {
                         {string == "" ? (
                           <br />
                         ) : (
-                          <p className="text-gray-700 leading-relaxed">
+                          <p className="leading-relaxed text-gray-700">
                             {string}
                           </p>
                         )}

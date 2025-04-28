@@ -7,18 +7,18 @@ const Details = () => {
   return (
     <>
       <div>
-          <Image
-            src="/images/office.jpg"
-            alt="Filinvest Image"
-            classNames={{
-              wrapper: "flex rounded-lg shadow-xl min-w-full",
-              img: "h-[16rem] w-full"
-            }}
-          />
+        <Image
+          src="/images/office.jpg"
+          alt="Filinvest Image"
+          classNames={{
+            wrapper: "flex rounded-lg shadow-xl min-w-full",
+            img: "h-[16rem] w-full",
+          }}
+        />
 
-        <div className="flex justify-between px-2 py-5 space-y-5 md:space-y-0 gap-5">
+        <div className="flex justify-between gap-5 space-y-5 px-2 py-5 md:space-y-0">
           <div>
-            <h3 className="text-2xl font-semibold text-primary mb-3">
+            <h3 className="mb-3 text-2xl font-semibold text-primary">
               Customer Service
             </h3>
             <div className="space-y-2 text-sm">
@@ -38,7 +38,7 @@ const Details = () => {
           </div>
 
           <div>
-            <h3 className="text-2xl font-semibold text-primary mb-3">
+            <h3 className="mb-3 text-2xl font-semibold text-primary">
               Sales Hotline
             </h3>
             <div className="space-y-2 text-sm">

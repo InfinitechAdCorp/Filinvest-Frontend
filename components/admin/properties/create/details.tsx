@@ -18,7 +18,7 @@ const Details = ({ props }: Props) => {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex justify-between gap-2">
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <Field
             name="name"
             as={Input}
@@ -32,11 +32,11 @@ const Details = ({ props }: Props) => {
           <ErrorMessage
             name="name"
             component="div"
-            className="text-red-500 text-sm"
+            className="text-sm text-red-500"
           />
         </div>
 
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <Field
             name="type"
             as={Select}
@@ -54,12 +54,12 @@ const Details = ({ props }: Props) => {
           <ErrorMessage
             name="type"
             component="div"
-            className="text-red-500 text-sm"
+            className="text-sm text-red-500"
           />
         </div>
       </div>
 
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <Field
           name="location"
           as={Input}
@@ -73,11 +73,11 @@ const Details = ({ props }: Props) => {
         <ErrorMessage
           name="location"
           component="div"
-          className="text-red-500 text-sm"
+          className="text-sm text-red-500"
         />
       </div>
-      
-      <div className="flex flex-col w-full">
+
+      <div className="flex w-full flex-col">
         <Field
           name="map"
           as={Textarea}
@@ -90,12 +90,12 @@ const Details = ({ props }: Props) => {
         <ErrorMessage
           name="map"
           component="div"
-          className="text-red-500 text-sm"
+          className="text-sm text-red-500"
         />
       </div>
 
       <div className="flex justify-between gap-2">
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <Field
             name="minimum_price"
             as={Input}
@@ -108,11 +108,11 @@ const Details = ({ props }: Props) => {
           <ErrorMessage
             name="minimum_price"
             component="div"
-            className="text-red-500 text-sm"
+            className="text-sm text-red-500"
           />
         </div>
 
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <Field
             name="maximum_price"
             as={Input}
@@ -125,13 +125,13 @@ const Details = ({ props }: Props) => {
           <ErrorMessage
             name="maximum_price"
             component="div"
-            className="text-red-500 text-sm"
+            className="text-sm text-red-500"
           />
         </div>
       </div>
 
       <div className="flex justify-between gap-2">
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <Field
             name="minimum_area"
             as={Input}
@@ -144,11 +144,11 @@ const Details = ({ props }: Props) => {
           <ErrorMessage
             name="minimum_area"
             component="div"
-            className="text-red-500 text-sm"
+            className="text-sm text-red-500"
           />
         </div>
 
-        <div className="flex flex-col w-full">
+        <div className="flex w-full flex-col">
           <Field
             name="maximum_area"
             as={Input}
@@ -161,12 +161,12 @@ const Details = ({ props }: Props) => {
           <ErrorMessage
             name="maximum_area"
             component="div"
-            className="text-red-500 text-sm"
+            className="text-sm text-red-500"
           />
         </div>
       </div>
 
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <Field
           name="status"
           as={Select}
@@ -183,11 +183,11 @@ const Details = ({ props }: Props) => {
         <ErrorMessage
           name="status"
           component="div"
-          className="text-red-500 text-sm"
+          className="text-sm text-red-500"
         />
       </div>
 
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <Field
           name="description"
           as={Textarea}
@@ -200,7 +200,7 @@ const Details = ({ props }: Props) => {
         <ErrorMessage
           name="description"
           component="div"
-          className="text-red-500 text-sm"
+          className="text-sm text-red-500"
         />
       </div>
     </div>

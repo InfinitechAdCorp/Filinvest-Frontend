@@ -12,28 +12,28 @@ const Amenities = ({ property }: Props) => {
   return (
     <>
       <div className="w-full">
-        <h3 className="text-xl sm:text-2xl lg:text-2xl text-primary font-semibold">
+        <h3 className="text-xl font-semibold text-primary sm:text-2xl lg:text-2xl">
           Amenities
         </h3>
 
-        <p className="text-sm text-justify lg:text-medium italic text-gray-900">
+        <p className="text-justify text-sm italic text-gray-900 lg:text-medium">
           Relax and bond with loved ones right in the neighborhood with our
           healthy leisure amenities.
         </p>
 
-        <div className="flex flex-row flex-wrap gap-5 mt-2">
+        <div className="mt-2 flex flex-row flex-wrap gap-5">
           {property.amenities ? (
             <>
               {JSON.parse(property.amenities).map(
                 (amenity: string, index: number) => (
                   <div
                     key={index}
-                    className="flex gap-1 items-center text-medium lg:text-lg"
+                    className="flex items-center gap-1 text-medium lg:text-lg"
                   >
-                    <HiMiniStar className="w-6 h-6 text-primary font-semibold" />
+                    <HiMiniStar className="h-6 w-6 font-semibold text-primary" />
                     <h3>{amenity}</h3>
                   </div>
-                )
+                ),
               )}
             </>
           ) : (

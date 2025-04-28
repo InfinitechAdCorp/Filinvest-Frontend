@@ -20,7 +20,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     testimonials = response.data.records;
   } catch (error) {
@@ -29,7 +29,7 @@ const Page = async () => {
   }
 
   testimonials = testimonials.filter(
-    (testimonial) => testimonial.isPublished == 1
+    (testimonial) => testimonial.isPublished == 1,
   );
   testimonials = testimonials.slice(0, 5);
 
@@ -42,7 +42,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     articles = response.data.records;
   } catch (error) {
@@ -67,7 +67,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     faqs = response.data.records;
   } catch (error) {
@@ -86,7 +86,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     properties = response.data.records;
   } catch (error) {
@@ -104,7 +104,7 @@ const Page = async () => {
     <>
       <Hero />
 
-      <div className="my-3 lg:my-10 space-y-3 lg:space-y-10">
+      <div className="my-3 space-y-3 lg:my-10 lg:space-y-10">
         <div>
           <SectionTitle
             title="Featured Properties"

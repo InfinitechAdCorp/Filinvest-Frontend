@@ -36,13 +36,13 @@ const Testimonials = ({ testimonials }: Props) => {
                 768: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
               }}
-              className="lg:w-[81.25rem] mx-auto bg-white"
+              className="mx-auto bg-white lg:w-[81.25rem]"
             >
               {testimonials.map((testimonial) => (
                 <SwiperSlide key={testimonial.id} className="shadow-lg">
                   <Card
                     isPressable
-                    className="w-full h-[12.5rem] bg-white shadow-xl rounded-2xl hover:shadow-2xl transition-shadow duration-300 border border-blue-900 p-5 flex flex-col justify-center"
+                    className="flex h-[12.5rem] w-full flex-col justify-center rounded-2xl border border-blue-900 bg-white p-5 shadow-xl transition-shadow duration-300 hover:shadow-2xl"
                     onPress={() => {
                       setSelected(testimonial);
                       onOpen();
@@ -52,7 +52,7 @@ const Testimonials = ({ testimonials }: Props) => {
                       <p className="text-lg font-semibold text-primary">
                         {testimonial.name}
                       </p>
-                      <p className="overflow-hidden text-ellipsis text-sm text-gray-600 mt-2 cursor-pointer">
+                      <p className="mt-2 cursor-pointer overflow-hidden text-ellipsis text-sm text-gray-600">
                         {testimonial.message}
                       </p>
                     </CardBody>

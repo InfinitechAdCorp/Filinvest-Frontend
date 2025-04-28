@@ -22,7 +22,7 @@ const SubscriberForm = () => {
 
   const onSubmit = async (
     values: Values,
-    actions: { resetForm: () => void }
+    actions: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 
@@ -36,7 +36,7 @@ const SubscriberForm = () => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       actions.resetForm();
@@ -62,7 +62,7 @@ const SubscriberForm = () => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-        }
+        },
       );
     } catch (error) {
       console.error(error);
@@ -79,7 +79,7 @@ const SubscriberForm = () => {
         {() => (
           <Form className="space-y-4">
             <div className="mt-4 flex flex-col gap-3">
-              <div className="flex flex-col w-full">
+              <div className="flex w-full flex-col">
                 <Field
                   name="email"
                   as={Input}
@@ -90,13 +90,13 @@ const SubscriberForm = () => {
                 <ErrorMessage
                   name="email"
                   component="div"
-                  className="text-red-500 text-sm"
+                  className="text-sm text-red-500"
                 />
               </div>
 
               <Button
                 type="submit"
-                className="bg-primary text-white w-[45%]"
+                className="w-[45%] bg-primary text-white"
                 isLoading={isSubmitting}
               >
                 Subscribe

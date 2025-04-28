@@ -34,7 +34,7 @@ const Details = ({ property }: Props) => {
         >
           {JSON.parse(property.images).map((image: string, index: number) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full flex justify-center">
+              <div className="relative flex w-full justify-center">
                 <Image
                   src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/images/${image}`}
                   alt="Property"
@@ -46,7 +46,7 @@ const Details = ({ property }: Props) => {
           ))}
         </Swiper>
 
-        <div className="absolute top-7 left-7 z-3 p-2 rounded-lg">
+        <div className="z-3 absolute left-7 top-7 rounded-lg p-2">
           <div className="w-[13.75rem]">
             <Image
               alt="Logo"
@@ -57,19 +57,19 @@ const Details = ({ property }: Props) => {
         </div>
       </div>
 
-      <div className="w-full flex flex-col sm:justify-between sm:items-start space-y-5">
+      <div className="flex w-full flex-col space-y-5 sm:items-start sm:justify-between">
         <div className="mt-4 space-y-1">
-          <h3 className="text-xl sm:text-2xl lg:text-2xl text-primary font-semibold">
+          <h3 className="text-xl font-semibold text-primary sm:text-2xl lg:text-2xl">
             {property.name}
           </h3>
 
-          <h3 className="text-gray-800 text-lg">{property.location}</h3>
+          <h3 className="text-lg text-gray-800">{property.location}</h3>
 
-          <div className="flex lg:flex-wrap gap-2">
+          <div className="flex gap-2 lg:flex-wrap">
             <Chip
               variant="flat"
               color="primary"
-              startContent={<HiLink className="w-4 h-4" />}
+              startContent={<HiLink className="h-4 w-4" />}
               className="flex items-center px-3 py-1"
             >
               {property.type}
@@ -78,7 +78,7 @@ const Details = ({ property }: Props) => {
             <Chip
               variant="flat"
               color="primary"
-              startContent={<HiLink className="w-4 h-4" />}
+              startContent={<HiLink className="h-4 w-4" />}
               className="flex items-center px-3 py-1"
             >
               For Sale
@@ -87,21 +87,21 @@ const Details = ({ property }: Props) => {
             <Chip
               variant="flat"
               color="primary"
-              startContent={<HiLink className="w-4 h-4" />}
+              startContent={<HiLink className="h-4 w-4" />}
               className="flex items-center px-3 py-1"
             >
               {property.status}
             </Chip>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 gap-2 lg:grid-cols-3">
             <Card
               radius="sm"
-              className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
+              className="mt-2 flex max-w-xs items-start justify-center p-2 lg:p-3"
             >
-              <div className="flex justify-between gap-3 items-center">
+              <div className="flex items-center justify-between gap-3">
                 <Chip radius="full" variant="flat" color="primary">
-                  <IoMdPricetags className="w-5 h-5 text-blue-800" />
+                  <IoMdPricetags className="h-5 w-5 text-blue-800" />
                 </Chip>
 
                 <h3 className="text-medium text-gray-900">
@@ -111,11 +111,11 @@ const Details = ({ property }: Props) => {
             </Card>
             <Card
               radius="sm"
-              className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
+              className="mt-2 flex max-w-xs items-start justify-center p-2 lg:p-3"
             >
-              <div className="flex justify-between gap-3 items-center ">
+              <div className="flex items-center justify-between gap-3">
                 <Chip radius="full" color="primary" variant="flat">
-                  <HiHome className="w-5 h-5 text-blue-800" />
+                  <HiHome className="h-5 w-5 text-blue-800" />
                 </Chip>
 
                 {offeringTypes.length > 0 ? (
@@ -131,11 +131,11 @@ const Details = ({ property }: Props) => {
             </Card>
             <Card
               radius="sm"
-              className="mt-2 flex justify-center items-start max-w-xs p-2 lg:p-3"
+              className="mt-2 flex max-w-xs items-start justify-center p-2 lg:p-3"
             >
-              <div className="flex justify-between gap-3 items-center ">
+              <div className="flex items-center justify-between gap-3">
                 <Chip color="primary" variant="flat" radius="full">
-                  <RiLandscapeFill className="w-5 h-5 text-blue-800" />
+                  <RiLandscapeFill className="h-5 w-5 text-blue-800" />
                 </Chip>
                 <h3 className="text-medium text-gray-900">
                   {formatNumber(property.minimum_area)} -{" "}
@@ -152,7 +152,7 @@ const Details = ({ property }: Props) => {
               {string == "" ? (
                 <br />
               ) : (
-                <p className="text-medium text-justify lg:text-lg italic text-gray-900">
+                <p className="text-justify text-medium italic text-gray-900 lg:text-lg">
                   {string}
                 </p>
               )}

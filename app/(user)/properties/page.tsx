@@ -16,7 +16,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     properties = response.data.records;
   } catch (error) {

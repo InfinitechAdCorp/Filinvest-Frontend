@@ -54,7 +54,7 @@ const CreateForm = ({ url, model }: Props) => {
 
   const onSubmit = async (
     ufValues: Values,
-    { resetForm }: { resetForm: () => void }
+    { resetForm }: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 
@@ -77,8 +77,8 @@ const CreateForm = ({ url, model }: Props) => {
     event: React.ChangeEvent<HTMLInputElement>,
     setFieldValue: (
       field: string,
-      value: File | string
-    ) => Promise<void | FormikErrors<any>>
+      value: File | string,
+    ) => Promise<void | FormikErrors<any>>,
   ) => {
     const files = event.target.files;
     const isValid = files && files[0];
@@ -107,7 +107,7 @@ const CreateForm = ({ url, model }: Props) => {
                     <ModalBody>
                       <div className="flex flex-col gap-3">
                         <div className="flex justify-between gap-2">
-                          <div className="flex flex-col w-full">
+                          <div className="flex w-full flex-col">
                             <Field
                               name="name"
                               as={Input}
@@ -121,11 +121,11 @@ const CreateForm = ({ url, model }: Props) => {
                             <ErrorMessage
                               name="name"
                               component="div"
-                              className="text-red-500 text-sm"
+                              className="text-sm text-red-500"
                             />
                           </div>
 
-                          <div className="flex flex-col w-full">
+                          <div className="flex w-full flex-col">
                             <Field
                               name="date"
                               as={DatePicker}
@@ -141,12 +141,12 @@ const CreateForm = ({ url, model }: Props) => {
                             <ErrorMessage
                               name="date"
                               component="div"
-                              className="text-red-500 text-sm"
+                              className="text-sm text-red-500"
                             />
                           </div>
                         </div>
 
-                        <div className="flex flex-col w-full">
+                        <div className="flex w-full flex-col">
                           <Field
                             name="description"
                             as={Textarea}
@@ -159,11 +159,11 @@ const CreateForm = ({ url, model }: Props) => {
                           <ErrorMessage
                             name="description"
                             component="div"
-                            className="text-red-500 text-sm"
+                            className="text-sm text-red-500"
                           />
                         </div>
 
-                        <div className="flex flex-col w-full">
+                        <div className="flex w-full flex-col">
                           <Field
                             name="image"
                             as={Input}
@@ -175,7 +175,7 @@ const CreateForm = ({ url, model }: Props) => {
                             placeholder="Enter Image"
                             value={undefined}
                             onChange={async (
-                              e: ChangeEvent<HTMLInputElement>
+                              e: ChangeEvent<HTMLInputElement>,
                             ) => {
                               await onFileChange(e, props.setFieldValue);
                             }}
@@ -183,7 +183,7 @@ const CreateForm = ({ url, model }: Props) => {
                           <ErrorMessage
                             name="image"
                             component="div"
-                            className="text-red-500 text-sm"
+                            className="text-sm text-red-500"
                           />
                         </div>
 
@@ -192,7 +192,7 @@ const CreateForm = ({ url, model }: Props) => {
                             <Image
                               src={preview}
                               alt="Preview"
-                              className="h-32 object-cover rounded-md"
+                              className="h-32 rounded-md object-cover"
                             />
                           </div>
                         )}

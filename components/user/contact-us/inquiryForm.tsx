@@ -38,7 +38,7 @@ const InquiryForm = ({ properties }: Props) => {
 
   const onSubmit = async (
     values: Values,
-    actions: { resetForm: () => void }
+    actions: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 
@@ -82,7 +82,7 @@ const InquiryForm = ({ properties }: Props) => {
               <Form>
                 <div className="flex flex-col gap-3">
                   <div className="flex justify-between gap-2">
-                    <div className="flex flex-col w-full">
+                    <div className="flex w-full flex-col">
                       <Field
                         name="first_name"
                         as={Input}
@@ -93,11 +93,11 @@ const InquiryForm = ({ properties }: Props) => {
                       <ErrorMessage
                         name="first_name"
                         component="div"
-                        className="text-red-500 text-sm"
+                        className="text-sm text-red-500"
                       />
                     </div>
 
-                    <div className="flex flex-col w-full">
+                    <div className="flex w-full flex-col">
                       <Field
                         name="last_name"
                         as={Input}
@@ -108,13 +108,13 @@ const InquiryForm = ({ properties }: Props) => {
                       <ErrorMessage
                         name="last_name"
                         component="div"
-                        className="text-red-500 text-sm"
+                        className="text-sm text-red-500"
                       />
                     </div>
                   </div>
 
                   <div className="flex justify-between gap-2">
-                    <div className="flex flex-col w-full">
+                    <div className="flex w-full flex-col">
                       <Field
                         name="mobile"
                         as={Input}
@@ -125,11 +125,11 @@ const InquiryForm = ({ properties }: Props) => {
                       <ErrorMessage
                         name="mobile"
                         component="div"
-                        className="text-red-500 text-sm"
+                        className="text-sm text-red-500"
                       />
                     </div>
 
-                    <div className="flex flex-col w-full">
+                    <div className="flex w-full flex-col">
                       <Field
                         name="email"
                         as={Input}
@@ -140,12 +140,12 @@ const InquiryForm = ({ properties }: Props) => {
                       <ErrorMessage
                         name="email"
                         component="div"
-                        className="text-red-500 text-sm"
+                        className="text-sm text-red-500"
                       />
                     </div>
                   </div>
 
-                  <div className="flex flex-col w-full">
+                  <div className="flex w-full flex-col">
                     <Field
                       name="property_id"
                       as={Autocomplete}
@@ -165,11 +165,11 @@ const InquiryForm = ({ properties }: Props) => {
                     <ErrorMessage
                       name="property_id"
                       component="div"
-                      className="text-red-500 text-sm"
+                      className="text-sm text-red-500"
                     />
                   </div>
 
-                  <div className="flex flex-col w-full">
+                  <div className="flex w-full flex-col">
                     <Field
                       name="message"
                       as={Textarea}
@@ -179,7 +179,7 @@ const InquiryForm = ({ properties }: Props) => {
                     <ErrorMessage
                       name="message"
                       component="div"
-                      className="text-red-500 text-sm"
+                      className="text-sm text-red-500"
                     />
                   </div>
 

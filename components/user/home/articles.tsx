@@ -22,14 +22,14 @@ const Articles = ({ articles }: Props) => {
 
   return (
     <>
-      <div className="flex flex-wrap md:flex-nowrap justify-between items-start gap-8 mt-2">
-        <div className="p-2 flex flex-wrap gap-4 justify-center mx-60 w-full">
+      <div className="mt-2 flex flex-wrap items-start justify-between gap-8 md:flex-nowrap">
+        <div className="mx-60 flex w-full flex-wrap justify-center gap-4 p-2">
           {articles.length > 0 ? (
             <>
               {articles.map((article) => (
                 <Card
                   key={article.id}
-                  className="p-1 w-[20rem]"
+                  className="w-[20rem] p-1"
                   isPressable
                   onPress={() => {
                     setSelected(article);
@@ -39,19 +39,19 @@ const Articles = ({ articles }: Props) => {
                   <CardHeader className="pb-0">
                     <Image
                       alt="News"
-                      className="object-cover h-[11rem] w-full rounded-xl"
+                      className="h-[11rem] w-full rounded-xl object-cover"
                       src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${article.image}`}
                     />
                   </CardHeader>
                   <CardBody className="overflow-visible py-2">
-                    <h3 className="font-bold text-large text-primary">
+                    <h3 className="text-large font-bold text-primary">
                       {article.name}
                     </h3>
                     <h3 className="text-sm font-semibold text-primary">
                       {formatDate(article.date)}
                     </h3>
 
-                    <p className="text-default-500 line-clamp-3 my-3">
+                    <p className="my-3 line-clamp-3 text-default-500">
                       {article.description}
                     </p>
                   </CardBody>

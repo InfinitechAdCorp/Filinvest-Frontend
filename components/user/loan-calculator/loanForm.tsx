@@ -27,7 +27,7 @@ const LoanForm = () => {
   });
 
   const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const key = e.target.name;
     const value = Number(e.target.value);
@@ -49,10 +49,10 @@ const LoanForm = () => {
   }, [values.amount, values.years, values.months, values.rate]);
 
   return (
-    <div className="container mx-auto flex-grow max-w-7xl px-2 w-full flex flex-col gap-4">
+    <div className="container mx-auto flex w-full max-w-7xl flex-grow flex-col gap-4 px-2">
       <Card>
         <CardBody>
-          <div className="flex flex-wrap md:flex-nowrap gap-3">
+          <div className="flex flex-wrap gap-3 md:flex-nowrap">
             <Select
               name="years"
               className="w-full md:max-w-xs"
@@ -142,7 +142,7 @@ const LoanForm = () => {
               {formatPeso(
                 isNaN(values.monthly) || !isFinite(values.monthly)
                   ? 0.0
-                  : values.monthly
+                  : values.monthly,
               )}
             </TableCell>
           </TableRow>

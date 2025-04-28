@@ -10,10 +10,10 @@ type Props = {
 const Map = ({ property }: Props) => {
   return (
     <>
-      <div className="w-full h-[30rem]">
+      <div className="h-[30rem] w-full">
         {property.map ? (
-          <div className="flex justify-center h-[97%]">
-            <iframe className="w-full h-full mt-2" src={property.map}></iframe>
+          <div className="flex h-[97%] justify-center">
+            <iframe className="mt-2 h-full w-full" src={property.map}></iframe>
           </div>
         ) : (
           <div className="flex justify-center">

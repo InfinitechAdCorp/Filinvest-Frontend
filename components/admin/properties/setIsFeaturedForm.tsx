@@ -19,7 +19,7 @@ const SetIsFeaturedForm = ({ url, model, record }: Props) => {
   const setIsFeatured = async (
     url: string,
     model: string,
-    values: { id: string; isFeatured: number }
+    values: { id: string; isFeatured: number },
   ) => {
     try {
       await axios.post(
@@ -31,7 +31,7 @@ const SetIsFeaturedForm = ({ url, model, record }: Props) => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-        }
+        },
       );
       return { code: 200, message: `Updated Featured Status of ${model}` };
     } catch (error) {

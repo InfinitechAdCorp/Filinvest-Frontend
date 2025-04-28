@@ -12,8 +12,8 @@ const Page = () => {
       />
 
       <div className="flex flex-col items-center p-10">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-14 max-w-6xl mx-auto">
-          <div className="w-full md:w-1/2 text-left max-w-xl">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center gap-14 md:flex-row">
+          <div className="w-full max-w-xl text-left md:w-1/2">
             <p className="mb-4">
               The name Filinvest has become synonymous with property
               development. From humble beginnings over 60 years ago, it has

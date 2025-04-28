@@ -27,7 +27,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     counts = response.data.records;
   } catch (error) {
@@ -49,7 +49,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     charts = response.data.records;
   } catch (error) {
@@ -89,7 +89,7 @@ const Page = async () => {
   ];
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="flex w-full justify-center">
       <Body cards={cards} charts={charts} />
     </div>
   );

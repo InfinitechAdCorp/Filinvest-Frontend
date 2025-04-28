@@ -53,7 +53,7 @@ const Amenities = ({ props }: Props) => {
       <ErrorMessage
         name="amenities"
         component="div"
-        className="text-red-500 text-sm"
+        className="text-sm text-red-500"
       />
     </div>
   );

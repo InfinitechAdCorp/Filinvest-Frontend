@@ -28,7 +28,7 @@ const NavBar = () => {
       maxWidth="2xl"
       isBordered
       isBlurred={false}
-      className="bg-primary text-white p-0"
+      className="bg-primary p-0 text-white"
     >
       <>
         <NavbarBrand as={Link} href="/">
@@ -36,24 +36,24 @@ const NavBar = () => {
         </NavbarBrand>
 
         <NavbarContent
-          className="hidden lg:flex gap-4 text-white cursor-pointer"
+          className="hidden cursor-pointer gap-4 text-white lg:flex"
           justify="center"
         >
           <NavbarItem>
             <Button as={Link} variant="light" href="/">
-              <h3 className="text-white text-[1rem]">Home</h3>
+              <h3 className="text-[1rem] text-white">Home</h3>
             </Button>
           </NavbarItem>
 
           <NavbarItem>
             <Button as={Link} variant="light" href="/about-us">
-              <h3 className="text-white text-[1rem]">About Us</h3>
+              <h3 className="text-[1rem] text-white">About Us</h3>
             </Button>
           </NavbarItem>
 
           <NavbarItem>
             <Button as={Link} variant="light" href="/properties">
-              <h3 className="text-white text-[1rem]">Properties</h3>
+              <h3 className="text-[1rem] text-white">Properties</h3>
             </Button>
           </NavbarItem>
 
@@ -66,13 +66,13 @@ const NavBar = () => {
                     <LuChevronDown className="text-white" size={18} />
                   }
                 >
-                  <h3 className="text-white text-medium">
+                  <h3 className="text-medium text-white">
                     Forms and Utiilities
                   </h3>
                 </Button>
               </DropdownTrigger>
 
-              <DropdownMenu className="dark:text-white rounded-md">
+              <DropdownMenu className="rounded-md dark:text-white">
                 <DropdownItem
                   key="Set Appointment"
                   as={Link}
@@ -114,7 +114,7 @@ const NavBar = () => {
       </>
 
       <>
-        <NavbarContent className="lg:hidden flex" justify="end">
+        <NavbarContent className="flex lg:hidden" justify="end">
           <NavbarMenuToggle className="text-white" />
         </NavbarContent>
 
@@ -135,7 +135,7 @@ const NavBar = () => {
           </NavbarMenuItem>
 
           <NavbarMenuItem className="cursor-pointer border-t-1">
-            <h3 className="text-white font-bold mb-2 mt-2">
+            <h3 className="mb-2 mt-2 font-bold text-white">
               Forms & Utilities
             </h3>
             <Link className="w-full text-white" href="/set-appointment">

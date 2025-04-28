@@ -59,7 +59,7 @@ const UpdateForm = ({ url, model, record }: Props) => {
 
   const onSubmit = async (
     ufValues: Values,
-    { resetForm }: { resetForm: () => void }
+    { resetForm }: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 

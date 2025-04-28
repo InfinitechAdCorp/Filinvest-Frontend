@@ -7,7 +7,7 @@ const Page = () => {
     <>
       <Hero image="/images/banner.jpg" title="Loan Calculator" />
 
-      <div className="flex justify-center my-7">
+      <div className="my-7 flex justify-center">
         <LoanForm />
       </div>
     </>

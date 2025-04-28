@@ -13,20 +13,20 @@ const Images = ({ props }: Props) => {
     ? URL.createObjectURL(props.values.logo)
     : "";
   const initialImagesPreview = Array.from(props.values.images).map((file) =>
-    URL.createObjectURL(file as File)
+    URL.createObjectURL(file as File),
   );
 
   const [logoPreview, setLogoPreview] = useState(initialLogoPreview);
   const [imagesPreview, setImagesPreview] = useState<string[] | string>(
-    initialImagesPreview
+    initialImagesPreview,
   );
 
   const onLogoChange = async (
     event: React.ChangeEvent<HTMLInputElement>,
     setFieldValue: (
       field: string,
-      value: File | null
-    ) => Promise<void | FormikErrors<any>>
+      value: File | null,
+    ) => Promise<void | FormikErrors<any>>,
   ) => {
     const files = event.target.files;
     const isValid = files && files[0];
@@ -38,20 +38,20 @@ const Images = ({ props }: Props) => {
     event: React.ChangeEvent<HTMLInputElement>,
     setFieldValue: (
       field: string,
-      value: FileList | ""
-    ) => Promise<void | FormikErrors<any>>
+      value: FileList | "",
+    ) => Promise<void | FormikErrors<any>>,
   ) => {
     const files = event.target.files;
     const isValid = files && Array.from(files).every((file) => file);
     setImagesPreview(
-      isValid ? Array.from(files).map((file) => URL.createObjectURL(file)) : ""
+      isValid ? Array.from(files).map((file) => URL.createObjectURL(file)) : "",
     );
     await setFieldValue("images", isValid ? files : "");
   };
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <Field
           name="logo"
           as={Input}
@@ -69,7 +69,7 @@ const Images = ({ props }: Props) => {
         <ErrorMessage
           name="logo"
           component="div"
-          className="text-red-500 text-sm"
+          className="text-sm text-red-500"
         />
       </div>
 
@@ -78,12 +78,12 @@ const Images = ({ props }: Props) => {
           <Image
             src={logoPreview}
             alt="Preview"
-            className="max-w-[8rem] h-32 object-cover rounded-md"
+            className="h-32 max-w-[8rem] rounded-md object-cover"
           />
         </div>
       )}
 
-      <div className="flex flex-col w-full">
+      <div className="flex w-full flex-col">
         <Field
           name="images"
           as={Input}
@@ -102,7 +102,7 @@ const Images = ({ props }: Props) => {
         <ErrorMessage
           name="images"
           component="div"
-          className="text-red-500 text-sm"
+          className="text-sm text-red-500"
         />
       </div>
 
@@ -113,7 +113,7 @@ const Images = ({ props }: Props) => {
               key={index}
               src={image}
               alt="Preview"
-              className="max-w-[8rem] h-32 object-cover rounded-md"
+              className="h-32 max-w-[8rem] rounded-md object-cover"
             />
           ))}
         </div>

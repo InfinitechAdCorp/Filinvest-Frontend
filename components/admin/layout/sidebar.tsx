@@ -28,28 +28,25 @@ const Sidebar = () => {
       <Card
         radius="none"
         shadow="md"
-        className="w-64 min-h-screen border-none h-screen bg-primary
-               flex flex-col overflow-y-auto fixed top-0 left-0 z-40
-               transition-transform transform 
-               lg:relative lg:z-auto lg:h-auto"
+        className="fixed left-0 top-0 z-40 flex h-screen min-h-screen w-64 transform flex-col overflow-y-auto border-none bg-primary transition-transform lg:relative lg:z-auto lg:h-auto"
       >
-        <div className="flex items-center justify-center mb-3">
-          <div className="flex flex-col items-center text-center mt-10 font-thin text-primary">
+        <div className="mb-3 flex items-center justify-center">
+          <div className="mt-10 flex flex-col items-center text-center font-thin text-primary">
             <Image
               src="/images/logo.png"
               alt="Logo"
-              className="mb-2 w-full h-[5rem]"
+              className="mb-2 h-[5rem] w-full"
             />
           </div>
         </div>
-        <nav className="flex-1 p-4 text-start items-center">
+        <nav className="flex-1 items-center p-4 text-start">
           <ul className="space-y-4">
             <h1 className="text-white">Main</h1>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/dashboard"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/dashboard",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/dashboard")}
             >
               <HiChartBar className="h-5 w-5 text-white" />
@@ -57,9 +54,9 @@ const Sidebar = () => {
             </li>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/properties"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/properties",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/properties")}
             >
               <HiBuildingOffice2 className="h-5 w-5 text-white" />
@@ -67,9 +64,9 @@ const Sidebar = () => {
             </li>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/appointments"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/appointments",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/appointments")}
             >
               <HiCalendarDays className="h-5 w-5 text-white" />
@@ -77,9 +74,9 @@ const Sidebar = () => {
             </li>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/inquiries"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/inquiries",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/inquiries")}
             >
               <HiMagnifyingGlass className="h-5 w-5 text-white" />
@@ -87,9 +84,9 @@ const Sidebar = () => {
             </li>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/testimonials"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/testimonials",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/testimonials")}
             >
               <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
@@ -97,9 +94,9 @@ const Sidebar = () => {
             </li>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/subscribers"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/subscribers",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/subscribers")}
             >
               <HiUsers className="h-5 w-5 text-white" />
@@ -107,9 +104,9 @@ const Sidebar = () => {
             </li>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/faqs"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/faqs",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/faqs")}
             >
               <HiQuestionMarkCircle className="h-5 w-5 text-white" />
@@ -121,9 +118,9 @@ const Sidebar = () => {
             <h1 className="text-white">Articles</h1>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/awards"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/awards",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/articles/awards")}
             >
               <HiTrophy className="h-5 w-5 text-white" />
@@ -131,9 +128,9 @@ const Sidebar = () => {
             </li>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/news"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/news",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/articles/news")}
             >
               <HiNewspaper className="h-5 w-5 text-white" />
@@ -141,9 +138,9 @@ const Sidebar = () => {
             </li>
 
             <li
-              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
-                "/admin/blogs"
-              )} text-white cursor-pointer`}
+              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
+                "/admin/blogs",
+              )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/articles/blogs")}
             >
               <HiChatBubbleLeftRight className="h-5 w-5 text-white" />

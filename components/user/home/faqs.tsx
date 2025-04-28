@@ -12,17 +12,17 @@ const FAQs = ({ faqs }: Props) => {
   return (
     <>
       {faqs.length > 0 ? (
-        <div className="flex flex-wrap md:flex-nowrap justify-between items-start gap-8 mt-4">
-          <div className="relative w-full md:w-1/2 flex justify-center">
+        <div className="mt-4 flex flex-wrap items-start justify-between gap-8 md:flex-nowrap">
+          <div className="relative flex w-full justify-center md:w-1/2">
             <Image
               src="/images/faq.png"
               alt="Filinvest Image"
-              className="rounded-lg object-cover w-full h-full"
+              className="h-full w-full rounded-lg object-cover"
             />
           </div>
 
           <div className="w-full md:w-1/2">
-            <Card className="p-2 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+            <Card className="border border-gray-200 bg-white p-2 dark:border-gray-700 dark:bg-gray-800">
               <Accordion>
                 {faqs.map((faq) => (
                   <AccordionItem

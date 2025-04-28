@@ -10,10 +10,7 @@ import {
 const Icons = () => {
   return (
     <div className="hidden lg:block">
-      <div
-        className="fixed bottom-6 right-2 p-2 sm:p-4 bg-primary backdrop-blur-md border border-white/30 rounded-l-lg flex 
-        flex-col gap-2 sm:gap-3 items-center z-50"
-      >
+      <div className="fixed bottom-6 right-2 z-50 flex flex-col items-center gap-2 rounded-l-lg border border-white/30 bg-primary p-2 backdrop-blur-md sm:gap-3 sm:p-4">
         {[
           { icon: <FaFacebookF />, link: "https://www.facebook.com/filinvest" },
           {
@@ -32,8 +29,7 @@ const Icons = () => {
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-white bg-transparent text-white p-2 sm:p-3 rounded-full 
-                    shadow-md flex items-center justify-center hover:bg-primary transition-all w-10 h-10 sm:w-12 sm:h-12 text-sm sm:text-base"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white bg-transparent p-2 text-sm text-white shadow-md transition-all hover:bg-primary sm:h-12 sm:w-12 sm:p-3 sm:text-base"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}

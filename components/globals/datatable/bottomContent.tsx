@@ -19,8 +19,8 @@ const BottomContent = ({
   onSelectionChange,
 }: Props) => {
   return (
-    <div className="px-2 flex justify-between items-center">
-      <span className="w-[30%] text-default-400 text-small">
+    <div className="flex items-center justify-between px-2">
+      <span className="w-[30%] text-small text-default-400">
         Total: {total}
       </span>
       <Pagination
@@ -32,10 +32,10 @@ const BottomContent = ({
         total={pages}
         onChange={onChange}
       />
-      <label className="flex w-[30%] justify-end items-center gap-1 text-default-400 text-small">
+      <label className="flex w-[30%] items-center justify-end gap-1 text-small text-default-400">
         Rows:
         <select
-          className="bg-transparent outline-none text-default-400 text-small"
+          className="bg-transparent text-small text-default-400 outline-none"
           onChange={onSelectionChange}
         >
           <option>5</option>

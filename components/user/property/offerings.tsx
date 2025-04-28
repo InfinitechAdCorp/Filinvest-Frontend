@@ -13,7 +13,7 @@ const Offerings = ({ property }: Props) => {
   return (
     <>
       <div className="w-full">
-        <h3 className="text-xl sm:text-2xl lg:text-2xl text-primary font-semibold mb-3">
+        <h3 className="mb-3 text-xl font-semibold text-primary sm:text-2xl lg:text-2xl">
           Offerings
         </h3>
 
@@ -21,11 +21,11 @@ const Offerings = ({ property }: Props) => {
           <div className="flex gap-3">
             {property.offerings.map((offering) => (
               <div key={offering.id} className="flex flex-col space-y-3">
-                <div className="relative w-full flex justify-center mt-2 max-h-[15.63rem]">
+                <div className="relative mt-2 flex max-h-[15.63rem] w-full justify-center">
                   <Image
                     src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/offerings/${offering.image}`}
                     alt="Offering"
-                    className="w-full h-auto max-h-full object-contain rounded-lg"
+                    className="h-auto max-h-full w-full rounded-lg object-contain"
                   />
                 </div>
                 <div className="flex flex-col gap-1 text-center">

@@ -16,7 +16,7 @@ const Page = async () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     properties = response.data.records;
   } catch (error) {
@@ -33,7 +33,7 @@ const Page = async () => {
     <>
       <Hero image="/images/banner.jpg" title="Set Appointment" />
 
-      <div className="flex justify-center my-7">
+      <div className="my-7 flex justify-center">
         <Body properties={properties} />
       </div>
     </>

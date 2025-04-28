@@ -7,8 +7,8 @@ import Details from "./details";
 import AppointmentForm from "./appointmentForm";
 
 type Props = {
-    properties: Property[],
-}
+  properties: Property[];
+};
 
 const Body = ({ properties }: Props) => {
   return (

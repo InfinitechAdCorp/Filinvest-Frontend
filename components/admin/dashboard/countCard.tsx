@@ -20,10 +20,10 @@ const CountCard = ({ url, model, count, color, Icon }: Props) => {
         key={model}
         as={Link}
         href={url}
-        className={`shadow-none rounded-xl border-gray-300 py-4 px-2 cursor-pointer bg-${color}-200`}
+        className={`cursor-pointer rounded-xl border-gray-300 px-2 py-4 shadow-none bg-${color}-200`}
       >
         <CardBody>
-          <div className="flex justify-between items-center gap-4">
+          <div className="flex items-center justify-between gap-4">
             <div>
               <h1 className={`text-3xl font-semibold text-${color}-700`}>
                 {count}

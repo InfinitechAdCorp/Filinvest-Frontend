@@ -42,7 +42,7 @@ const UpdateForm = ({ url, model, record }: Props) => {
 
   const onSubmit = async (
     values: Values,
-    { resetForm }: { resetForm: () => void }
+    { resetForm }: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
 
@@ -77,7 +77,7 @@ const UpdateForm = ({ url, model, record }: Props) => {
                     <ModalHeader>Edit {model}</ModalHeader>
                     <ModalBody>
                       <div className="flex flex-col gap-3">
-                        <div className="flex flex-col w-full">
+                        <div className="flex w-full flex-col">
                           <Field
                             name="email"
                             as={Input}
@@ -91,7 +91,7 @@ const UpdateForm = ({ url, model, record }: Props) => {
                           <ErrorMessage
                             name="email"
                             component="div"
-                            className="text-red-500 text-sm"
+                            className="text-sm text-red-500"
                           />
                         </div>
                       </div>

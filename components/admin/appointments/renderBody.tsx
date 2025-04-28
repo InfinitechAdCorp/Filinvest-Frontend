@@ -17,7 +17,7 @@ const RenderBody = (
   model: string,
   columns: Column[],
   records: Record[],
-  dependencies: { properties: Property[] }
+  dependencies: { properties: Property[] },
 ) => {
   const RenderCell = (
     url: string,
@@ -26,12 +26,12 @@ const RenderBody = (
     record: Record,
     dependencies: {
       properties: Property[];
-    }
+    },
   ) => {
     switch (column) {
       case "actions":
         return (
-          <div className="relative flex justify-start items-center gap-2">
+          <div className="relative flex items-center justify-start gap-2">
             <AcceptForm url={url} model={model} record={record} />
 
             <DeclineForm url={url} model={model} record={record} />
