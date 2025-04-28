@@ -13,7 +13,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   let property: Property | null = null;
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/properties/${id}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/main/properties/${id}`,
       {
         headers: {
           Accept: "application/json",

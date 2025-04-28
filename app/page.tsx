@@ -14,7 +14,7 @@ const Page = async () => {
   let testimonials: Testimonial[] = [];
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/testimonials`,
+      `${process.env.NEXT_PUBLIC_API_URL}/main/testimonials`,
       {
         headers: {
           Accept: "application/json",
@@ -36,7 +36,7 @@ const Page = async () => {
   let articles: Article[] = [];
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/articles`,
+      `${process.env.NEXT_PUBLIC_API_URL}/main/articles`,
       {
         headers: {
           Accept: "application/json",
@@ -61,7 +61,7 @@ const Page = async () => {
   let faqs: FAQ[] = [];
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/faqs`,
+      `${process.env.NEXT_PUBLIC_API_URL}/main/faqs`,
       {
         headers: {
           Accept: "application/json",
@@ -80,7 +80,7 @@ const Page = async () => {
   let properties: Property[] = [];
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/properties`,
+      `${process.env.NEXT_PUBLIC_API_URL}/main/properties`,
       {
         headers: {
           Accept: "application/json",
