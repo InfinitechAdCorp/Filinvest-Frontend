@@ -147,9 +147,17 @@ const Details = ({ property }: Props) => {
         </div>
 
         <div>
-          <h3 className="text-medium text-justify lg:text-lg italic text-gray-900">
-            {property.description}
-          </h3>
+          {property.description.split("\n").map((string, index) => (
+            <div key={index}>
+              {string == "" ? (
+                <br />
+              ) : (
+                <p className="text-medium text-justify lg:text-lg italic text-gray-900">
+                  {string}
+                </p>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>

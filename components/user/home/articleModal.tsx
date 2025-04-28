@@ -18,6 +18,7 @@ type Props = {
 };
 
 const ArticleModal = ({ selected, isOpen, onClose }: Props) => {
+  console.log(selected?.description);
   return (
     <Modal size="3xl" isOpen={isOpen} onClose={onClose} scrollBehavior="inside">
       <ModalContent>
@@ -45,10 +46,20 @@ const ArticleModal = ({ selected, isOpen, onClose }: Props) => {
                   <p>No media available</p>
                 )}
 
-                <div className="max-w-none">
-                  <p className="text-gray-700 leading-relaxed">
-                    {selected?.description}
-                  </p>
+                <div>
+                  {selected?.description
+                    .split("\n")
+                    .map((string, index) => (
+                      <div key={index}>
+                        {string == "" ? (
+                          <br />
+                        ) : (
+                          <p className="text-gray-700 leading-relaxed">
+                            {string}
+                          </p>
+                        )}
+                      </div>
+                    ))}
                 </div>
               </div>
             </ModalBody>
