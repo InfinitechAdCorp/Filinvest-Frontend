@@ -93,6 +93,18 @@ export type TestimonialDisplayFormat = {
   message: string;
 };
 
+export type Subscriber = {
+  id: string;
+  email: string;
+  created_at: string;
+  updated_at: string;
+  display_format?: SubscriberDisplayFormat;
+};
+
+export type SubscriberDisplayFormat = {
+  email: string;
+};
+
 export type Article = {
   id: string;
   name: string;

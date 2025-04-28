@@ -12,6 +12,7 @@ import {
   HiCalendarDays,
   HiQuestionMarkCircle,
   HiMagnifyingGlass,
+  HiUsers,
 } from "react-icons/hi2";
 
 const Sidebar = () => {
@@ -44,6 +45,7 @@ const Sidebar = () => {
         <nav className="flex-1 p-4 text-start items-center">
           <ul className="space-y-4">
             <h1 className="text-white">Main</h1>
+
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/dashboard"
@@ -53,6 +55,7 @@ const Sidebar = () => {
               <HiChartBar className="h-5 w-5 text-white" />
               <h3> Dashboard</h3>
             </li>
+
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/properties"
@@ -62,6 +65,7 @@ const Sidebar = () => {
               <HiBuildingOffice2 className="h-5 w-5 text-white" />
               <h3>Properties</h3>
             </li>
+
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/appointments"
@@ -71,6 +75,7 @@ const Sidebar = () => {
               <HiCalendarDays className="h-5 w-5 text-white" />
               <h3>Appointments</h3>
             </li>
+
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/inquiries"
@@ -80,6 +85,7 @@ const Sidebar = () => {
               <HiMagnifyingGlass className="h-5 w-5 text-white" />
               <h3>Inquiries</h3>
             </li>
+
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/testimonials"
@@ -89,6 +95,17 @@ const Sidebar = () => {
               <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
               <h3>Testimonials</h3>
             </li>
+
+            <li
+              className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
+                "/admin/subscribers"
+              )} text-white cursor-pointer`}
+              onClick={() => router.push("/admin/subscribers")}
+            >
+              <HiUsers className="h-5 w-5 text-white" />
+              <h3>Subscribers</h3>
+            </li>
+
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/faqs"
@@ -98,8 +115,11 @@ const Sidebar = () => {
               <HiQuestionMarkCircle className="h-5 w-5 text-white" />
               <h3>FAQs</h3>
             </li>
-            <Divider orientation="horizontal" />
+
+            <Divider orientation="horizontal" className="bg-white" />
+
             <h1 className="text-white">Articles</h1>
+
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/awards"
@@ -109,6 +129,7 @@ const Sidebar = () => {
               <HiTrophy className="h-5 w-5 text-white" />
               <h3>Awards</h3>
             </li>
+
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/news"
@@ -118,6 +139,7 @@ const Sidebar = () => {
               <HiNewspaper className="h-5 w-5 text-white" />
               <h3>News</h3>
             </li>
+
             <li
               className={`p-2 flex items-center space-x-2 hover:bg-blue-300 rounded-md ${isActive(
                 "/admin/blogs"
