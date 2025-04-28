@@ -32,6 +32,7 @@ const SubscriberForm = () => {
         values,
         {
           headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
             Accept: "application/json",
             "Content-Type": "application/json",
           },
@@ -57,6 +58,7 @@ const SubscriberForm = () => {
         { email: email },
         {
           headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
             Accept: "application/json",
             "Content-Type": "application/json",
           },

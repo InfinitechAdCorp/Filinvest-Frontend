@@ -53,6 +53,7 @@ const DeclineForm = ({ url, model, record }: Props) => {
         values,
         {
           headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
             Accept: "application/json",
             "Content-Type": "application/json",
           },
@@ -77,6 +78,7 @@ const DeclineForm = ({ url, model, record }: Props) => {
     try {
       await axios.post("/api/appointments/set-status", values, {
         headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },

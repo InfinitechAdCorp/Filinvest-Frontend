@@ -27,6 +27,7 @@ const SetIsPublishedForm = ({ url, model, record }: Props) => {
         values,
         {
           headers: {
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
             Accept: "application/json",
             "Content-Type": "application/json",
           },

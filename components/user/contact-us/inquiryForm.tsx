@@ -45,6 +45,7 @@ const InquiryForm = ({ properties }: Props) => {
     try {
       await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`, values, {
         headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },
