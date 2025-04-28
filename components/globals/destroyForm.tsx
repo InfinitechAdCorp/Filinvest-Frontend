@@ -67,9 +67,9 @@ const DestroyForm = ({ url, model, id }: Props) => {
                   <Form>
                     <ModalHeader>Delete {model}</ModalHeader>
                     <ModalBody>
-                      <h6>
+                      <h3 className="text-sm">
                         Are you sure that you want to delete this {model}?
-                      </h6>
+                      </h3>
                     </ModalBody>
                     <ModalFooter>
                       <Button
