@@ -31,6 +31,14 @@ const RenderBody = (
             <DestroyForm url={url} model={model} id={record.id} />
           </div>
         );
+      case "answer":
+        return (
+          <div
+            className={`max-w-[30rem] overflow-hidden whitespace-nowrap text-ellipsis`}
+          >
+            <span>{record.display_format![column as keyof DisplayFormat]}</span>
+          </div>
+        );
       default:
         return record.display_format![column as keyof DisplayFormat];
     }

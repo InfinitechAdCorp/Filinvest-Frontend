@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { TableRow, TableCell, Image } from "@heroui/react";
+import { TableRow, TableCell } from "@heroui/react";
 import { Column } from "@/types/globals";
 import {
   Property as Record,
