@@ -12,7 +12,7 @@ type Props = {
 
 const TestimonialModal = ({ selected, isOpen, onClose }: Props) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal size="2xl" isOpen={isOpen} onClose={onClose}>
       <ModalContent>
         {() => (
           <>
@@ -21,7 +21,17 @@ const TestimonialModal = ({ selected, isOpen, onClose }: Props) => {
             </ModalHeader>
             <ModalBody>
               <div className="max-h-[15rem] overflow-y-scroll">
-                <p className="text-gray-600">{selected?.message}</p>
+                {selected?.message
+                  .split("\n")
+                  .map((string, index) => (
+                    <div key={index}>
+                      {string == "" ? (
+                        <br />
+                      ) : (
+                        <p className="text-gray-600">{string}</p>
+                      )}
+                    </div>
+                  ))}
               </div>
             </ModalBody>
           </>

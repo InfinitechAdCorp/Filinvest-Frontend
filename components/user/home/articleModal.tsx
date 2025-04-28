@@ -18,7 +18,6 @@ type Props = {
 };
 
 const ArticleModal = ({ selected, isOpen, onClose }: Props) => {
-  console.log(selected?.description);
   return (
     <Modal size="3xl" isOpen={isOpen} onClose={onClose} scrollBehavior="inside">
       <ModalContent>

@@ -43,8 +43,6 @@ const LoanForm = () => {
       ((1 + monthlyRate) ** totalMonths - 1);
     const totalPayment = monthlyPayment * totalMonths;
 
-    console.log(monthlyPayment);
-
     setValues({ ...values, monthly: monthlyPayment, total: totalPayment });
   }, [values.amount, values.years, values.months, values.rate]);
 
