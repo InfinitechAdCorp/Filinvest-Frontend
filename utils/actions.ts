@@ -11,6 +11,7 @@ export const upsert = async (
   try {
     await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, values, {
       headers: {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
         Accept: "application/json",
         "Content-Type": "multipart/form-data",
       },

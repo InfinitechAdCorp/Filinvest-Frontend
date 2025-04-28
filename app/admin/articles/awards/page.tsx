@@ -25,6 +25,7 @@ const Page = async () => {
       `${process.env.NEXT_PUBLIC_API_URL}/${url}`,
       {
         headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },
