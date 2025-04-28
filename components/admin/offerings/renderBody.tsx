@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { TableRow, TableCell, Image } from "@heroui/react";
+import { TableRow, TableCell } from "@heroui/react";
 import { Column } from "@/types/globals";
 import {
   Offering as Record,
@@ -9,6 +9,7 @@ import {
 } from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
 import UpdateForm from "./updateForm";
+import Gallery from "@/components/globals/gallery";
 
 const RenderBody = (
   url: string,
@@ -34,10 +35,14 @@ const RenderBody = (
       case "image":
         return (
           <div>
-            <Image
-              src={`${process.env.NEXT_PUBLIC_S3_URL}/properties/offerings/${record.display_format![column as keyof DisplayFormat]}`}
-              alt="Article"
-              className="w-32"
+            <Gallery
+              className="w-32 rounded-xl"
+              images={[
+                {
+                  url: `${process.env.NEXT_PUBLIC_S3_URL}/properties/offerings/${record.display_format![column as keyof DisplayFormat]}`,
+                  name: `${record.type} (${record.display_format?.area})`,
+                },
+              ]}
             />
           </div>
         );
