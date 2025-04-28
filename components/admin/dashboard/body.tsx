@@ -8,6 +8,7 @@ import { ChartDatum } from "@/types/admin";
 
 type Props = {
   cards: {
+    url: string;
     model: string;
     count: number;
     color: string;
@@ -26,6 +27,7 @@ const Body = ({ cards, charts }: Props) => {
               {cards.map((card) => (
                 <CountCard
                   key={card.model}
+                  url={card.url}
                   model={card.model}
                   count={card.count}
                   color={card.color}

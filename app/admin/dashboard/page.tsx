@@ -59,24 +59,28 @@ const Page = async () => {
 
   const cards = [
     {
+      url: "/admin/properties",
       model: "Properties",
       count: counts.properties,
       color: "green",
       Icon: <LuBuilding2 size={56} />,
     },
     {
+      url: "/admin/appointments",
       model: "Appointments",
       count: counts.appointments,
       color: "yellow",
       Icon: <LuCalendarRange size={56} />,
     },
     {
+      url: "/admin/inquiries",
       model: "Inquiries",
       count: counts.inquiries,
       color: "blue",
       Icon: <LuMailQuestion size={56} />,
     },
     {
+      url: "/admin/subscribers",
       model: "Subscribers",
       count: counts.subscribers,
       color: "pink",
