@@ -1,6 +1,11 @@
 import { DateValue } from "@heroui/react";
 import { Time } from "@internationalized/date";
 
+export type Login = {
+  username: string;
+  password: string;
+};
+
 export type Counts = {
   properties: number;
   appointments: number;

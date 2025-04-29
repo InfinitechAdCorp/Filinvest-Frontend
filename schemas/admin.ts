@@ -1,13 +1,18 @@
 import * as Yup from "yup";
 
+export const login = Yup.object().shape({
+  username: Yup.string().trim().required("Username is required"),
+  password: Yup.string().trim().required("Password is required"),
+});
+
 export const destroy = Yup.object().shape({
   id: Yup.string().trim().required("ID is required"),
 });
 
 export const setStatus = Yup.object().shape({
   id: Yup.string().trim().required("ID is required"),
-  status: Yup.string().trim().required("Status is required")
-})
+  status: Yup.string().trim().required("Status is required"),
+});
 
 export const faq = {
   question: Yup.string().trim().required("Question is required"),
@@ -77,7 +82,7 @@ export const property = {
     .required("Maximum Price is required")
     .min(
       Yup.ref("minimum_price"),
-      "Maximum Price must be greater than Minimum Price"
+      "Maximum Price must be greater than Minimum Price",
     ),
   minimum_area: Yup.number()
     .typeError("Minimum Area must be a number")
@@ -88,7 +93,7 @@ export const property = {
     .required("Maximum Area is required")
     .min(
       Yup.ref("minimum_area"),
-      "Maximum Area must be greater than Minimum Area"
+      "Maximum Area must be greater than Minimum Area",
     ),
   status: Yup.string().trim().required("Status is required"),
   description: Yup.string().trim().required("Description is required"),
@@ -110,6 +115,6 @@ export const offering = {
     .required("Maximum Area is required")
     .min(
       Yup.ref("minimum_area"),
-      "Maximum Area must be greater than Minimum Area"
+      "Maximum Area must be greater than Minimum Area",
     ),
 };
