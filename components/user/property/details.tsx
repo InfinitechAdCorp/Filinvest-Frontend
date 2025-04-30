@@ -4,15 +4,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import React from "react";
-import { HiLink, HiHome } from "react-icons/hi2";
-import { Card, Chip, Image } from "@heroui/react";
-import { IoMdPricetags } from "react-icons/io";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { RiLandscapeFill } from "react-icons/ri";
-import { formatNumber, formatNumberShort } from "@/utils/formatters";
 import { Property } from "@/types/globals";
+import { formatNumber, formatNumberShort } from "@/utils/formatters";
+import { Card, Chip, Image } from "@heroui/react";
+import { HiHome, HiLink } from "react-icons/hi2";
+import { IoMdPricetags } from "react-icons/io";
+import { RiLandscapeFill } from "react-icons/ri";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 type Props = {
   property: Property;

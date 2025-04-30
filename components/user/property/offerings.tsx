@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
 import { Property } from "@/types/globals";
-import { Image } from "@heroui/react";
 import { formatNumber } from "@/utils/formatters";
+import { Image } from "@heroui/react";
 
 type Props = {
   property: Property;

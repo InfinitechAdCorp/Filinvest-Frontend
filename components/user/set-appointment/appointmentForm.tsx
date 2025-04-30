@@ -1,26 +1,26 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import * as Yup from "yup";
+import { appointment as rules } from "@/schemas/admin";
+import { Appointment as Values } from "@/types/admin";
+import { Property } from "@/types/globals";
+import { get as getCookies } from "@/utils/auth";
+import { formatUTC } from "@/utils/formatters";
 import {
-  Button,
-  Input,
-  Textarea,
   Autocomplete,
   AutocompleteItem,
-  DatePicker,
-  TimeInput,
+  Button,
   CalendarDate,
+  DatePicker,
+  Input,
+  Textarea,
+  TimeInput,
 } from "@heroui/react";
-import { Property } from "@/types/globals";
-import { Appointment as Values } from "@/types/admin";
-import { appointment as rules } from "@/schemas/admin";
-import { Formik, FormikProps, Form, Field, ErrorMessage } from "formik";
-import toast from "react-hot-toast";
-import axios from "axios";
 import { Time } from "@internationalized/date";
-import { formatUTC } from "@/utils/formatters";
-import { get as getCookies } from "@/utils/auth";
+import axios from "axios";
+import { ErrorMessage, Field, Form, Formik, FormikProps } from "formik";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import * as Yup from "yup";
 
 type Props = {
   properties: Property[];

@@ -2,8 +2,8 @@
 
 import {
   Column,
-  Testimonial as Record,
   TestimonialDisplayFormat as DisplayFormat,
+  Testimonial as Record,
 } from "@/types/globals";
 
 export const displayFormat = async (columns: Column[], records: Record[]) => {

@@ -1,6 +1,6 @@
-import nodemailer from "nodemailer";
-import { render } from "@react-email/render";
 import AppointmentStatus from "@/emails/appointmentStatus";
+import { render } from "@react-email/render";
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   const { email, property, date, time, status } = await req.json();
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       date: date,
       time: time,
       status: status,
-    })
+    }),
   );
 
   const mailOptions = {

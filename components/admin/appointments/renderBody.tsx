@@ -1,16 +1,16 @@
 "use client";
 
-import React from "react";
-import { TableRow, TableCell, Chip, ChipProps } from "@heroui/react";
-import { Column, Property } from "@/types/globals";
-import {
-  Appointment as Record,
-  AppointmentDisplayFormat as DisplayFormat,
-} from "@/types/globals";
-import UpdateForm from "./updateForm";
 import DestroyForm from "@/components/globals/destroyForm";
+import {
+  Column,
+  AppointmentDisplayFormat as DisplayFormat,
+  Property,
+  Appointment as Record,
+} from "@/types/globals";
+import { Chip, ChipProps, TableCell, TableRow } from "@heroui/react";
 import AcceptForm from "./acceptForm";
 import DeclineForm from "./declineForm";
+import UpdateForm from "./updateForm";
 
 const RenderBody = (
   url: string,

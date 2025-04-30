@@ -2,8 +2,8 @@
 
 import {
   Column,
-  Appointment as Record,
   AppointmentDisplayFormat as DisplayFormat,
+  Appointment as Record,
 } from "@/types/globals";
 import { formatDate, formatTime } from "@/utils/formatters";
 

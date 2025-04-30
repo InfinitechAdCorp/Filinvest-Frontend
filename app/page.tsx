@@ -1,14 +1,13 @@
-import React from "react";
-import toast from "react-hot-toast";
-import axios from "axios";
-import { Article, FAQ, Property, Testimonial } from "@/types/globals";
-import { sortByDate, sortRecords } from "@/utils/formatters";
-import Hero from "@/components/user/home/hero";
-import Testimonials from "@/components/user/home/testimonials";
-import Articles from "@/components/user/home/articles";
 import SectionTitle from "@/components/globals/sectionTitle";
+import Articles from "@/components/user/home/articles";
 import FAQs from "@/components/user/home/faqs";
 import FeaturedProperties from "@/components/user/home/featuredProperties";
+import Hero from "@/components/user/home/hero";
+import Testimonials from "@/components/user/home/testimonials";
+import { Article, FAQ, Property, Testimonial } from "@/types/globals";
+import { sortByDate, sortRecords } from "@/utils/formatters";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Page = async () => {
   let testimonials: Testimonial[] = [];

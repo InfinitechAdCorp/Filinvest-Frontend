@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Body,
   Button,
@@ -9,8 +8,8 @@ import {
   Img,
   Link,
   Preview,
-  Text,
   Section,
+  Text,
 } from "@react-email/components";
 
 type Props = {

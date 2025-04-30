@@ -2,8 +2,8 @@
 
 import {
   Column,
-  Inquiry as Record,
   InquiryDisplayFormat as DisplayFormat,
+  Inquiry as Record,
 } from "@/types/globals";
 
 export const displayFormat = async (columns: Column[], records: Record[]) => {

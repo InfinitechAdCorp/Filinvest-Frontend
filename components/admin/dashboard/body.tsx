@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
 import CountCard from "@/components/admin/dashboard/countCard";
-import { Card, CardBody } from "@heroui/react";
-import Chart from "./chart";
 import { ChartDatum } from "@/types/admin";
+import { Card, CardBody } from "@heroui/react";
+import React from "react";
+import Chart from "./chart";
 
 type Props = {
   cards: {

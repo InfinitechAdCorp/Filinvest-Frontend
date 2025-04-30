@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import { Article } from "@/types/globals";
+import { formatDate } from "@/utils/formatters";
 import {
   Image,
   Modal,
@@ -8,8 +9,6 @@ import {
   ModalContent,
   ModalHeader,
 } from "@heroui/react";
-import { Article } from "@/types/globals";
-import { formatDate } from "@/utils/formatters";
 
 type Props = {
   selected: Article | null;

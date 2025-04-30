@@ -2,8 +2,8 @@
 
 import {
   Column,
-  Offering as Record,
   OfferingDisplayFormat as DisplayFormat,
+  Offering as Record,
 } from "@/types/globals";
 import { formatNumber } from "@/utils/formatters";
 

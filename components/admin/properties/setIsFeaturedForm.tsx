@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import { Property as Record } from "@/types/globals";
-import { Button, Spinner } from "@heroui/react";
-import { FaStar, FaRegStar } from "react-icons/fa6";
-import axios from "axios";
-import { onPostSubmit } from "@/utils/events";
 import { get as getCookies } from "@/utils/auth";
+import { onPostSubmit } from "@/utils/events";
+import { Button, Spinner } from "@heroui/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { FaRegStar, FaStar } from "react-icons/fa6";
 
 type Props = {
   url: string;

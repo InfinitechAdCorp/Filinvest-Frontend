@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 import { logout } from "./utils/auth";
 
 export async function middleware(request: NextRequest) {

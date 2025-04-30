@@ -3,12 +3,12 @@
 import "swiper/css";
 import "swiper/css/navigation";
 
-import React, { useState } from "react";
-import { Card, CardBody } from "@heroui/react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import { useDisclosure } from "@heroui/modal";
 import { Testimonial } from "@/types/globals";
+import { useDisclosure } from "@heroui/modal";
+import { Card, CardBody } from "@heroui/react";
+import { useState } from "react";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import TestimonialModal from "./testimonialModal";
 
 type Props = {

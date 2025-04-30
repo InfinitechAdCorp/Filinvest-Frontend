@@ -1,6 +1,6 @@
-import axios from "axios";
 import { Destroy } from "@/types/globals";
 import { get as getCookies } from "@/utils/auth";
+import axios from "axios";
 
 export const upsert = async (
   url: string,

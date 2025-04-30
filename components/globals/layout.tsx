@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
-import NavBar from "../user/layout/navbar";
-import Icons from "../user/layout/icons";
-import Footer from "../user/layout/footer";
 import { usePathname } from "next/navigation";
+import React from "react";
 import Sidebar from "../admin/layout/sidebar";
+import Footer from "../user/layout/footer";
+import Icons from "../user/layout/icons";
+import NavBar from "../user/layout/navbar";
 
 type Props = {
   isLoggedIn: boolean;

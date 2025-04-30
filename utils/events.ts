@@ -6,7 +6,7 @@ export const onPostSubmit = async (
   code: number,
   message: string,
   reset?: () => void,
-  close?: () => void
+  close?: () => void,
 ) => {
   if (code == 200) {
     await revalidate(url, code);

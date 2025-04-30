@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { Article } from "@/types/globals";
+import { formatDate } from "@/utils/formatters";
 import {
   Card,
   CardBody,
@@ -8,8 +9,7 @@ import {
   Image,
   useDisclosure,
 } from "@heroui/react";
-import { Article } from "@/types/globals";
-import { formatDate } from "@/utils/formatters";
+import { useState } from "react";
 import ArticleModal from "./articleModal";
 
 type Props = {

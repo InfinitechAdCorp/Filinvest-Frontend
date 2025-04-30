@@ -1,8 +1,8 @@
 "use server";
 
+import { Login } from "@/types/admin";
 import axios from "axios";
 import { cookies } from "next/headers";
-import { Login } from "@/types/admin";
 
 export const get = async () => {
   const session = await cookies();

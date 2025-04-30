@@ -1,27 +1,27 @@
 "use client";
 
-import React, {
-  ReactElement,
-  useState,
-  useMemo,
-  useCallback,
-  ChangeEvent,
-} from "react";
-import { SearchIcon } from "../icons";
-import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  Input,
-  Card,
-  CardBody,
-  Selection,
-} from "@heroui/react";
-import { Column } from "@/types/globals";
 import BottomContent from "@/components/globals/datatable/bottomContent";
 import ColumnsDropdown from "@/components/globals/datatable/columnsDropdown";
+import { Column } from "@/types/globals";
 import { formatReadable, pluralize } from "@/utils/formatters";
+import {
+  Card,
+  CardBody,
+  Input,
+  Selection,
+  Table,
+  TableBody,
+  TableColumn,
+  TableHeader,
+} from "@heroui/react";
+import {
+  ChangeEvent,
+  ReactElement,
+  useCallback,
+  useMemo,
+  useState,
+} from "react";
+import { SearchIcon } from "../icons";
 
 type Props = {
   url: string;

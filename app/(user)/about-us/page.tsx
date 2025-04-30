@@ -1,6 +1,5 @@
 import Hero from "@/components/globals/hero";
 import Images from "@/components/user/about-us/images";
-import React from "react";
 
 const Page = () => {
   return (

@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import { Accordion, AccordionItem, Card, Image } from "@heroui/react";
 import { FAQ } from "@/types/globals";
+import { Accordion, AccordionItem, Card, Image } from "@heroui/react";
 
 type Props = {
   faqs: FAQ[];

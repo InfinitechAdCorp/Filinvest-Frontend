@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import { Card, CardBody, Link } from "@heroui/react";
+import React from "react";
 
 type Props = {
   url: string;

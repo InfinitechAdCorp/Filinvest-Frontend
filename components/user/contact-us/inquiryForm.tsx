@@ -1,21 +1,21 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import * as Yup from "yup";
+import { inquiry as rules } from "@/schemas/admin";
+import { Inquiry as Values } from "@/types/admin";
+import { Property } from "@/types/globals";
+import { get as getCookies } from "@/utils/auth";
 import {
+  Autocomplete,
+  AutocompleteItem,
   Button,
   Input,
   Textarea,
-  Autocomplete,
-  AutocompleteItem,
 } from "@heroui/react";
-import { Formik, FormikProps, Form, Field, ErrorMessage } from "formik";
-import { Property } from "@/types/globals";
-import { Inquiry as Values } from "@/types/admin";
-import { inquiry as rules } from "@/schemas/admin";
-import toast from "react-hot-toast";
 import axios from "axios";
-import { get as getCookies } from "@/utils/auth";
+import { ErrorMessage, Field, Form, Formik, FormikProps } from "formik";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import * as Yup from "yup";
 
 type Props = {
   properties: Property[];

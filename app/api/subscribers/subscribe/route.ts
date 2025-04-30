@@ -1,6 +1,6 @@
-import nodemailer from "nodemailer";
-import { render } from "@react-email/render";
 import NewSubscriber from "@/emails/newSubscriber";
+import { render } from "@react-email/render";
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   const { email } = await req.json();
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
       baseURL: process.env.NEXT_PUBLIC_BASE_URL!,
       s3URL: process.env.NEXT_PUBLIC_S3_URL!,
       email: email,
-    })
+    }),
   );
 
   const mailOptions = {

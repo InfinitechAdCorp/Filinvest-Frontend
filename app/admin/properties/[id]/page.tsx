@@ -1,15 +1,14 @@
-import React from "react";
+import { displayFormat } from "@/actions/admin/offerings";
+import CreateForm from "@/components/admin/offerings/createForm";
+import RenderBody from "@/components/admin/offerings/renderBody";
+import DataTable from "@/components/globals/datatable/dataTable";
 import { Property } from "@/types/globals";
+import { get as getCookies } from "@/utils/auth";
 import axios from "axios";
 import toast from "react-hot-toast";
-import DataTable from "@/components/globals/datatable/dataTable";
-import { displayFormat } from "@/actions/admin/offerings";
-import RenderBody from "@/components/admin/offerings/renderBody";
-import CreateForm from "@/components/admin/offerings/createForm";
-import { get as getCookies } from "@/utils/auth";
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
-  const { record: cookies } = await getCookies()
+  const { record: cookies } = await getCookies();
 
   const url = "offerings";
   const model = "Offering";

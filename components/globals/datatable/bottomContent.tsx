@@ -1,7 +1,7 @@
 "use client";
 
-import React, { ChangeEvent } from "react";
 import { Pagination } from "@heroui/react";
+import React, { ChangeEvent } from "react";
 
 type Props = {
   total: number;

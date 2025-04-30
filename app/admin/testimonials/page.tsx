@@ -1,12 +1,11 @@
-import React from "react";
 import { displayFormat } from "@/actions/admin/testimonials";
+import CreateForm from "@/components/admin/testimonials/createForm";
+import RenderBody from "@/components/admin/testimonials/renderBody";
+import DataTable from "@/components/globals/datatable/dataTable";
 import { Testimonial as Record } from "@/types/globals";
+import { get as getCookies } from "@/utils/auth";
 import axios from "axios";
 import toast from "react-hot-toast";
-import DataTable from "@/components/globals/datatable/dataTable";
-import RenderBody from "@/components/admin/testimonials/renderBody";
-import CreateForm from "@/components/admin/testimonials/createForm";
-import { get as getCookies } from "@/utils/auth";
 
 const Page = async () => {
   const { record: cookies } = await getCookies();

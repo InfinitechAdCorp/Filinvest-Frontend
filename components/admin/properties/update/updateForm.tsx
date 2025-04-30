@@ -1,26 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
-import * as Yup from "yup";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@heroui/react";
-import { Formik, Form, FormikProps } from "formik";
-import { Property as Record } from "@/types/globals";
-import { Property as Values } from "@/types/admin";
 import { property as rules } from "@/schemas/admin";
+import { Property as Values } from "@/types/admin";
+import { Property as Record } from "@/types/globals";
 import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
-import Details from "./details";
-import Amenities from "./amenities";
-import Images from "./images";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@heroui/react";
+import { Form, Formik, FormikProps } from "formik";
+import { useState } from "react";
 import { FaPenToSquare } from "react-icons/fa6";
+import * as Yup from "yup";
+import Amenities from "./amenities";
+import Details from "./details";
+import Images from "./images";
 
 type Props = {
   url: string;

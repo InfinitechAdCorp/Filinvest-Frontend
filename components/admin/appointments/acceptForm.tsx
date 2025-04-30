@@ -1,23 +1,22 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { setStatus as validationSchema } from "@/schemas/admin";
+import { Appointment as Record, SetStatus as Values } from "@/types/globals";
+import { get as getCookies } from "@/utils/auth";
+import { onPostSubmit } from "@/utils/events";
 import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
   Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
   useDisclosure,
 } from "@heroui/react";
-import { Formik, Form } from "formik";
-import { Appointment as Record } from "@/types/globals";
-import { setStatus as validationSchema } from "@/schemas/admin";
-import { SetStatus as Values } from "@/types/globals";
-import { FaCheck } from "react-icons/fa6";
-import { onPostSubmit } from "@/utils/events";
 import axios from "axios";
-import { get as getCookies } from "@/utils/auth";
+import { Form, Formik } from "formik";
+import { useEffect, useState } from "react";
+import { FaCheck } from "react-icons/fa6";
 
 type Props = {
   url: string;

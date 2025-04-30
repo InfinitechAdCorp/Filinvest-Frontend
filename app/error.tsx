@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 const Page = () => {
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">

@@ -1,6 +1,5 @@
 import Hero from "@/components/globals/hero";
 import LoanForm from "@/components/user/loan-calculator/loanForm";
-import React from "react";
 
 const Page = () => {
   return (

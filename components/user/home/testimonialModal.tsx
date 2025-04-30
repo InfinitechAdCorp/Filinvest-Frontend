@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/react";
 import { Testimonial } from "@/types/globals";
+import { Modal, ModalBody, ModalContent, ModalHeader } from "@heroui/react";
 
 type Props = {
   selected: Testimonial | null;

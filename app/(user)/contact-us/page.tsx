@@ -1,10 +1,9 @@
 import Hero from "@/components/globals/hero";
-import React from "react";
-import axios from "axios";
-import { Property } from "@/types/globals";
-import toast from "react-hot-toast";
 import Body from "@/components/user/contact-us/body";
+import { Property } from "@/types/globals";
 import { sortRecords } from "@/utils/formatters";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Page = async () => {
   let properties: Property[] = [];

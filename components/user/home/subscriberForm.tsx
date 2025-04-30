@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import * as Yup from "yup";
-import { Input, Button } from "@heroui/react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Subscriber as Values } from "@/types/admin";
 import { subscriber as rules } from "@/schemas/admin";
-import axios from "axios";
-import toast from "react-hot-toast";
+import { Subscriber as Values } from "@/types/admin";
 import { get as getCookies } from "@/utils/auth";
+import { Button, Input } from "@heroui/react";
+import axios from "axios";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import * as Yup from "yup";
 
 const SubscriberForm = () => {
   const [apiToken, setApiToken] = useState("");

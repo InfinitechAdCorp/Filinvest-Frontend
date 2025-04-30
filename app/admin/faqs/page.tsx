@@ -1,15 +1,14 @@
-import React from "react";
 import { displayFormat } from "@/actions/admin/faqs";
+import CreateForm from "@/components/admin/faqs/createForm";
+import RenderBody from "@/components/admin/faqs/renderBody";
+import DataTable from "@/components/globals/datatable/dataTable";
 import { FAQ as Record } from "@/types/globals";
+import { get as getCookies } from "@/utils/auth";
 import axios from "axios";
 import toast from "react-hot-toast";
-import DataTable from "@/components/globals/datatable/dataTable";
-import RenderBody from "@/components/admin/faqs/renderBody";
-import CreateForm from "@/components/admin/faqs/createForm";
-import { get as getCookies } from "@/utils/auth";
 
 const Page = async () => {
-  const { record: cookies } = await getCookies()
+  const { record: cookies } = await getCookies();
 
   const url = "faqs";
   const model = "FAQ";

@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
-import { ErrorMessage, Field, FormikProps } from "formik";
 import { Checkbox } from "@heroui/react";
+import { ErrorMessage, Field, FormikProps } from "formik";
 
 type Props = {
   props: FormikProps<any>;

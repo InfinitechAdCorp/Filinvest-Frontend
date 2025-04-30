@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import {
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
 

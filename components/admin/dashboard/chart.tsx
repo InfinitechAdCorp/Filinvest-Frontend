@@ -1,19 +1,18 @@
 "use client";
 
-import React from "react";
+import { ChartDatum } from "@/types/admin";
 import { Card, CardBody, CardHeader } from "@heroui/react";
 import {
-  BarChart,
   Bar,
+  BarChart,
+  CartesianGrid,
+  Legend,
   Rectangle,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
 } from "recharts";
-import { ChartDatum } from "@/types/admin";
 
 type Props = {
   title: string;

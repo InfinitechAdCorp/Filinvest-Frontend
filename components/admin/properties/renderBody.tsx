@@ -1,18 +1,17 @@
 "use client";
 
-import React from "react";
-import { TableRow, TableCell } from "@heroui/react";
-import { Column } from "@/types/globals";
-import {
-  Property as Record,
-  PropertyDisplayFormat as DisplayFormat,
-} from "@/types/globals";
 import DestroyForm from "@/components/globals/destroyForm";
-import UpdateForm from "./update/updateForm";
-import SetIsPublishedForm from "./setIsPublishedForm";
-import SetIsFeaturedForm from "./setIsFeaturedForm";
-import ViewButton from "@/components/globals/viewButton";
 import Gallery from "@/components/globals/gallery";
+import ViewButton from "@/components/globals/viewButton";
+import {
+  Column,
+  PropertyDisplayFormat as DisplayFormat,
+  Property as Record,
+} from "@/types/globals";
+import { TableCell, TableRow } from "@heroui/react";
+import SetIsFeaturedForm from "./setIsFeaturedForm";
+import SetIsPublishedForm from "./setIsPublishedForm";
+import UpdateForm from "./update/updateForm";
 
 const RenderBody = (
   url: string,

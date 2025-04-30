@@ -1,11 +1,10 @@
-import React from "react";
+import Amenities from "@/components/user/property/amenities";
+import Details from "@/components/user/property/details";
+import Map from "@/components/user/property/map";
+import Offerings from "@/components/user/property/offerings";
 import { Property } from "@/types/globals";
 import axios from "axios";
 import toast from "react-hot-toast";
-import Details from "@/components/user/property/details";
-import Amenities from "@/components/user/property/amenities";
-import Offerings from "@/components/user/property/offerings";
-import Map from "@/components/user/property/map";
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;

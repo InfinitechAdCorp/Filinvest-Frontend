@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { formatPeso } from "@/utils/formatters";
 import {
   Card,
   CardBody,
@@ -14,7 +14,7 @@ import {
   TableHeader,
   TableRow,
 } from "@heroui/react";
-import { formatPeso } from "@/utils/formatters";
+import React, { useEffect, useState } from "react";
 
 const LoanForm = () => {
   const [values, setValues] = useState({

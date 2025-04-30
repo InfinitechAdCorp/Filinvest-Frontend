@@ -1,14 +1,7 @@
 "use client";
 
-import React from "react";
-import {
-  Input,
-  Textarea,
-  Select,
-  SelectItem,
-  NumberInput,
-} from "@heroui/react";
-import { Field, ErrorMessage, FormikProps } from "formik";
+import { Input, Select, SelectItem, Textarea } from "@heroui/react";
+import { ErrorMessage, Field, FormikProps } from "formik";
 
 type Props = {
   props: FormikProps<any>;

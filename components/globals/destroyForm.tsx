@@ -1,21 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@heroui/react";
-import { Formik, Form } from "formik";
 import { destroy as validationSchema } from "@/schemas/admin";
 import { Destroy as Values } from "@/types/globals";
-import { FaTrash } from "react-icons/fa6";
-import { onPostSubmit } from "@/utils/events";
 import { destroy } from "@/utils/actions";
+import { onPostSubmit } from "@/utils/events";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@heroui/react";
+import { Form, Formik } from "formik";
+import { useState } from "react";
+import { FaTrash } from "react-icons/fa6";
 
 type Props = {
   url: string;

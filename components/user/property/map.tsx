@@ -1,7 +1,6 @@
 "use client";
 
 import { Property } from "@/types/globals";
-import React from "react";
 
 type Props = {
   property: Property;

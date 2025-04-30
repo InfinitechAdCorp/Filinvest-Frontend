@@ -1,9 +1,9 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
-import { ErrorMessage, Field, FormikErrors, FormikProps } from "formik";
-import { Image, Input } from "@heroui/react";
 import { Property as Record } from "@/types/globals";
+import { Image, Input } from "@heroui/react";
+import { ErrorMessage, Field, FormikErrors, FormikProps } from "formik";
+import React, { ChangeEvent, useState } from "react";
 
 type Props = {
   props: FormikProps<any>;

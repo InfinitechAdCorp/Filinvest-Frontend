@@ -1,15 +1,14 @@
-import React from "react";
+import Body from "@/components/admin/dashboard/body";
+import { Counts } from "@/types/admin";
+import { get as getCookies } from "@/utils/auth";
+import axios from "axios";
+import toast from "react-hot-toast";
 import {
   LuBuilding2,
   LuCalendarRange,
   LuMailQuestion,
   LuUsers,
 } from "react-icons/lu";
-import { Counts } from "@/types/admin";
-import axios from "axios";
-import toast from "react-hot-toast";
-import Body from "@/components/admin/dashboard/body";
-import { get as getCookies } from "@/utils/auth";
 
 const Page = async () => {
   const { record: cookies } = await getCookies();

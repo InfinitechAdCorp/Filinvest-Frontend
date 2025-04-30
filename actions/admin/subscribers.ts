@@ -2,8 +2,8 @@
 
 import {
   Column,
-  Subscriber as Record,
   SubscriberDisplayFormat as DisplayFormat,
+  Subscriber as Record,
 } from "@/types/globals";
 
 export const displayFormat = async (columns: Column[], records: Record[]) => {

@@ -1,26 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
-import * as Yup from "yup";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-  Input,
-  Textarea,
-  Autocomplete,
-  AutocompleteItem,
-} from "@heroui/react";
-import { Formik, Form, Field, ErrorMessage, FormikProps } from "formik";
-import { Property } from "@/types/globals";
-import { Inquiry as Values } from "@/types/admin";
 import { inquiry as rules } from "@/schemas/admin";
+import { Inquiry as Values } from "@/types/admin";
+import { Property } from "@/types/globals";
 import { upsert } from "@/utils/actions";
 import { onPostSubmit } from "@/utils/events";
+import {
+  Autocomplete,
+  AutocompleteItem,
+  Button,
+  Input,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  Textarea,
+  useDisclosure,
+} from "@heroui/react";
+import { ErrorMessage, Field, Form, Formik, FormikProps } from "formik";
+import React, { useState } from "react";
+import * as Yup from "yup";
 
 type Props = {
   url: string;

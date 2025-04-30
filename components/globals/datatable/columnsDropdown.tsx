@@ -1,16 +1,16 @@
 "use client";
 
-import React from "react";
 import { Column } from "@/types/globals";
+import { formatReadable } from "@/utils/formatters";
 import {
   Button,
   Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
   DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
   Selection,
 } from "@heroui/react";
-import { formatReadable } from "@/utils/formatters";
+import React from "react";
 
 type Props = {
   columns: Column[];

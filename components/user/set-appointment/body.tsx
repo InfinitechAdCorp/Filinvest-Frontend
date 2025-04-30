@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
-import { Card, CardBody } from "@heroui/react";
 import { Property } from "@/types/globals";
-import Details from "./details";
+import { Card, CardBody } from "@heroui/react";
 import AppointmentForm from "./appointmentForm";
+import Details from "./details";
 
 type Props = {
   properties: Property[];

@@ -2,8 +2,8 @@
 
 import {
   Column,
-  Article as Record,
   ArticleDisplayFormat as DisplayFormat,
+  Article as Record,
 } from "@/types/globals";
 import { formatDate } from "@/utils/formatters";
 

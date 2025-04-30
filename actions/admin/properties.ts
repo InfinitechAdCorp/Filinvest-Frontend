@@ -2,8 +2,8 @@
 
 import {
   Column,
-  Property as Record,
   PropertyDisplayFormat as DisplayFormat,
+  Property as Record,
 } from "@/types/globals";
 import { formatNumber, formatNumberShort } from "@/utils/formatters";
 
