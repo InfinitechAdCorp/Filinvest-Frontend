@@ -18,7 +18,7 @@ export const get = async () => {
 export const login = async (values: Login) => {
   let code = 401;
   let message = "";
-  let isValid = false;
+  let apiToken = "";
 
   try {
     const response = await axios.post(
@@ -33,27 +33,29 @@ export const login = async (values: Login) => {
       },
     );
     code = response.status;
-  } catch (error) {
+    apiToken = response.data.token;
+  } catch (error: any) {
     console.error(error);
-    code = 500;
+    code = error.status;
   }
-
-  isValid = code == 200 ? true : false;
 
   if (code == 200) {
-    message = "Logged In"
-  }
-  else if (code == 401) {
-    message = "Invalid Credentials"
-  }
-  else {
-    message = "Something Went Wrong"
+    message = "Logged In";
+  } else if (code == 401) {
+    message = "Invalid Credentials";
+  } else {
+    message = "Something Went Wrong";
   }
 
-  const session = await cookies();
-  session.set("isLoggedIn", `${isValid}`);
+  const isLoggedIn = code == 200 ? true : false;
 
-  return { code: code, message: message, isValid: isValid }
+  if (code == 200) {
+    const session = await cookies();
+    session.set("isLoggedIn", `${isLoggedIn}`);
+    session.set("apiToken", apiToken);
+  }
+
+  return { code: code, message: message };
 };
 
 export const logout = async () => {

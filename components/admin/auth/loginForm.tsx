@@ -1,7 +1,6 @@
 "use client";
 
-import React, { ChangeEvent, useState } from "react";
-import * as Yup from "yup";
+import React, { useState } from "react";
 import {
   Button,
   Input,
@@ -11,12 +10,15 @@ import {
   CardFooter,
   Image,
 } from "@heroui/react";
-import { Formik, Form, Field, ErrorMessage, FormikProps } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Login as Values } from "@/types/admin";
 import { login as validationSchema } from "@/schemas/admin";
-import { onPostSubmit } from "@/utils/events";
+import { login } from "@/utils/auth";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
@@ -30,6 +32,15 @@ const LoginForm = () => {
   ) => {
     setIsSubmitting(true);
 
+    const { code, message } = await login(values);
+    if (code == 200) {
+      resetForm();
+      toast.success(message);
+      router.push("/admin/dashboard");
+    } else {
+      toast.error(message);
+    }
+
     setIsSubmitting(false);
   };
 
@@ -41,7 +52,7 @@ const LoginForm = () => {
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
-          {(props: FormikProps<any>) => (
+          {() => (
             <Form>
               <CardHeader>
                 <div className="flex w-full justify-center">
