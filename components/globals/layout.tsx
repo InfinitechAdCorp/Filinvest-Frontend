@@ -7,25 +7,38 @@ import Footer from "../user/layout/footer";
 import { usePathname } from "next/navigation";
 import Sidebar from "../admin/layout/sidebar";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+type Props = {
+  isLoggedIn: boolean;
+  children: React.ReactNode;
+};
+
+const Layout = ({ isLoggedIn, children }: Props) => {
   const pathname = usePathname();
-  const role = pathname.startsWith("/admin") ? "Admin" : "User";
+  const path = pathname.startsWith("/admin") ? "Admin" : "User";
 
   return (
     <>
-      {role == "Admin" ? (
+      {path == "Admin" ? (
         <>
-          <div className="flex justify-between">
-            <Sidebar />
-            {children}
-          </div>
+          {isLoggedIn ? (
+            <div className="flex justify-between">
+              <Sidebar />
+              {children}
+            </div>
+          ) : (
+            <div className="flex h-screen items-center justify-center">
+              {children}
+            </div>
+          )}
         </>
       ) : (
         <>
-          <NavBar />
-          {children}
-          <Icons />
-          <Footer />
+          <div>
+            <NavBar />
+            {children}
+            <Icons />
+            <Footer />
+          </div>
         </>
       )}
     </>

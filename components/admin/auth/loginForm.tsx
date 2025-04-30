@@ -16,7 +16,6 @@ import {
   Field,
   ErrorMessage,
   FormikProps,
-  FormikErrors,
 } from "formik";
 import { Login as Values } from "@/types/admin";
 import { login as validationSchema } from "@/schemas/admin";
