@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Card, Divider, Image } from "@heroui/react";
+import { Button, Card, Divider, Image } from "@heroui/react";
 import { useRouter, usePathname } from "next/navigation";
 import {
   HiChatBubbleLeftRight,
@@ -14,6 +14,7 @@ import {
   HiMagnifyingGlass,
   HiUsers,
 } from "react-icons/hi2";
+import LogoutButton from "../auth/logoutButton";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -148,6 +149,10 @@ const Sidebar = () => {
             </li>
           </ul>
         </nav>
+
+        <div className="flex justify-center items-center py-8">
+          <LogoutButton />
+        </div>
       </Card>
     </div>
   );
