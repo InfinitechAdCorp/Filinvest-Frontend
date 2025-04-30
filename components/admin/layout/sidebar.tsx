@@ -1,17 +1,16 @@
 "use client";
 
-import React from "react";
-import { Button, Card, Divider, Image } from "@heroui/react";
-import { useRouter, usePathname } from "next/navigation";
+import { Card, Divider, Image } from "@heroui/react";
+import { usePathname, useRouter } from "next/navigation";
 import {
-  HiChatBubbleLeftRight,
-  HiChartBar,
   HiBuildingOffice2,
-  HiTrophy,
-  HiNewspaper,
   HiCalendarDays,
-  HiQuestionMarkCircle,
+  HiChartBar,
+  HiChatBubbleLeftRight,
   HiMagnifyingGlass,
+  HiNewspaper,
+  HiQuestionMarkCircle,
+  HiTrophy,
   HiUsers,
 } from "react-icons/hi2";
 import LogoutButton from "../auth/logoutButton";
@@ -120,7 +119,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/awards",
+                "/admin/articles/awards",
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/articles/awards")}
             >
@@ -130,7 +129,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/news",
+                "/admin/articles/news",
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/articles/news")}
             >
@@ -140,7 +139,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/blogs",
+                "/admin/articles/blogs",
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/articles/blogs")}
             >
@@ -150,7 +149,7 @@ const Sidebar = () => {
           </ul>
         </nav>
 
-        <div className="flex justify-center items-center py-8">
+        <div className="flex items-center justify-center py-8">
           <LogoutButton />
         </div>
       </Card>
