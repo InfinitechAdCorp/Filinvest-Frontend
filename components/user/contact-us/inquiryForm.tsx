@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import {
   Button,
@@ -15,13 +15,23 @@ import { Inquiry as Values } from "@/types/admin";
 import { inquiry as rules } from "@/schemas/admin";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { get as getCookies } from "@/utils/auth";
 
 type Props = {
   properties: Property[];
 };
 
 const InquiryForm = ({ properties }: Props) => {
+  const [apiToken, setApiToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const getApiToken = async () => {
+      const { record: cookies } = await getCookies();
+      if (cookies.apiToken) setApiToken(cookies.apiToken);
+    };
+    getApiToken();
+  }, []);
 
   const initialValues = {
     first_name: "",
@@ -45,7 +55,7 @@ const InquiryForm = ({ properties }: Props) => {
     try {
       await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`, values, {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          Authorization: `Bearer ${apiToken}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },

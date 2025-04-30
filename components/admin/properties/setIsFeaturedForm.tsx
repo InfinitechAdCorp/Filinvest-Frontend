@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Property as Record } from "@/types/globals";
 import { Button, Spinner } from "@heroui/react";
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import axios from "axios";
 import { onPostSubmit } from "@/utils/events";
+import { get as getCookies } from "@/utils/auth";
 
 type Props = {
   url: string;
@@ -14,7 +15,16 @@ type Props = {
 };
 
 const SetIsFeaturedForm = ({ url, model, record }: Props) => {
+  const [apiToken, setApiToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const getApiToken = async () => {
+      const { record: cookies } = await getCookies();
+      if (cookies.apiToken) setApiToken(cookies.apiToken);
+    };
+    getApiToken();
+  }, []);
 
   const setIsFeatured = async (
     url: string,
@@ -27,7 +37,7 @@ const SetIsFeaturedForm = ({ url, model, record }: Props) => {
         values,
         {
           headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+            Authorization: `Bearer ${apiToken}`,
             Accept: "application/json",
             "Content-Type": "application/json",
           },

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { Input, Button } from "@heroui/react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -8,9 +8,19 @@ import { Subscriber as Values } from "@/types/admin";
 import { subscriber as rules } from "@/schemas/admin";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { get as getCookies } from "@/utils/auth";
 
 const SubscriberForm = () => {
+  const [apiToken, setApiToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const getApiToken = async () => {
+      const { record: cookies } = await getCookies();
+      if (cookies.apiToken) setApiToken(cookies.apiToken);
+    };
+    getApiToken();
+  }, []);
 
   const initialValues = {
     email: "",
@@ -32,7 +42,7 @@ const SubscriberForm = () => {
         values,
         {
           headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+            Authorization: `Bearer ${apiToken}`,
             Accept: "application/json",
             "Content-Type": "application/json",
           },
@@ -58,7 +68,7 @@ const SubscriberForm = () => {
         { email: email },
         {
           headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+            Authorization: `Bearer ${apiToken}`,
             Accept: "application/json",
             "Content-Type": "application/json",
           },
