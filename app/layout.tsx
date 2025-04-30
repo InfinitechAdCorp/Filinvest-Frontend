@@ -4,7 +4,7 @@ import { Providers } from "./providers";
 import { poppins } from "@/config/fonts";
 import { Toaster } from "react-hot-toast";
 import Layout from "@/components/globals/layout";
-import { get as getCookies } from "@/utils/auth";
+import { get as getSession } from "@/utils/auth";
 
 export const metadata: Metadata = {
   title: "Filinvest | Official Website ",
@@ -21,15 +21,15 @@ export const viewport: Viewport = {
 };
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  const { record: cookies } = await getCookies();
-  console.log(cookies)
+  const { record } = await getSession();
+
   return (
     <html lang="en">
       <head />
       <body className={`min-h-screen antialiased ${poppins.className}`}>
         <Providers>
           <Toaster position="top-right" />
-          <Layout isLoggedIn={false}>{children}</Layout>
+          <Layout isLoggedIn={record.isLoggedIn}>{children}</Layout>
         </Providers>
       </body>
     </html>

@@ -9,14 +9,9 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
+  Image,
 } from "@heroui/react";
-import {
-  Formik,
-  Form,
-  Field,
-  ErrorMessage,
-  FormikProps,
-} from "formik";
+import { Formik, Form, Field, ErrorMessage, FormikProps } from "formik";
 import { Login as Values } from "@/types/admin";
 import { login as validationSchema } from "@/schemas/admin";
 import { onPostSubmit } from "@/utils/events";
@@ -30,7 +25,7 @@ const LoginForm = () => {
   };
 
   const onSubmit = async (
-    ufValues: Values,
+    values: Values,
     { resetForm }: { resetForm: () => void },
   ) => {
     setIsSubmitting(true);
@@ -40,7 +35,6 @@ const LoginForm = () => {
 
   return (
     <>
-      
       <Card className="m-5 w-[30rem] p-5 md:m-7">
         <Formik
           initialValues={initialValues}
@@ -49,7 +43,15 @@ const LoginForm = () => {
         >
           {(props: FormikProps<any>) => (
             <Form>
-              <CardHeader>Login</CardHeader>
+              <CardHeader>
+                <div className="flex w-full justify-center">
+                  <Image
+                    src="/images/logo.png"
+                    className="h-[7rem]"
+                    alt="logo"
+                  />
+                </div>
+              </CardHeader>
               <CardBody>
                 <div className="flex flex-col gap-3">
                   <div className="flex w-full flex-col">
