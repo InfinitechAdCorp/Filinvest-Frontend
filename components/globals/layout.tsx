@@ -20,7 +20,7 @@ const Layout = ({ isLoggedIn, children }: Props) => {
     <>
       {path == "Admin" ? (
         <>
-          {isLoggedIn ? (
+          {isLoggedIn && pathname != "/admin" ? (
             <div className="flex justify-between">
               <Sidebar />
               {children}
