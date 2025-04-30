@@ -1,17 +1,20 @@
-import { Destroy } from "@/types/globals";
 import axios from "axios";
+import { Destroy } from "@/types/globals";
+import { get as getCookies } from "@/utils/auth";
 
 export const upsert = async (
   url: string,
   model: string,
   action: "Create" | "Update",
-  values: any
+  values: any,
 ) => {
+  const { record: cookies } = await getCookies();
   values = action == "Create" ? values : { ...values, _method: "PUT" };
+
   try {
     await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/${url}`, values, {
       headers: {
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+        Authorization: `Bearer ${cookies.apiToken}`,
         Accept: "application/json",
         "Content-Type": "multipart/form-data",
       },
@@ -24,16 +27,18 @@ export const upsert = async (
 };
 
 export const destroy = async (url: string, model: string, values: Destroy) => {
+  const { record: cookies } = await getCookies();
+
   try {
     await axios.delete(
       `${process.env.NEXT_PUBLIC_API_URL}/${url}/${values.id}`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          Authorization: `Bearer ${cookies.apiToken}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     return { code: 200, message: `Deleted ${model}` };
   } catch (error) {

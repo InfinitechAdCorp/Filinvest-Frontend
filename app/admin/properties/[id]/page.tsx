@@ -6,8 +6,11 @@ import DataTable from "@/components/globals/datatable/dataTable";
 import { displayFormat } from "@/actions/admin/offerings";
 import RenderBody from "@/components/admin/offerings/renderBody";
 import CreateForm from "@/components/admin/offerings/createForm";
+import { get as getCookies } from "@/utils/auth";
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { record: cookies } = await getCookies()
+
   const url = "offerings";
   const model = "Offering";
 
@@ -27,7 +30,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
       `${process.env.NEXT_PUBLIC_API_URL}/properties/${id}`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          Authorization: `Bearer ${cookies.apiToken}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },

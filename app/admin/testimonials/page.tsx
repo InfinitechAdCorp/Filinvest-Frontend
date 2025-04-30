@@ -6,8 +6,11 @@ import toast from "react-hot-toast";
 import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/testimonials/renderBody";
 import CreateForm from "@/components/admin/testimonials/createForm";
+import { get as getCookies } from "@/utils/auth";
 
 const Page = async () => {
+  const { record: cookies } = await getCookies();
+
   const url = "testimonials";
   const model = "Testimonial";
 
@@ -23,7 +26,7 @@ const Page = async () => {
       `${process.env.NEXT_PUBLIC_API_URL}/${url}`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          Authorization: `Bearer ${cookies.apiToken}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },

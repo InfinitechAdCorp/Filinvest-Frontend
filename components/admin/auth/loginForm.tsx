@@ -22,8 +22,8 @@ const LoginForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const initialValues = {
-    username: "",
-    password: "",
+    username: "Username",
+    password: "12345678",
   };
 
   const onSubmit = async (

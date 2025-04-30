@@ -9,8 +9,11 @@ import { Counts } from "@/types/admin";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Body from "@/components/admin/dashboard/body";
+import { get as getCookies } from "@/utils/auth";
 
 const Page = async () => {
+  const { record: cookies } = await getCookies();
+
   let counts: Counts = {
     properties: 0,
     appointments: 0,
@@ -23,7 +26,7 @@ const Page = async () => {
       `${process.env.NEXT_PUBLIC_API_URL}/dashboard/get-counts`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          Authorization: `Bearer ${cookies.apiToken}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },
@@ -45,7 +48,7 @@ const Page = async () => {
       `${process.env.NEXT_PUBLIC_API_URL}/dashboard/get-charts`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          Authorization: `Bearer ${cookies.apiToken}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },

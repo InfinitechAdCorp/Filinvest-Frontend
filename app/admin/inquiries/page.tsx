@@ -7,15 +7,18 @@ import DataTable from "@/components/globals/datatable/dataTable";
 import RenderBody from "@/components/admin/inquiries/renderBody";
 import CreateForm from "@/components/admin/inquiries/createForm";
 import { sortRecords } from "@/utils/formatters";
+import { get as getCookies } from "@/utils/auth";
 
 const Page = async () => {
+  const { record: cookies } = await getCookies()
+
   let properties: Property[] = [];
   try {
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_API_URL}/properties`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          Authorization: `Bearer ${cookies.apiToken}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },
@@ -51,7 +54,7 @@ const Page = async () => {
       `${process.env.NEXT_PUBLIC_API_URL}/${url}`,
       {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          Authorization: `Bearer ${cookies.apiToken}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },

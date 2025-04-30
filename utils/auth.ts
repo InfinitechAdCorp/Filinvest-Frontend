@@ -1,8 +1,8 @@
 "use server";
 
+import axios from "axios";
 import { cookies } from "next/headers";
 import { Login } from "@/types/admin";
-import axios from "axios";
 
 export const get = async () => {
   const session = await cookies();
@@ -26,7 +26,6 @@ export const login = async (values: Login) => {
       values,
       {
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
           Accept: "application/json",
           "Content-Type": "application/json",
         },
