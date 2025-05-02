@@ -7,7 +7,7 @@ import {
   LuBuilding2,
   LuCalendarRange,
   LuMailQuestion,
-  LuUsers,
+  LuUsersRound,
 } from "react-icons/lu";
 
 const Page = async () => {
@@ -86,7 +86,7 @@ const Page = async () => {
       model: "Subscribers",
       count: counts.subscribers,
       color: "pink",
-      Icon: <LuUsers size={56} />,
+      Icon: <LuUsersRound size={56} />,
     },
   ];
 
