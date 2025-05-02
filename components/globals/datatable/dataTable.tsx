@@ -179,7 +179,7 @@ const DataTable = ({
       </>
     );
   }, [filterValue, columns, records]);
-
+  
   return (
     <>
       <div>
