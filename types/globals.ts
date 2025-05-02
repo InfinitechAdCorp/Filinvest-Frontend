@@ -4,6 +4,8 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };
 
+export type Code = 200 | 404 | 500;
+
 export type Response = {
   code: number;
   message: string;

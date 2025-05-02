@@ -11,6 +11,7 @@ export async function middleware(request: NextRequest) {
       "properties",
       "set-appointment",
       "loan-calculator",
+      "unsubscribe"
     ],
     admin: [
       "dashboard",
