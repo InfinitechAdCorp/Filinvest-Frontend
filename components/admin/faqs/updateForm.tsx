@@ -73,7 +73,7 @@ const UpdateForm = ({ url, model, record }: Props) => {
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
-                enableReinitialize={true}
+                enableReinitialize
               >
                 {() => (
                   <Form>

@@ -90,8 +90,12 @@ const NavBar = () => {
                 </DropdownItem>
                 <DropdownItem
                   key="Room Planner"
-                  as={Link}
-                  href="/room-planner"
+                  onPress={() =>
+                    window.open(
+                      "https://roomplanner-nu.vercel.app/roomplanner/abic",
+                      "_blank",
+                    )
+                  }
                   startContent={<LuLayoutGrid />}
                 >
                   Room Planner

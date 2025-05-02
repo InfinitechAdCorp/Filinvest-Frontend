@@ -29,7 +29,7 @@ const Testimonials = ({ testimonials }: Props) => {
               spaceBetween={20}
               slidesPerView={3}
               autoplay={{ delay: 3000, disableOnInteraction: false }}
-              loop={true}
+              loop
               breakpoints={{
                 320: { slidesPerView: 1 },
                 640: { slidesPerView: 2 },

@@ -29,7 +29,7 @@ const Details = ({ property }: Props) => {
           navigation
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop={true}
+          loop
         >
           {JSON.parse(property.images).map((image: string, index: number) => (
             <SwiperSlide key={index}>
