@@ -1,5 +1,4 @@
 import { displayFormat } from "@/actions/admin/inquiries";
-import CreateForm from "@/components/admin/inquiries/createForm";
 import RenderBody from "@/components/admin/inquiries/renderBody";
 import DataTable from "@/components/globals/datatable/dataTable";
 import { Property, Inquiry as Record } from "@/types/globals";
@@ -67,9 +66,9 @@ const Page = async () => {
 
   const records = await displayFormat(columns, ufRecords);
 
-  const Buttons = (
-    <CreateForm url={url} model={model} properties={properties} />
-  );
+  // const Buttons = (
+  //   <CreateForm url={url} model={model} properties={properties} />
+  // );
 
   return (
     <div className="flex w-full justify-center">
@@ -79,7 +78,7 @@ const Page = async () => {
         columns={columns}
         records={records}
         RenderBody={RenderBody}
-        Buttons={Buttons}
+        // Buttons={Buttons}
         dependencies={{
           properties: properties,
         }}

@@ -8,7 +8,6 @@ import {
   Inquiry as Record,
 } from "@/types/globals";
 import { TableCell, TableRow } from "@heroui/react";
-import UpdateForm from "./updateForm";
 
 const RenderBody = (
   url: string,
@@ -32,12 +31,12 @@ const RenderBody = (
       case "actions":
         return (
           <div className="relative flex items-center justify-start gap-2">
-            <UpdateForm
+            {/* <UpdateForm
               url={url}
               model={model}
               record={record}
               properties={dependencies.properties}
-            />
+            /> */}
 
             <DestroyForm url={url} model={model} id={record.id} />
           </div>

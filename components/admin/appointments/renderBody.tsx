@@ -10,7 +10,6 @@ import {
 import { Chip, ChipProps, TableCell, TableRow } from "@heroui/react";
 import AcceptForm from "./acceptForm";
 import DeclineForm from "./declineForm";
-import UpdateForm from "./updateForm";
 
 const RenderBody = (
   url: string,
@@ -36,12 +35,12 @@ const RenderBody = (
 
             <DeclineForm url={url} model={model} record={record} />
 
-            <UpdateForm
+            {/* <UpdateForm
               url={url}
               model={model}
               record={record}
               properties={dependencies.properties}
-            />
+            /> */}
 
             <DestroyForm url={url} model={model} id={record.id} />
           </div>

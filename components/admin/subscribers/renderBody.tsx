@@ -7,7 +7,6 @@ import {
   Subscriber as Record,
 } from "@/types/globals";
 import { TableCell, TableRow } from "@heroui/react";
-import UpdateForm from "./updateForm";
 
 const RenderBody = (
   url: string,
@@ -25,7 +24,7 @@ const RenderBody = (
       case "actions":
         return (
           <div className="relative flex items-center justify-start gap-2">
-            <UpdateForm url={url} model={model} record={record} />
+            {/* <UpdateForm url={url} model={model} record={record} /> */}
 
             <DestroyForm url={url} model={model} id={record.id} />
           </div>

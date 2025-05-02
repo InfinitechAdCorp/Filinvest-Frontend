@@ -1,5 +1,4 @@
 import { displayFormat } from "@/actions/admin/subscribers";
-import CreateForm from "@/components/admin/subscribers/createForm";
 import RenderBody from "@/components/admin/subscribers/renderBody";
 import DataTable from "@/components/globals/datatable/dataTable";
 import { Subscriber as Record } from "@/types/globals";
@@ -38,7 +37,7 @@ const Page = async () => {
 
   const records = await displayFormat(columns, ufRecords);
 
-  const Buttons = <CreateForm url={url} model={model} />;
+  // const Buttons = <CreateForm url={url} model={model} />;
 
   return (
     <div className="flex w-full justify-center">
@@ -48,7 +47,7 @@ const Page = async () => {
         columns={columns}
         records={records}
         RenderBody={RenderBody}
-        Buttons={Buttons}
+        // Buttons={Buttons}
       />
     </div>
   );
