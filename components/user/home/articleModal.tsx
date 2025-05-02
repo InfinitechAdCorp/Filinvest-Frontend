@@ -33,31 +33,33 @@ const ArticleModal = ({ selected, isOpen, onClose }: Props) => {
 
             <ModalBody className="p-5">
               <div className="flex flex-col gap-4">
-                {selected?.image ? (
-                  <Image
-                    isBlurred
-                    alt="Article"
-                    className="h-[25rem] w-full rounded-xl object-cover"
-                    src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${selected?.image}`}
-                  />
-                ) : (
-                  <p>No media available</p>
-                )}
+                <div className="flex justify-center">
+                  {selected?.image ? (
+                    <Image
+                      isBlurred
+                      alt="Article"
+                      className="h-[25rem] w-[44.5rem] rounded-xl object-cover"
+                      src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${selected?.image}`}
+                    />
+                  ) : (
+                    <p>No media available</p>
+                  )}
+                </div>
 
                 <div>
-                  {selected?.description
-                    .split("\n")
-                    .map((string, index) => (
-                      <div key={index}>
-                        {string == "" ? (
+                  {selected?.description.split("\n").map((string, index) => (
+                    <div key={index}>
+                      {string == "" ? (
+                        <>
                           <br />
-                        ) : (
-                          <p className="leading-relaxed text-gray-700">
-                            {string}
-                          </p>
-                        )}
-                      </div>
-                    ))}
+                        </>
+                      ) : (
+                        <p className="leading-relaxed text-gray-700">
+                          {string}
+                        </p>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </ModalBody>

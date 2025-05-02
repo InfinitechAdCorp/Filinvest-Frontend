@@ -36,10 +36,10 @@ const Articles = ({ articles }: Props) => {
                     onOpen();
                   }}
                 >
-                  <CardHeader className="pb-0">
+                  <CardHeader className="pb-0 flex justify-center">
                     <Image
                       alt="News"
-                      className="h-[11rem] w-full rounded-xl object-cover"
+                      className="h-[11rem] w-[18rem] rounded-xl object-cover"
                       src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${article.image}`}
                     />
                   </CardHeader>

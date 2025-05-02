@@ -40,7 +40,7 @@ const Page = async () => {
   }
 
   const fRecords = ufRecords.filter((ufRecord) => {
-    return ufRecord.type == "Award";
+    return ufRecord.type == "News";
   });
 
   const records = await displayFormat(columns, fRecords);

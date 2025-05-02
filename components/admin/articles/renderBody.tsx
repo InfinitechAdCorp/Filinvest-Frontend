@@ -43,7 +43,7 @@ const RenderBody = (
         return (
           <div>
             <Gallery
-              className="w-80 rounded-xl"
+              className="w-80 h-[10rem] rounded-xl"
               images={[
                 {
                   url: `${process.env.NEXT_PUBLIC_S3_URL}/articles/${record.display_format![column as keyof DisplayFormat]}`,
