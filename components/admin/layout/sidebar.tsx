@@ -136,16 +136,6 @@ const Sidebar = () => {
               <HiNewspaper className="h-5 w-5 text-white" />
               <h3>News</h3>
             </li>
-
-            <li
-              className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/articles/blogs",
-              )} cursor-pointer text-white`}
-              onClick={() => router.push("/admin/articles/blogs")}
-            >
-              <HiChatBubbleLeftRight className="h-5 w-5 text-white" />
-              <h3>Blogs</h3>
-            </li>
           </ul>
         </nav>
 
