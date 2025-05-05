@@ -25,7 +25,7 @@ const Body = ({ properties }: Props) => {
                   isPressable
                   href={`/properties/${property.id}`}
                 >
-                  <CardHeader className="pb-0">
+                  <CardHeader className="flex justify-center pb-0">
                     <Image
                       alt="Property"
                       className="h-[11rem] w-full rounded-xl object-cover"
