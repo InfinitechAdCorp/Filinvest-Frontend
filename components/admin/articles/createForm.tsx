@@ -58,8 +58,6 @@ const CreateForm = ({ url, model }: Props) => {
   ) => {
     setIsSubmitting(true);
 
-    console.log(ufValues);
-
     const values = {
       ...ufValues,
       date: ufValues.date!.toString(),
