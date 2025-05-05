@@ -58,6 +58,8 @@ const CreateForm = ({ url, model }: Props) => {
   ) => {
     setIsSubmitting(true);
 
+    console.log(ufValues);
+
     const values = {
       ...ufValues,
       date: ufValues.date!.toString(),
@@ -106,44 +108,42 @@ const CreateForm = ({ url, model }: Props) => {
                     <ModalHeader>Add {model}</ModalHeader>
                     <ModalBody>
                       <div className="flex flex-col gap-3">
-                        <div className="flex justify-between gap-2">
-                          <div className="flex w-full flex-col">
-                            <Field
-                              name="name"
-                              as={Input}
-                              type="text"
-                              size="md"
-                              variant="bordered"
-                              label="Name"
-                              labelPlacement="outside"
-                              placeholder="Enter Name"
-                            />
-                            <ErrorMessage
-                              name="name"
-                              component="div"
-                              className="text-sm text-red-500"
-                            />
-                          </div>
+                        <div className="flex w-full flex-col">
+                          <Field
+                            name="name"
+                            as={Input}
+                            type="text"
+                            size="md"
+                            variant="bordered"
+                            label="Name"
+                            labelPlacement="outside"
+                            placeholder="Enter Name"
+                          />
+                          <ErrorMessage
+                            name="name"
+                            component="div"
+                            className="text-sm text-red-500"
+                          />
+                        </div>
 
-                          <div className="flex w-full flex-col">
-                            <Field
-                              name="date"
-                              as={DatePicker}
-                              size="md"
-                              variant="bordered"
-                              label="Date"
-                              labelPlacement="outside"
-                              value={props.values.date}
-                              onChange={(value: CalendarDate | null) => {
-                                props.setFieldValue("date", value);
-                              }}
-                            />
-                            <ErrorMessage
-                              name="date"
-                              component="div"
-                              className="text-sm text-red-500"
-                            />
-                          </div>
+                        <div className="flex w-full flex-col">
+                          <Field
+                            name="date"
+                            as={DatePicker}
+                            size="md"
+                            variant="bordered"
+                            label="Date"
+                            labelPlacement="outside"
+                            value={props.values.date}
+                            onChange={(value: CalendarDate | null) => {
+                              props.setFieldValue("date", value);
+                            }}
+                          />
+                          <ErrorMessage
+                            name="date"
+                            component="div"
+                            className="text-sm text-red-500"
+                          />
                         </div>
 
                         <div className="flex w-full flex-col">
