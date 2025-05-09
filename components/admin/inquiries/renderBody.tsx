@@ -8,6 +8,7 @@ import {
   Inquiry as Record,
 } from "@/types/globals";
 import { TableCell, TableRow } from "@heroui/react";
+import { EnvelopeIcon } from "@heroicons/react/24/solid"; 
 
 const RenderBody = (
   url: string,
@@ -31,13 +32,15 @@ const RenderBody = (
       case "actions":
         return (
           <div className="relative flex items-center justify-start gap-2">
-            {/* <UpdateForm
-              url={url}
-              model={model}
-              record={record}
-              properties={dependencies.properties}
-            /> */}
+            <a
+              href={`mailto:${record.display_format?.email}?subject=Re: Inquiry about ${record.display_format?.property}`}
+              className="text-blue-600 hover:text-blue-800"
+              title="Reply"
+            >
+           <EnvelopeIcon className="w-10 h-10" />
 
+            </a>
+  
             <DestroyForm url={url} model={model} id={record.id} />
           </div>
         );

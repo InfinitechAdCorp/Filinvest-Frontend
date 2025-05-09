@@ -44,7 +44,11 @@ const InquiryForm = ({ properties }: Props) => {
 
   const validationSchema = Yup.object().shape({
     ...rules,
-  });
+    mobile: Yup.string()
+    .matches(/^09\d{9}$/, "Phone number must start with 09")
+    .required("Mobile number is required"),
+});
+
 
   const onSubmit = async (
     values: Values,
@@ -124,20 +128,25 @@ const InquiryForm = ({ properties }: Props) => {
                   </div>
 
                   <div className="flex justify-between gap-2">
-                    <div className="flex w-full flex-col">
-                      <Field
-                        name="mobile"
-                        as={Input}
-                        type="text"
-                        radius="none"
-                        label="Mobile"
-                      />
-                      <ErrorMessage
-                        name="mobile"
-                        component="div"
-                        className="text-sm text-red-500"
-                      />
-                    </div>
+                  <div className="flex w-full flex-col">
+  <Field
+    name="mobile"
+    as={Input}
+    type="text"
+    radius="none"
+    label="Mobile"
+    maxLength={11}  // Limit the max length to 11 digits
+    onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+      // Ensure the value only contains digits
+      e.target.value = e.target.value.replace(/[^0-9]/g, "");
+    }}
+  />
+  <ErrorMessage
+    name="mobile"
+    component="div"
+    className="text-sm text-red-500"
+  />
+</div>
 
                     <div className="flex w-full flex-col">
                       <Field

@@ -32,10 +32,10 @@ const SubscriberForm = () => {
 
   const onSubmit = async (
     values: Values,
-    actions: { resetForm: () => void },
+    actions: { resetForm: () => void }
   ) => {
     setIsSubmitting(true);
-
+  
     try {
       await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/subscribers`,
@@ -46,20 +46,28 @@ const SubscriberForm = () => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-        },
+        }
       );
-
+  
       actions.resetForm();
       toast.success("Subscribed Successfully");
-
+  
       sendEmail(values.email);
-    } catch (error) {
-      console.error(error);
-      toast.error("Something Went Wrong");
+    } catch (error: any) {
+      if (error.response?.status === 422) {
+        const errors = error.response.data.errors;
+        if (errors.email) {
+          toast.error(errors.email[0]); // 🔥 Show validation error via hot toast
+        }
+      } else {
+        toast.error("Something Went Wrong");
+      }
     }
-
+  
     setIsSubmitting(false);
   };
+  
+  
 
   const sendEmail = async (email: string) => {
     try {

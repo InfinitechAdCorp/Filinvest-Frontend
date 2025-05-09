@@ -21,7 +21,7 @@ import {
   LuLayoutGrid,
 } from "react-icons/lu";
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   return (
     <Navbar
       maxWidth="2xl"
@@ -66,7 +66,7 @@ const NavBar = () => {
                   }
                 >
                   <h3 className="text-medium text-white">
-                    Forms and Utiilities
+                    Forms and Utilities
                   </h3>
                 </Button>
               </DropdownTrigger>
@@ -90,12 +90,10 @@ const NavBar = () => {
                 </DropdownItem>
                 <DropdownItem
                   key="Room Planner"
-                  onPress={() =>
-                    window.open(
-                      "https://roomplanner-nu.vercel.app/roomplanner/abic",
-                      "_blank",
-                    )
-                  }
+                  as={Link}
+                  href="/roomplanner"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   startContent={<LuLayoutGrid />}
                 >
                   Room Planner
@@ -147,7 +145,7 @@ const NavBar = () => {
             <Link className="w-full text-white" href="/loan-calculator">
               Loan Calculator
             </Link>
-            <Link className="w-full text-white" href="/room-planner">
+            <Link className="w-full text-white" href="/roomplanner">
               Room Planner
             </Link>
           </NavbarMenuItem>

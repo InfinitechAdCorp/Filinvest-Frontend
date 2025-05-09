@@ -23,15 +23,27 @@ const Details = () => {
             <div className="space-y-2 text-sm">
               <p>
                 <strong className="text-primary">Metro Manila:</strong>
-                <span className="ml-2">(63 2) 8-588-1688</span>
+                <span className="ml-2">
+                  <a href="tel:+63285881688" className="hover:text-blue-500">
+                    (63 2) 8-588-1688
+                  </a>
+                </span>
               </p>
               <p>
                 <strong className="text-primary">Outside Metro Manila:</strong>
-                <span className="ml-2">1800-10-588-1688</span>
+                <span className="ml-2">
+                  <a href="tel:+1800105881688" className="hover:text-blue-500">
+                    1800-10-588-1688
+                  </a>
+                </span>
               </p>
               <p>
                 <strong className="text-primary">Email:</strong>
-                <span className="ml-2">servicedesk@filinvestland.com</span>
+                <span className="ml-2">
+                  <a href="mailto:servicedesk@filinvestland.com" className="hover:text-blue-500">
+                    servicedesk@filinvestland.com
+                  </a>
+                </span>
               </p>
             </div>
           </div>
@@ -43,15 +55,27 @@ const Details = () => {
             <div className="space-y-2 text-sm">
               <p>
                 <strong className="text-primary">Metro Manila:</strong>
-                <span className="ml-2">(63 2) 8-850-0888</span>
+                <span className="ml-2">
+                  <a href="tel:+63288500888" className="hover:text-blue-500">
+                    (63 2) 8-850-0888
+                  </a>
+                </span>
               </p>
               <p>
                 <strong className="text-primary">Cebu:</strong>
-                <span className="ml-2">(63 919) 076-4836</span>
+                <span className="ml-2">
+                  <a href="tel:+639190764836" className="hover:text-blue-500">
+                    (63 919) 076-4836
+                  </a>
+                </span>
               </p>
               <p>
                 <strong className="text-primary">Davao:</strong>
-                <span className="ml-2">(63 919) 076-4836</span>
+                <span className="ml-2">
+                  <a href="tel:+639190764836" className="hover:text-blue-500">
+                    (63 919) 076-4836
+                  </a>
+                </span>
               </p>
             </div>
           </div>

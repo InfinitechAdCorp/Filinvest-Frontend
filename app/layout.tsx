@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     icon: "/images/favicon.ico",
   },
 };
+
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
@@ -29,7 +30,9 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       <body className={`min-h-screen antialiased ${poppins.className}`}>
         <Providers>
           <Toaster position="top-right" />
-          <Layout isLoggedIn={cookies.isLoggedIn}>{children}</Layout>
+          <Layout isLoggedIn={cookies.isLoggedIn}>
+            {children}
+          </Layout>
         </Providers>
       </body>
     </html>
