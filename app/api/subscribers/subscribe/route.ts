@@ -15,12 +15,10 @@ export async function POST(req: Request) {
 
   const html = await render(
     NewSubscriber({
-      baseURL: process.env.NEXT_PUBLIC_BASE_URL!,
-      s3URL: process.env.NEXT_PUBLIC_S3_URL!,
-      email: email,
-    }),
+      email: email,  // Only pass email as it's the only required prop
+    })
   );
-
+  
   const mailOptions = {
     from: process.env.GMAIL_USER,
     to: email,

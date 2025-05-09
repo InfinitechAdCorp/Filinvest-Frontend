@@ -13,67 +13,69 @@ import {
 } from "@react-email/components";
 
 type Props = {
-  baseURL: string;
-  s3URL: string;
   email: string;
 };
 
 export const NewSubscriber = ({
-  baseURL = "http://localhost:3000",
-  s3URL = "https://filinvest-bakit.s3-ap-southeast-1.amazonaws.com",
   email,
-}: Props) => (
-  <Html>
-    <Head />
-    <Preview>Thank You for Subscribing</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Section style={logo}>
-          <Img alt="Logo" height="80" src={`${s3URL}/assets/logo.png`} />
-        </Section>
+}: Props) => {
+  const baseURL = process.env.NEXT_PUBLIC_API_URL;
+  const s3URL = process.env.NEXT_PUBLIC_S3_URL;
 
-        <Hr style={divider} />
-        <Text style={paragraph}>Good Day!</Text>
-        <Text style={paragraph}>
-          Thank you for subscribing to the Filinvest newsletter! We&apos;re
-          excited to keep you updated on the latest properties, exclusive
-          offers, and real estate insights.
-        </Text>
-        <Hr style={divider} />
-        <Text style={paragraph}>
-          Stay tuned for our upcoming announcements, and feel free to reach out
-          if you have any questions or specific property preferences.
-        </Text>
-        <Button href={baseURL} style={button}>
-          Visit Our Website
-        </Button>
-        <Hr style={divider} />
-        <Text style={paragraphs}>
-          If you ever wish to unsubscribe, you can do so by clicking{" "}
-          <Link
-            href={`${baseURL}/subscribers/unsubscribe/${email}`}
-            style={anchor}
-          >
-            here
-          </Link>
-        </Text>
-        <Hr style={divider} />
-        <Text style={footer}>
-          Metro Manila, Philippines
-          <br />
-          LandLine: 02-8646-6136 | Mobile: (+63) 917 5481 097
-          <br />
-          Email: filinvest@gmail.com | Website:{" "}
-          <Link href={baseURL} style={anchor}>
-            filinvest.vercel.app
-          </Link>
-          <br />
-          Office Hours: Monday to Friday, 8:00 AM - 5:00 PM
-        </Text>
-      </Container>
-    </Body>
-  </Html>
-);
+  return (
+    <Html>
+      <Head />
+      <Preview>Thank You for Subscribing</Preview>
+      <Body style={main}>
+        <Container style={container}>
+          <Section style={logo}>
+            <Img alt="Logo" height="80" src={`${s3URL}/assets/logo.png`} />
+          </Section>
+
+          <Hr style={divider} />
+          <Text style={paragraph}>Good Day!</Text>
+          <Text style={paragraph}>
+            Thank you for subscribing to the Filinvest newsletter! We&apos;re
+            excited to keep you updated on the latest properties, exclusive
+            offers, and real estate insights.
+          </Text>
+          <Hr style={divider} />
+          <Text style={paragraph}>
+            Stay tuned for our upcoming announcements, and feel free to reach
+            out if you have any questions or specific property preferences.
+          </Text>
+          <Button href={process.env.NEXT_PUBLIC_BASE_URL} style={button}>
+  Visit Our Website
+</Button>
+
+          <Hr style={divider} />
+          <Text style={paragraphs}>
+            If you ever wish to unsubscribe, you can do so by clicking{" "}
+            <Link
+              href={`${baseURL}/subscribers/unsubscribe/${email}`}
+              style={anchor}
+            >
+              here
+            </Link>
+          </Text>
+          <Hr style={divider} />
+          <Text style={footer}>
+            Metro Manila, Philippines
+            <br />
+            LandLine: 02-8646-6136 | Mobile: (+63) 917 5481 097
+            <br />
+            Email: filinvest@gmail.com | Website:{" "}
+            <Link href={baseURL} style={anchor}>
+            filinvest-main-frontend.vercel.app
+            </Link>
+            <br />
+            Office Hours: Monday to Friday, 8:00 AM - 5:00 PM
+          </Text>
+        </Container>
+      </Body>
+    </Html>
+  );
+};
 
 export default NewSubscriber;
 

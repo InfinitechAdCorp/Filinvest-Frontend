@@ -7,7 +7,7 @@ const Page = async ({ params }: { params: Promise<{ email: string }> }) => {
   let code;
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_URL}/main/unsubscribe/${email}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/subscribers/unsubscribe/${email}`,
       {
         headers: {
           Accept: "application/json",
