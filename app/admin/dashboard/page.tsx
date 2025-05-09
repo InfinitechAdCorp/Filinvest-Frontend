@@ -91,7 +91,7 @@ const Page = async () => {
   ];
 
   return (
-    <div className="flex w-full justify-center">
+    <div className="w-full px-4">
       <Body cards={cards} charts={charts} />
     </div>
   );

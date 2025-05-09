@@ -52,9 +52,12 @@ const Testimonials = ({ testimonials }: Props) => {
                       <p className="text-lg font-semibold text-primary">
                         {testimonial.name}
                       </p>
-                      <p className="mt-2 cursor-pointer overflow-hidden text-ellipsis text-sm text-gray-600">
-                        {testimonial.message}
-                      </p>
+                      <p className="mt-4 cursor-pointer overflow-hidden text-ellipsis text-base text-gray-600">
+  {testimonial.message.length > 75
+    ? testimonial.message.slice(0, 75) + "..."
+    : testimonial.message}
+</p>
+
                     </CardBody>
                   </Card>
                 </SwiperSlide>

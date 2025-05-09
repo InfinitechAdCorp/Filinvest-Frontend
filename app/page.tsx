@@ -51,11 +51,11 @@ const Page = async () => {
 
   let news = articles.filter((article) => article.type == "News");
   news = sortByDate(news, "date", "desc");
-  news = news.slice(0, 5);
+  news = news.slice(0, 8);
 
   let awards = articles.filter((article) => article.type == "Award");
   awards = sortByDate(awards, "date", "desc");
-  awards = awards.slice(0, 5);
+  awards = awards.slice(0, 8);
 
   let faqs: FAQ[] = [];
   try {
@@ -102,50 +102,53 @@ const Page = async () => {
   return (
     <>
       <Hero />
-
-      <div className="my-3 space-y-3 lg:my-10 lg:space-y-10">
-        <div>
-          <SectionTitle
-            title="Featured Properties"
-            subtitle="Find your dream home today"
-          />
-          <FeaturedProperties properties={properties} />
-        </div>
-
-        <div>
-          <SectionTitle
-            title="What Our Clients Say"
-            subtitle="Real feedback from our satisfied customers"
-          />
-          <Testimonials testimonials={testimonials} />
-        </div>
-
-        <div>
-          <SectionTitle
-            title="Corporate News"
-            subtitle="Stay updated with the latest from Filinvest"
-          />
-          <Articles articles={news} />
-        </div>
-
-        <div>
-          <SectionTitle
-            title="Awards"
-            subtitle="Celebrating excellence and achievements at Filinvest"
-          />
-          <Articles articles={awards} />
-        </div>
-
-        <div className="container mx-auto px-4">
-          <SectionTitle
-            title="Frequently Asked Questions"
-            subtitle="We're here to help with your questions and answers all in one place."
-          />
-          <FAQs faqs={faqs} />
+  
+      <div className="overflow-x-hidden">
+        <div className="container mx-auto px-4 my-3 space-y-3 lg:my-10 lg:space-y-10">
+          <div>
+            <SectionTitle
+              title="Featured Properties"
+              subtitle="Find your dream home today"
+            />
+            <FeaturedProperties properties={properties} />
+          </div>
+  
+          <div>
+            <SectionTitle
+              title="What Our Clients Say"
+              subtitle="Real feedback from our satisfied customers"
+            />
+            <Testimonials testimonials={testimonials} />
+          </div>
+  
+          <div>
+            <SectionTitle
+              title="Corporate News"
+              subtitle="Stay updated with the latest from Filinvest"
+            />
+            <Articles articles={news} />
+          </div>
+  
+          <div>
+            <SectionTitle
+              title="Awards"
+              subtitle="Celebrating excellence and achievements at Filinvest"
+            />
+            <Articles articles={awards} />
+          </div>
+  
+          <div>
+            <SectionTitle
+              title="Frequently Asked Questions"
+              subtitle="We're here to help with your questions and answers all in one place."
+            />
+            <FAQs faqs={faqs} />
+          </div>
         </div>
       </div>
     </>
   );
+  
 };
 
 export default Page;

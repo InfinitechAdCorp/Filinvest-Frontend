@@ -13,7 +13,8 @@ const Body = ({ properties }: Props) => {
   return (
     <Card>
       <CardBody className="p-5">
-        <div className="flex justify-between gap-7">
+      <div className="flex flex-col md:flex-row justify-between gap-7">
+
           <InquiryForm properties={properties} />
           <Details />
         </div>

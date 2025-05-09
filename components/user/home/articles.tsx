@@ -22,44 +22,41 @@ const Articles = ({ articles }: Props) => {
 
   return (
     <>
-      <div className="mt-2 flex flex-wrap items-start justify-between gap-8 md:flex-nowrap">
-        <div className="mx-60 flex w-full flex-wrap justify-center gap-4 p-2">
+      <div className="mt-4 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap justify-center gap-4">
           {articles.length > 0 ? (
-            <>
-              {articles.map((article) => (
-                <Card
-                  key={article.id}
-                  className="w-[20rem] p-1"
-                  isPressable
-                  onPress={() => {
-                    setSelected(article);
-                    onOpen();
-                  }}
-                >
-                  <CardHeader className="pb-0 flex justify-center">
-                    <Image
-                      alt="News"
-                      className="h-[11rem] w-[18rem] rounded-xl object-cover"
-                      src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${article.image}`}
-                    />
-                  </CardHeader>
-                  <CardBody className="overflow-visible py-2">
-                    <h3 className="text-large font-bold text-primary">
-                      {article.name}
-                    </h3>
-                    <h3 className="text-sm font-semibold text-primary">
-                      {formatDate(article.date)}
-                    </h3>
-
-                    <p className="my-3 line-clamp-3 text-default-500">
-                      {article.description}
-                    </p>
-                  </CardBody>
-                </Card>
-              ))}
-            </>
+            articles.map((article) => (
+              <Card
+                key={article.id}
+                className="w-full max-w-xs sm:max-w-sm md:max-w-sm lg:max-w-md p-1"
+                isPressable
+                onPress={() => {
+                  setSelected(article);
+                  onOpen();
+                }}
+              >
+                <CardHeader className="pb-0 flex justify-center">
+                  <Image
+                    alt="News"
+                    className="h-44 w-full rounded-xl object-cover"
+                    src={`${process.env.NEXT_PUBLIC_S3_URL}/articles/${article.image}`}
+                  />
+                </CardHeader>
+                <CardBody className="overflow-visible py-2">
+                  <h3 className="text-large font-bold text-primary">
+                    {article.name}
+                  </h3>
+                  <h3 className="text-sm font-semibold text-primary">
+                    {formatDate(article.date)}
+                  </h3>
+                  <p className="my-3 line-clamp-3 text-default-500">
+                    {article.description}
+                  </p>
+                </CardBody>
+              </Card>
+            ))
           ) : (
-            <div className="flex justify-center">
+            <div className="flex justify-center w-full">
               <h3 className="font-semibold">No Articles Found</h3>
             </div>
           )}

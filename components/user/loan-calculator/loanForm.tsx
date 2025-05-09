@@ -51,39 +51,47 @@ const LoanForm = () => {
       <Card>
         <CardBody>
           <div className="flex flex-wrap gap-3 md:flex-nowrap">
-            <Select
-              name="years"
-              className="w-full md:max-w-xs"
-              label="Select Years"
-              size="sm"
-              onChange={onChange}
-            >
-              {Array.from({ length: 26 }).map((_, index) => (
-                <SelectItem
-                  key={index}
-                  textValue={`${index} ${index == 1 ? "Year" : "Years"}`}
-                >
-                  {index} {index == 1 ? "Year" : "Years"}
-                </SelectItem>
-              ))}
-            </Select>
+          <Select
+  name="years"
+  className="w-full md:max-w-xs"
+  label="Select Years"
+  size="sm"
+  onChange={onChange}
+  selectedKeys={[values.years.toString()]}
+>
+  {Array.from({ length: 26 }).map((_, index) => {
+    // Disallow 0 years if 0 months is also selected
+    if (index === 0 && values.months === 0) return null;
+    return (
+      <SelectItem
+        key={index}
+        textValue={`${index} ${index === 1 ? "Year" : "Years"}`}
+      >
+        {index} {index === 1 ? "Year" : "Years"}
+      </SelectItem>
+    );
+  })}
+</Select>
+
 
             <Select
-              name="months"
-              className="w-full md:max-w-xs"
-              label="Select Months"
-              size="sm"
-              onChange={onChange}
-            >
-              {Array.from({ length: 12 }).map((_, index) => (
-                <SelectItem
-                  key={index}
-                  textValue={`${index} ${index == 1 ? "Month" : "Months"}`}
-                >
-                  {index} {index == 1 ? "Month" : "Months"}
-                </SelectItem>
-              ))}
-            </Select>
+  name="months"
+  className="w-full md:max-w-xs"
+  label="Select Months"
+  size="sm"
+  onChange={onChange}
+>
+  {Array.from({ length: 12 }).map((_, index) =>
+    index === 0 ? null : (
+      <SelectItem
+        key={index}
+        textValue={`${index} ${index === 1 ? "Month" : "Months"}`}
+      >
+        {index} {index === 1 ? "Month" : "Months"}
+      </SelectItem>
+    )
+  )}
+</Select>
 
             <Input
               name="amount"

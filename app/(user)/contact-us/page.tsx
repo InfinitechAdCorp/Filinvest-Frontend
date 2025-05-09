@@ -36,7 +36,8 @@ const Page = async () => {
         description="Get in touch with us for inquiries, partnerships, or assistance. We're here to help!"
       />
 
-      <div className="mx-72 my-7 flex justify-center">
+<div className="mx-4 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-72 my-7 flex justify-center">
+
         <Body properties={properties} />
       </div>
     </>

@@ -42,7 +42,8 @@ const Page = async () => {
   const Buttons = <CreateForm url={url} model={model} />;
 
   return (
-    <div className="flex w-full justify-center">
+    <div className="w-full overflow-x-auto">
+      <div className="min-w-[1000px]">
       <DataTable
         url={url}
         model={model}
@@ -51,6 +52,7 @@ const Page = async () => {
         RenderBody={RenderBody}
         Buttons={Buttons}
       />
+    </div>
     </div>
   );
 };

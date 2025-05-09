@@ -13,7 +13,8 @@ import Share from "lightgallery/plugins/share";
 import Thumnail from "lightgallery/plugins/thumbnail";
 import Video from "lightgallery/plugins/video";
 import Zoom from "lightgallery/plugins/zoom";
-import LightGallery from "lightgallery/react/Lightgallery.es5";
+import LightGallery from 'lightgallery/react';
+
 
 type Props = {
   images: {

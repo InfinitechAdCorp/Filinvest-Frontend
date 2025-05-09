@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Card, Divider, Image } from "@heroui/react";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -8,14 +9,17 @@ import {
   HiChartBar,
   HiChatBubbleLeftRight,
   HiMagnifyingGlass,
+  HiBars3,
   HiNewspaper,
   HiQuestionMarkCircle,
   HiTrophy,
   HiUsers,
+  HiXMark,
 } from "react-icons/hi2";
 import LogoutButton from "../auth/logoutButton";
 
 const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -23,12 +27,28 @@ const Sidebar = () => {
     return pathname.startsWith(url) ? "bg-blue-400" : "";
   };
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div>
+    <>
+      {/* Hamburger Button */}
+      <button
+        onClick={toggleSidebar}
+        className="fixed top-4 left-4 z-50 block lg:hidden text-white bg-blue-600 p-2 rounded-md"
+      >
+{isOpen ? <HiXMark className="w-6 h-6" /> : <HiBars3 className="w-6 h-6" />}
+
+      </button>
+
+      {/* Sidebar */}
       <Card
         radius="none"
         shadow="md"
-        className="fixed left-0 top-0 z-40 flex h-screen min-h-screen w-64 transform flex-col overflow-y-auto border-none bg-primary transition-transform lg:relative lg:z-auto lg:h-auto"
+        className={`fixed top-0 left-0 z-40 flex h-screen w-64 flex-col overflow-y-auto bg-primary transition-transform duration-300 lg:relative lg:z-auto lg:translate-x-0 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
         <div className="mb-3 flex items-center justify-center">
           <div className="mt-10 flex flex-col items-center text-center font-thin text-primary">
@@ -39,13 +59,14 @@ const Sidebar = () => {
             />
           </div>
         </div>
+
         <nav className="flex-1 items-center p-4 text-start">
           <ul className="space-y-4">
             <h1 className="text-white">Main</h1>
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/dashboard",
+                "/admin/dashboard"
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/dashboard")}
             >
@@ -55,7 +76,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/properties",
+                "/admin/properties"
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/properties")}
             >
@@ -65,7 +86,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/appointments",
+                "/admin/appointments"
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/appointments")}
             >
@@ -75,7 +96,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/inquiries",
+                "/admin/inquiries"
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/inquiries")}
             >
@@ -85,7 +106,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/testimonials",
+                "/admin/testimonials"
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/testimonials")}
             >
@@ -95,7 +116,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/subscribers",
+                "/admin/subscribers"
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/subscribers")}
             >
@@ -105,7 +126,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/faqs",
+                "/admin/faqs"
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/faqs")}
             >
@@ -119,7 +140,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/articles/awards",
+                "/admin/articles/awards"
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/articles/awards")}
             >
@@ -129,7 +150,7 @@ const Sidebar = () => {
 
             <li
               className={`flex items-center space-x-2 rounded-md p-2 hover:bg-blue-300 ${isActive(
-                "/admin/articles/news",
+                "/admin/articles/news"
               )} cursor-pointer text-white`}
               onClick={() => router.push("/admin/articles/news")}
             >
@@ -143,7 +164,7 @@ const Sidebar = () => {
           <LogoutButton />
         </div>
       </Card>
-    </div>
+    </>
   );
 };
 

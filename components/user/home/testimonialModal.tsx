@@ -11,7 +11,7 @@ type Props = {
 
 const TestimonialModal = ({ selected, isOpen, onClose }: Props) => {
   return (
-    <Modal size="2xl" isOpen={isOpen} onClose={onClose}>
+    <Modal size="3xl" isOpen={isOpen} onClose={onClose}>
       <ModalContent>
         {() => (
           <>
