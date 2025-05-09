@@ -13,7 +13,7 @@ export async function middleware(request: NextRequest) {
       "loan-calculator",
       "unsubscribe"
     ],
-    admin: [
+    admin: [     
       "dashboard",
       "properties",
       "appointments",

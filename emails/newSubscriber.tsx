@@ -49,7 +49,7 @@ export const NewSubscriber = ({
 </Button>
 
           <Hr style={divider} />
-          <Text style={paragraphs}>
+          {/* <Text style={paragraphs}>
             If you ever wish to unsubscribe, you can do so by clicking{" "}
             <Link
               href={`${baseURL}/subscribers/unsubscribe/${email}`}
@@ -57,7 +57,7 @@ export const NewSubscriber = ({
             >
               here
             </Link>
-          </Text>
+          </Text> */}
           <Hr style={divider} />
           <Text style={footer}>
             Metro Manila, Philippines
